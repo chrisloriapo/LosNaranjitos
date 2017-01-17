@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace LosNaranjitos
 {
-    public partial class Form1 : Form
+    public partial class FrmProductosInsumos : Form
     {
-        public Form1()
+        public FrmProductosInsumos()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

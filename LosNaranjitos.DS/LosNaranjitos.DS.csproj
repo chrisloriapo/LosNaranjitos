@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{78E8001D-D9D4-48A1-BBE7-049CBC2BF75A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>LosNaranjitos.DS</RootNamespace>
     <AssemblyName>LosNaranjitos.DS</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
@@ -31,8 +31,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="BD.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>BD.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LosNaranjitos.DATOS\LosNaranjitos.DATOS.csproj">
@@ -40,5 +48,70 @@
       <Name>LosNaranjitos.DATOS</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ServiceStack.Common, Version=4.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.4.5.4\lib\net45\ServiceStack.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.4.5.4\lib\portable-wp80+sl5+net45+win8+wpa81+monotouch+monoandroid+xamarin.ios10\ServiceStack.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite, Version=4.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.4.5.4\lib\net45\ServiceStack.OrmLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.OrmLite.SqlServer, Version=4.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.OrmLite.SqlServer.4.5.4\lib\net45\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.4.5.4\lib\net45\ServiceStack.Text.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>BD.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\Bitacora.cs" />
+    <Compile Include="Clases\CategoriaProductos.cs" />
+    <Compile Include="Clases\Cliente.cs" />
+    <Compile Include="Clases\Combo.cs" />
+    <Compile Include="Clases\ComboProducto.cs" />
+    <Compile Include="Clases\Consecutivo.cs" />
+    <Compile Include="Clases\DetallePedido.cs" />
+    <Compile Include="Clases\Error.cs" />
+    <Compile Include="Clases\Insumos.cs" />
+    <Compile Include="Clases\Medida.cs" />
+    <Compile Include="Clases\Pedido.cs" />
+    <Compile Include="Clases\Producto.cs" />
+    <Compile Include="Clases\ProductoInsumo.cs" />
+    <Compile Include="Clases\Proveedor.cs" />
+    <Compile Include="Clases\RolUsuario.cs" />
+    <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Interfaces\IBitacora.cs" />
+    <Compile Include="Interfaces\ICategoriaProductos.cs" />
+    <Compile Include="Interfaces\ICliente.cs" />
+    <Compile Include="Interfaces\ICombo.cs" />
+    <Compile Include="Interfaces\IComboProducto.cs" />
+    <Compile Include="Interfaces\IConsecutivo.cs" />
+    <Compile Include="Interfaces\IDetallePedido.cs" />
+    <Compile Include="Interfaces\IError.cs" />
+    <Compile Include="Interfaces\IInsumos.cs" />
+    <Compile Include="Interfaces\IMedida.cs" />
+    <Compile Include="Interfaces\IPedido.cs" />
+    <Compile Include="Interfaces\IProducto.cs" />
+    <Compile Include="Interfaces\IProductoInsumo.cs" />
+    <Compile Include="Interfaces\IProveedor.cs" />
+    <Compile Include="Interfaces\IRolUsuario.cs" />
+    <Compile Include="Interfaces\IUsuario.cs" />
+    <Compile Include="_Conexion.cs" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

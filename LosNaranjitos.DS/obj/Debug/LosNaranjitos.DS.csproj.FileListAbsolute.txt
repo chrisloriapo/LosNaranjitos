@@ -1,0 +1,16 @@
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\obj\Debug\LosNaranjitos.DS.csprojResolveAssemblyReference.cache
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\LosNaranjitos.DS.dll.config
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\LosNaranjitos.DS.dll
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\LosNaranjitos.DS.pdb
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\LosNaranjitos.DATOS.dll
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.Common.dll
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.Interfaces.dll
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.OrmLite.dll
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.OrmLite.SqlServer.dll
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.Text.dll
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\LosNaranjitos.DATOS.pdb
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.Common.xml
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.OrmLite.xml
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.Text.xml
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\obj\Debug\LosNaranjitos.DS.dll
+C:\Users\loriac\Downloads\LosNaranjitos\LosNaranjitos\LosNaranjitos.DS\obj\Debug\LosNaranjitos.DS.pdb
