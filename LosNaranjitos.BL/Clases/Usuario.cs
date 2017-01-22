@@ -14,6 +14,8 @@ namespace LosNaranjitos.BL.Clases
         public void ActualizarUsuario(DATOS.Usuario User)
         {
             USUARIO.ActualizarUsuario(User);
+
+
         }
 
         public void AgregarUsuario(DATOS.Usuario User)

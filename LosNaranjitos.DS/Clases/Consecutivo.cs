@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LosNaranjitos.DATOS;
 using LosNaranjitos.DS.Interfaces;
+using ServiceStack.OrmLite;
 
 namespace LosNaranjitos.DS.Clases
 {
@@ -12,7 +13,10 @@ namespace LosNaranjitos.DS.Clases
     {
         public List<DATOS.Consecutivo> ListarConsecutivos()
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            List<DATOS.Consecutivo> Consecs = db.Select<DATOS.Consecutivo>();
+            return Consecs;
         }
     }
 }

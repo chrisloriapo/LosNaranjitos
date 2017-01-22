@@ -9,7 +9,8 @@ namespace LosNaranjitos
 {
     public class Utilitarios
     {
-        public static string Llave = "jskruwiqhendmsud";
+        public static string Llave = "hendmsjskruwiqud";
+
         public static string Decriptar(string contra, string llave)
         {
             byte[] keyArray = Encoding.UTF8.GetBytes(llave);

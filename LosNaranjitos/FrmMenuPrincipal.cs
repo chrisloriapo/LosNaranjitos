@@ -114,5 +114,17 @@ namespace LosNaranjitos
             a.MdiParent = this;
             a.Show();
         }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConsecutivo a = new FrmConsecutivo();
+            a.MdiParent = this;
+            a.Show();
+        }
+
+        private void lnkUsuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+           
+        }
     }
 }

@@ -12,8 +12,6 @@ namespace LosNaranjitos.DS.Clases
 {
     public class Usuario : IUsuario
     {
-
-
         public void ActualizarUsuario(DATOS.Usuario User)
         {
             var conexion = _Conexion.CrearConexion();

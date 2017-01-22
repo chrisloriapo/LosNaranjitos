@@ -10,9 +10,11 @@ namespace LosNaranjitos.BL.Clases
 {
     public class Consecutivo : IConsecutivo
     {
+
+        public DS.Interfaces.IConsecutivo Consecs = new DS.Clases.Consecutivo();
         public List<DATOS.Consecutivo> ListarConsecutivos()
         {
-            throw new NotImplementedException();
+            return Consecs.ListarConsecutivos();
         }
     }
 }

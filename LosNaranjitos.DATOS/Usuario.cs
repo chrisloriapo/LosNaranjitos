@@ -34,6 +34,6 @@ namespace LosNaranjitos.DATOS
         [Required]
         public bool Activo { get; set; }
 
-    }
+            }
 
 }

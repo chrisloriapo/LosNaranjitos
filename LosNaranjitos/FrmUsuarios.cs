@@ -60,7 +60,7 @@ namespace LosNaranjitos
                             IdPersonal = Utilitarios.Encriptar(txtIdPersonal.Text, Utilitarios.Llave),
                             Telefono = Utilitarios.Encriptar(txtTelefono.Text, Utilitarios.Llave),
                             Correo = Utilitarios.Encriptar(txtEmail.Text, Utilitarios.Llave),
-                            Rol = Convert.ToInt32( txtRol.Text)
+                            Rol = 1
 
                         };
 
