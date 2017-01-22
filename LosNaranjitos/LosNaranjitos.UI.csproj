@@ -72,11 +72,23 @@
     <Compile Include="FrmConsecutivo.Designer.cs">
       <DependentUpon>FrmConsecutivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmErrores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmErrores.Designer.cs">
+      <DependentUpon>FrmErrores.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMedidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMedidas.Designer.cs">
+      <DependentUpon>FrmMedidas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -128,8 +140,14 @@
     <EmbeddedResource Include="FrmConsecutivo.resx">
       <DependentUpon>FrmConsecutivo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmErrores.resx">
+      <DependentUpon>FrmErrores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMedidas.resx">
+      <DependentUpon>FrmMedidas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
