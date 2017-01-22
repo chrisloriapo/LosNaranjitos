@@ -10,34 +10,35 @@ namespace LosNaranjitos.BL.Clases
 {
     public class DetallePedido : IDetallePedido
     {
+        public DS.Interfaces.IDetallePedido Pedprocedimientos = new DS.Clases.DetallePedido();
         public void ActualizarDetalleOrden(DATOS.DetallePedido DetalleOrden)
         {
-            throw new NotImplementedException();
+            Pedprocedimientos.ActualizarDetalleOrden(DetalleOrden);
         }
 
         public void AgregarDetalle(DATOS.DetallePedido DetalleOrden)
         {
-            throw new NotImplementedException();
+            Pedprocedimientos.AgregarDetalle(DetalleOrden);
         }
 
         public DATOS.DetallePedido BuscarPorPedido(int Orden)
         {
-            throw new NotImplementedException();
+            return Pedprocedimientos.BuscarPorPedido(Orden);
         }
 
         public DATOS.DetallePedido BuscarPorProducto(string Producto)
         {
-            throw new NotImplementedException();
+            return Pedprocedimientos.BuscarPorProducto(Producto);
         }
 
         public bool ExisteDetalle(string IdProducto, int Orden)
         {
-            throw new NotImplementedException();
+            return Pedprocedimientos.ExisteDetalle(IdProducto, Orden);
         }
 
         public List<DATOS.DetallePedido> ListarDetallesPedido()
         {
-            throw new NotImplementedException();
+            return Pedprocedimientos.ListarDetallesPedido();
         }
     }
 }

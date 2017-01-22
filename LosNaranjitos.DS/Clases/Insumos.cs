@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LosNaranjitos.DATOS;
 using LosNaranjitos.DS.Interfaces;
+using ServiceStack.OrmLite;
 
 namespace LosNaranjitos.DS.Clases
 {
@@ -12,37 +13,79 @@ namespace LosNaranjitos.DS.Clases
     {
         public void ActualizarInsumo(DATOS.Insumos Insumo)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Update(Insumo);
         }
 
         public void AgregarInsumo(DATOS.Insumos Insumo)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Insert(Insumo);
         }
 
         public DATOS.Insumos BuscarInsumoPorProveedor(string IdProveedor)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Insumos BuscProv = db.Select<DATOS.Insumos>(x => x.Proveedor == IdProveedor).FirstOrDefault();
+            return BuscProv;
         }
 
         public DATOS.Insumos BuscarInsumos(string IdInsumo)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Insumos BuscInsumo = db.Select<DATOS.Insumos>(x => x.IdInsumo == IdInsumo).FirstOrDefault();
+            return BuscInsumo;
         }
 
         public bool ExisteInsumo(string IdInsumo)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.Insumos Us = db.Select<DATOS.Insumos>(x => x.IdInsumo == IdInsumo).FirstOrDefault();
+
+                if (Us.IdInsumo == IdInsumo)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         public void Inactivar(DATOS.Insumos Insumo)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Update(Insumo);
         }
 
         public List<DATOS.Insumos> ListarInsumos()
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            List<DATOS.Insumos> ListInsum = db.Select<DATOS.Insumos>();
+            return ListInsum;
         }
     }
 }

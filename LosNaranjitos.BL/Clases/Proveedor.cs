@@ -1,48 +1,51 @@
-﻿using System;
+﻿using LosNaranjitos.BL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LosNaranjitos.BL.Interfaces;
 using LosNaranjitos.DATOS;
+
 
 namespace LosNaranjitos.BL.Clases
 {
     public class Proveedor : IProveedor
     {
+        public DS.Interfaces.IProveedor ProvProcd = new DS.Clases.Proveedor();
         public void ActualizarProveedor(DATOS.Proveedor Pro)
         {
-            throw new NotImplementedException();
+            ProvProcd.ActualizarProveedor(Pro);
         }
 
         public void AgregarProveedor(DATOS.Proveedor Pro)
         {
-            throw new NotImplementedException();
+            ProvProcd.AgregarProveedor(Pro);
         }
 
         public DATOS.Proveedor BuscarProveedor(string IdProveedor)
         {
-            throw new NotImplementedException();
+            return ProvProcd.BuscarProveedor(IdProveedor);
         }
 
         public DATOS.Proveedor BuscarProveedorPorNombre(string IdProveedor)
         {
-            throw new NotImplementedException();
+            return ProvProcd.BuscarProveedorPorNombre(IdProveedor);
         }
 
         public bool ExisteProveedor(string Pro)
         {
-            throw new NotImplementedException();
+            return ProvProcd.ExisteProveedor(Pro);
         }
 
         public void Inactivar(DATOS.Proveedor Pro)
         {
-            throw new NotImplementedException();
+            Pro.Activo = false;
+            ProvProcd.Inactivar(Pro);
         }
 
         public List<DATOS.Proveedor> ListarProveedores()
         {
-            throw new NotImplementedException();
+            return ProvProcd.ListarProveedores();
         }
     }
 }

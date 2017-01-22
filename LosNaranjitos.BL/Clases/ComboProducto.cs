@@ -10,34 +10,36 @@ namespace LosNaranjitos.BL.Clases
 {
     public class ComboProducto : IComboProducto
     {
+        public DS.Interfaces.IComboProducto ComProcedimietos = new DS.Clases.ComboProducto();
         public void ActualizarComboProducto(DATOS.ComboProducto ComboProductos)
         {
-            throw new NotImplementedException();
+            ComProcedimietos.ActualizarComboProducto(ComboProductos);
         }
 
         public void AgregarComboProducto(DATOS.ComboProducto ComboProductos)
         {
-            throw new NotImplementedException();
+            ComProcedimietos.AgregarComboProducto(ComboProductos);
         }
 
         public DATOS.ComboProducto BuscarCodigoCombo(string Combo)
         {
-            throw new NotImplementedException();
+            return ComProcedimietos.BuscarCodigoCombo(Combo);
         }
 
         public DATOS.ComboProducto BuscarCodigoProducto(string Producto)
         {
-            throw new NotImplementedException();
+            return ComProcedimietos.BuscarCodigoProducto(Producto);
         }
 
         public bool ExisteComboProducto(string Combo, string Producto)
         {
-            throw new NotImplementedException();
+            return ComProcedimietos.ExisteComboProducto(Combo, Producto);
         }
 
         public List<DATOS.ComboProducto> ListarComboProductos()
         {
-            throw new NotImplementedException();
+
+            return ComProcedimietos.ListarComboProductos();
         }
     }
 }

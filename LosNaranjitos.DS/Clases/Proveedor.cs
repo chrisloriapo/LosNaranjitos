@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LosNaranjitos.DATOS;
 using LosNaranjitos.DS.Interfaces;
-
+using ServiceStack.OrmLite;
 
 namespace LosNaranjitos.DS.Clases
 {
@@ -13,37 +13,79 @@ namespace LosNaranjitos.DS.Clases
     {
         public void ActualizarProveedor(DATOS.Proveedor Pro)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Update(Pro); throw new NotImplementedException();
         }
 
         public void AgregarProveedor(DATOS.Proveedor Pro)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Insert(Pro);
         }
 
         public DATOS.Proveedor BuscarProveedor(string IdProveedor)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Proveedor BuscProvId = db.Select<DATOS.Proveedor>(x => x.IdProveedor == IdProveedor).FirstOrDefault();
+            return BuscProvId;
         }
 
         public DATOS.Proveedor BuscarProveedorPorNombre(string IdProveedor)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Proveedor BuscProvNom = db.Select<DATOS.Proveedor>(x => x.Nombre == IdProveedor).FirstOrDefault();
+            return BuscProvNom;
         }
 
         public bool ExisteProveedor(string Pro)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.Proveedor Us = db.Select<DATOS.Proveedor>(x => x.IdProveedor == Pro).FirstOrDefault();
+
+                if (Us.IdProveedor == Pro)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         public void Inactivar(DATOS.Proveedor Pro)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Update(Pro);
         }
 
         public List<DATOS.Proveedor> ListarProveedores()
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            List<DATOS.Proveedor> ListProv = db.Select<DATOS.Proveedor>();
+            return ListProv;
         }
     }
 }

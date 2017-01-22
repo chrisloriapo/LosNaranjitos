@@ -10,39 +10,41 @@ namespace LosNaranjitos.BL.Clases
 {
     public class Combo : ICombo
     {
+        public DS.Interfaces.ICombo Cprocedimientos = new DS.Clases.Combo();
         public void ActualizarCombo(DATOS.Combo CombO)
         {
-            throw new NotImplementedException();
+            Cprocedimientos.ActualizarCombo(CombO);
         }
 
         public void AgregarCombo(DATOS.Combo CombO)
         {
-            throw new NotImplementedException();
+            Cprocedimientos.AgregarCombo(CombO);
         }
 
         public DATOS.Combo BuscarCombo(string IdCombo)
         {
-            throw new NotImplementedException();
+            return Cprocedimientos.BuscarCombo(IdCombo);
         }
 
         public DATOS.Combo BuscarComboPorNombre(string ComboNombre)
         {
-            throw new NotImplementedException();
+            return Cprocedimientos.BuscarComboPorNombre(ComboNombre);
         }
 
         public bool ExisteCombo(string CombO)
         {
-            throw new NotImplementedException();
+            return Cprocedimientos.ExisteCombo(CombO);
         }
 
         public void Inactivar(DATOS.Combo CombO)
         {
-            throw new NotImplementedException();
+            CombO.Activo = false;
+            Cprocedimientos.Inactivar(CombO);
         }
 
         public List<DATOS.Combo> ListarCombo()
         {
-            throw new NotImplementedException();
+            return Cprocedimientos.ListarCombo();
         }
     }
 }

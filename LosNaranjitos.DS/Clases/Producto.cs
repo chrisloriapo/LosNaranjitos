@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LosNaranjitos.DATOS;
 using LosNaranjitos.DS.Interfaces;
-
+using ServiceStack.OrmLite;
 
 namespace LosNaranjitos.DS.Clases
 {
@@ -13,37 +13,79 @@ namespace LosNaranjitos.DS.Clases
     {
         public void ActualizarProductO(DATOS.Producto Product)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Update(Product);
         }
 
         public void AgregarProducto(DATOS.Producto Product)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Insert(Product);
         }
 
         public DATOS.Producto BuscarProducto(string IdProducto)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Producto Us = db.Select<DATOS.Producto>(x => x.Codigo == IdProducto).FirstOrDefault();
+            return Us;
         }
 
         public DATOS.Producto BuscarProductoPorNombre(string ProductoNombre)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Producto BuscProd = db.Select<DATOS.Producto>(x => x.Nombre == ProductoNombre).FirstOrDefault();
+            return BuscProd;
         }
 
         public bool ExisteProducto(string IdPro)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.Producto Us = db.Select<DATOS.Producto>(x => x.Codigo == IdPro).FirstOrDefault();
+
+                if (Us.Codigo == IdPro)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         public void Inactivar(DATOS.Producto Product)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Update(Product);
         }
 
         public List<DATOS.Producto> ListarProductos()
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            List<DATOS.Producto> ListProd = db.Select<DATOS.Producto>();
+            return ListProd;
         }
     }
 }

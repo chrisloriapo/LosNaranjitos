@@ -10,39 +10,41 @@ namespace LosNaranjitos.BL.Clases
 {
     public class Pedido : IPedido
     {
+        public DS.Interfaces.IPedido PedidProdc = new DS.Clases.Pedido();
         public void ActualizarPedido(DATOS.Pedido Orden)
         {
-            throw new NotImplementedException();
+            PedidProdc.ActualizarPedido(Orden);
         }
 
         public void AgregarPedido(DATOS.Pedido Orden)
         {
-            throw new NotImplementedException();
+            PedidProdc.AgregarPedido(Orden);
         }
 
         public DATOS.Pedido BuscarPedido(int IdPedido)
         {
-            throw new NotImplementedException();
+            return PedidProdc.BuscarPedido(IdPedido);
         }
 
         public DATOS.Pedido BuscarProductoCliente(string IdCliente)
         {
-            throw new NotImplementedException();
+            return PedidProdc.BuscarProductoCliente(IdCliente);
         }
 
         public bool ExistePedido(int IdPedido)
         {
-            throw new NotImplementedException();
+            return PedidProdc.ExistePedido(IdPedido);
         }
 
         public void Inactivar(DATOS.Pedido Orden)
         {
-            throw new NotImplementedException();
+            Orden.Activo = false;
+            PedidProdc.Inactivar(Orden);
         }
 
         public List<DATOS.Pedido> ListarPedido()
         {
-            throw new NotImplementedException();
+            return PedidProdc.ListarPedido();
         }
     }
 }

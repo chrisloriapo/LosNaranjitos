@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LosNaranjitos.DATOS;
-
 namespace LosNaranjitos.BL.Clases
 {
     public class RolUsuario : IRolUsuario
@@ -19,17 +18,18 @@ namespace LosNaranjitos.BL.Clases
 
         public void AgregarRolUsuario(DATOS.RolUsuario Rol)
         {
-            ROLUSER.AgregarRolUsuario(Rol);
-        }        
+            ROLUSER.ActualizarRolUsuario(Rol);
+        }
 
         public DATOS.RolUsuario BuscarRol(int IdRol)
         {
             return ROLUSER.BuscarRol(IdRol);
-            
+
         }
 
         public DATOS.RolUsuario BuscarRolPorDescripcion(string Descripcion)
         {
+
             return ROLUSER.BuscarRolPorDescripcion(Descripcion);
         }
 

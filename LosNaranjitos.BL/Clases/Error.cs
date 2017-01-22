@@ -10,19 +10,20 @@ namespace LosNaranjitos.BL.Clases
 {
     public class Error : IError
     {
+        public DS.Interfaces.IError ErrorProces = new DS.Clases.Error();
         public void AgregarError(DATOS.Error ERROR)
         {
-            throw new NotImplementedException();
+            ErrorProces.AgregarError(ERROR);
         }
 
         public DATOS.Error BuscarError(int IdError)
         {
-            throw new NotImplementedException();
+            return ErrorProces.BuscarError(IdError);
         }
 
         public List<DATOS.Error> ListarErrores()
         {
-            throw new NotImplementedException();
+            return ErrorProces.ListarErrores();
         }
     }
 }

@@ -16,6 +16,6 @@ namespace LosNaranjitos.DS.Interfaces
 
         void ActualizarMEdida(DATOS.Medida MEdida);
 
-        bool ExisteMEdida(int IdMedida);
+        bool ExisteMEdida(string IdMedida);
     }
 }

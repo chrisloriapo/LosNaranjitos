@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LosNaranjitos.DATOS;
 using LosNaranjitos.DS.Interfaces;
+using ServiceStack.OrmLite;
 
 namespace LosNaranjitos.DS.Clases
 {
@@ -12,32 +13,72 @@ namespace LosNaranjitos.DS.Clases
     {
         public void ActualizarComboProducto(DATOS.ComboProducto ComboProductos)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Update(ComboProductos);
         }
 
         public void AgregarComboProducto(DATOS.ComboProducto ComboProductos)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Insert(ComboProductos);
         }
 
         public DATOS.ComboProducto BuscarCodigoCombo(string Combo)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.ComboProducto BuscarCodComb = db.Select<DATOS.ComboProducto>(x => x.CodCombo == Combo).FirstOrDefault();
+            return BuscarCodComb;
         }
 
         public DATOS.ComboProducto BuscarCodigoProducto(string Producto)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.ComboProducto BuscarCodProd = db.Select<DATOS.ComboProducto>(x => x.CodProducto == Producto).FirstOrDefault();
+            return BuscarCodProd;
         }
 
         public bool ExisteComboProducto(string Combo, string Producto)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.ComboProducto Us = db.Select<DATOS.ComboProducto>(x => x.CodCombo == Combo).FirstOrDefault();
+
+                if (Us.CodProducto == Producto)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         public List<DATOS.ComboProducto> ListarComboProductos()
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            List<DATOS.ComboProducto> LisProd = db.Select<DATOS.ComboProducto>();
+            return LisProd;
         }
     }
 }

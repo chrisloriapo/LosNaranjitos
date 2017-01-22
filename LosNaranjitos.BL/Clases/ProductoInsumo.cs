@@ -1,43 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LosNaranjitos.BL.Interfaces;
-using LosNaranjitos.DATOS;
+using LosNaranjitos.DS;
 
 namespace LosNaranjitos.BL.Clases
 {
     public class ProductoInsumo : IProductoInsumo
     {
+        public DS.Interfaces.IProductoInsumo ProdInsumProcd = new DS.Clases.ProductoInsumo();
         public void ActualizarProductoInsumo(DATOS.ProductoInsumo ProductoINSUMO)
         {
-            throw new NotImplementedException();
+            ProdInsumProcd.ActualizarProductoInsumo(ProductoINSUMO);
         }
 
         public void AgregarProductoInsumo(DATOS.ProductoInsumo ProductoINSUMO)
         {
-            throw new NotImplementedException();
+            ProdInsumProcd.ActualizarProductoInsumo(ProductoINSUMO);
         }
 
         public DATOS.ProductoInsumo BuscarPorInsumo(string Insumo)
         {
-            throw new NotImplementedException();
+            return ProdInsumProcd.BuscarPorInsumo(Insumo);
         }
 
         public DATOS.ProductoInsumo BuscarPorProducto(string Producto)
         {
-            throw new NotImplementedException();
+            return ProdInsumProcd.BuscarPorProducto(Producto);
         }
 
         public bool ExisteProductoINSUMO(string IdProducto, string IdInsumo)
         {
-            throw new NotImplementedException();
+            return ProdInsumProcd.ExisteProductoINSUMO(IdProducto, IdInsumo);
         }
 
         public List<DATOS.ProductoInsumo> ListarProductoInsumo()
         {
-            throw new NotImplementedException();
+            return ProdInsumProcd.ListarProductoInsumo();
         }
     }
 }

@@ -15,8 +15,8 @@ namespace LosNaranjitos.DS.Clases
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
-            List<DATOS.Consecutivo> Consecs = db.Select<DATOS.Consecutivo>();
-            return Consecs;
+            List<DATOS.Consecutivo> ListConse = db.Select<DATOS.Consecutivo>();
+            return ListConse;
         }
     }
 }

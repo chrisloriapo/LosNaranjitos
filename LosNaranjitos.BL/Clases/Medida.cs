@@ -10,29 +10,30 @@ namespace LosNaranjitos.BL.Clases
 {
     public class Medida : IMedida
     {
+        public DS.Interfaces.IMedida MedProced = new DS.Clases.Medida();
         public void ActualizarMEdida(DATOS.Medida MEdida)
         {
-            throw new NotImplementedException();
+            MedProced.ActualizarMEdida(MEdida);
         }
 
         public void AgregarMedida(DATOS.Medida MEdida)
         {
-            throw new NotImplementedException();
+            MedProced.AgregarMedida(MEdida);
         }
 
         public DATOS.Medida BuscarMedida(string IdMedida)
         {
-            throw new NotImplementedException();
+            return MedProced.BuscarMedida(IdMedida);
         }
 
-        public bool ExisteMEdida(int IdMedida)
+        public bool ExisteMEdida(string IdMedida)
         {
-            throw new NotImplementedException();
+            return MedProced.ExisteMEdida(IdMedida);
         }
 
         public List<DATOS.Medida> ListarMedidas()
         {
-            throw new NotImplementedException();
+            return MedProced.ListarMedidas();
         }
     }
 }

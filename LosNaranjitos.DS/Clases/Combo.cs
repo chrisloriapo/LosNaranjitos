@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LosNaranjitos.DATOS;
 using LosNaranjitos.DS.Interfaces;
+using ServiceStack.OrmLite;
 
 namespace LosNaranjitos.DS.Clases
 {
@@ -12,37 +13,79 @@ namespace LosNaranjitos.DS.Clases
     {
         public void ActualizarCombo(DATOS.Combo CombO)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Update(CombO);
         }
 
         public void AgregarCombo(DATOS.Combo CombO)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Insert(CombO);
         }
 
         public DATOS.Combo BuscarCombo(string IdCombo)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Combo Buscar = db.Select<DATOS.Combo>(x => x.Codigo == IdCombo).FirstOrDefault();
+            return Buscar;
         }
 
         public DATOS.Combo BuscarComboPorNombre(string ComboNombre)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Combo Buscarname = db.Select<DATOS.Combo>(x => x.Nombre == ComboNombre).FirstOrDefault();
+            return Buscarname;
         }
 
         public bool ExisteCombo(string CombO)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.Combo Us = db.Select<DATOS.Combo>(x => x.Codigo == CombO).FirstOrDefault();
+
+                if (Us.Codigo == CombO)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         public void Inactivar(DATOS.Combo CombO)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Update(CombO);
         }
 
         public List<DATOS.Combo> ListarCombo()
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            List<DATOS.Combo> LisUsuarios = db.Select<DATOS.Combo>();
+            return LisUsuarios;
         }
     }
 }

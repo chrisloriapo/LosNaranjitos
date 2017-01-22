@@ -10,39 +10,41 @@ namespace LosNaranjitos.BL.Clases
 {
     public class Insumos : IInsumos
     {
+        public DS.Interfaces.IInsumos IsumosProcde = new DS.Clases.Insumos();
         public void ActualizarInsumo(DATOS.Insumos Insumo)
         {
-            throw new NotImplementedException();
+            IsumosProcde.ActualizarInsumo(Insumo);
         }
 
         public void AgregarInsumo(DATOS.Insumos Insumo)
         {
-            throw new NotImplementedException();
+            IsumosProcde.AgregarInsumo(Insumo);
         }
 
         public DATOS.Insumos BuscarInsumoPorProveedor(string IdProveedor)
         {
-            throw new NotImplementedException();
+            return IsumosProcde.BuscarInsumoPorProveedor(IdProveedor);
         }
 
         public DATOS.Insumos BuscarInsumos(string IdInsumo)
         {
-            throw new NotImplementedException();
+            return IsumosProcde.BuscarInsumos(IdInsumo);
         }
 
         public bool ExisteInsumo(string IdInsumo)
         {
-            throw new NotImplementedException();
+            return IsumosProcde.ExisteInsumo(IdInsumo);
         }
 
         public void Inactivar(DATOS.Insumos Insumo)
         {
-            throw new NotImplementedException();
+            Insumo.Activo = false;
+            IsumosProcde.Inactivar(Insumo);
         }
 
         public List<DATOS.Insumos> ListarInsumos()
         {
-            throw new NotImplementedException();
+            return IsumosProcde.ListarInsumos();
         }
     }
 }

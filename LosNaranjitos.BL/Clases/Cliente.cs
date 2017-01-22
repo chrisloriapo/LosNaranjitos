@@ -10,39 +10,42 @@ namespace LosNaranjitos.BL.Clases
 {
     public class Cliente : ICliente
     {
+        public DS.Interfaces.ICliente ClietProce = new DS.Clases.Cliente();
         public void ActualizarCLIENTE(DATOS.Cliente CLIENTE)
         {
-            throw new NotImplementedException();
+            ClietProce.ActualizarCLIENTE(CLIENTE);
+
         }
 
         public void AgregarCliente(DATOS.Cliente CLIENTE)
         {
-            throw new NotImplementedException();
+            ClietProce.AgregarCliente(CLIENTE);
         }
 
         public DATOS.Cliente BuscarCliente(string IdPersonal)
         {
-            throw new NotImplementedException();
+            return ClietProce.BuscarCliente(IdPersonal);
         }
 
         public DATOS.Cliente BuscarClientePorCorreo(string Correo)
         {
-            throw new NotImplementedException();
+            return ClietProce.BuscarClientePorCorreo(Correo);
         }
 
         public bool ExisteCLIENTE(string IDCLIENTE)
         {
-            throw new NotImplementedException();
+            return ClietProce.ExisteCLIENTE(IDCLIENTE);
         }
 
         public void Inactivar(DATOS.Cliente CLIENTE)
         {
-            throw new NotImplementedException();
+            CLIENTE.Activo = false;
+            ClietProce.Inactivar(CLIENTE);
         }
 
         public List<DATOS.Cliente> ListarClientes()
         {
-            throw new NotImplementedException();
+            return ClietProce.ListarClientes();
         }
     }
 }

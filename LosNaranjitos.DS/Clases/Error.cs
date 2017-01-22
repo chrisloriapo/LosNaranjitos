@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LosNaranjitos.DATOS;
 using LosNaranjitos.DS.Interfaces;
+using ServiceStack.OrmLite;
 
 namespace LosNaranjitos.DS.Clases
 {
@@ -12,17 +13,25 @@ namespace LosNaranjitos.DS.Clases
     {
         public void AgregarError(DATOS.Error ERROR)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Insert(ERROR);
         }
 
         public DATOS.Error BuscarError(int IdError)
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Error BuscErr = db.Select<DATOS.Error>(x => x.IdError == IdError).FirstOrDefault();
+            return BuscErr;
         }
 
         public List<DATOS.Error> ListarErrores()
         {
-            throw new NotImplementedException();
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            List<DATOS.Error> ListErr = db.Select<DATOS.Error>();
+            return ListErr;
         }
     }
 }
