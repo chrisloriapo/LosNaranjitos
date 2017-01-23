@@ -46,7 +46,27 @@ namespace LosNaranjitos.BL.Clases
 
         public List<DATOS.Usuario> ListarUsuarios()
         {
-            return USUARIO.ListarUsuarios();
+            List<DATOS.Usuario> ListaRetorno = USUARIO.ListarUsuarios();
+
+            foreach (var item in ListaRetorno)
+            {
+                item.Nombre = Utilitario.Decriptar(item.Nombre, Utilitario.Llave);
+                item.Apellido1 = Utilitario.Decriptar(item.Apellido1, Utilitario.Llave);
+                item.IdPersonal = Utilitario.Decriptar(item.IdPersonal, Utilitario.Llave);
+                item.IdUsuario = Utilitario.Decriptar(item.IdUsuario, Utilitario.Llave);
+                item.Telefono = Utilitario.Decriptar(item.Telefono, Utilitario.Llave);
+                item.Correo = Utilitario.Decriptar(item.Correo, Utilitario.Llave);
+                if (item.Apellido2 != null)
+                {
+                    item.Apellido2 = Utilitario.Decriptar(item.Apellido2, Utilitario.Llave);
+                }
+                if (item.Direccion!=null)
+                {
+                    item.Direccion = Utilitario.Decriptar(item.Direccion, Utilitario.Llave);
+                }
+            }
+
+            return ListaRetorno;
         }
     }
 }

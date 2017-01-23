@@ -108,9 +108,9 @@
             this.groupBox1.Controls.Add(this.lblHora);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(176, 67);
+            this.groupBox1.Location = new System.Drawing.Point(196, 67);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(390, 202);
+            this.groupBox1.Size = new System.Drawing.Size(427, 202);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acceso al Sistema";
@@ -161,7 +161,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.DarkOrange;
             this.pictureBox2.Location = new System.Drawing.Point(2, 275);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(582, 37);
+            this.pictureBox2.Size = new System.Drawing.Size(639, 37);
             this.pictureBox2.TabIndex = 9;
             this.pictureBox2.TabStop = false;
             // 
@@ -170,7 +170,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.DarkOrange;
             this.pictureBox1.Location = new System.Drawing.Point(2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(582, 57);
+            this.pictureBox1.Size = new System.Drawing.Size(639, 57);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
@@ -181,7 +181,7 @@
             this.pictureBox3.Image = global::LosNaranjitos.Properties.Resources.Naranjitos1;
             this.pictureBox3.Location = new System.Drawing.Point(14, 85);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(156, 165);
+            this.pictureBox3.Size = new System.Drawing.Size(176, 165);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 12;
             this.pictureBox3.TabStop = false;
@@ -190,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(578, 313);
+            this.ClientSize = new System.Drawing.Size(635, 313);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);

@@ -47,9 +47,9 @@ namespace LosNaranjitos.DS.Clases
             var db = conexion.Open();
             try
             {
-                DATOS.ProductoInsumo Us = db.Select<DATOS.P>(x => x.IdInsumo == IdInsumo).FirstOrDefault();//error  ProductoInsumo
+                DATOS.ProductoInsumo Us = db.Select<DATOS.ProductoInsumo>(x => x.IdInsumo == IdInsumo).FirstOrDefault();
 
-                if (Us.IdInsumo == IdInsumo)//error ProductoInsumo 
+                if (Us.IdInsumo == IdInsumo)
                 {
                     return true;
                 }

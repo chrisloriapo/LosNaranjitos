@@ -80,6 +80,7 @@
     <Compile Include="Interfaces\IProveedor.cs" />
     <Compile Include="Interfaces\IRolUsuario.cs" />
     <Compile Include="Interfaces\IUsuario.cs" />
+    <Compile Include="Utilitario.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
