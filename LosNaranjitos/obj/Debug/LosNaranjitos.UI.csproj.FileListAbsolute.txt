@@ -94,3 +94,37 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.Properties.Resources.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmErrores.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmMedidas.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmEdicionUsuario.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\LosNaranjitos.exe.config
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.exe
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.pdb
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\LosNaranjitos.exe
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\LosNaranjitos.pdb
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\LosNaranjitos.BL.dll
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\LosNaranjitos.DATOS.dll
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\LosNaranjitos.DS.dll
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\ServiceStack.Interfaces.dll
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\ServiceStack.OrmLite.dll
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\ServiceStack.OrmLite.SqlServer.dll
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\ServiceStack.Common.dll
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\ServiceStack.Text.dll
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\LosNaranjitos.BL.pdb
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\LosNaranjitos.DATOS.pdb
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\LosNaranjitos.DS.pdb
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\ServiceStack.OrmLite.xml
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\ServiceStack.Common.xml
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\bin\Debug\ServiceStack.Text.xml
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.UI.csprojResolveAssemblyReference.cache
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmCliente.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmConsecutivo.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmEdicionUsuario.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmErrores.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmLogin.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmMedidas.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmMenuPrincipal.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmProductosInsumos.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmProductosVenta.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmProveedor.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmUsuarios.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.Properties.Resources.resources
+C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.UI.csproj.GenerateResource.Cache

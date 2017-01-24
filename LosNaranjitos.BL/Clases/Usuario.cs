@@ -60,10 +60,9 @@ namespace LosNaranjitos.BL.Clases
                 {
                     item.Apellido2 = Utilitario.Decriptar(item.Apellido2, Utilitario.Llave);
                 }
-                if (item.Direccion!=null)
-                {
-                    item.Direccion = Utilitario.Decriptar(item.Direccion, Utilitario.Llave);
-                }
+                
+                item.Direccion = item.Direccion;
+                
             }
 
             return ListaRetorno;

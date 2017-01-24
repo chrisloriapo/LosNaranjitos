@@ -72,6 +72,12 @@
     <Compile Include="FrmConsecutivo.Designer.cs">
       <DependentUpon>FrmConsecutivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEdicionUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEdicionUsuario.Designer.cs">
+      <DependentUpon>FrmEdicionUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmErrores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsecutivo.resx">
       <DependentUpon>FrmConsecutivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEdicionUsuario.resx">
+      <DependentUpon>FrmEdicionUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmErrores.resx">
       <DependentUpon>FrmErrores.cs</DependentUpon>

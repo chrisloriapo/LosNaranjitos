@@ -10,6 +10,7 @@ namespace LosNaranjitos
     public class Utilitarios
     {
         public static string Llave = "hendmsjskruwiqud";
+        public static bool Cambio = false; 
 
         public static string Decriptar(string contra, string llave)
         {

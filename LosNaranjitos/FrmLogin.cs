@@ -97,5 +97,13 @@ namespace LosNaranjitos
             Application.Exit();
 
         }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                btnIngresar_Click(sender, e);
+            }
+        }
     }
 }
