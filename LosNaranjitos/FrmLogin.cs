@@ -22,7 +22,7 @@ namespace LosNaranjitos
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             FrmMenuPrincipal MN = new FrmMenuPrincipal();
-            bool Ingreso =ValidarUser();
+            bool Ingreso = ValidarUser();
             if (Ingreso)
             {
                 MN.Show();
@@ -32,7 +32,6 @@ namespace LosNaranjitos
 
         public bool ValidarUser()
         {
-
             if (String.IsNullOrEmpty(txtUsuario.Text) || String.IsNullOrEmpty(txtUsuario.Text) || String.IsNullOrEmpty(txtPassword.Text) || String.IsNullOrEmpty(txtPassword.Text))
             {
                 MessageBox.Show("NO se permite espacios en blanco ni casillas vacias", "ERROR",
@@ -48,7 +47,6 @@ namespace LosNaranjitos
                     if ((Utilitarios.Encriptar(txtUsuario.Text, Utilitarios.Llave) == UsuarioGlobal.IdUsuario) &&
                    (Utilitarios.Encriptar(txtPassword.Text, Utilitarios.Llave) == UsuarioGlobal.Contrasena))
                     {
-
                         return true;
                     }
                     else if ((Utilitarios.Encriptar(txtUsuario.Text, Utilitarios.Llave) == UsuarioGlobal.IdUsuario) &&
@@ -62,7 +60,7 @@ namespace LosNaranjitos
                     }
                     else
                     {
-                        return false; 
+                        return false;
                     }
                 }
                 catch (Exception ex)
@@ -83,7 +81,7 @@ namespace LosNaranjitos
                     }
                 }
             }
-            
+
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)

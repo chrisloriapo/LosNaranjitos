@@ -15,7 +15,7 @@ namespace LosNaranjitos.DATOS
         [Required]
         public string Nombre { get; set; }
         [Required]
-        public char Telefono { get; set; }
+        public string Telefono { get; set; }
         [Required]
         public string Correo { get; set; }
         [Required]

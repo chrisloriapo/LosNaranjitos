@@ -12,7 +12,7 @@ namespace LosNaranjitos.DATOS
         [Required]
         [PrimaryKey]
         public string IdPersonal { get; set; }
-        [Required]
+        
         public string Contrasena { get; set; }
         [Required]
         public string Correo { get; set; }
@@ -23,7 +23,7 @@ namespace LosNaranjitos.DATOS
         
         public string Apellido2 { get; set; }
         
-        public char Telefono { get; set; }
+        public string Telefono { get; set; }
 
         public string Operadora { get; set; }
         [Required]

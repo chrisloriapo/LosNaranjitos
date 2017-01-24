@@ -27,17 +27,12 @@ namespace LosNaranjitos
         }
         public void AgregarUsuario()
         {
-
             string Usuario; int Consec = 1;
-
-
             if (txtConfirmarContrasena.Text != txtContraseña.Text)
             {
                 MessageBox.Show("Error", "Contraseñas No Coinciden", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-
             if (string.IsNullOrEmpty(txtContraseña.Text) || string.IsNullOrWhiteSpace(txtContraseña.Text) ||
               string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrWhiteSpace(txtApellido.Text) ||
               string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
@@ -54,12 +49,13 @@ namespace LosNaranjitos
                 {
                     Usuario = txtApellido.Text + txtNombre.Text.Substring(0, 1) + Consec.ToString();
                     Usuario = Usuario.ToLower();
-                    while (Usrs.ExisteUsuario(Usuario))
+                    do
                     {
-                        Consec++;
+                        Consec = Consec + 1;
                         Usuario = txtApellido.Text + txtNombre.Text.Substring(0, 1) + Consec.ToString();
                         Usuario = Usuario.ToLower();
-                    }
+                    } while (Usrs.ExisteUsuario(Utilitarios.Encriptar(Usuario, Utilitarios.Llave)));
+
                     txtIdUsuario.Text = Usuario;
                     DATOS.RolUsuario RolLocal = OperacionesRoles.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
 
@@ -76,7 +72,6 @@ namespace LosNaranjitos
                         Correo = Utilitarios.Encriptar(txtEmail.Text, Utilitarios.Llave),
                         Rol = RolLocal.IdRol,
                         Direccion = txtDireccion.Text,
-
                     };
 
                     Usrs.AgregarUsuario(Userprivate);
@@ -87,6 +82,7 @@ namespace LosNaranjitos
                 }
                 catch (Exception ex)
                 {
+
                     ER.Descripcion = ex.Message;
                     ER.Tipo = "Error al Popular Datos";
                     ER.Hora = DateTime.Now;
@@ -98,8 +94,6 @@ namespace LosNaranjitos
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-
-
             AgregarUsuario();
 
         }
@@ -165,7 +159,6 @@ namespace LosNaranjitos
                         return;
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -202,9 +195,6 @@ namespace LosNaranjitos
                 FrmEdicionUsuario a = new FrmEdicionUsuario();
                 a.Show();
                 this.Dispose();
-
-
-
             }
             else
             {
@@ -226,11 +216,9 @@ namespace LosNaranjitos
             }
             else
             {
-
                 try
                 {
                     DATOS.RolUsuario RolLocal = OperacionesRoles.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
-
                     DATOS.Usuario Userprivate = new DATOS.Usuario
                     {
                         IdUsuario = Utilitarios.Encriptar(txtIdUsuario.Text, Utilitarios.Llave),
@@ -244,9 +232,7 @@ namespace LosNaranjitos
                         Correo = Utilitarios.Encriptar(txtEmail.Text, Utilitarios.Llave),
                         Rol = RolLocal.IdRol,
                         Direccion = txtDireccion.Text,
-
                     };
-
                     Usrs.ActualizarUsuario(Userprivate);
                     MessageBox.Show("Los datos del Usuario se Actualizaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -255,7 +241,7 @@ namespace LosNaranjitos
                 }
                 catch (Exception ex)
                 {
-
+                    throw;
                     ER.Descripcion = ex.Message;
                     ER.Tipo = "Error al Popular Datos";
                     ER.Hora = DateTime.Now;
@@ -320,8 +306,6 @@ namespace LosNaranjitos
                             autosearch.Add(Convert.ToString(pos.Apellido1));
                         }
                         break;
-
-
                 }
                 txtBuscar.AutoCompleteCustomSource = autosearch;
             }
@@ -353,8 +337,6 @@ namespace LosNaranjitos
                     a.Telefono,
                     a.Rol
                 }).ToList();
-
-
                 switch (cbBuscar.SelectedItem.ToString())
                 {
                     case "IdPersonal":
@@ -373,14 +355,11 @@ namespace LosNaranjitos
 
                         ListaLocal = ListaLocal.Where(x => x.Apellido1 == txtBuscar.Text).ToList();
                         break;
-
-                  
                 }
                 dgvListado.DataSource = ListaLocal;
             }
             catch (Exception ex)
             {
-                
                 ER.Descripcion = ex.Message;
                 ER.Tipo = "Error al Popular Datos";
                 ER.Hora = DateTime.Now;

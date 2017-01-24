@@ -128,3 +128,7 @@ C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranj
 C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmUsuarios.resources
 C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.Properties.Resources.resources
 C:\Users\loriac\Downloads\LosNaranjitos-20170123T200940Z\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.UI.csproj.GenerateResource.Cache
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmEdicionProveedor.resources
+C:\Users\chris\Downloads\LosNaranjitosjen (2)\LosNaranjitos\LosNaranjitos\bin\Debug\LosNaranjitos.exe.config
+C:\Users\chris\Downloads\LosNaranjitosjen (2)\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.exe
+C:\Users\chris\Downloads\LosNaranjitosjen (2)\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.pdb

@@ -57,7 +57,6 @@ namespace LosNaranjitos
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

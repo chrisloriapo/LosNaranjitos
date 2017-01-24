@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmBitacora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBitacora.Designer.cs">
+      <DependentUpon>FrmBitacora.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,30 @@
     </Compile>
     <Compile Include="FrmConsecutivo.Designer.cs">
       <DependentUpon>FrmConsecutivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEdicionInsumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEdicionInsumos.Designer.cs">
+      <DependentUpon>FrmEdicionInsumos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEdicionProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEdicionProveedor.Designer.cs">
+      <DependentUpon>FrmEdicionProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEdicionMedida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEdicionMedida.Designer.cs">
+      <DependentUpon>FrmEdicionMedida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEdicionCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEdicionCliente.Designer.cs">
+      <DependentUpon>FrmEdicionCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEdicionUsuario.cs">
       <SubType>Form</SubType>
@@ -108,11 +138,11 @@
     <Compile Include="FrmPedido.Designer.cs">
       <DependentUpon>FrmPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProductosInsumos.cs">
+    <Compile Include="FrmInsumos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProductosInsumos.Designer.cs">
-      <DependentUpon>FrmProductosInsumos.cs</DependentUpon>
+    <Compile Include="FrmInsumos.Designer.cs">
+      <DependentUpon>FrmInsumos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProductosVenta.cs">
       <SubType>Form</SubType>
@@ -140,11 +170,26 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utilitarios.cs" />
+    <EmbeddedResource Include="FrmBitacora.resx">
+      <DependentUpon>FrmBitacora.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsecutivo.resx">
       <DependentUpon>FrmConsecutivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEdicionInsumos.resx">
+      <DependentUpon>FrmEdicionInsumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEdicionProveedor.resx">
+      <DependentUpon>FrmEdicionProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEdicionMedida.resx">
+      <DependentUpon>FrmEdicionMedida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEdicionCliente.resx">
+      <DependentUpon>FrmEdicionCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEdicionUsuario.resx">
       <DependentUpon>FrmEdicionUsuario.cs</DependentUpon>
@@ -161,8 +206,8 @@
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProductosInsumos.resx">
-      <DependentUpon>FrmProductosInsumos.cs</DependentUpon>
+    <EmbeddedResource Include="FrmInsumos.resx">
+      <DependentUpon>FrmInsumos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductosVenta.resx">
       <DependentUpon>FrmProductosVenta.cs</DependentUpon>
@@ -224,6 +269,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Naranjitos2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\frances-fritas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salsas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hamburguesa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hot-dog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\taco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nachos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mas.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
