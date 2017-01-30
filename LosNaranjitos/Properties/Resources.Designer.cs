@@ -113,9 +113,29 @@ namespace LosNaranjitos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo1___copia {
+            get {
+                object obj = ResourceManager.GetObject("Logo1 - copia", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo11 {
             get {
                 object obj = ResourceManager.GetObject("Logo11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo12 {
+            get {
+                object obj = ResourceManager.GetObject("Logo12", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,6 +183,26 @@ namespace LosNaranjitos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Naranjitos21 {
+            get {
+                object obj = ResourceManager.GetObject("Naranjitos21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NaranjitosT {
+            get {
+                object obj = ResourceManager.GetObject("NaranjitosT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap red {
             get {
                 object obj = ResourceManager.GetObject("red", resourceCulture);
@@ -176,6 +216,16 @@ namespace LosNaranjitos.Properties {
         internal static System.Drawing.Bitmap salsas {
             get {
                 object obj = ResourceManager.GetObject("salsas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Sin_título {
+            get {
+                object obj = ResourceManager.GetObject("Sin título", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

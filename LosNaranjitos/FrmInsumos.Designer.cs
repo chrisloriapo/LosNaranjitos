@@ -60,6 +60,18 @@
             this.dgvListado = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.orangeDB1DataSet = new LosNaranjitos.OrangeDB1DataSet();
+            this.orangeDB1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vProveedorInsumoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.vProveedor_InsumoTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.VProveedor_InsumoTableAdapter();
+            this.idInsumoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proveedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMedidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantInventarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.porcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -67,6 +79,9 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // ttMensaje
@@ -366,7 +381,18 @@
             this.dgvListado.AllowUserToAddRows = false;
             this.dgvListado.AllowUserToDeleteRows = false;
             this.dgvListado.AllowUserToOrderColumns = true;
+            this.dgvListado.AutoGenerateColumns = false;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idInsumoDataGridViewTextBoxColumn,
+            this.proveedorDataGridViewTextBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.idMedidaDataGridViewTextBoxColumn,
+            this.precioCompraDataGridViewTextBoxColumn,
+            this.cantInventarioDataGridViewTextBoxColumn,
+            this.porcionDataGridViewTextBoxColumn,
+            this.activoDataGridViewCheckBoxColumn});
+            this.dgvListado.DataSource = this.vProveedorInsumoBindingSource;
             this.dgvListado.Location = new System.Drawing.Point(11, 68);
             this.dgvListado.MultiSelect = false;
             this.dgvListado.Name = "dgvListado";
@@ -396,6 +422,81 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
+            // orangeDB1DataSet
+            // 
+            this.orangeDB1DataSet.DataSetName = "OrangeDB1DataSet";
+            this.orangeDB1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // orangeDB1DataSetBindingSource
+            // 
+            this.orangeDB1DataSetBindingSource.DataSource = this.orangeDB1DataSet;
+            this.orangeDB1DataSetBindingSource.Position = 0;
+            // 
+            // vProveedorInsumoBindingSource
+            // 
+            this.vProveedorInsumoBindingSource.DataMember = "VProveedor_Insumo";
+            this.vProveedorInsumoBindingSource.DataSource = this.orangeDB1DataSetBindingSource;
+            // 
+            // vProveedor_InsumoTableAdapter
+            // 
+            this.vProveedor_InsumoTableAdapter.ClearBeforeFill = true;
+            // 
+            // idInsumoDataGridViewTextBoxColumn
+            // 
+            this.idInsumoDataGridViewTextBoxColumn.DataPropertyName = "IdInsumo";
+            this.idInsumoDataGridViewTextBoxColumn.HeaderText = "IdInsumo";
+            this.idInsumoDataGridViewTextBoxColumn.Name = "idInsumoDataGridViewTextBoxColumn";
+            this.idInsumoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // proveedorDataGridViewTextBoxColumn
+            // 
+            this.proveedorDataGridViewTextBoxColumn.DataPropertyName = "Proveedor";
+            this.proveedorDataGridViewTextBoxColumn.HeaderText = "Proveedor";
+            this.proveedorDataGridViewTextBoxColumn.Name = "proveedorDataGridViewTextBoxColumn";
+            this.proveedorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idMedidaDataGridViewTextBoxColumn
+            // 
+            this.idMedidaDataGridViewTextBoxColumn.DataPropertyName = "IdMedida";
+            this.idMedidaDataGridViewTextBoxColumn.HeaderText = "IdMedida";
+            this.idMedidaDataGridViewTextBoxColumn.Name = "idMedidaDataGridViewTextBoxColumn";
+            this.idMedidaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precioCompraDataGridViewTextBoxColumn
+            // 
+            this.precioCompraDataGridViewTextBoxColumn.DataPropertyName = "PrecioCompra";
+            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "PrecioCompra";
+            this.precioCompraDataGridViewTextBoxColumn.Name = "precioCompraDataGridViewTextBoxColumn";
+            this.precioCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cantInventarioDataGridViewTextBoxColumn
+            // 
+            this.cantInventarioDataGridViewTextBoxColumn.DataPropertyName = "CantInventario";
+            this.cantInventarioDataGridViewTextBoxColumn.HeaderText = "CantInventario";
+            this.cantInventarioDataGridViewTextBoxColumn.Name = "cantInventarioDataGridViewTextBoxColumn";
+            this.cantInventarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // porcionDataGridViewTextBoxColumn
+            // 
+            this.porcionDataGridViewTextBoxColumn.DataPropertyName = "Porcion";
+            this.porcionDataGridViewTextBoxColumn.HeaderText = "Porcion";
+            this.porcionDataGridViewTextBoxColumn.Name = "porcionDataGridViewTextBoxColumn";
+            this.porcionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // activoDataGridViewCheckBoxColumn
+            // 
+            this.activoDataGridViewCheckBoxColumn.DataPropertyName = "Activo";
+            this.activoDataGridViewCheckBoxColumn.HeaderText = "Activo";
+            this.activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
+            this.activoDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
             // FrmInsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +519,9 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,5 +559,17 @@
         private System.Windows.Forms.ComboBox cbProveedor;
         private System.Windows.Forms.ComboBox cbBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.BindingSource orangeDB1DataSetBindingSource;
+        private OrangeDB1DataSet orangeDB1DataSet;
+        private System.Windows.Forms.BindingSource vProveedorInsumoBindingSource;
+        private OrangeDB1DataSetTableAdapters.VProveedor_InsumoTableAdapter vProveedor_InsumoTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idInsumoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proveedorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMedidaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioCompraDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantInventarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn porcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
     }
 }

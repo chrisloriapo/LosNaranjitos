@@ -51,6 +51,7 @@
             this.closeAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arrangeIconsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sodaLosNaranjitosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,10 +63,9 @@
             this.grbMain = new System.Windows.Forms.GroupBox();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
+            this.pcbUsuario = new System.Windows.Forms.PictureBox();
             this.lnkUsuario = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pcbUsuario = new System.Windows.Forms.PictureBox();
-            this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -87,7 +87,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.windowsMenu;
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(702, 24);
+            this.menuStrip.Size = new System.Drawing.Size(827, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -147,7 +147,7 @@
             // pedidosToolStripMenuItem1
             // 
             this.pedidosToolStripMenuItem1.Name = "pedidosToolStripMenuItem1";
-            this.pedidosToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+            this.pedidosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.pedidosToolStripMenuItem1.Text = "Pedidos";
             this.pedidosToolStripMenuItem1.Click += new System.EventHandler(this.pedidosToolStripMenuItem1_Click);
             // 
@@ -156,7 +156,7 @@
             this.productosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.categoriasToolStripMenuItem});
             this.productosToolStripMenuItem1.Name = "productosToolStripMenuItem1";
-            this.productosToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+            this.productosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.productosToolStripMenuItem1.Text = "Productos";
             // 
             // categoriasToolStripMenuItem
@@ -258,6 +258,14 @@
             this.helpMenu.Size = new System.Drawing.Size(54, 20);
             this.helpMenu.Text = "Ay&uda";
             // 
+            // indexToolStripMenuItem
+            // 
+            this.indexToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("indexToolStripMenuItem.Image")));
+            this.indexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
+            this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
+            this.indexToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.indexToolStripMenuItem.Text = "&Índice";
+            // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
@@ -285,7 +293,7 @@
             this.toolStripSeparator2});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(702, 25);
+            this.toolStrip.Size = new System.Drawing.Size(827, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
@@ -299,9 +307,9 @@
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 436);
+            this.statusStrip.Location = new System.Drawing.Point(0, 496);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(702, 22);
+            this.statusStrip.Size = new System.Drawing.Size(827, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -324,7 +332,7 @@
             this.grbMain.ForeColor = System.Drawing.SystemColors.ControlText;
             this.grbMain.Location = new System.Drawing.Point(0, 49);
             this.grbMain.Name = "grbMain";
-            this.grbMain.Size = new System.Drawing.Size(212, 387);
+            this.grbMain.Size = new System.Drawing.Size(212, 447);
             this.grbMain.TabIndex = 6;
             this.grbMain.TabStop = false;
             this.grbMain.Text = "Sistema de Control";
@@ -349,6 +357,17 @@
             this.lblDate.TabIndex = 8;
             this.lblDate.Text = "Fecha";
             // 
+            // pcbUsuario
+            // 
+            this.pcbUsuario.BackgroundImage = global::LosNaranjitos.Properties.Resources.red;
+            this.pcbUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcbUsuario.Location = new System.Drawing.Point(32, 74);
+            this.pcbUsuario.Name = "pcbUsuario";
+            this.pcbUsuario.Size = new System.Drawing.Size(138, 140);
+            this.pcbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbUsuario.TabIndex = 2;
+            this.pcbUsuario.TabStop = false;
+            // 
             // lnkUsuario
             // 
             this.lnkUsuario.AutoSize = true;
@@ -369,31 +388,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Bienvenid@";
             // 
-            // pcbUsuario
-            // 
-            this.pcbUsuario.BackgroundImage = global::LosNaranjitos.Properties.Resources.red;
-            this.pcbUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcbUsuario.Location = new System.Drawing.Point(32, 74);
-            this.pcbUsuario.Name = "pcbUsuario";
-            this.pcbUsuario.Size = new System.Drawing.Size(138, 140);
-            this.pcbUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbUsuario.TabIndex = 2;
-            this.pcbUsuario.TabStop = false;
-            // 
-            // indexToolStripMenuItem
-            // 
-            this.indexToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("indexToolStripMenuItem.Image")));
-            this.indexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black;
-            this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.indexToolStripMenuItem.Text = "&Índice";
-            // 
             // FrmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(702, 458);
+            this.ClientSize = new System.Drawing.Size(827, 518);
             this.Controls.Add(this.grbMain);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);

@@ -70,7 +70,6 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmConsecutivo.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmLogin.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmMenuPrincipal.resources
-C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmProductosInsumos.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmProductosVenta.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmProveedor.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmUsuarios.resources
@@ -132,3 +131,8 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto
 C:\Users\chris\Downloads\LosNaranjitosjen (2)\LosNaranjitos\LosNaranjitos\bin\Debug\LosNaranjitos.exe.config
 C:\Users\chris\Downloads\LosNaranjitosjen (2)\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.exe
 C:\Users\chris\Downloads\LosNaranjitosjen (2)\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmBitacora.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmEdicionInsumos.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmEdicionMedida.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmEdicionCliente.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmInsumos.resources
