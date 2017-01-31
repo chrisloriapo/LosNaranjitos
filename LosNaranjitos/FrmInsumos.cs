@@ -35,46 +35,61 @@ namespace LosNaranjitos
         private void FrmInsumos_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'orangeDB1DataSet.VProveedor_Insumo' Puede moverla o quitarla según sea necesario.
-            this.vProveedor_InsumoTableAdapter.Fill(this.orangeDB1DataSet.VProveedor_Insumo);
-            ListaInsumos = OpInsumos.ListarInsumos();
-            var ListaLocal = ListaInsumos.ToList();
-            dgvListado.DataSource = ListaLocal;
-
-            var autosearch = new AutoCompleteStringCollection();
-            txtBuscar.AutoCompleteCustomSource = autosearch;
-            txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
-            txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
-            foreach (var pos in ListaLocal)
+            try
             {
-                autosearch.Add(Convert.ToString(pos.Nombre));
+                this.vProveedor_InsumoTableAdapter.Fill(this.orangeDB1DataSet.VProveedor_Insumo);
+                var ListaLocal = this.orangeDB1DataSet.VProveedor_Insumo;
+                dgvListado.DataSource = ListaLocal;
+                cbMedida.DataSource = OpMedidas.ListarMedidas().Select(x => x.IdMedida);
+                cbProveedor.DataSource = OpProveedor.ListarProveedores().Select(x => x.Nombre);
+                cbbCodigo.DataSource = OpInsumos.ListarInsumos().Select(x => x.IdInsumo);
+
+                var autosearch = new AutoCompleteStringCollection();
+                txtBuscar.AutoCompleteCustomSource = autosearch;
+                txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+                foreach (var pos in ListaLocal)
+                {
+                    autosearch.Add(Convert.ToString(pos.Nombre));
+                }
+                txtBuscar.AutoCompleteCustomSource = autosearch;
+                while (Utilitarios.Cambio)
+                {
+                    DATOS.Proveedor Prov = new DATOS.Proveedor();
+                    Prov = OpProveedor.BuscarProveedor(EditInsumo.Proveedor);
+
+                    tabControl1.SelectedIndex = 1;
+                    if (Utilitarios.Cambio)
+                    {
+                        txtIdInsumo.Text = EditInsumo.IdInsumo;
+                        txtNombre.Text = EditInsumo.Nombre;
+                        txtPrecioCompra.Text = EditInsumo.PrecioCompra.ToString();
+                        txtStock.Text = EditInsumo.CantInventario.ToString();
+                        txtPorcion.Text = EditInsumo.Porcion.ToString();
+
+                        cbMedida.SelectedValue = EditInsumo.IdMedida;
+
+                        cbProveedor.SelectedValue = Prov.Nombre;
+                        chkActivo.Checked = EditInsumo.Activo;
+
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
             }
-            txtBuscar.AutoCompleteCustomSource = autosearch;
-            while (Utilitarios.Cambio)
+            catch (Exception ex)
             {
-                DATOS.Proveedor Prov = new DATOS.Proveedor();
-                Prov = OpProveedor.BuscarProveedor(EditInsumo.Proveedor);
 
-                tabControl1.SelectedIndex = 1;
-                if (Utilitarios.Cambio)
-                {
-                    txtIdInsumo.Text = EditInsumo.IdInsumo;
-                    txtNombre.Text = EditInsumo.Nombre;
-                    txtPrecioCompra.Text = EditInsumo.PrecioCompra.ToString();
-                    txtStock.Text = EditInsumo.CantInventario.ToString();
-                    txtPorcion.Text = EditInsumo.Porcion.ToString();
-
-                    cbMedida.SelectedValue = EditInsumo.IdMedida;
-
-                    cbProveedor.SelectedValue = Prov.Nombre;
-                    chkActivo.Checked = EditInsumo.Activo;
-
-                }
-                else
-                {
-                    return;
-                }
+                ER.Descripcion = ex.Message;
+                ER.Tipo = "Error al Popular Datos";
+                ER.Hora = DateTime.Now;
+                OpErrpr.AgregarError(ER);
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -135,7 +150,268 @@ namespace LosNaranjitos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtIdInsumo.Text))
+            {
+                FrmEdicionInsumos a = new FrmEdicionInsumos();
+                a.Show();
+                this.Dispose();
+            }
+            else
+            {
+                if (OpInsumos.ExisteInsumo(txtIdInsumo.Text))
+                {
+                    EditarInsumo();
+                    Utilitarios.Cambio = false;
+                }
+                else
+                {
+                    MessageBox.Show("Insumo No existe",
+                    "Codigo No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
 
+        }
+
+        public void clearall()
+        {
+            txtIdInsumo.Clear();
+            txtNombre.Clear();
+            txtPorcion.Clear();
+            txtStock.Clear();
+            txtPrecioCompra.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                var ListaLocal = new DataTable();
+
+                foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
+                {
+                    ListaLocal.ImportRow(item);
+                }
+
+                switch (cbBuscar.SelectedItem.ToString())
+                {
+                    case "Codigo":
+                        ListaLocal.Clear();
+                        foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
+                        {
+                            if (item.IdInsumo == txtBuscar.Text)
+                            {
+                                ListaLocal.ImportRow(item);
+                            }
+                        }
+                        break;
+                    case "Proveedor":
+                        ListaLocal.Clear();
+                        foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
+                        {
+                            if (item.Proveedor == txtBuscar.Text)
+                            {
+                                ListaLocal.ImportRow(item);
+                            }
+                        }
+                        break;
+
+
+                }
+                dgvListado.DataSource = ListaLocal;
+            }
+            catch (Exception ex)
+            {
+
+                ER.Descripcion = ex.Message;
+                ER.Tipo = "Error al Popular Datos";
+                ER.Hora = DateTime.Now;
+                OpErrpr.AgregarError(ER);
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                var ListaLocal = new DataTable();
+
+                foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
+                {
+                    ListaLocal.ImportRow(item);
+                }
+
+
+                var autosearch = new AutoCompleteStringCollection();
+                txtBuscar.AutoCompleteCustomSource = autosearch;
+                txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+
+
+                switch (cbBuscar.SelectedItem.ToString())
+                {
+                    case "Codigo":
+                        ListaLocal.Clear();
+                        foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
+                        {
+                            if (item.IdInsumo == txtBuscar.Text)
+                            {
+                                ListaLocal.ImportRow(item);
+                            }
+                        }
+                        break;
+                    case "Proveedor":
+                        ListaLocal.Clear();
+                        foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
+                        {
+                            if (item.Proveedor == txtBuscar.Text)
+                            {
+                                ListaLocal.ImportRow(item);
+                            }
+                        }
+                        break;
+
+                }
+                txtBuscar.AutoCompleteCustomSource = autosearch;
+            }
+            catch (Exception ex)
+            {
+
+                ER.Descripcion = ex.Message;
+                ER.Tipo = "Error al Popular Datos";
+                ER.Hora = DateTime.Now;
+                OpErrpr.AgregarError(ER);
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void EditarInsumo()
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text) ||
+              string.IsNullOrEmpty(txtPorcion.Text) || string.IsNullOrWhiteSpace(txtStock.Text) ||
+              string.IsNullOrEmpty(txtStock.Text) || string.IsNullOrWhiteSpace(txtPorcion.Text) ||
+              string.IsNullOrEmpty(txtPrecioCompra.Text) || string.IsNullOrWhiteSpace(txtPrecioCompra.Text))
+            {
+                MessageBox.Show("Faltan datos por ingresar o se encuentran en blanco",
+                    "Error al ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+
+                try
+                {
+                    var ProveedorId = OpProveedor.BuscarProveedorPorNombre(cbProveedor.SelectedValue.ToString());
+                    DATOS.Insumos InsumoPrivate = new DATOS.Insumos
+                    {
+                        IdInsumo = txtIdInsumo.Text,
+                        Nombre = txtNombre.Text,
+                        Activo = chkActivo.Checked,
+                        PrecioCompra = decimal.Parse(txtPrecioCompra.Text),
+                        Porcion = float.Parse(txtPorcion.Text),
+                        IdMedida = cbMedida.SelectedValue.ToString(),
+                        Proveedor = ProveedorId.IdProveedor
+
+                    };
+
+                    OpInsumos.ActualizarInsumo(InsumoPrivate);
+                    MessageBox.Show("Los datos del Proveedor se Actualizaron correctamente",
+                   "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Dispose();
+                    clearall();
+                }
+                catch (Exception ex)
+                {
+
+                    ER.Descripcion = ex.Message;
+                    ER.Tipo = "Error al Popular Datos";
+                    ER.Hora = DateTime.Now;
+                    OpErrpr.AgregarError(ER);
+                    MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose(); clearall();
+        }
+
+        private void cbbCodigo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var InsumoPrivate = OpInsumos.BuscarInsumos(cbbCodigo.SelectedValue.ToString());
+                var ProvPrivate = OpProveedor.BuscarProveedor(InsumoPrivate.Proveedor);
+                if (InsumoPrivate.Activo)
+                {
+                    lblEstado.Text = "Estado: Activo";
+                }
+                else
+                {
+                    lblEstado.Text = "Estado: Inativo";
+                }
+                lblMedida.Text = "Medida: " + InsumoPrivate.IdMedida.ToString();
+                lblNombre.Text = "Nombre: " + InsumoPrivate.Nombre;
+                lblProveedor.Text = "Proveedor: " + ProvPrivate.Nombre;
+                lblstock.Text = "Stock: " + InsumoPrivate.CantInventario;
+                lblPorcion.Text = "Porción: " + InsumoPrivate.Porcion.ToString();
+                lblPrecio.Text = "Precio Compra: " + InsumoPrivate.PrecioCompra.ToString();
+
+            }
+            catch (Exception ex)
+            {
+
+                ER.Descripcion = ex.Message;
+                ER.Tipo = "Error al Popular Datos";
+                ER.Hora = DateTime.Now;
+                OpErrpr.AgregarError(ER);
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var InsumoPrivate = OpInsumos.BuscarInsumos(cbbCodigo.SelectedValue.ToString());
+                InsumoPrivate.CantInventario = InsumoPrivate.CantInventario + float.Parse(txtAjuste.Text);
+                OpInsumos.ActualizarInsumo(InsumoPrivate);
+            }
+            catch (Exception ex)
+            {
+                ER.Descripcion = ex.Message;
+                ER.Tipo = "Error al Actualizar Datos";
+                ER.Hora = DateTime.Now;
+                OpErrpr.AgregarError(ER);
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var InsumoPrivate = OpInsumos.BuscarInsumos(cbbCodigo.SelectedValue.ToString());
+                InsumoPrivate.CantInventario =  float.Parse(txtAjuste.Text);
+                OpInsumos.ActualizarInsumo(InsumoPrivate);
+            }
+            catch (Exception ex)
+            {
+                ER.Descripcion = ex.Message;
+                ER.Tipo = "Error al Actualizar Datos";
+                ER.Hora = DateTime.Now;
+                OpErrpr.AgregarError(ER);
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
+

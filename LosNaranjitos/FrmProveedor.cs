@@ -47,8 +47,8 @@ namespace LosNaranjitos
                 }
                 else
                 {
-                    MessageBox.Show("Usuario No existe",
-                    "IdUsuario No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Proveedor No existe",
+                    "Codigo No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 

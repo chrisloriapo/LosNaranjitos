@@ -22,11 +22,22 @@ namespace LosNaranjitos
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             FrmMenuPrincipal MN = new FrmMenuPrincipal();
+            FrmMenuCaja MC = new FrmMenuCaja();
+
             bool Ingreso = ValidarUser();
             if (Ingreso)
             {
-                MN.Show();
-                this.Hide();
+                if (UsuarioGlobal.Rol==3)
+                {
+                        MC.Show();
+                    this.Hide();
+                }
+                else 
+                {
+                    MN.Show();
+                    this.Hide();
+                }
+                            
             }
         }
 

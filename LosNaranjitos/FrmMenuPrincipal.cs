@@ -131,5 +131,33 @@ namespace LosNaranjitos
         {
 
         }
+
+        private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var mensaje = MessageBox.Show("¿Desea salir del sistema?", "Advertencia",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (mensaje == DialogResult.Yes)
+            {
+                this.Dispose();
+                Application.Exit();
+
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+
+        }
+
+        private void tstICerrarSesion_Click(object sender, EventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                frm.Close();
+            }
+            FrmLogin ReLog = new FrmLogin();
+            ReLog.Show();
+        }
     }
 }

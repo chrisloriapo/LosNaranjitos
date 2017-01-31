@@ -90,6 +90,12 @@
     <Compile Include="FrmConsecutivo.Designer.cs">
       <DependentUpon>FrmConsecutivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEdicionProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEdicionProducto.Designer.cs">
+      <DependentUpon>FrmEdicionProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEdicionInsumos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsecutivo.resx">
       <DependentUpon>FrmConsecutivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEdicionProducto.resx">
+      <DependentUpon>FrmEdicionProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEdicionInsumos.resx">
       <DependentUpon>FrmEdicionInsumos.cs</DependentUpon>

@@ -241,7 +241,7 @@ namespace LosNaranjitos
                 }
                 catch (Exception ex)
                 {
-                    throw;
+                    
                     ER.Descripcion = ex.Message;
                     ER.Tipo = "Error al Popular Datos";
                     ER.Hora = DateTime.Now;
