@@ -24,8 +24,6 @@ namespace LosNaranjitos.DATOS
         [Required]
         public string Proveedor { get; set; }
         [Required]
-        public float Porcion { get; set; }
-        [Required]
         public bool Activo { get; set; }
 
     }

@@ -66,7 +66,6 @@ namespace LosNaranjitos
                         txtNombre.Text = EditInsumo.Nombre;
                         txtPrecioCompra.Text = EditInsumo.PrecioCompra.ToString();
                         txtStock.Text = EditInsumo.CantInventario.ToString();
-                        txtPorcion.Text = EditInsumo.Porcion.ToString();
 
                         cbMedida.SelectedValue = EditInsumo.IdMedida;
 
@@ -176,7 +175,6 @@ namespace LosNaranjitos
         {
             txtIdInsumo.Clear();
             txtNombre.Clear();
-            txtPorcion.Clear();
             txtStock.Clear();
             txtPrecioCompra.Clear();
         }
@@ -295,8 +293,8 @@ namespace LosNaranjitos
         public void EditarInsumo()
         {
             if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text) ||
-              string.IsNullOrEmpty(txtPorcion.Text) || string.IsNullOrWhiteSpace(txtStock.Text) ||
-              string.IsNullOrEmpty(txtStock.Text) || string.IsNullOrWhiteSpace(txtPorcion.Text) ||
+               string.IsNullOrWhiteSpace(txtStock.Text) ||
+              string.IsNullOrEmpty(txtStock.Text) ||
               string.IsNullOrEmpty(txtPrecioCompra.Text) || string.IsNullOrWhiteSpace(txtPrecioCompra.Text))
             {
                 MessageBox.Show("Faltan datos por ingresar o se encuentran en blanco",
@@ -314,7 +312,6 @@ namespace LosNaranjitos
                         Nombre = txtNombre.Text,
                         Activo = chkActivo.Checked,
                         PrecioCompra = decimal.Parse(txtPrecioCompra.Text),
-                        Porcion = float.Parse(txtPorcion.Text),
                         IdMedida = cbMedida.SelectedValue.ToString(),
                         Proveedor = ProveedorId.IdProveedor
 
@@ -361,8 +358,7 @@ namespace LosNaranjitos
                 lblMedida.Text = "Medida: " + InsumoPrivate.IdMedida.ToString();
                 lblNombre.Text = "Nombre: " + InsumoPrivate.Nombre;
                 lblProveedor.Text = "Proveedor: " + ProvPrivate.Nombre;
-                lblstock.Text = "Stock: " + InsumoPrivate.CantInventario;
-                lblPorcion.Text = "Porción: " + InsumoPrivate.Porcion.ToString();
+                //lblstock.Text = "Stock: " + InsumoPrivate.CantInventario;
                 lblPrecio.Text = "Precio Compra: " + InsumoPrivate.PrecioCompra.ToString();
 
             }

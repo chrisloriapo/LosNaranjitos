@@ -14,6 +14,8 @@ namespace LosNaranjitos
     {
         BL.Interfaces.IUsuario UsuarioOperaciones = new BL.Clases.Usuario();
         public static DATOS.Usuario UsuarioGlobal = new DATOS.Usuario();
+        public static FrmMenuPrincipal MN = new FrmMenuPrincipal();
+
         public FrmLogin()
         {
             InitializeComponent();
@@ -21,23 +23,23 @@ namespace LosNaranjitos
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            FrmMenuPrincipal MN = new FrmMenuPrincipal();
+
             FrmMenuCaja MC = new FrmMenuCaja();
 
             bool Ingreso = ValidarUser();
             if (Ingreso)
             {
-                if (UsuarioGlobal.Rol==3)
+                if (UsuarioGlobal.Rol == 3)
                 {
-                        MC.Show();
+                    MC.Show();
                     this.Hide();
                 }
-                else 
+                else
                 {
                     MN.Show();
                     this.Hide();
                 }
-                            
+
             }
         }
 

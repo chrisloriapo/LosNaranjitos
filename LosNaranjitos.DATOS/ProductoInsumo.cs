@@ -20,6 +20,8 @@ namespace LosNaranjitos.DATOS
         public string IdMedida { get; set; }
         [Required]
         public float CantidadRequerida { get; set; }
+        [Required]
+        public float Porcion { get; set; }
 
     }
 

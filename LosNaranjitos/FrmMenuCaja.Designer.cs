@@ -39,7 +39,7 @@
             // pictureBox1
             // 
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.Image = global::LosNaranjitos.Properties.Resources.Logo1;
+            this.pictureBox1.Image = global::LosNaranjitos.Properties.Resources.NaranjitosT;
             this.pictureBox1.Location = new System.Drawing.Point(69, 262);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(178, 150);

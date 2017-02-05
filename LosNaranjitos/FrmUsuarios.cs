@@ -133,7 +133,7 @@ namespace LosNaranjitos
 
                 while (Utilitarios.Cambio)
                 {
-                    tabControl1.SelectedIndex = 1;
+                    tbControl1.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
                     {
                         txtIdUsuario.Text = EditUser.IdUsuario;
@@ -366,6 +366,16 @@ namespace LosNaranjitos
                 OpErrpr.AgregarError(ER);
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnEditar_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

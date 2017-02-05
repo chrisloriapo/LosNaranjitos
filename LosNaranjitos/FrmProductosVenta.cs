@@ -38,12 +38,12 @@ namespace LosNaranjitos
             try
             {
                 dgvListado.DataSource = OpProductos.ListarProductos();
-                lstAllInsumos.DataSource = OpInsumos.ListarInsumos().Select(x => x.Nombre);
+                lstAllInsumos.DataSource = OpInsumos.ListarInsumos().Select(x => x.Nombre).ToList();
 
             }
             catch (Exception ex)
             {
-
+                throw;
                 ER.Descripcion = ex.Message;
                 ER.Tipo = "Error al Popular Datos";
                 ER.Hora = DateTime.Now;

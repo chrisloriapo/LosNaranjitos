@@ -105,6 +105,8 @@ namespace LosNaranjitos
         {
             FrmUsuarios a = new FrmUsuarios();
             a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+
             a.Show();
         }
 
@@ -112,13 +114,15 @@ namespace LosNaranjitos
         {
             FrmProductosVenta a = new FrmProductosVenta();
             a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
             a.Show();
         }
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmConsecutivo a = new FrmConsecutivo();
+            FrmProveedor a = new FrmProveedor();
             a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
             a.Show();
         }
 
