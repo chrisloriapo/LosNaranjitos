@@ -198,6 +198,9 @@
     <Compile Include="FrmUsuarios.Designer.cs">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrangeDB1DataSet.cs">
+      <DependentUpon>OrangeDB1DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="OrangeDB1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -259,6 +262,9 @@
     <EmbeddedResource Include="FrmMenuCaja.resx">
       <DependentUpon>FrmMenuCaja.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipal.es-419.resx">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCombo.resx">
       <DependentUpon>FrmCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPedido.resx">
+      <DependentUpon>FrmPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductosVenta.resx">
       <DependentUpon>FrmProductosVenta.cs</DependentUpon>

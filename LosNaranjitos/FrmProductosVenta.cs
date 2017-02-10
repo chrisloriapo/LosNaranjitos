@@ -12,25 +12,26 @@ namespace LosNaranjitos
 {
     public partial class FrmProductosVenta : Form
     {
-        public static DATOS.Producto EditProducto = new DATOS.Producto();
-        public static List<DATOS.Producto> ListaProductos = new List<DATOS.Producto>();
+
         public BL.Interfaces.IInsumos OpInsumos = new BL.Clases.Insumos();
-        public BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
         public BL.Interfaces.IProductoInsumo OpInsumoProducto = new BL.Clases.ProductoInsumo();
         public BL.Interfaces.IProducto OpProductos = new BL.Clases.Producto();
+        public BL.Interfaces.IConsecutivo ConsecutivoOperaciones = new BL.Clases.Consecutivo();
+        public BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
         public BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
         public DATOS.Error ER = new DATOS.Error();
+        public DATOS.Bitacora BIT = new DATOS.Bitacora();
+        public static DATOS.Producto EditProducto = new DATOS.Producto();
+        public static DATOS.Producto NuevoProducto = new DATOS.Producto();
+        public static DATOS.ProductoInsumo RecetaNueva = new DATOS.ProductoInsumo();
+        public static DATOS.ProductoInsumo RecetaEditada = new DATOS.ProductoInsumo();
+        public static List<DATOS.Producto> ListaProductos = new List<DATOS.Producto>();
 
-        public static string Summary; 
+        public static string Summary;
 
         public FrmProductosVenta()
         {
             InitializeComponent();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void FrmProductosVenta_Load(object sender, EventArgs e)
@@ -43,7 +44,7 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-                throw;
+
                 ER.Descripcion = ex.Message;
                 ER.Tipo = "Error al Popular Datos";
                 ER.Hora = DateTime.Now;
@@ -58,18 +59,12 @@ namespace LosNaranjitos
             this.Dispose();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FrmInsumos FI = new FrmInsumos();
-            FI.Show();
-        }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
                 Summary.DefaultIfEmpty();
-                if (string.IsNullOrEmpty(txtNombre.Text)|| string.IsNullOrWhiteSpace(txtNombre.Text))
+                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
                     MessageBox.Show("Digita al menos el nombre del Producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -80,37 +75,7 @@ namespace LosNaranjitos
                     Summary = "El Producto " + txtNombre.Text + " contiene los siguientes insumos \n";
                     foreach (var insumo in lstInsumosSelected.SelectedItems)
                     {
-                        Summary = Summary + "\t "+insumo+"\n";
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
-                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void btnQuitar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
-                {
-                    MessageBox.Show("Digita al menos el nombre del Producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    Summary.DefaultIfEmpty();
-                    lstInsumosSelected.Items.Remove(lstInsumosSelected.SelectedItems);
-                    Summary = "El Producto " + txtNombre.Text + " contiene los siguientes insumos \n";
-                    foreach (var insumo in lstInsumosSelected.Items)
-                    {
-                        Summary = Summary + "\t " + insumo+ "\n";
+                        Summary = Summary + "\t " + insumo + "\n";
                     }
                 }
             }
@@ -166,49 +131,78 @@ namespace LosNaranjitos
                 }
             }
         }
+
         public void EditarProducto()
+        { }
+
+        private void btnQuitar_Click_1(object sender, EventArgs e)
         {
-            //if (string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
-            //  string.IsNullOrEmpty(txtEmpresa.Text) || string.IsNullOrWhiteSpace(txtEmpresa.Text) ||
-            //  string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
-            //  string.IsNullOrEmpty(txtIdProveedor.Text) || string.IsNullOrWhiteSpace(txtIdProveedor.Text) ||
-            //  string.IsNullOrEmpty(txtTelefono.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text))
-            //{
-            //    MessageBox.Show("Faltan datos por ingresar o se encuentran en blanco",
-            //        "Error al ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //else
-            //{
 
-            //    try
-            //    {
-            //        DATOS.Proveedor ProvedorPrivate = new DATOS.Proveedor
-            //        {
-            //            IdProveedor = txtIdProveedor.Text,
-            //            Nombre = Utilitarios.Encriptar(txtEmpresa.Text, Utilitarios.Llave),
-            //            Activo = chkEstado.Checked,
-            //            Telefono = txtTelefono.Text,
-            //            Correo = txtEmail.Text,
+            if (lstInsumosSelected.SelectedItems.Count >= 1)
+            {
+                foreach (var item in lstInsumosSelected.SelectedItems)
+                {
+                    lstInsumosSelected.Items.Remove(item);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona al menos un Insumo", "Selecciona al menos un Insumo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            //        };
+            }
 
-            //        OpProveedor.ActualizarProveedor(ProvedorPrivate);
-            //        MessageBox.Show("Los datos del Proveedor se Actualizaron correctamente",
-            //       "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        this.Dispose();
-            //        clearall();
-            //    }
-            //    catch (Exception ex)
-            //    {
+        }
 
-            //        ER.Descripcion = ex.Message;
-            //        ER.Tipo = "Error al Popular Datos";
-            //        ER.Hora = DateTime.Now;
-            //        OpErrpr.AgregarError(ER);
-            //        MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
+        private void AgregarInsumosaLista(object sender, EventArgs e)
+        {
+            if (lstAllInsumos.SelectedItems.Count >= 1)
+            {
+                foreach (var item in lstAllInsumos.SelectedItems)
+                {
+                    lstInsumosSelected.Items.Add(item);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona al menos un Insumo", "Selecciona al menos un Insumo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            //}
+            }
+        }
+
+        private void btnNuevoInsumo_Click(object sender, EventArgs e)
+        {
+            FrmInsumos a = new FrmInsumos();
+            a.MdiParent = FrmLogin.MN;
+            a.Show();
+
+        }
+
+        private void EditarProducto(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnContinuar1_Click(object sender, EventArgs e)
+        {
+            tbOperacionesProductos.SelectedTab = tbReceta;
+        }
+
+        private void btnContinuar2_Click(object sender, EventArgs e)
+        {
+            tbOperacionesProductos.SelectedTab = tbCostos;
+
+        }
+
+        private void btnContinuar3_Click(object sender, EventArgs e)
+        {
+            tbOperacionesProductos.SelectedTab = tbResumen;
+
+        }
+
+        private void btnRegresar3_Click(object sender, EventArgs e)
+        {
+            tbOperacionesProductos.SelectedTab = tbReceta;
+
         }
     }
 }

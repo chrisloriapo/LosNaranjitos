@@ -133,7 +133,10 @@ namespace LosNaranjitos
 
         private void pedidosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            FrmPedido a = new FrmPedido();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
         }
 
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -162,6 +165,67 @@ namespace LosNaranjitos
             }
             FrmLogin ReLog = new FrmLogin();
             ReLog.Show();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCliente a = new FrmCliente();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
+        }
+
+        private void insumosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmInsumos a = new FrmInsumos();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
+        }
+
+        private void unidadesDeMedidasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMedidas a = new FrmMedidas();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
+        }
+
+        private void insumosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void promocionesCombosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCombo a = new FrmCombo();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
+        }
+
+        private void consecutivosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmConsecutivo a = new FrmConsecutivo();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
+        }
+
+        private void bitacoraDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmBitacora a = new FrmBitacora();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
+        }
+
+        private void consecutivosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmErrores a = new FrmErrores();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
         }
     }
 }

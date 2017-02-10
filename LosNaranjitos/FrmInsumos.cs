@@ -34,15 +34,15 @@ namespace LosNaranjitos
 
         private void FrmInsumos_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'orangeDB1DataSet.VProveedor_Insumo' Puede moverla o quitarla según sea necesario.
+        
             try
             {
                 this.vProveedor_InsumoTableAdapter.Fill(this.orangeDB1DataSet.VProveedor_Insumo);
-                var ListaLocal = this.orangeDB1DataSet.VProveedor_Insumo;
+                var ListaLocal = this.orangeDB1DataSet.VProveedor_Insumo.ToList();
                 dgvListado.DataSource = ListaLocal;
-                cbMedida.DataSource = OpMedidas.ListarMedidas().Select(x => x.IdMedida);
-                cbProveedor.DataSource = OpProveedor.ListarProveedores().Select(x => x.Nombre);
-                cbbCodigo.DataSource = OpInsumos.ListarInsumos().Select(x => x.IdInsumo);
+                cbMedida.DataSource = OpMedidas.ListarMedidas().Select(x => x.IdMedida).ToList();
+                cbProveedor.DataSource = OpProveedor.ListarProveedores().Select(x => x.Nombre).ToList();
+                cbbCodigo.DataSource = OpInsumos.ListarInsumos().Select(x => x.IdInsumo).ToList();
 
                 var autosearch = new AutoCompleteStringCollection();
                 txtBuscar.AutoCompleteCustomSource = autosearch;
@@ -81,7 +81,7 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-
+                
                 ER.Descripcion = ex.Message;
                 ER.Tipo = "Error al Popular Datos";
                 ER.Hora = DateTime.Now;
@@ -225,7 +225,7 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-
+                
                 ER.Descripcion = ex.Message;
                 ER.Tipo = "Error al Popular Datos";
                 ER.Hora = DateTime.Now;
@@ -252,8 +252,8 @@ namespace LosNaranjitos
                 txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-
-                switch (cbBuscar.SelectedItem.ToString())
+            
+                switch (cbBuscar.SelectedText.ToString())
                 {
                     case "Codigo":
                         ListaLocal.Clear();
@@ -275,13 +275,13 @@ namespace LosNaranjitos
                             }
                         }
                         break;
-
-                }
+                    }
+                
                 txtBuscar.AutoCompleteCustomSource = autosearch;
             }
             catch (Exception ex)
             {
-
+                
                 ER.Descripcion = ex.Message;
                 ER.Tipo = "Error al Popular Datos";
                 ER.Hora = DateTime.Now;
@@ -343,34 +343,7 @@ namespace LosNaranjitos
 
         private void cbbCodigo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                var InsumoPrivate = OpInsumos.BuscarInsumos(cbbCodigo.SelectedValue.ToString());
-                var ProvPrivate = OpProveedor.BuscarProveedor(InsumoPrivate.Proveedor);
-                if (InsumoPrivate.Activo)
-                {
-                    lblEstado.Text = "Estado: Activo";
-                }
-                else
-                {
-                    lblEstado.Text = "Estado: Inativo";
-                }
-                lblMedida.Text = "Medida: " + InsumoPrivate.IdMedida.ToString();
-                lblNombre.Text = "Nombre: " + InsumoPrivate.Nombre;
-                lblProveedor.Text = "Proveedor: " + ProvPrivate.Nombre;
-                //lblstock.Text = "Stock: " + InsumoPrivate.CantInventario;
-                lblPrecio.Text = "Precio Compra: " + InsumoPrivate.PrecioCompra.ToString();
 
-            }
-            catch (Exception ex)
-            {
-
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
-                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

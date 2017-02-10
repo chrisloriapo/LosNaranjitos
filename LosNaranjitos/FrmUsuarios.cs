@@ -15,16 +15,19 @@ namespace LosNaranjitos
     {
         public static DATOS.Usuario EditUser = new DATOS.Usuario();
         public static List<DATOS.Usuario> ListaUsuarios = new List<DATOS.Usuario>();
-        public BL.Interfaces.IUsuario Usrs = new BL.Clases.Usuario();
+        public BL.Interfaces.IUsuario UsuarioOperaciones = new BL.Clases.Usuario();
         public BL.Interfaces.IRolUsuario OperacionesRoles = new BL.Clases.RolUsuario();
+        public BL.Interfaces.IConsecutivo ConsecutivoOperaciones = new BL.Clases.Consecutivo();
         public BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
         public BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
         public DATOS.Error ER = new DATOS.Error();
+        public DATOS.Bitacora BIT = new DATOS.Bitacora();
 
         public FrmUsuarios()
         {
             InitializeComponent();
         }
+
         public void AgregarUsuario()
         {
             string Usuario; int Consec = 1;
@@ -54,7 +57,7 @@ namespace LosNaranjitos
                         Consec = Consec + 1;
                         Usuario = txtApellido.Text + txtNombre.Text.Substring(0, 1) + Consec.ToString();
                         Usuario = Usuario.ToLower();
-                    } while (Usrs.ExisteUsuario(Utilitarios.Encriptar(Usuario, Utilitarios.Llave)));
+                    } while (UsuarioOperaciones.ExisteUsuario(Utilitarios.Encriptar(Usuario, Utilitarios.Llave)));
 
                     txtIdUsuario.Text = Usuario;
                     DATOS.RolUsuario RolLocal = OperacionesRoles.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
@@ -74,10 +77,18 @@ namespace LosNaranjitos
                         Direccion = txtDireccion.Text,
                     };
 
-                    Usrs.AgregarUsuario(Userprivate);
+                    UsuarioOperaciones.AgregarUsuario(Userprivate);
+                    DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo("Usuario").OrderByDescending(x => x.IdConsecutivo).First();
+                    UltimoConsecutivo.PKTabla = Userprivate.IdPersonal;
+                    ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
+                    BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
+                    BIT.Accion = "Ingreso de Usuario Nuevo";
+                    BIT.Fecha = DateTime.Now;
+                    OpBitacora.AgregarBitacora(BIT);
                     MessageBox.Show("Los datos del Usuario se ingresaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
+                   
                     clearall();
                 }
                 catch (Exception ex)
@@ -92,18 +103,20 @@ namespace LosNaranjitos
             }
 
         }
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             AgregarUsuario();
 
         }
+
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
             try
             {
                 cbbRol.DataSource = OperacionesRoles.ListarRoles().Select(p =>
                 p.Descripcion).ToList();
-                ListaUsuarios = Usrs.ListarUsuarios();
+                ListaUsuarios = UsuarioOperaciones.ListarUsuarios();
                 var ListaLocal = ListaUsuarios.Select(a => new
                 {
                     a.IdUsuario,
@@ -170,10 +183,12 @@ namespace LosNaranjitos
 
             }
         }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
+
         public void clearall()
         {
             txtIdPersonal.Clear();
@@ -188,6 +203,7 @@ namespace LosNaranjitos
             txtDireccion.Clear();
 
         }
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtIdUsuario.Text))
@@ -203,6 +219,7 @@ namespace LosNaranjitos
             }
 
         }
+
         public void EditarUsuario()
         {
             if (string.IsNullOrEmpty(txtContraseña.Text) || string.IsNullOrWhiteSpace(txtContraseña.Text) ||
@@ -233,7 +250,11 @@ namespace LosNaranjitos
                         Rol = RolLocal.IdRol,
                         Direccion = txtDireccion.Text,
                     };
-                    Usrs.ActualizarUsuario(Userprivate);
+                    UsuarioOperaciones.ActualizarUsuario(Userprivate);
+                    BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
+                    BIT.Accion = "Edicion de Usuario";
+                    BIT.Fecha = DateTime.Now;
+                    OpBitacora.AgregarBitacora(BIT);
                     MessageBox.Show("Los datos del Usuario se Actualizaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
@@ -241,7 +262,7 @@ namespace LosNaranjitos
                 }
                 catch (Exception ex)
                 {
-                    
+
                     ER.Descripcion = ex.Message;
                     ER.Tipo = "Error al Popular Datos";
                     ER.Hora = DateTime.Now;
@@ -257,7 +278,7 @@ namespace LosNaranjitos
         {
             try
             {
-                ListaUsuarios = Usrs.ListarUsuarios();
+                ListaUsuarios = UsuarioOperaciones.ListarUsuarios();
                 var ListaLocal = ListaUsuarios.Select(a => new
                 {
                     a.IdUsuario,
@@ -324,7 +345,7 @@ namespace LosNaranjitos
         {
             try
             {
-                ListaUsuarios = Usrs.ListarUsuarios();
+                ListaUsuarios = UsuarioOperaciones.ListarUsuarios();
                 var ListaLocal = ListaUsuarios.Select(a => new
                 {
                     a.IdUsuario,

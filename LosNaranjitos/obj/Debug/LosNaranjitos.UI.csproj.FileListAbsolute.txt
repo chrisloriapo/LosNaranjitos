@@ -184,3 +184,7 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmMenuCaja.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmCombo.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.Form1.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmPedido.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\es-419\LosNaranjitos.resources.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmMenuPrincipal.es-419.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\es-419\LosNaranjitos.resources.dll

@@ -12,7 +12,9 @@ namespace LosNaranjitos.DATOS
     {
         [Required][PrimaryKey]
         public string IdConsecutivo { get; set; }
-        [Required]
+
+        public string PKTabla { get; set; }
+
         public string Tipo { get; set; }
 
     }

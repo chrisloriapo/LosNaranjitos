@@ -16,9 +16,11 @@ namespace LosNaranjitos
         public static DATOS.Proveedor EditProveedor = new DATOS.Proveedor();
         public static List<DATOS.Proveedor> ListaProveedores = new List<DATOS.Proveedor>();
         public BL.Interfaces.IProveedor OpProveedor = new BL.Clases.Proveedor();
+        public BL.Interfaces.IConsecutivo ConsecutivoOperaciones = new BL.Clases.Consecutivo();
         public BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
         public BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
         public DATOS.Error ER = new DATOS.Error();
+        public DATOS.Bitacora BIT = new DATOS.Bitacora();
 
         public FrmProveedor()
         {
@@ -61,9 +63,8 @@ namespace LosNaranjitos
 
         public void AgregarProveedor()
         {
-
             if (string.IsNullOrEmpty(txtIdProveedor.Text) || string.IsNullOrWhiteSpace(txtIdProveedor.Text) ||
-            string.IsNullOrEmpty(txtEmpresa.Text) || string.IsNullOrWhiteSpace(txtEmpresa.Text))
+                string.IsNullOrEmpty(txtEmpresa.Text) || string.IsNullOrWhiteSpace(txtEmpresa.Text))
             {
                 MessageBox.Show("Faltan datos por ingresar o se encuentran en blanco",
                     "Error al ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -91,9 +92,18 @@ namespace LosNaranjitos
 
                         };
                         OpProveedor.AgregarProveedor(ProvedorPrivate);
-                    }
-                    MessageBox.Show("Los datos del Proveedor se ingresaron correctamente","Ingreso de datos", 
+                        DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo("Proveedor").OrderByDescending(x => x.IdConsecutivo).First();
+                        UltimoConsecutivo.PKTabla = ProvedorPrivate.IdProveedor;
+                        ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
+                        BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
+                        BIT.Accion = "Ingreso de Proveedor Nuevo";
+                        BIT.Fecha = DateTime.Now;
+                        OpBitacora.AgregarBitacora(BIT);
+
+                        MessageBox.Show("Los datos del Proveedor se ingresaron correctamente", "Ingreso de datos",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    
                     this.Dispose();
                     clearall();
                 }
@@ -108,6 +118,7 @@ namespace LosNaranjitos
             }
 
         }
+
         public void clearall()
         {
             txtTelefono.Clear();
@@ -115,6 +126,7 @@ namespace LosNaranjitos
             txtIdProveedor.Clear();
             txtEmpresa.Clear();
         }
+
         public void EditarProveedor()
         {
             if (string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
@@ -142,6 +154,10 @@ namespace LosNaranjitos
                     };
 
                     OpProveedor.ActualizarProveedor(ProvedorPrivate);
+                    BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
+                    BIT.Accion = "Edicion de Proveedor";
+                    BIT.Fecha = DateTime.Now;
+                    OpBitacora.AgregarBitacora(BIT);
                     MessageBox.Show("Los datos del Proveedor se Actualizaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
