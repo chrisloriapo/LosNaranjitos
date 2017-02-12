@@ -72,7 +72,7 @@ namespace LosNaranjitos
 
             this.Dispose();
             FrmProductosVenta a = new FrmProductosVenta();
-
+            a.MdiParent = FrmLogin.MN;
             a.Show();
         }
     }

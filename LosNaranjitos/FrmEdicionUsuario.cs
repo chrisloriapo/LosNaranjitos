@@ -74,6 +74,7 @@ namespace LosNaranjitos
             this.Dispose();
             FrmUsuarios a = new FrmUsuarios();
             a.MdiParent = FrmLogin.MN;
+            a.WindowState= FormWindowState.Maximized;
             a.Show();
         }
     }

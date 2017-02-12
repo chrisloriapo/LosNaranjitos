@@ -33,6 +33,8 @@
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.vProveedorInsumoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orangeDB1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orangeDB1DataSet = new LosNaranjitos.OrangeDB1DataSet();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -40,6 +42,14 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvListado = new System.Windows.Forms.DataGridView();
+            this.idInsumoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proveedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idMedidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantInventarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.vProveedorInsumoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbBuscar = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -73,41 +83,33 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.cbbCodigo = new System.Windows.Forms.ComboBox();
+            this.txtProveedorStock = new System.Windows.Forms.TextBox();
+            this.cbbCodigoStock = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNombreEditar = new System.Windows.Forms.TextBox();
+            this.txtNombreStock = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtPrecioCompraEditar = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.txtPrecioCompraStock = new System.Windows.Forms.TextBox();
+            this.chkActivoInventario = new System.Windows.Forms.CheckBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtMedidaStock = new System.Windows.Forms.TextBox();
             this.btnCancelarEdit = new System.Windows.Forms.Button();
             this.btnAjustar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtStockEditar = new System.Windows.Forms.TextBox();
+            this.txtCantidadStock = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtAjuste = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.vProveedorInsumoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.idInsumoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proveedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMedidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantInventarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.orangeDB1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.orangeDB1DataSet = new LosNaranjitos.OrangeDB1DataSet();
             this.vProveedor_InsumoTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.VProveedor_InsumoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSet)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -115,6 +117,7 @@
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -132,9 +135,6 @@
             this.groupBox8.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // ttMensaje
@@ -149,6 +149,16 @@
             // 
             this.vProveedorInsumoBindingSource.DataMember = "VProveedor_Insumo";
             this.vProveedorInsumoBindingSource.DataSource = this.orangeDB1DataSetBindingSource;
+            // 
+            // orangeDB1DataSetBindingSource
+            // 
+            this.orangeDB1DataSetBindingSource.DataSource = this.orangeDB1DataSet;
+            this.orangeDB1DataSetBindingSource.Position = 0;
+            // 
+            // orangeDB1DataSet
+            // 
+            this.orangeDB1DataSet.DataSetName = "OrangeDB1DataSet";
+            this.orangeDB1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tableLayoutPanel1
             // 
@@ -255,6 +265,60 @@
             this.dgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListado.Size = new System.Drawing.Size(622, 232);
             this.dgvListado.TabIndex = 20;
+            // 
+            // idInsumoDataGridViewTextBoxColumn
+            // 
+            this.idInsumoDataGridViewTextBoxColumn.DataPropertyName = "IdInsumo";
+            this.idInsumoDataGridViewTextBoxColumn.HeaderText = "IdInsumo";
+            this.idInsumoDataGridViewTextBoxColumn.Name = "idInsumoDataGridViewTextBoxColumn";
+            this.idInsumoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // proveedorDataGridViewTextBoxColumn
+            // 
+            this.proveedorDataGridViewTextBoxColumn.DataPropertyName = "Proveedor";
+            this.proveedorDataGridViewTextBoxColumn.HeaderText = "Proveedor";
+            this.proveedorDataGridViewTextBoxColumn.Name = "proveedorDataGridViewTextBoxColumn";
+            this.proveedorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idMedidaDataGridViewTextBoxColumn
+            // 
+            this.idMedidaDataGridViewTextBoxColumn.DataPropertyName = "IdMedida";
+            this.idMedidaDataGridViewTextBoxColumn.HeaderText = "IdMedida";
+            this.idMedidaDataGridViewTextBoxColumn.Name = "idMedidaDataGridViewTextBoxColumn";
+            this.idMedidaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precioCompraDataGridViewTextBoxColumn
+            // 
+            this.precioCompraDataGridViewTextBoxColumn.DataPropertyName = "PrecioCompra";
+            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "PrecioCompra";
+            this.precioCompraDataGridViewTextBoxColumn.Name = "precioCompraDataGridViewTextBoxColumn";
+            this.precioCompraDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cantInventarioDataGridViewTextBoxColumn
+            // 
+            this.cantInventarioDataGridViewTextBoxColumn.DataPropertyName = "CantInventario";
+            this.cantInventarioDataGridViewTextBoxColumn.HeaderText = "CantInventario";
+            this.cantInventarioDataGridViewTextBoxColumn.Name = "cantInventarioDataGridViewTextBoxColumn";
+            this.cantInventarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // activoDataGridViewCheckBoxColumn
+            // 
+            this.activoDataGridViewCheckBoxColumn.DataPropertyName = "Activo";
+            this.activoDataGridViewCheckBoxColumn.HeaderText = "Activo";
+            this.activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
+            this.activoDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // vProveedorInsumoBindingSource1
+            // 
+            this.vProveedorInsumoBindingSource1.DataMember = "VProveedor_Insumo";
+            this.vProveedorInsumoBindingSource1.DataSource = this.orangeDB1DataSetBindingSource;
             // 
             // groupBox2
             // 
@@ -673,15 +737,15 @@
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Controls.Add(this.textBox1, 0, 5);
-            this.tableLayoutPanel7.Controls.Add(this.cbbCodigo, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.txtProveedorStock, 0, 5);
+            this.tableLayoutPanel7.Controls.Add(this.cbbCodigoStock, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel7.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel7.Controls.Add(this.txtNombreEditar, 0, 3);
+            this.tableLayoutPanel7.Controls.Add(this.txtNombreStock, 0, 3);
             this.tableLayoutPanel7.Controls.Add(this.label7, 0, 4);
             this.tableLayoutPanel7.Controls.Add(this.label9, 0, 6);
-            this.tableLayoutPanel7.Controls.Add(this.txtPrecioCompraEditar, 0, 7);
-            this.tableLayoutPanel7.Controls.Add(this.checkBox1, 0, 8);
+            this.tableLayoutPanel7.Controls.Add(this.txtPrecioCompraStock, 0, 7);
+            this.tableLayoutPanel7.Controls.Add(this.chkActivoInventario, 0, 8);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -699,25 +763,26 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(300, 287);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
-            // textBox1
+            // txtProveedorStock
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(3, 158);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(294, 20);
-            this.textBox1.TabIndex = 29;
+            this.txtProveedorStock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtProveedorStock.Location = new System.Drawing.Point(3, 158);
+            this.txtProveedorStock.Name = "txtProveedorStock";
+            this.txtProveedorStock.ReadOnly = true;
+            this.txtProveedorStock.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtProveedorStock.Size = new System.Drawing.Size(294, 20);
+            this.txtProveedorStock.TabIndex = 29;
             // 
-            // cbbCodigo
+            // cbbCodigoStock
             // 
-            this.cbbCodigo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbbCodigo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCodigo.FormattingEnabled = true;
-            this.cbbCodigo.Location = new System.Drawing.Point(3, 34);
-            this.cbbCodigo.Name = "cbbCodigo";
-            this.cbbCodigo.Size = new System.Drawing.Size(294, 21);
-            this.cbbCodigo.TabIndex = 28;
+            this.cbbCodigoStock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbbCodigoStock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCodigoStock.FormattingEnabled = true;
+            this.cbbCodigoStock.Location = new System.Drawing.Point(3, 34);
+            this.cbbCodigoStock.Name = "cbbCodigoStock";
+            this.cbbCodigoStock.Size = new System.Drawing.Size(294, 21);
+            this.cbbCodigoStock.TabIndex = 28;
+            this.cbbCodigoStock.SelectedIndexChanged += new System.EventHandler(this.cbbCodigoStock_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -743,15 +808,15 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Nombre";
             // 
-            // txtNombreEditar
+            // txtNombreStock
             // 
-            this.txtNombreEditar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNombreEditar.Location = new System.Drawing.Point(3, 96);
-            this.txtNombreEditar.MaxLength = 50;
-            this.txtNombreEditar.Name = "txtNombreEditar";
-            this.txtNombreEditar.ReadOnly = true;
-            this.txtNombreEditar.Size = new System.Drawing.Size(294, 20);
-            this.txtNombreEditar.TabIndex = 7;
+            this.txtNombreStock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNombreStock.Location = new System.Drawing.Point(3, 96);
+            this.txtNombreStock.MaxLength = 50;
+            this.txtNombreStock.Name = "txtNombreStock";
+            this.txtNombreStock.ReadOnly = true;
+            this.txtNombreStock.Size = new System.Drawing.Size(294, 20);
+            this.txtNombreStock.TabIndex = 7;
             // 
             // label7
             // 
@@ -777,26 +842,27 @@
             this.label9.TabIndex = 25;
             this.label9.Text = "Precio Compra";
             // 
-            // txtPrecioCompraEditar
+            // txtPrecioCompraStock
             // 
-            this.txtPrecioCompraEditar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPrecioCompraEditar.Location = new System.Drawing.Point(3, 220);
-            this.txtPrecioCompraEditar.Name = "txtPrecioCompraEditar";
-            this.txtPrecioCompraEditar.ReadOnly = true;
-            this.txtPrecioCompraEditar.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtPrecioCompraEditar.Size = new System.Drawing.Size(294, 20);
-            this.txtPrecioCompraEditar.TabIndex = 26;
+            this.txtPrecioCompraStock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPrecioCompraStock.Location = new System.Drawing.Point(3, 220);
+            this.txtPrecioCompraStock.Name = "txtPrecioCompraStock";
+            this.txtPrecioCompraStock.ReadOnly = true;
+            this.txtPrecioCompraStock.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtPrecioCompraStock.Size = new System.Drawing.Size(294, 20);
+            this.txtPrecioCompraStock.TabIndex = 26;
             // 
-            // checkBox1
+            // chkActivoInventario
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.checkBox1.Location = new System.Drawing.Point(3, 251);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(62, 33);
-            this.checkBox1.TabIndex = 27;
-            this.checkBox1.Text = "Activo";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkActivoInventario.AutoSize = true;
+            this.chkActivoInventario.Dock = System.Windows.Forms.DockStyle.Left;
+            this.chkActivoInventario.Enabled = false;
+            this.chkActivoInventario.Location = new System.Drawing.Point(3, 251);
+            this.chkActivoInventario.Name = "chkActivoInventario";
+            this.chkActivoInventario.Size = new System.Drawing.Size(62, 33);
+            this.chkActivoInventario.TabIndex = 27;
+            this.chkActivoInventario.Text = "Activo";
+            this.chkActivoInventario.UseVisualStyleBackColor = true;
             // 
             // groupBox8
             // 
@@ -807,19 +873,19 @@
             this.groupBox8.Size = new System.Drawing.Size(306, 306);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Porciones";
+            this.groupBox8.Text = "Inventario";
             // 
             // tableLayoutPanel8
             // 
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Controls.Add(this.textBox2, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.txtMedidaStock, 0, 1);
             this.tableLayoutPanel8.Controls.Add(this.btnCancelarEdit, 0, 8);
             this.tableLayoutPanel8.Controls.Add(this.btnAjustar, 0, 7);
             this.tableLayoutPanel8.Controls.Add(this.btnAgregar, 0, 6);
             this.tableLayoutPanel8.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.txtStockEditar, 0, 3);
+            this.tableLayoutPanel8.Controls.Add(this.txtCantidadStock, 0, 3);
             this.tableLayoutPanel8.Controls.Add(this.label12, 0, 2);
             this.tableLayoutPanel8.Controls.Add(this.label13, 0, 4);
             this.tableLayoutPanel8.Controls.Add(this.txtAjuste, 0, 5);
@@ -840,15 +906,15 @@
             this.tableLayoutPanel8.Size = new System.Drawing.Size(300, 287);
             this.tableLayoutPanel8.TabIndex = 3;
             // 
-            // textBox2
+            // txtMedidaStock
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(3, 34);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(294, 20);
-            this.textBox2.TabIndex = 30;
+            this.txtMedidaStock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMedidaStock.Location = new System.Drawing.Point(3, 34);
+            this.txtMedidaStock.Name = "txtMedidaStock";
+            this.txtMedidaStock.ReadOnly = true;
+            this.txtMedidaStock.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMedidaStock.Size = new System.Drawing.Size(294, 20);
+            this.txtMedidaStock.TabIndex = 30;
             // 
             // btnCancelarEdit
             // 
@@ -878,6 +944,7 @@
             this.btnAjustar.TabIndex = 28;
             this.btnAjustar.Text = "Ajustar Inventario a Cantidad seleccionada";
             this.btnAjustar.UseVisualStyleBackColor = false;
+            this.btnAjustar.Click += new System.EventHandler(this.btnAjustar_Click);
             // 
             // btnAgregar
             // 
@@ -892,6 +959,7 @@
             this.btnAgregar.TabIndex = 27;
             this.btnAgregar.Text = "Agregar a Inventario";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label11
             // 
@@ -905,14 +973,14 @@
             this.label11.TabIndex = 21;
             this.label11.Text = "Medida";
             // 
-            // txtStockEditar
+            // txtCantidadStock
             // 
-            this.txtStockEditar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtStockEditar.Location = new System.Drawing.Point(3, 96);
-            this.txtStockEditar.Name = "txtStockEditar";
-            this.txtStockEditar.ReadOnly = true;
-            this.txtStockEditar.Size = new System.Drawing.Size(294, 20);
-            this.txtStockEditar.TabIndex = 24;
+            this.txtCantidadStock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCantidadStock.Location = new System.Drawing.Point(3, 96);
+            this.txtCantidadStock.Name = "txtCantidadStock";
+            this.txtCantidadStock.ReadOnly = true;
+            this.txtCantidadStock.Size = new System.Drawing.Size(294, 20);
+            this.txtCantidadStock.TabIndex = 24;
             // 
             // label12
             // 
@@ -971,70 +1039,6 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // vProveedorInsumoBindingSource1
-            // 
-            this.vProveedorInsumoBindingSource1.DataMember = "VProveedor_Insumo";
-            this.vProveedorInsumoBindingSource1.DataSource = this.orangeDB1DataSetBindingSource;
-            // 
-            // idInsumoDataGridViewTextBoxColumn
-            // 
-            this.idInsumoDataGridViewTextBoxColumn.DataPropertyName = "IdInsumo";
-            this.idInsumoDataGridViewTextBoxColumn.HeaderText = "IdInsumo";
-            this.idInsumoDataGridViewTextBoxColumn.Name = "idInsumoDataGridViewTextBoxColumn";
-            this.idInsumoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // proveedorDataGridViewTextBoxColumn
-            // 
-            this.proveedorDataGridViewTextBoxColumn.DataPropertyName = "Proveedor";
-            this.proveedorDataGridViewTextBoxColumn.HeaderText = "Proveedor";
-            this.proveedorDataGridViewTextBoxColumn.Name = "proveedorDataGridViewTextBoxColumn";
-            this.proveedorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idMedidaDataGridViewTextBoxColumn
-            // 
-            this.idMedidaDataGridViewTextBoxColumn.DataPropertyName = "IdMedida";
-            this.idMedidaDataGridViewTextBoxColumn.HeaderText = "IdMedida";
-            this.idMedidaDataGridViewTextBoxColumn.Name = "idMedidaDataGridViewTextBoxColumn";
-            this.idMedidaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // precioCompraDataGridViewTextBoxColumn
-            // 
-            this.precioCompraDataGridViewTextBoxColumn.DataPropertyName = "PrecioCompra";
-            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "PrecioCompra";
-            this.precioCompraDataGridViewTextBoxColumn.Name = "precioCompraDataGridViewTextBoxColumn";
-            this.precioCompraDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cantInventarioDataGridViewTextBoxColumn
-            // 
-            this.cantInventarioDataGridViewTextBoxColumn.DataPropertyName = "CantInventario";
-            this.cantInventarioDataGridViewTextBoxColumn.HeaderText = "CantInventario";
-            this.cantInventarioDataGridViewTextBoxColumn.Name = "cantInventarioDataGridViewTextBoxColumn";
-            this.cantInventarioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // activoDataGridViewCheckBoxColumn
-            // 
-            this.activoDataGridViewCheckBoxColumn.DataPropertyName = "Activo";
-            this.activoDataGridViewCheckBoxColumn.HeaderText = "Activo";
-            this.activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
-            this.activoDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // orangeDB1DataSetBindingSource
-            // 
-            this.orangeDB1DataSetBindingSource.DataSource = this.orangeDB1DataSet;
-            this.orangeDB1DataSetBindingSource.Position = 0;
-            // 
-            // orangeDB1DataSet
-            // 
-            this.orangeDB1DataSet.DataSetName = "OrangeDB1DataSet";
-            this.orangeDB1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // vProveedor_InsumoTableAdapter
             // 
             this.vProveedor_InsumoTableAdapter.ClearBeforeFill = true;
@@ -1053,6 +1057,8 @@
             this.Load += new System.EventHandler(this.FrmInsumos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSet)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -1060,6 +1066,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1082,9 +1089,6 @@
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1139,14 +1143,14 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNombreEditar;
+        private System.Windows.Forms.TextBox txtNombreStock;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtPrecioCompraEditar;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox txtPrecioCompraStock;
+        private System.Windows.Forms.CheckBox chkActivoInventario;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtStockEditar;
+        private System.Windows.Forms.TextBox txtCantidadStock;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtAjuste;
@@ -1156,9 +1160,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ComboBox cbbCodigo;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox cbbCodigoStock;
+        private System.Windows.Forms.TextBox txtProveedorStock;
+        private System.Windows.Forms.TextBox txtMedidaStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn idInsumoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn proveedorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;

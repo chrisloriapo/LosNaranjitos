@@ -16,17 +16,14 @@ namespace LosNaranjitos
         public static List<DATOS.Cliente> ListaClientes = new List<DATOS.Cliente>();
         public BL.Interfaces.ICliente OpCliente = new BL.Clases.Cliente();
         public BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
+        public BL.Interfaces.IConsecutivo ConsecutivoOperaciones = new BL.Clases.Consecutivo();
         public BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
         public DATOS.Error ER = new DATOS.Error();
+        public DATOS.Bitacora BIT = new DATOS.Bitacora();
 
         public FrmCliente()
         {
             InitializeComponent();
-        }
-
-        private void txtIdProveedor_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -156,6 +153,13 @@ namespace LosNaranjitos
                         };
 
                         OpCliente.ActualizarCLIENTE(ClientePrivate);
+                        DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo("Cliente").OrderByDescending(x => x.IdConsecutivo).First();
+                        UltimoConsecutivo.PKTabla = ClientePrivate.IdPersonal;
+                        ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
+                        BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
+                        BIT.Accion = "Ingreso de Cliente Nuevo " + ClientePrivate.IdPersonal;
+                        BIT.Fecha = DateTime.Now;
+                        OpBitacora.AgregarBitacora(BIT);
                     }
 
 

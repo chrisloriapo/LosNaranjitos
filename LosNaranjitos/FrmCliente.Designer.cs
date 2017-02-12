@@ -326,67 +326,75 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDireccion.Location = new System.Drawing.Point(3, 220);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDireccion.Size = new System.Drawing.Size(215, 26);
+            this.txtDireccion.Size = new System.Drawing.Size(303, 26);
             this.txtDireccion.TabIndex = 28;
             // 
             // txtIdCliente
             // 
+            this.txtIdCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtIdCliente.Location = new System.Drawing.Point(3, 34);
             this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(158, 20);
+            this.txtIdCliente.Size = new System.Drawing.Size(303, 20);
             this.txtIdCliente.TabIndex = 10;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.Size = new System.Drawing.Size(303, 31);
             this.label3.TabIndex = 9;
             this.label3.Text = "Código";
             // 
             // txtNombre
             // 
+            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNombre.Location = new System.Drawing.Point(3, 96);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(200, 20);
+            this.txtNombre.Size = new System.Drawing.Size(303, 20);
             this.txtNombre.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(3, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.Size = new System.Drawing.Size(303, 31);
             this.label4.TabIndex = 11;
             this.label4.Text = "Nombre";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Location = new System.Drawing.Point(3, 124);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.Size = new System.Drawing.Size(303, 31);
             this.label7.TabIndex = 25;
             this.label7.Text = "Apellido";
             // 
             // txtApellido
             // 
+            this.txtApellido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtApellido.Location = new System.Drawing.Point(3, 158);
             this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(200, 20);
+            this.txtApellido.Size = new System.Drawing.Size(303, 20);
             this.txtApellido.TabIndex = 26;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(3, 186);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.Size = new System.Drawing.Size(303, 31);
             this.label5.TabIndex = 27;
             this.label5.Text = "Direccion";
             // 
@@ -421,66 +429,74 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtEmail.Location = new System.Drawing.Point(3, 220);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(180, 20);
+            this.txtEmail.Size = new System.Drawing.Size(304, 20);
             this.txtEmail.TabIndex = 33;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 13);
+            this.label9.Size = new System.Drawing.Size(304, 31);
             this.label9.TabIndex = 18;
             this.label9.Text = "Telefono";
             // 
             // txtTelefono
             // 
+            this.txtTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTelefono.Location = new System.Drawing.Point(3, 34);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(158, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(304, 20);
             this.txtTelefono.TabIndex = 19;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Location = new System.Drawing.Point(3, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.Size = new System.Drawing.Size(304, 31);
             this.label2.TabIndex = 21;
             this.label2.Text = "Ultima Visita";
             // 
             // dtpUltimaVisita
             // 
+            this.dtpUltimaVisita.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpUltimaVisita.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpUltimaVisita.Location = new System.Drawing.Point(3, 96);
             this.dtpUltimaVisita.Name = "dtpUltimaVisita";
-            this.dtpUltimaVisita.Size = new System.Drawing.Size(180, 20);
+            this.dtpUltimaVisita.Size = new System.Drawing.Size(304, 20);
             this.dtpUltimaVisita.TabIndex = 29;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Location = new System.Drawing.Point(3, 124);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 13);
+            this.label8.Size = new System.Drawing.Size(304, 31);
             this.label8.TabIndex = 30;
             this.label8.Text = "Puntaje";
             // 
             // txtPuntaje
             // 
+            this.txtPuntaje.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPuntaje.Location = new System.Drawing.Point(3, 158);
             this.txtPuntaje.Name = "txtPuntaje";
-            this.txtPuntaje.Size = new System.Drawing.Size(180, 20);
+            this.txtPuntaje.Size = new System.Drawing.Size(304, 20);
             this.txtPuntaje.TabIndex = 31;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Location = new System.Drawing.Point(3, 186);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(37, 13);
+            this.label10.Size = new System.Drawing.Size(304, 31);
             this.label10.TabIndex = 32;
             this.label10.Text = "Email";
             // 
@@ -561,6 +577,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LimeGreen;
             this.ClientSize = new System.Drawing.Size(718, 488);
+            this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmCliente";

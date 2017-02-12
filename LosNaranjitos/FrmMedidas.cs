@@ -19,6 +19,8 @@ namespace LosNaranjitos
         public BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
         public BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
         public DATOS.Error ER = new DATOS.Error();
+        public DATOS.Bitacora BIT = new DATOS.Bitacora();
+
 
         public FrmMedidas()
         {
@@ -103,6 +105,10 @@ namespace LosNaranjitos
                         };
 
                         OpMedidas.AgregarMedida(MedidaPrivate);
+                        BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
+                        BIT.Accion = "Ingreso de unidad de medida Nuevo "+ MedidaPrivate.IdMedida;
+                        BIT.Fecha = DateTime.Now;
+                        OpBitacora.AgregarBitacora(BIT);
                     }
                     MessageBox.Show("Las medidas se ingresaron de manera correcta",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -141,6 +147,9 @@ namespace LosNaranjitos
                         };
 
                         OpMedidas.ActualizarMEdida(MedidaPrivate);
+                        BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
+                        BIT.Accion = "Edicion de unidad de medida " + MedidaPrivate.IdMedida;
+                        BIT.Fecha = DateTime.Now;
                         MessageBox.Show("Los datos de la Unidad de Medida se Actualizaron correctamente",
                        "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Dispose();

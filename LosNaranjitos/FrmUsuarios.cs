@@ -82,7 +82,7 @@ namespace LosNaranjitos
                     UltimoConsecutivo.PKTabla = Userprivate.IdPersonal;
                     ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
                     BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
-                    BIT.Accion = "Ingreso de Usuario Nuevo";
+                    BIT.Accion = "Ingreso de Usuario Nuevo "+Userprivate.IdUsuario;
                     BIT.Fecha = DateTime.Now;
                     OpBitacora.AgregarBitacora(BIT);
                     MessageBox.Show("Los datos del Usuario se ingresaron correctamente",

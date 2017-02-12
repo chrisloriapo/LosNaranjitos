@@ -35,6 +35,7 @@ namespace LosNaranjitos
             Utilitarios.Cambio = true;
             this.Dispose();
             FrmProveedor a = new FrmProveedor();
+            a.MdiParent = FrmLogin.MN;
             a.Show();
         }
 

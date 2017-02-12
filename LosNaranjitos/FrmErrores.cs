@@ -36,9 +36,11 @@ namespace LosNaranjitos
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
+  
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

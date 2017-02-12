@@ -74,6 +74,7 @@ namespace LosNaranjitos
 
             this.Dispose();
             FrmMedidas a = new FrmMedidas();
+            a.MdiParent = FrmLogin.MN;
             a.Show();
         }
     }
