@@ -17,7 +17,7 @@ namespace LosNaranjitos.DS.Clases
 
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
-            db.Update(BitacorA);
+            db.Insert(BitacorA);
         }
 
         public DATOS.Bitacora BuscarBitacora(int IdBitacora)

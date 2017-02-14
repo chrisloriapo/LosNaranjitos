@@ -108,14 +108,14 @@ namespace LosNaranjitos
                     if (OpInsumos.ExisteInsumo(txtIdInsumo.Text))
                     {
                         MessageBox.Show("Insumo Duplicado",
-                                            "No se puede Ingresar Insumo duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            "No se puede Ingresar Insumo duplicado",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     else
                     {
                         DATOS.Proveedor Prov = new DATOS.Proveedor();
                         Prov = OpProveedor.BuscarProveedorPorNombre(cbProveedor.SelectedValue.ToString());
-
                         DATOS.Insumos InsumoPrivate = new DATOS.Insumos
                         {
                             IdInsumo = txtIdInsumo.Text,
@@ -128,7 +128,8 @@ namespace LosNaranjitos
                         };
 
                         OpInsumos.AgregarInsumo(InsumoPrivate);
-                        DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo("Insumo").OrderByDescending(x => x.IdConsecutivo).First();
+                        DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo
+                            ("Insumo").OrderByDescending(x => x.IdConsecutivo).First();
                         UltimoConsecutivo.PKTabla = InsumoPrivate.IdInsumo;
                         ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
 
@@ -137,7 +138,6 @@ namespace LosNaranjitos
                         BIT.Fecha = DateTime.Now;
                         OpBitacora.AgregarBitacora(BIT);
                     }
-
                     MessageBox.Show("Los datos del Proveedor se ingresaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
@@ -372,9 +372,6 @@ namespace LosNaranjitos
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-  
-
         private void cbbCodigoStock_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -394,7 +391,6 @@ namespace LosNaranjitos
                 {
                     chkActivoInventario.Checked = false;
                 }
-
             }
             catch (Exception ex)
             {
@@ -405,9 +401,7 @@ namespace LosNaranjitos
                 OpErrpr.AgregarError(ER);
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-
         private void btnAjustar_Click(object sender, EventArgs e)
         {
             try

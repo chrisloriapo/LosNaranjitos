@@ -144,6 +144,7 @@
             this.dgvConsecutivo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvConsecutivo.Size = new System.Drawing.Size(512, 205);
             this.dgvConsecutivo.TabIndex = 18;
+            this.dgvConsecutivo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsecutivo_CellContentClick);
             // 
             // flowLayoutPanel1
             // 
@@ -182,6 +183,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(139, 20);
             this.txtBuscar.TabIndex = 17;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // btnBuscar
             // 
@@ -195,6 +197,7 @@
             this.btnBuscar.TabIndex = 18;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // tabPage2
             // 
@@ -228,6 +231,8 @@
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel5);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.OrangeRed;
             this.groupBox2.Location = new System.Drawing.Point(262, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(253, 204);
@@ -263,7 +268,9 @@
             // lbl1
             // 
             this.lbl1.AutoSize = true;
+            this.lbl1.BackColor = System.Drawing.Color.Transparent;
             this.lbl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl1.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl1.Location = new System.Drawing.Point(17, 0);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(211, 30);
@@ -273,6 +280,7 @@
             // 
             this.lbl3.AutoSize = true;
             this.lbl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl3.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl3.Location = new System.Drawing.Point(17, 60);
             this.lbl3.Name = "lbl3";
             this.lbl3.Size = new System.Drawing.Size(211, 30);
@@ -282,6 +290,7 @@
             // 
             this.lbl2.AutoSize = true;
             this.lbl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl2.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl2.Location = new System.Drawing.Point(17, 30);
             this.lbl2.Name = "lbl2";
             this.lbl2.Size = new System.Drawing.Size(211, 30);
@@ -291,6 +300,7 @@
             // 
             this.lbl4.AutoSize = true;
             this.lbl4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl4.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl4.Location = new System.Drawing.Point(17, 90);
             this.lbl4.Name = "lbl4";
             this.lbl4.Size = new System.Drawing.Size(211, 30);
@@ -300,6 +310,7 @@
             // 
             this.lbl5.AutoSize = true;
             this.lbl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl5.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl5.Location = new System.Drawing.Point(17, 120);
             this.lbl5.Name = "lbl5";
             this.lbl5.Size = new System.Drawing.Size(211, 30);
@@ -309,6 +320,7 @@
             // 
             this.lbl6.AutoSize = true;
             this.lbl6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl6.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl6.Location = new System.Drawing.Point(17, 150);
             this.lbl6.Name = "lbl6";
             this.lbl6.Size = new System.Drawing.Size(211, 35);
@@ -318,6 +330,8 @@
             // 
             this.grbBuscar.Controls.Add(this.tableLayoutPanel4);
             this.grbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbBuscar.ForeColor = System.Drawing.Color.OrangeRed;
             this.grbBuscar.Location = new System.Drawing.Point(3, 3);
             this.grbBuscar.Name = "grbBuscar";
             this.grbBuscar.Size = new System.Drawing.Size(253, 204);
@@ -366,7 +380,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(17, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 13);
+            this.label1.Size = new System.Drawing.Size(124, 13);
             this.label1.TabIndex = 21;
             this.label1.Text = "Tipo de Consecutivo";
             // 
@@ -406,7 +420,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(17, 120);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(77, 13);
             this.label4.TabIndex = 23;
             this.label4.Text = "Nuevo Valor";
             // 

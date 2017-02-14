@@ -188,3 +188,6 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\es-419\LosNaranjitos.resources.dll
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmMenuPrincipal.es-419.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\es-419\LosNaranjitos.resources.dll
+C:\Users\Jenny\Desktop\Shared-20170213T195845Z\Shared\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.UI.csprojResolveAssemblyReference.cache
+C:\Users\Jenny\Desktop\Shared-20170213T195845Z\Shared\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.exe
+C:\Users\Jenny\Desktop\Shared-20170213T195845Z\Shared\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.pdb

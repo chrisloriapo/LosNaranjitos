@@ -54,7 +54,7 @@ namespace LosNaranjitos
                     Usuario = Usuario.ToLower();
                     do
                     {
-                        Consec = Consec + 1;
+                        Consec = Consec + 1; //Consecutivo para IdUsuario
                         Usuario = txtApellido.Text + txtNombre.Text.Substring(0, 1) + Consec.ToString();
                         Usuario = Usuario.ToLower();
                     } while (UsuarioOperaciones.ExisteUsuario(Utilitarios.Encriptar(Usuario, Utilitarios.Llave)));
@@ -78,7 +78,9 @@ namespace LosNaranjitos
                     };
 
                     UsuarioOperaciones.AgregarUsuario(Userprivate);
-                    DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo("Usuario").OrderByDescending(x => x.IdConsecutivo).First();
+                    //Logistica de Consecutivos
+                    DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo("Usuario").
+                        OrderByDescending(x => x.IdConsecutivo).First();
                     UltimoConsecutivo.PKTabla = Userprivate.IdPersonal;
                     ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
                     BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
@@ -87,8 +89,7 @@ namespace LosNaranjitos
                     OpBitacora.AgregarBitacora(BIT);
                     MessageBox.Show("Los datos del Usuario se ingresaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Dispose();
-                   
+                    this.Dispose();                   
                     clearall();
                 }
                 catch (Exception ex)
@@ -217,9 +218,7 @@ namespace LosNaranjitos
                 EditarUsuario();
                 Utilitarios.Cambio = false;
             }
-
         }
-
         public void EditarUsuario()
         {
             if (string.IsNullOrEmpty(txtContraseña.Text) || string.IsNullOrWhiteSpace(txtContraseña.Text) ||

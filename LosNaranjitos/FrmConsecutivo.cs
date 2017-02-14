@@ -32,11 +32,11 @@ namespace LosNaranjitos
         {
             InitializeComponent();
         }
-
         private void Carga(object sender, EventArgs e)
         {
             try
             {
+                cbbTipo.SelectedIndex = 0;
                 foreach (var item in ConsecutivoOperaciones.ListarConsecutivos())
                 {
                     cbbIdConsecutivos.Items.Add(item.IdConsecutivo);
@@ -129,22 +129,14 @@ namespace LosNaranjitos
                 cbbIdConsecutivos.AutoCompleteCustomSource = autosearch;
                 cbbIdConsecutivos.AutoCompleteMode = AutoCompleteMode.Suggest;
                 cbbIdConsecutivos.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
                 cbbIdConsecutivos.Items.Clear();
-
-
-
                 switch (cbbTipo.SelectedItem.ToString())
                 {
                     case "Proveedor":
-
                         ListaLocal = ConsecutivoOperaciones.ListaPorTipo("Proveedor");
-
                         break;
                     case "Cliente":
-
                         ListaLocal = ConsecutivoOperaciones.ListaPorTipo("Cliente");
-
                         break;
                     case "Usuario":
                         ListaLocal = ConsecutivoOperaciones.ListaPorTipo("Usuario");
@@ -185,18 +177,14 @@ namespace LosNaranjitos
                 OpErrpr.AgregarError(ER);
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-
         private void cbbIdConsecutivos_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 ConsecutivoGlobal = ConsecutivoOperaciones.BuscarConsecutivo(cbbIdConsecutivos.SelectedItem.ToString());
-
                 switch (cbbTipo.SelectedItem.ToString())
                 {
-
                     case "Proveedor":
                         DATOS.Proveedor ProveedorLocal = OpProveedor.BuscarProveedor(ConsecutivoGlobal.PKTabla);
                         lbl1.Text = "Detalles de Proveedor:";
@@ -209,23 +197,27 @@ namespace LosNaranjitos
                     case "Cliente":
                         DATOS.Cliente ClienteLocal = OpCliente.BuscarCliente(ConsecutivoGlobal.PKTabla);
                         lbl1.Text = "Detalles de Cliente:";
-                        lbl2.Text = "Nombre: " + ClienteLocal.Nombre + " " + ClienteLocal.Apellido1 + " " + ClienteLocal.Apellido2;
+                        lbl2.Text = "Nombre: " + ClienteLocal.Nombre + " " + ClienteLocal.Apellido1 + " " 
+                            + ClienteLocal.Apellido2;
                         lbl3.Text = "ID : " + ClienteLocal.IdPersonal;
                         lbl4.Text = "Telefono:" + ClienteLocal.Telefono;
                         lbl5.Text = "Correo: " + ClienteLocal.Correo;
                         lbl6.Text = "Activo: " + ClienteLocal.Activo.ToString();
                         break;
                     case "Usuario":
-                        DATOS.Usuario UsuarioLocal = OpUsuario.BuscarUsuarioXUsername(ConsecutivoGlobal.PKTabla);
+                        DATOS.Usuario UsuarioLocal = OpUsuario.BuscarUsuario(ConsecutivoGlobal.PKTabla);
                         lbl1.Text = "Detalles de Usuario:";
-                        lbl2.Text = "Nombre: " + Utilitario.Decriptar(UsuarioLocal.Nombre, Utilitario.Llave) + " " + Utilitario.Decriptar(UsuarioLocal.Apellido1, Utilitario.Llave) + " " + Utilitario.Decriptar(UsuarioLocal.Apellido2, Utilitario.Llave);
+                        lbl2.Text = "Nombre: " + Utilitario.Decriptar(UsuarioLocal.Nombre, Utilitario.Llave) + " "
+                            + Utilitario.Decriptar(UsuarioLocal.Apellido1, Utilitario.Llave) + " " 
+                            + Utilitario.Decriptar(UsuarioLocal.Apellido2, Utilitario.Llave);
                         lbl3.Text = "ID : " + Utilitario.Decriptar(UsuarioLocal.IdPersonal, Utilitario.Llave);
                         lbl4.Text = "Telefono:" + Utilitario.Decriptar(UsuarioLocal.Telefono, Utilitario.Llave);
                         lbl5.Text = "Correo: " + Utilitario.Decriptar(UsuarioLocal.Correo, Utilitario.Llave);
                         lbl6.Text = "Activo: " + UsuarioLocal.Activo.ToString();
                         break;
                     case "Categoria de Productos":
-                        DATOS.CategoriaProductos CategoriaLocal = OpCategoriaProductos.BuscarCategoriaProductos(Convert.ToInt32(ConsecutivoGlobal.PKTabla));
+                        DATOS.CategoriaProductos CategoriaLocal = OpCategoriaProductos.BuscarCategoriaProductos
+                            (Convert.ToInt32(ConsecutivoGlobal.PKTabla));
                         lbl1.Text = "Detalles de Categoria de Producto:";
                         lbl2.Text = "Id: " + CategoriaLocal.IdTipo;
                         lbl3.Text = "Descripcion : " + CategoriaLocal.Descripcion;
@@ -280,7 +272,6 @@ namespace LosNaranjitos
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             try
@@ -322,7 +313,8 @@ namespace LosNaranjitos
                 }
                 Siglas = Siglas + txtNuevo.Text.Replace(" ","");
 
-                var mensaje = MessageBox.Show("¿Desea cambiar el consecutivo "+ConsecutivoGlobal.IdConsecutivo+" por "+Siglas+" ?", "Advertencia",
+                var mensaje = MessageBox.Show("¿Desea cambiar el consecutivo "
+                    +ConsecutivoGlobal.IdConsecutivo+" por "+Siglas+" ?", "Advertencia",
                  MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (mensaje == DialogResult.Yes)
@@ -343,7 +335,8 @@ namespace LosNaranjitos
                         BIT.Fecha = DateTime.Now;
                         OpBitacora.AgregarBitacora(BIT);
                         BIT = null;
-                        MessageBox.Show("Consecutivo actualizado", "Actualización", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Consecutivo actualizado", "Actualización", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtNuevo.Clear();
                         Carga(sender,e);
                         tbC2.SelectedIndex = 0;
@@ -365,6 +358,21 @@ namespace LosNaranjitos
                 OpErrpr.AgregarError(ER);
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvConsecutivo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

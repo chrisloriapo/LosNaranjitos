@@ -42,5 +42,10 @@ namespace LosNaranjitos
         {
             this.Dispose();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

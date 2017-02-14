@@ -137,7 +137,8 @@ namespace LosNaranjitos
                     if (OpCliente.ExisteCLIENTE(txtIdCliente.Text))
                     {
                         MessageBox.Show("Cliente Duplicado",
-                                            "No se puede Ingresar Cliente duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            "No se puede Ingresar Cliente duplicado",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     else
@@ -149,11 +150,11 @@ namespace LosNaranjitos
                             Activo = false,
                             Telefono = txtTelefono.Text,
                             Correo = txtEmail.Text,
-
                         };
 
                         OpCliente.ActualizarCLIENTE(ClientePrivate);
-                        DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo("Cliente").OrderByDescending(x => x.IdConsecutivo).First();
+                        DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.
+                            ListaPorTipo("Cliente").OrderByDescending(x => x.IdConsecutivo).First();
                         UltimoConsecutivo.PKTabla = ClientePrivate.IdPersonal;
                         ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
                         BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
@@ -161,12 +162,9 @@ namespace LosNaranjitos
                         BIT.Fecha = DateTime.Now;
                         OpBitacora.AgregarBitacora(BIT);
                     }
-
-
                     MessageBox.Show("Los datos del Cliente se ingresaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Dispose();
-                 
+                    this.Dispose();               
                 }
                 catch (Exception ex)
                 {
@@ -225,6 +223,11 @@ namespace LosNaranjitos
                 OpErrpr.AgregarError(ER);
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnNuevo_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
     }

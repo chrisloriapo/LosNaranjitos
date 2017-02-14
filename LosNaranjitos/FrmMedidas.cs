@@ -93,7 +93,8 @@ namespace LosNaranjitos
                     if (OpMedidas.ExisteMEdida(txtMedida.Text))
                     {
                         MessageBox.Show("Unidad de medida Duplicado",
-                                            "No se puede Ingresar Medida duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            "No se puede Ingresar Medida duplicado", 
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     else
@@ -121,10 +122,8 @@ namespace LosNaranjitos
                     ER.Hora = DateTime.Now;
                     OpErrpr.AgregarError(ER);
                     MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
             }
-
         }
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -158,7 +157,6 @@ namespace LosNaranjitos
                     }
                     catch (Exception ex)
                     {
-
                         ER.Descripcion = ex.Message;
                         ER.Tipo = "Error al Popular Datos";
                         ER.Hora = DateTime.Now;

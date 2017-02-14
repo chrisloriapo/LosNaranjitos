@@ -77,7 +77,8 @@ namespace LosNaranjitos
                     if (OpProveedor.ExisteProveedor(txtIdProveedor.Text))
                     {
                         MessageBox.Show("Proveedor Duplicado",
-                                            "No se puede Ingresar usuario duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            "No se puede Ingresar usuario duplicado", 
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     else
@@ -89,10 +90,10 @@ namespace LosNaranjitos
                             Activo = chkEstado.Checked,
                             Telefono = txtTelefono.Text,
                             Correo = txtEmail.Text,
-
                         };
                         OpProveedor.AgregarProveedor(ProvedorPrivate);
-                        DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo("Proveedor").OrderByDescending(x => x.IdConsecutivo).First();
+                        DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo
+                            ("Proveedor").OrderByDescending(x => x.IdConsecutivo).First();
                         UltimoConsecutivo.PKTabla = ProvedorPrivate.IdProveedor;
                         ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
                         BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
@@ -116,9 +117,7 @@ namespace LosNaranjitos
                     MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
-
         public void clearall()
         {
             txtTelefono.Clear();
@@ -126,7 +125,6 @@ namespace LosNaranjitos
             txtIdProveedor.Clear();
             txtEmpresa.Clear();
         }
-
         public void EditarProveedor()
         {
             if (string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
@@ -140,7 +138,6 @@ namespace LosNaranjitos
             }
             else
             {
-
                 try
                 {
                     DATOS.Proveedor ProvedorPrivate = new DATOS.Proveedor
@@ -150,7 +147,6 @@ namespace LosNaranjitos
                         Activo = chkEstado.Checked,
                         Telefono = txtTelefono.Text,
                         Correo = txtEmail.Text,
-
                     };
 
                     OpProveedor.ActualizarProveedor(ProvedorPrivate);
