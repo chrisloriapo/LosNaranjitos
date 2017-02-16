@@ -12,9 +12,6 @@ namespace LosNaranjitos
 {
     public partial class FrmEdicionInsumos : Form
     {
-        BL.Interfaces.IInsumos OpInsumos = new BL.Clases.Insumos();
-        BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
-        DATOS.Error ER = new DATOS.Error();
         public static DATOS.Insumos InsumosEditar = new DATOS.Insumos();
 
         public FrmEdicionInsumos()
@@ -26,15 +23,11 @@ namespace LosNaranjitos
         {
             try
             {
-                cbbInsumos.DataSource = OpInsumos.ListarInsumos().Select(p => p.IdInsumo).ToList();
+                cbbInsumos.DataSource = Utilitarios.OpInsumos.ListarInsumos().Select(p => p.IdInsumo).ToList();
             }
             catch (Exception ex)
             {
-
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Intentar Seleccionar el Insumo a editar");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -44,16 +37,13 @@ namespace LosNaranjitos
         {
             try
             {
-                InsumosEditar = OpInsumos.ListarInsumos().FirstOrDefault(x => x.IdInsumo == cbbInsumos.SelectedValue.ToString());
+                InsumosEditar = Utilitarios.OpInsumos.ListarInsumos().FirstOrDefault(x => x.IdInsumo == cbbInsumos.SelectedValue.ToString());
                 lblNombre.Text = "Nombre: " + InsumosEditar.Nombre;
                 lblIdPersonal.Text = "Id : " + InsumosEditar.IdInsumo   ;
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Intentar Seleccionar el Insumo a editar");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -67,7 +57,7 @@ namespace LosNaranjitos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            InsumosEditar = OpInsumos.ListarInsumos().FirstOrDefault(x => x.IdInsumo == cbbInsumos.SelectedValue.ToString());
+            InsumosEditar = Utilitarios.OpInsumos.ListarInsumos().FirstOrDefault(x => x.IdInsumo == cbbInsumos.SelectedValue.ToString());
             FrmInsumos.EditInsumo = InsumosEditar;
             Utilitarios.Cambio = true;
             this.Dispose();

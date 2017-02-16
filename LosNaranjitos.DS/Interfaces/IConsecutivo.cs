@@ -13,6 +13,9 @@ namespace LosNaranjitos.DS.Interfaces
 
         DATOS.Consecutivo BuscarConsecutivo(string Prefijo);
 
+        DATOS.Consecutivo BuscarConsecutivoPorTipo(string Tipo);
+
+
         void AgregarConsecutivo(DATOS.Consecutivo Consec);
 
         void EliminarConsecutivo(DATOS.Consecutivo Consec);

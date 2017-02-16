@@ -50,15 +50,13 @@
             this.lbl6 = new System.Windows.Forms.Label();
             this.grbBuscar = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.cbbIdConsecutivos = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbbTipo = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNuevo = new System.Windows.Forms.MaskedTextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.txtNuevo = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tbC2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -144,7 +142,6 @@
             this.dgvConsecutivo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvConsecutivo.Size = new System.Drawing.Size(512, 205);
             this.dgvConsecutivo.TabIndex = 18;
-            this.dgvConsecutivo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConsecutivo_CellContentClick);
             // 
             // flowLayoutPanel1
             // 
@@ -162,20 +159,13 @@
             this.cbbConsecutivos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbConsecutivos.FormattingEnabled = true;
             this.cbbConsecutivos.Items.AddRange(new object[] {
-            "Categoria de Productos",
-            "Cliente",
-            "Combo",
-            "Insumo",
-            "Pedido",
-            "Producto",
-            "Proveedor",
-            "Usuario"});
+            "Prefijo",
+            "Tipo"});
             this.cbbConsecutivos.Location = new System.Drawing.Point(3, 3);
             this.cbbConsecutivos.Name = "cbbConsecutivos";
             this.cbbConsecutivos.Size = new System.Drawing.Size(189, 21);
             this.cbbConsecutivos.Sorted = true;
             this.cbbConsecutivos.TabIndex = 19;
-            this.cbbConsecutivos.SelectedIndexChanged += new System.EventHandler(this.cbbCliente_SelectedIndexChanged);
             // 
             // txtBuscar
             // 
@@ -183,7 +173,6 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(139, 20);
             this.txtBuscar.TabIndex = 17;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // btnBuscar
             // 
@@ -270,7 +259,7 @@
             this.lbl1.AutoSize = true;
             this.lbl1.BackColor = System.Drawing.Color.Transparent;
             this.lbl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl1.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl1.Location = new System.Drawing.Point(17, 0);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(211, 30);
@@ -280,7 +269,7 @@
             // 
             this.lbl3.AutoSize = true;
             this.lbl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl3.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl3.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl3.Location = new System.Drawing.Point(17, 60);
             this.lbl3.Name = "lbl3";
             this.lbl3.Size = new System.Drawing.Size(211, 30);
@@ -290,7 +279,7 @@
             // 
             this.lbl2.AutoSize = true;
             this.lbl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl2.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2.Font = new System.Drawing.Font("Palatino Linotype", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl2.Location = new System.Drawing.Point(17, 30);
             this.lbl2.Name = "lbl2";
             this.lbl2.Size = new System.Drawing.Size(211, 30);
@@ -300,7 +289,7 @@
             // 
             this.lbl4.AutoSize = true;
             this.lbl4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl4.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl4.Font = new System.Drawing.Font("Palatino Linotype", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl4.Location = new System.Drawing.Point(17, 90);
             this.lbl4.Name = "lbl4";
             this.lbl4.Size = new System.Drawing.Size(211, 30);
@@ -310,7 +299,7 @@
             // 
             this.lbl5.AutoSize = true;
             this.lbl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl5.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl5.Location = new System.Drawing.Point(17, 120);
             this.lbl5.Name = "lbl5";
             this.lbl5.Size = new System.Drawing.Size(211, 30);
@@ -320,7 +309,7 @@
             // 
             this.lbl6.AutoSize = true;
             this.lbl6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl6.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl6.Font = new System.Drawing.Font("Palatino Linotype", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl6.Location = new System.Drawing.Point(17, 150);
             this.lbl6.Name = "lbl6";
             this.lbl6.Size = new System.Drawing.Size(211, 35);
@@ -345,12 +334,10 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6F));
-            this.tableLayoutPanel4.Controls.Add(this.cbbIdConsecutivos, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.label1, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.cbbTipo, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label2, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.label4, 1, 4);
-            this.tableLayoutPanel4.Controls.Add(this.txtNuevo, 1, 5);
+            this.tableLayoutPanel4.Controls.Add(this.label4, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.txtNuevo, 1, 3);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -363,17 +350,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(247, 185);
             this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // cbbIdConsecutivos
-            // 
-            this.cbbIdConsecutivos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbbIdConsecutivos.FormattingEnabled = true;
-            this.cbbIdConsecutivos.Location = new System.Drawing.Point(17, 93);
-            this.cbbIdConsecutivos.Name = "cbbIdConsecutivos";
-            this.cbbIdConsecutivos.Size = new System.Drawing.Size(211, 21);
-            this.cbbIdConsecutivos.Sorted = true;
-            this.cbbIdConsecutivos.TabIndex = 21;
-            this.cbbIdConsecutivos.SelectedIndexChanged += new System.EventHandler(this.cbbIdConsecutivos_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -389,15 +365,6 @@
             this.cbbTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTipo.FormattingEnabled = true;
-            this.cbbTipo.Items.AddRange(new object[] {
-            "Categoria de Productos",
-            "Cliente",
-            "Combo",
-            "Insumo",
-            "Pedido",
-            "Producto",
-            "Proveedor",
-            "Usuario"});
             this.cbbTipo.Location = new System.Drawing.Point(17, 33);
             this.cbbTipo.Name = "cbbTipo";
             this.cbbTipo.Size = new System.Drawing.Size(211, 21);
@@ -405,34 +372,15 @@
             this.cbbTipo.TabIndex = 20;
             this.cbbTipo.SelectedIndexChanged += new System.EventHandler(this.cbbTipo_SelectedIndexChanged);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(17, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(211, 30);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Identificador";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 120);
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Location = new System.Drawing.Point(17, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 13);
+            this.label4.Size = new System.Drawing.Size(211, 30);
             this.label4.TabIndex = 23;
             this.label4.Text = "Nuevo Valor";
-            // 
-            // txtNuevo
-            // 
-            this.txtNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNuevo.Location = new System.Drawing.Point(17, 153);
-            this.txtNuevo.Mask = "99999";
-            this.txtNuevo.Name = "txtNuevo";
-            this.txtNuevo.Size = new System.Drawing.Size(211, 20);
-            this.txtNuevo.TabIndex = 24;
-            this.txtNuevo.ValidatingType = typeof(int);
             // 
             // btnUpdate
             // 
@@ -471,6 +419,16 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // txtNuevo
+            // 
+            this.txtNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNuevo.Location = new System.Drawing.Point(17, 93);
+            this.txtNuevo.Mask = "99999";
+            this.txtNuevo.Name = "txtNuevo";
+            this.txtNuevo.Size = new System.Drawing.Size(211, 20);
+            this.txtNuevo.TabIndex = 24;
+            this.txtNuevo.ValidatingType = typeof(int);
             // 
             // FrmConsecutivo
             // 
@@ -521,10 +479,10 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox grbBuscar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.ComboBox cbbIdConsecutivos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbbTipo;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label lbl1;
@@ -533,8 +491,6 @@
         private System.Windows.Forms.Label lbl4;
         private System.Windows.Forms.Label lbl5;
         private System.Windows.Forms.Label lbl6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.MaskedTextBox txtNuevo;
     }
 }

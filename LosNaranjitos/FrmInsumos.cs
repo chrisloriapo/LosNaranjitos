@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LosNaranjitos.DATOS;
 
 namespace LosNaranjitos
 {
@@ -15,22 +16,35 @@ namespace LosNaranjitos
         public static DATOS.Insumos EditInsumo = new DATOS.Insumos();
         public static List<DATOS.Insumos> ListaInsumos = new List<DATOS.Insumos>();
 
-        public DATOS.Error ER = new DATOS.Error();
-        public DATOS.Bitacora BIT = new DATOS.Bitacora();
-
-
         public FrmInsumos()
         {
             InitializeComponent();
         }
 
-
-
         private void FrmInsumos_Load(object sender, EventArgs e)
         {
-            
+
             try
             {
+                //Verificacion de Consecutivo
+                if (Utilitarios.Cambio == false)
+                {
+                    DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    DATOS.Insumos UltimoInsumo = Utilitarios.OpInsumos.ListarInsumos().OrderByDescending(x => x.Consecutivo).First();
+                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Insumo").Select(x => x.Prefijo).FirstOrDefault();
+                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    int CSInsumo = Consecutivo.ConsecutivoActual + 1;
+                    UltimoInsumo.Consecutivo = Prefijo + "-" + CSInsumo;
+                    if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoInsumo.Consecutivo))
+                    {
+                        MessageBox.Show("Existe otro Consecutivo " + UltimoInsumo.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        btnNuevo.Enabled = false;
+                    }
+                    lblConsecutivo.Text = UltimoInsumo.Consecutivo;
+                }
+                //Carga de Formulario Usual
+
                 this.vProveedor_InsumoTableAdapter.Fill(this.orangeDB1DataSet.VProveedor_Insumo);
                 var ListaLocal = this.orangeDB1DataSet.VProveedor_Insumo.ToList();
                 dgvListado.DataSource = ListaLocal;
@@ -63,7 +77,7 @@ namespace LosNaranjitos
                         txtNombre.Text = EditInsumo.Nombre;
                         txtPrecioCompra.Text = EditInsumo.PrecioCompra.ToString();
                         txtStock.Text = EditInsumo.CantInventario.ToString();
-
+                        lblConsecutivo.Text = EditInsumo.Consecutivo;
                         cbMedida.SelectedItem = EditInsumo.IdMedida;
 
                         cbProveedor.SelectedItem = Prov.Nombre;
@@ -78,11 +92,7 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                Utilitarios.OpError.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Cargar el formulario ");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -100,8 +110,9 @@ namespace LosNaranjitos
             {
                 try
                 {
-                    if (OpInsumos.ExisteInsumo(txtIdInsumo.Text))
+                    if (Utilitarios.OpInsumos.ExisteInsumo(txtIdInsumo.Text))
                     {
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso fallido de Insumo nuevo, Insumo ya existe " + txtIdInsumo.Text);
                         MessageBox.Show("Insumo Duplicado",
                                             "No se puede Ingresar Insumo duplicado",
                                             MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -110,9 +121,10 @@ namespace LosNaranjitos
                     else
                     {
                         DATOS.Proveedor Prov = new DATOS.Proveedor();
-                        Prov = OpProveedor.BuscarProveedorPorNombre(cbProveedor.SelectedValue.ToString());
+                        Prov = Utilitarios.OpProveedor.BuscarProveedorPorNombre(cbProveedor.SelectedValue.ToString());
                         DATOS.Insumos InsumoPrivate = new DATOS.Insumos
                         {
+                            Consecutivo = lblConsecutivo.Text,
                             IdInsumo = txtIdInsumo.Text,
                             Nombre = txtNombre.Text,
                             Activo = chkActivo.Checked,
@@ -122,28 +134,23 @@ namespace LosNaranjitos
                             Proveedor = Prov.IdProveedor,
                         };
 
-                        OpInsumos.AgregarInsumo(InsumoPrivate);
-                        DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo
-                            ("Insumo").OrderByDescending(x => x.IdConsecutivo).First();
-                        UltimoConsecutivo.PKTabla = InsumoPrivate.IdInsumo;
-                        ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
+                        Utilitarios.OpInsumos.AgregarInsumo(InsumoPrivate);
 
-                        BIT.Usuario = FrmLogin.UsuarioGlobal.Username;
-                        BIT.Accion = "Ingreso de Insumo Nuevo "+InsumoPrivate.IdInsumo ;
-                        BIT.Fecha = DateTime.Now;
-                        Utilitarios.OpBitacora.AgregarBitacora(BIT);
+                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Insumo");
+                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
+                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Insumos Nuevo " + InsumoPrivate.IdInsumo);
+
+                        MessageBox.Show("Los datos del Insumo se ingresaron correctamente",
+"Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Insumos");
+                        this.Dispose();
                     }
-                    MessageBox.Show("Los datos del Proveedor se ingresaron correctamente",
-                   "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Dispose();
-
                 }
                 catch (Exception ex)
                 {
-                    ER.Descripcion = ex.Message;
-                    ER.Tipo = "Error al Popular Datos";
-                    ER.Hora = DateTime.Now;
-                    OpErrpr.AgregarError(ER);
+                    Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Intentar Agregar un Insumo nuevo");
                     MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -173,16 +180,9 @@ namespace LosNaranjitos
 
         }
 
-        public void clearall()
-        {
-            txtIdInsumo.Clear();
-            txtNombre.Clear();
-            txtStock.Clear();
-            txtPrecioCompra.Clear();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Insumos");
             this.Dispose();
         }
 
@@ -190,7 +190,6 @@ namespace LosNaranjitos
         {
             try
             {
-
                 var ListaLocal = new DataTable();
 
                 foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
@@ -225,10 +224,7 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Intentar Buscar un Insumo");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -237,20 +233,16 @@ namespace LosNaranjitos
         {
             try
             {
-
                 var ListaLocal = new DataTable();
 
                 foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
                 {
                     ListaLocal.ImportRow(item);
                 }
-
-
                 var autosearch = new AutoCompleteStringCollection();
                 txtBuscar.AutoCompleteCustomSource = autosearch;
                 txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
 
                 switch (cbBuscar.SelectedText.ToString())
                 {
@@ -275,16 +267,11 @@ namespace LosNaranjitos
                         }
                         break;
                 }
-
                 txtBuscar.AutoCompleteCustomSource = autosearch;
             }
             catch (Exception ex)
             {
-
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Intentar llenar la informacion en combobox de busqueda");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -301,78 +288,65 @@ namespace LosNaranjitos
             }
             else
             {
-
                 try
                 {
-                    var ProveedorId = OpProveedor.BuscarProveedorPorNombre(cbProveedor.SelectedValue.ToString());
+                    var ProveedorId = Utilitarios.OpProveedor.BuscarProveedorPorNombre(cbProveedor.SelectedValue.ToString());
                     DATOS.Insumos InsumoPrivate = new DATOS.Insumos
                     {
+                        Consecutivo = lblConsecutivo.Text,
                         IdInsumo = txtIdInsumo.Text,
                         Nombre = txtNombre.Text,
                         Activo = chkActivo.Checked,
                         PrecioCompra = decimal.Parse(txtPrecioCompra.Text),
                         IdMedida = cbMedida.SelectedValue.ToString(),
                         Proveedor = ProveedorId.IdProveedor
-
                     };
 
-                    OpInsumos.ActualizarInsumo(InsumoPrivate);
+                    Utilitarios.OpInsumos.ActualizarInsumo(InsumoPrivate);
 
-                    BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
-                    BIT.Accion = "Modificacion de Insumo "+InsumoPrivate.IdInsumo;
-                    BIT.Fecha = DateTime.Now;
-                    OpBitacora.AgregarBitacora(BIT);
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Insumo " + InsumoPrivate.IdInsumo);
                     MessageBox.Show("Los datos del Proveedor se Actualizaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
                     this.Dispose();
                     clearall();
                 }
                 catch (Exception ex)
                 {
-
-                    ER.Descripcion = ex.Message;
-                    ER.Tipo = "Error al Popular Datos";
-                    ER.Hora = DateTime.Now;
-                    OpErrpr.AgregarError(ER);
+                    Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Intentar Editar un isumo");
                     MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Insumos");
             this.Dispose(); clearall();
         }
-
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
             {
-                var InsumoPrivate = OpInsumos.BuscarInsumos(cbbCodigoStock.SelectedValue.ToString());
+                var InsumoPrivate = Utilitarios.OpInsumos.BuscarInsumos(cbbCodigoStock.SelectedValue.ToString());
                 InsumoPrivate.CantInventario = InsumoPrivate.CantInventario + float.Parse(txtAjuste.Text);
-                OpInsumos.ActualizarInsumo(InsumoPrivate);
-                BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
-                BIT.Accion = "Modificacion de Insumo " + InsumoPrivate.IdInsumo;
-                BIT.Fecha = DateTime.Now;
-                OpBitacora.AgregarBitacora(BIT);
+                Utilitarios.OpInsumos.ActualizarInsumo(InsumoPrivate);
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Actualizacion de Cantidad en Stock " + InsumoPrivate.IdInsumo);
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Actualizar Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Intentar Editar stock de Insumo");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void cbbCodigoStock_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
-            {     
-                DATOS.Insumos InsumoPrivate = OpInsumos.BuscarInsumos(cbbCodigoStock.SelectedItem.ToString());
-                var ProveedorId = OpProveedor.BuscarProveedor(InsumoPrivate.Proveedor);
+            {
+                DATOS.Insumos InsumoPrivate = Utilitarios.OpInsumos.BuscarInsumos(cbbCodigoStock.SelectedItem.ToString());
+                var ProveedorId = Utilitarios.OpProveedor.BuscarProveedor(InsumoPrivate.Proveedor);
                 txtCantidadStock.Text = InsumoPrivate.CantInventario.ToString();
                 txtMedidaStock.Text = InsumoPrivate.IdMedida;
                 txtNombreStock.Text = InsumoPrivate.Nombre;
@@ -389,30 +363,32 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Intentar Cargar los datos stock de Insumo en el combobox de Inventario");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void btnAjustar_Click(object sender, EventArgs e)
         {
             try
             {
-                var InsumoPrivate = OpInsumos.BuscarInsumos(cbbCodigoStock.SelectedValue.ToString());
+                var InsumoPrivate = Utilitarios.OpInsumos.BuscarInsumos(cbbCodigoStock.SelectedValue.ToString());
                 InsumoPrivate.CantInventario = float.Parse(txtAjuste.Text);
-                OpInsumos.ActualizarInsumo(InsumoPrivate);
+                Utilitarios.OpInsumos.ActualizarInsumo(InsumoPrivate);
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Actualizar Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Intentar Editar stock de Insumo");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void clearall()
+        {
+            txtIdInsumo.Clear();
+            txtNombre.Clear();
+            txtStock.Clear();
+            txtPrecioCompra.Clear();
         }
     }
 }

@@ -38,12 +38,7 @@ namespace LosNaranjitos.BL.Clases
             return ROLUSER.BuscarRolPorDescripcion(Descripcion);
         }
 
-        public bool ExisteRol(int Rol)
-        {
-            return ROLUSER.ExisteRol(Rol);
-        }
-
-        public void Inactivar(DATOS.RolUsuario Rol)
+          public void Inactivar(DATOS.RolUsuario Rol)
         {
             Rol.Activo = false;
             ROLUSER.Inactivar(Rol);

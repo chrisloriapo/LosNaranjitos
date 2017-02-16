@@ -12,9 +12,6 @@ namespace LosNaranjitos
 {
     public partial class FrmEdicionProducto : Form
     {
-        BL.Interfaces.IProducto OpProducto = new BL.Clases.Producto();
-        BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
-        DATOS.Error ER = new DATOS.Error();
         public static DATOS.Producto ProductoEditar = new DATOS.Producto();
 
         public FrmEdicionProducto()
@@ -26,15 +23,11 @@ namespace LosNaranjitos
         {
             try
             {
-                cbbProducto.DataSource = OpProducto.ListarProductos().Select(p => p.Nombre).ToList();
+                cbbProducto.DataSource = Utilitarios.OpProducto.ListarProductos().Select(p => p.Nombre).ToList();
             }
             catch (Exception ex)
             {
-
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Productos al Intentar Seleccionar el Producto a editar");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -44,15 +37,13 @@ namespace LosNaranjitos
         {
             try
             {
-                ProductoEditar = OpProducto.ListarProductos().FirstOrDefault(x => x.Nombre == cbbProducto.SelectedValue.ToString());
+                ProductoEditar = Utilitarios.OpProducto.ListarProductos().FirstOrDefault(x => x.Nombre == cbbProducto.SelectedValue.ToString());
                 lblNombre.Text = "Codigo: " + ProductoEditar.Codigo;
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Productos al Intentar Seleccionar el Producto a editar");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -66,7 +57,7 @@ namespace LosNaranjitos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            ProductoEditar = OpProducto.ListarProductos().FirstOrDefault(x => x.Nombre == cbbProducto.SelectedValue.ToString());
+            ProductoEditar = Utilitarios.OpProducto.ListarProductos().FirstOrDefault(x => x.Nombre == cbbProducto.SelectedValue.ToString());
             FrmProductosVenta.EditProducto = ProductoEditar;
             Utilitarios.Cambio = true;
 

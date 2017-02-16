@@ -40,7 +40,7 @@ namespace LosNaranjitos
                     MN.Show();
                     this.Hide();
                 }
-                Utilitarios.GeneralBitacora(txtUsuario.Text,"Ingreso al Sistema");
+                Utilitarios.GeneralBitacora(UsuarioGlobal.Username,"Ingreso al Sistema");
 
             }
 
@@ -86,7 +86,7 @@ namespace LosNaranjitos
                     {
                         MessageBox.Show("Usuario No Existe", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        Utilitarios.GeneralError("Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text, "Ingreso Denegado", txtUsuario.Text, "Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text);
+                        Utilitarios.GeneralError("Intento de ingreso fallido del supuesto usuario " + txtUsuario.Text, "Ingreso Denegado", txtUsuario.Text, "Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text);
 
                         txtPassword.Clear();
                         txtUsuario.Clear();

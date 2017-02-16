@@ -65,11 +65,11 @@ namespace LosNaranjitos
 
                     Utilitarios.OpUsuarios.AgregarUsuario(Userprivate);
 
-                    DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(lblConsecutivo.Text.Remove(3,8));
-                    Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
+                    DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Usuario");
+                    Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual+1;
                     Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
-                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Usuario Nuevo "+Userprivate.Username );
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Usuario Nuevo " + Userprivate.Username);
                     MessageBox.Show("Los datos del Usuario se ingresaron correctamente",
 "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
@@ -81,6 +81,7 @@ namespace LosNaranjitos
 
                     Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Usuarios al Intentar Agregar un usuario nuevo");
                     MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Dispose();
                 }
             }
 
@@ -396,29 +397,16 @@ namespace LosNaranjitos
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
-            this.Dispose();
+
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Usuario");
-
+            this.Dispose();
         }
 
-        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((int)e.KeyChar == (int)Keys.Tab && (int)e.KeyChar == (int)Keys.Enter)
-            {
-                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
-                {
-                    MessageBox.Show("Debes digitar tu nombre antes de continuar", "Falta Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                else
-                {
-                    txtApellido.ReadOnly = false;
-                }
-            }
-        }
+
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((int)e.KeyChar == (int)Keys.Tab && (int)e.KeyChar == (int)Keys.Enter)
+            if ((int)e.KeyChar == (int)Keys.Tab || (int)e.KeyChar == (int)Keys.Enter)
             {
                 if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
@@ -449,7 +437,31 @@ namespace LosNaranjitos
                         MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     txtApellido2.ReadOnly = false;
+                    txtApellido2.Focus();
+                    txtDireccion.ReadOnly = false;
+                    txtEmail.ReadOnly = false;
+                    txtTelefono.ReadOnly = false;
+                    txtConfirmarContrasena.ReadOnly = false;
+                    txtContraseña.ReadOnly = false;
+                    txtIdPersonal.ReadOnly = false;
 
+                }
+            }
+        }
+
+        private void txtNombre_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Tab || (int)e.KeyChar == (int)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
+                {
+                    MessageBox.Show("Debes digitar tu Nombre antes de continuar", "Falta Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                else
+                {
+                    txtApellido.Focus();
+                    txtApellido.ReadOnly = false;
                 }
             }
         }

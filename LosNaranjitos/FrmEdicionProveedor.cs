@@ -12,9 +12,6 @@ namespace LosNaranjitos
 {
     public partial class FrmEdicionProveedor : Form
     {
-        BL.Interfaces.IProveedor OpProveedor = new BL.Clases.Proveedor();
-        BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
-        DATOS.Error ER = new DATOS.Error();
         public static DATOS.Proveedor ProveedorEditar = new DATOS.Proveedor();
 
         public FrmEdicionProveedor()
@@ -30,7 +27,7 @@ namespace LosNaranjitos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            ProveedorEditar = OpProveedor.ListarProveedores().FirstOrDefault(x => x.Nombre == cbbProveedores.SelectedValue.ToString());
+            ProveedorEditar = Utilitarios.OpProveedor.ListarProveedores().FirstOrDefault(x => x.Nombre == cbbProveedores.SelectedValue.ToString());
             FrmProveedor.EditProveedor = ProveedorEditar;
             Utilitarios.Cambio = true;
             this.Dispose();
@@ -43,15 +40,12 @@ namespace LosNaranjitos
         {
             try
             {
-                cbbProveedores.DataSource = OpProveedor.ListarProveedores().Select(p => p.Nombre).ToList();
+                cbbProveedores.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(p => p.Nombre).ToList();
             }
             catch (Exception ex)
             {
 
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Proveedores al Intentar Seleccionar el Proveedor a editar");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -60,16 +54,13 @@ namespace LosNaranjitos
         {
             try
             {
-                ProveedorEditar = OpProveedor.ListarProveedores().FirstOrDefault(x => x.Nombre == cbbProveedores.SelectedValue.ToString());
+                ProveedorEditar = Utilitarios.OpProveedor.ListarProveedores().FirstOrDefault(x => x.Nombre == cbbProveedores.SelectedValue.ToString());
                 lblNombre.Text = "Nombre: " + ProveedorEditar.Nombre;
                 lblIdPersonal.Text = "Id Proveedor: " + ProveedorEditar.IdProveedor;
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Proveedores al Intentar Seleccionar el Proveedor a editar");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

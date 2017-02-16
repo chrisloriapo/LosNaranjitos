@@ -79,6 +79,7 @@ namespace LosNaranjitos.DS.Clases
                     return false;
                 }
             }
+        }
 
         public bool ExistePedido(int IdPedido)
         {

@@ -9,10 +9,10 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VProveedor_InsumoTableAdapter" GeneratorDataComponentClassName="VProveedor_InsumoTableAdapter" Name="VProveedor_Insumo" UserDataComponentName="VProveedor_InsumoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="ORANGEDBTST1 (Settings)" DbObjectName="OrangeDB1.dbo.VProveedor_Insumo" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="ORANGEDBTST1 (Settings)" DbObjectName="OrangeDB1.dbo.VProveedor_Insumo" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT IdInsumo, Proveedor, Nombre, IdMedida, PrecioCompra, CantInventario, Activo FROM VProveedor_Insumo</CommandText>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Consecutivo,IdInsumo, Proveedor, Nombre, IdMedida, PrecioCompra, CantInventario, Activo FROM VProveedor_Insumo</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -26,6 +26,7 @@
               <Mapping SourceColumn="PrecioCompra" DataSetColumn="PrecioCompra" />
               <Mapping SourceColumn="CantInventario" DataSetColumn="CantInventario" />
               <Mapping SourceColumn="Activo" DataSetColumn="Activo" />
+              <Mapping SourceColumn="Consecutivo" DataSetColumn="Consecutivo" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -37,7 +38,7 @@
   <xs:element name="OrangeDB1DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="OrangeDB1DataSet" msprop:Generator_UserDSName="OrangeDB1DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="VProveedor_Insumo" msprop:Generator_TableClassName="VProveedor_InsumoDataTable" msprop:Generator_TableVarName="tableVProveedor_Insumo" msprop:Generator_RowChangedName="VProveedor_InsumoRowChanged" msprop:Generator_TablePropName="VProveedor_Insumo" msprop:Generator_RowDeletingName="VProveedor_InsumoRowDeleting" msprop:Generator_RowChangingName="VProveedor_InsumoRowChanging" msprop:Generator_RowEvHandlerName="VProveedor_InsumoRowChangeEventHandler" msprop:Generator_RowDeletedName="VProveedor_InsumoRowDeleted" msprop:Generator_RowClassName="VProveedor_InsumoRow" msprop:Generator_UserTableName="VProveedor_Insumo" msprop:Generator_RowEvArgName="VProveedor_InsumoRowChangeEvent">
+        <xs:element name="VProveedor_Insumo" msprop:Generator_TableClassName="VProveedor_InsumoDataTable" msprop:Generator_TableVarName="tableVProveedor_Insumo" msprop:Generator_TablePropName="VProveedor_Insumo" msprop:Generator_RowDeletingName="VProveedor_InsumoRowDeleting" msprop:Generator_RowChangingName="VProveedor_InsumoRowChanging" msprop:Generator_RowEvHandlerName="VProveedor_InsumoRowChangeEventHandler" msprop:Generator_RowDeletedName="VProveedor_InsumoRowDeleted" msprop:Generator_UserTableName="VProveedor_Insumo" msprop:Generator_RowChangedName="VProveedor_InsumoRowChanged" msprop:Generator_RowEvArgName="VProveedor_InsumoRowChangeEvent" msprop:Generator_RowClassName="VProveedor_InsumoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdInsumo" msprop:Generator_ColumnVarNameInTable="columnIdInsumo" msprop:Generator_ColumnPropNameInRow="IdInsumo" msprop:Generator_ColumnPropNameInTable="IdInsumoColumn" msprop:Generator_UserColumnName="IdInsumo">
@@ -71,6 +72,13 @@
               <xs:element name="PrecioCompra" msprop:Generator_ColumnVarNameInTable="columnPrecioCompra" msprop:Generator_ColumnPropNameInRow="PrecioCompra" msprop:Generator_ColumnPropNameInTable="PrecioCompraColumn" msprop:Generator_UserColumnName="PrecioCompra" type="xs:decimal" />
               <xs:element name="CantInventario" msprop:Generator_ColumnVarNameInTable="columnCantInventario" msprop:Generator_ColumnPropNameInRow="CantInventario" msprop:Generator_ColumnPropNameInTable="CantInventarioColumn" msprop:Generator_UserColumnName="CantInventario" type="xs:double" />
               <xs:element name="Activo" msprop:Generator_ColumnVarNameInTable="columnActivo" msprop:Generator_ColumnPropNameInRow="Activo" msprop:Generator_ColumnPropNameInTable="ActivoColumn" msprop:Generator_UserColumnName="Activo" type="xs:boolean" />
+              <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

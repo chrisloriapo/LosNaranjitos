@@ -285,7 +285,7 @@
             // 
             this.consecutivosToolStripMenuItem.Name = "consecutivosToolStripMenuItem";
             resources.ApplyResources(this.consecutivosToolStripMenuItem, "consecutivosToolStripMenuItem");
-            this.consecutivosToolStripMenuItem.Click += new System.EventHandler(this.consecutivosToolStripMenuItem_Click);
+            this.consecutivosToolStripMenuItem.Click += new System.EventHandler(this.consecutivosToolStripMenuItem_Click_1);
             // 
             // ventanasToolStripMenuItem
             // 

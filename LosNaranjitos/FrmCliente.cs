@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LosNaranjitos.DATOS;
 
 namespace LosNaranjitos
 {
@@ -14,12 +15,6 @@ namespace LosNaranjitos
     {
         public static DATOS.Cliente EditCLiente = new DATOS.Cliente();
         public static List<DATOS.Cliente> ListaClientes = new List<DATOS.Cliente>();
-        public BL.Interfaces.ICliente OpCliente = new BL.Clases.Cliente();
-        public BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
-        public BL.Interfaces.IConsecutivo ConsecutivoOperaciones = new BL.Clases.Consecutivo();
-        public BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
-        public DATOS.Error ER = new DATOS.Error();
-        public DATOS.Bitacora BIT = new DATOS.Bitacora();
 
         public FrmCliente()
         {
@@ -30,7 +25,7 @@ namespace LosNaranjitos
         {
             try
             {
-                ListaClientes = OpCliente.ListarClientes();
+                ListaClientes = Utilitarios.OpClientes.ListarClientes();
                 var ListaLocal = ListaClientes.ToList();
                 switch (cbBuscar.SelectedItem.ToString())
                 {
@@ -53,11 +48,7 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Clientes al Intentar buscar el Cliente");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -66,7 +57,25 @@ namespace LosNaranjitos
         {
             try
             {
-                ListaClientes = OpCliente.ListarClientes();
+                if (Utilitarios.Cambio == false)
+                {
+                    DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    DATOS.Cliente UltimoCliente = Utilitarios.OpClientes.ListarClientes().OrderByDescending(x => x.Consecutivo).First();
+                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Cliente").Select(x => x.Prefijo).FirstOrDefault();
+                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    int CSCliente = Consecutivo.ConsecutivoActual + 1;
+                    UltimoCliente.Consecutivo = Prefijo + "-" + CSCliente;
+                    if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoCliente.Consecutivo))
+                    {
+                        MessageBox.Show("Existe otro Consecutivo " + UltimoCliente.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        btnNuevo.Enabled = false;
+                    }
+                    lblConsecutivo.Text = UltimoCliente.Consecutivo;
+                }
+
+
+                ListaClientes = Utilitarios.OpClientes.ListarClientes();
                 var ListaLocal = ListaClientes.ToList();
                 dgvListado.DataSource = ListaLocal;
 
@@ -88,19 +97,12 @@ namespace LosNaranjitos
                     tabControl1.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
                     {
+                        lblConsecutivo.Text = EditCLiente.Consecutivo;
                         txtIdCliente.Text = EditCLiente.IdPersonal;
                         txtNombre.Text = EditCLiente.Nombre;
                         txtTelefono.Text = EditCLiente.Telefono;
                         txtEmail.Text = EditCLiente.Correo;
 
-                        //if (EditCLiente.Activo)
-                        //{
-                        //    chkEstado.Checked = true;
-                        //}
-                        //else
-                        //{
-                        //    chkEstado.Checked = false;
-                        //}
                         return;
                     }
                     else
@@ -112,10 +114,7 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Clientes al Cargar el formulario ");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
@@ -134,44 +133,46 @@ namespace LosNaranjitos
             {
                 try
                 {
-                    if (OpCliente.ExisteCLIENTE(txtIdCliente.Text))
+                    if (Utilitarios.OpClientes.ExisteCLIENTE(txtIdCliente.Text))
                     {
                         MessageBox.Show("Cliente Duplicado",
                                             "No se puede Ingresar Cliente duplicado",
                                             MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso Fallido de Cliente " + txtIdCliente.Text + ", Cliente ya existe");
                         return;
                     }
                     else
                     {
                         DATOS.Cliente ClientePrivate = new DATOS.Cliente
                         {
+                            Consecutivo = lblConsecutivo.Text,
                             IdPersonal = txtIdCliente.Text,
                             Nombre = txtNombre.Text,
-                            Activo = false,
+                            Activo = true,
                             Telefono = txtTelefono.Text,
                             Correo = txtEmail.Text,
+                            Apellido1 = txtApellido.Text,
                         };
 
-                        OpCliente.ActualizarCLIENTE(ClientePrivate);
-                        DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.
-                            ListaPorTipo("Cliente").OrderByDescending(x => x.IdConsecutivo).First();
-                        UltimoConsecutivo.PKTabla = ClientePrivate.IdPersonal;
-                        ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
-                        BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
-                        BIT.Accion = "Ingreso de Cliente Nuevo " + ClientePrivate.IdPersonal;
-                        BIT.Fecha = DateTime.Now;
-                        OpBitacora.AgregarBitacora(BIT);
+                        Utilitarios.OpClientes.ActualizarCLIENTE(ClientePrivate);
+
+                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cliente");
+                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
+                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Cliente Nuevo " + ClientePrivate.IdPersonal);
+
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Clientes");
+
+                        MessageBox.Show("Los datos del Cliente se ingresaron correctamente",
+"Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Dispose();
                     }
-                    MessageBox.Show("Los datos del Cliente se ingresaron correctamente",
-                   "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Dispose();               
+
                 }
                 catch (Exception ex)
                 {
-                    ER.Descripcion = ex.Message;
-                    ER.Tipo = "Error al Popular Datos";
-                    ER.Hora = DateTime.Now;
-                    OpErrpr.AgregarError(ER);
+                    Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Clientes al Insertar Cliente Nuevo");
                     MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -181,7 +182,7 @@ namespace LosNaranjitos
         {
             try
             {
-                ListaClientes = OpCliente.ListarClientes();
+                ListaClientes = Utilitarios.OpClientes.ListarClientes();
                 var ListaLocal = ListaClientes.ToList();
 
                 var autosearch = new AutoCompleteStringCollection();
@@ -216,19 +217,65 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Clientes al Buscar Cliente  ");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnNuevo_Click_1(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Clientes");
+            this.Dispose();
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
+             string.IsNullOrEmpty(txtIdCliente.Text) || string.IsNullOrWhiteSpace(txtIdCliente.Text) ||
+             string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
+             string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text) ||
+             string.IsNullOrEmpty(txtTelefono.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text))
+            {
+                MessageBox.Show("Faltan datos por ingresar o se encuentran en blanco",
+                    "Error al ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    if (Utilitarios.OpClientes.ExisteCLIENTE(txtIdCliente.Text))
+                    {
+                        MessageBox.Show("Cliente No encontrado",
+                                          "Cliente No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    DATOS.Cliente ClientePrivate = new DATOS.Cliente
+                    {
+                        Consecutivo = lblConsecutivo.Text,
+                        IdPersonal = txtIdCliente.Text,
+                        Nombre = txtNombre.Text,
+                        Activo = true,
+                        Telefono = txtTelefono.Text,
+                        Correo = txtEmail.Text,
+                        Apellido1 = txtApellido.Text,
+                    };
+
+                    Utilitarios.OpClientes.ActualizarCLIENTE(ClientePrivate);
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Cliente " + ClientePrivate.IdPersonal);
+                    MessageBox.Show("Los datos del Cliente se Actualizaron correctamente",
+                   "Actualizacion de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Clientes");
+                    this.Dispose();
+                }
+                catch (Exception ex)
+                {
+
+                    Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Proveedores al Editar Proveedor ");
+                    MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
     }
     }
+}
 

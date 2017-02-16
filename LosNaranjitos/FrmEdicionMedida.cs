@@ -12,9 +12,7 @@ namespace LosNaranjitos
 {
     public partial class FrmEdicionMedida : Form
     {
-        BL.Interfaces.IMedida OpMedida = new BL.Clases.Medida();
-        BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
-        DATOS.Error ER = new DATOS.Error();
+
         public static DATOS.Medida MedidaEditar = new DATOS.Medida();
 
         public FrmEdicionMedida()
@@ -26,15 +24,11 @@ namespace LosNaranjitos
         {
             try
             {
-                cbbMedida.DataSource = OpMedida.ListarMedidas().Select(p => p.IdMedida).ToList();
+                cbbMedida.DataSource = Utilitarios.OpMedidas.ListarMedidas().Select(p => p.IdMedida).ToList();
             }
             catch (Exception ex)
             {
-
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Medidas al Intentar Seleccionar la Medida a editar");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -44,16 +38,13 @@ namespace LosNaranjitos
         {
             try
             {
-                MedidaEditar = OpMedida.ListarMedidas().FirstOrDefault(x => x.IdMedida == cbbMedida.SelectedValue.ToString());
+                MedidaEditar = Utilitarios.OpMedidas.ListarMedidas().FirstOrDefault(x => x.IdMedida == cbbMedida.SelectedValue.ToString());
                 lblNombre.Text = "Medida: " + MedidaEditar.Descripcion;
                 lblIdPersonal.Text = "Unidad de Medida: " + MedidaEditar.IdMedida;
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Medidas al Intentar Seleccionar la Medida a editar");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -68,7 +59,7 @@ namespace LosNaranjitos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            MedidaEditar = OpMedida.ListarMedidas().FirstOrDefault(x => x.IdMedida == cbbMedida.SelectedValue.ToString());
+            MedidaEditar = Utilitarios.OpMedidas.ListarMedidas().FirstOrDefault(x => x.IdMedida == cbbMedida.SelectedValue.ToString());
             FrmMedidas.EditMedida = MedidaEditar;
             Utilitarios.Cambio = true;
 

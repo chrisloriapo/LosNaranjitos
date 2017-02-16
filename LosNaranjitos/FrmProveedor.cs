@@ -17,151 +17,9 @@ namespace LosNaranjitos
         public static DATOS.Proveedor EditProveedor = new DATOS.Proveedor();
         public static List<DATOS.Proveedor> ListaProveedores = new List<DATOS.Proveedor>();
 
-
         public FrmProveedor()
         {
             InitializeComponent();
-        }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            AgregarProveedor();
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtIdProveedor.Text))
-            {
-                FrmEdicionProveedor a = new FrmEdicionProveedor();
-                a.Show();
-                this.Dispose();
-            }
-            else
-            {
-                if (Utilitarios.OpProveedor.ExisteProveedor(txtIdProveedor.Text))
-                {
-                    EditarProveedor();
-                    Utilitarios.Cambio = false;
-                }
-                else
-                {
-                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Usuario Fallida, Proveedor No existe");
-                    MessageBox.Show("Proveedor No existe",
-                    "Codigo No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
-
-        }
-
-        public void AgregarProveedor()
-        {
-            if (string.IsNullOrEmpty(txtIdProveedor.Text) || string.IsNullOrWhiteSpace(txtIdProveedor.Text) ||
-                string.IsNullOrEmpty(txtEmpresa.Text) || string.IsNullOrWhiteSpace(txtEmpresa.Text))
-            {
-                MessageBox.Show("Faltan datos por ingresar o se encuentran en blanco",
-                    "Error al ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-                try
-                {
-                    if (Utilitarios.OpProveedor.ExisteProveedor(txtIdProveedor.Text))
-                    {
-                        MessageBox.Show("Proveedor Duplicado",
-                                            "No se puede Ingresar usuario duplicado",
-                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso Fallido de Proveedor " + txtIdProveedor.Text + ", Usuario ya existe");
-
-                        return;
-                    }
-                    else
-                    {
-                        DATOS.Proveedor ProvedorPrivate = new DATOS.Proveedor
-                        {
-                            Consecutivo = lblConsecutivo.Text,
-                            IdProveedor = txtIdProveedor.Text,
-                            Nombre = txtEmpresa.Text,
-                            Activo = chkEstado.Checked,
-                            Telefono = txtTelefono.Text,
-                            Correo = txtEmail.Text,
-                        };
-                       Utilitarios.OpProveedor.AgregarProveedor(ProvedorPrivate);
-
-                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(lblConsecutivo.Text.Remove(3, 8));
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
-                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
-
-                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Proveedor Nuevo "+ProvedorPrivate.IdProveedor);
-
-                        MessageBox.Show("Los datos del Proveedor se ingresaron correctamente", "Ingreso de datos",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
-                    this.Dispose();
-                    clearall();
-                }
-                catch (Exception ex)
-                {
-                    Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Proveedores al Intentar Agregar un Proveedor nuevo");
-                    MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-        public void clearall()
-        {
-            txtTelefono.Clear();
-            txtEmail.Clear();
-            txtIdProveedor.Clear();
-            txtEmpresa.Clear();
-        }
-        public void EditarProveedor()
-        {
-            if (string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
-              string.IsNullOrEmpty(txtEmpresa.Text) || string.IsNullOrWhiteSpace(txtEmpresa.Text) ||
-              string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
-              string.IsNullOrEmpty(txtIdProveedor.Text) || string.IsNullOrWhiteSpace(txtIdProveedor.Text) ||
-              string.IsNullOrEmpty(txtTelefono.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text))
-            {
-                MessageBox.Show("Faltan datos por ingresar o se encuentran en blanco",
-                    "Error al ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                try
-                {
-                    DATOS.Proveedor ProvedorPrivate = new DATOS.Proveedor
-                    {
-                        Consecutivo = lblConsecutivo.Text,
-                        IdProveedor = txtIdProveedor.Text,
-                        Nombre = Utilitarios.Encriptar(txtEmpresa.Text, Utilitarios.Llave),
-                        Activo = chkEstado.Checked,
-                        Telefono = txtTelefono.Text,
-                        Correo = txtEmail.Text,
-                    };
-
-                    Utilitarios. OpProveedor.ActualizarProveedor(ProvedorPrivate);
-                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Proveedor " + ProvedorPrivate.IdProveedor);
-                    MessageBox.Show("Los datos del Proveedor se Actualizaron correctamente",
-                   "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Dispose();
-                    clearall();
-                }
-                catch (Exception ex)
-                {
-
-                    Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Proveedores al Editar Proveedor ");
-                    MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-            }
         }
 
         private void FrmProveedor_Load(object sender, EventArgs e)
@@ -235,6 +93,150 @@ namespace LosNaranjitos
             }
         }
 
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            AgregarProveedor();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtIdProveedor.Text))
+            {
+                FrmEdicionProveedor a = new FrmEdicionProveedor();
+                a.Show();
+                this.Dispose();
+            }
+            else
+            {
+                if (Utilitarios.OpProveedor.ExisteProveedor(txtIdProveedor.Text))
+                {
+                    EditarProveedor();
+                    Utilitarios.Cambio = false;
+                }
+                else
+                {
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Usuario Fallida, Proveedor No existe");
+                    MessageBox.Show("Proveedor No existe",
+                    "Codigo No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
+
+        }
+
+        public void AgregarProveedor()
+        {
+            if (string.IsNullOrEmpty(txtIdProveedor.Text) || string.IsNullOrWhiteSpace(txtIdProveedor.Text) ||
+                string.IsNullOrEmpty(txtEmpresa.Text) || string.IsNullOrWhiteSpace(txtEmpresa.Text))
+            {
+                MessageBox.Show("Faltan datos por ingresar o se encuentran en blanco",
+                    "Error al ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                try
+                {
+                    if (Utilitarios.OpProveedor.ExisteProveedor(txtIdProveedor.Text))
+                    {
+                        MessageBox.Show("Proveedor Duplicado",
+                                            "No se puede Ingresar usuario duplicado",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso Fallido de Proveedor " + txtIdProveedor.Text + ", Proveedor ya existe");
+
+                        return;
+                    }
+                    else
+                    {
+                        DATOS.Proveedor ProvedorPrivate = new DATOS.Proveedor
+                        {
+                            Consecutivo = lblConsecutivo.Text,
+                            IdProveedor = txtIdProveedor.Text,
+                            Nombre = txtEmpresa.Text,
+                            Activo = chkEstado.Checked,
+                            Telefono = txtTelefono.Text,
+                            Correo = txtEmail.Text,
+                        };
+                       Utilitarios.OpProveedor.AgregarProveedor(ProvedorPrivate);
+
+                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Proveedor");
+                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
+                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Proveedor Nuevo "+ProvedorPrivate.IdProveedor);
+
+                        MessageBox.Show("Los datos del Proveedor se ingresaron correctamente", "Ingreso de datos",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
+                    this.Dispose();
+                    clearall();
+                }
+                catch (Exception ex)
+                {
+                    Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Proveedores al Intentar Agregar un Proveedor nuevo");
+                    MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        public void EditarProveedor()
+        {
+            if (string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
+              string.IsNullOrEmpty(txtEmpresa.Text) || string.IsNullOrWhiteSpace(txtEmpresa.Text) ||
+              string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
+              string.IsNullOrEmpty(txtIdProveedor.Text) || string.IsNullOrWhiteSpace(txtIdProveedor.Text) ||
+              string.IsNullOrEmpty(txtTelefono.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text))
+            {
+                MessageBox.Show("Faltan datos por ingresar o se encuentran en blanco",
+                    "Error al ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    DATOS.Proveedor ProvedorPrivate = new DATOS.Proveedor
+                    {
+                        Consecutivo = lblConsecutivo.Text,
+                        IdProveedor = txtIdProveedor.Text,
+                        Nombre = Utilitarios.Encriptar(txtEmpresa.Text, Utilitarios.Llave),
+                        Activo = chkEstado.Checked,
+                        Telefono = txtTelefono.Text,
+                        Correo = txtEmail.Text,
+                    };
+
+                    Utilitarios. OpProveedor.ActualizarProveedor(ProvedorPrivate);
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Proveedor " + ProvedorPrivate.IdProveedor);
+                    MessageBox.Show("Los datos del Proveedor se Actualizaron correctamente",
+                   "Actualizacion de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
+                    this.Dispose();
+                    clearall();
+                }
+                catch (Exception ex)
+                {
+
+                    Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Proveedores al Editar Proveedor ");
+                    MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        public void clearall()
+        {
+            txtTelefono.Clear();
+            txtEmail.Clear();
+            txtIdProveedor.Clear();
+            txtEmpresa.Clear();
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -306,9 +308,9 @@ namespace LosNaranjitos
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Close();
+      
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
-
+            this.Close();
         }
     }
 }

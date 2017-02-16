@@ -293,6 +293,8 @@ namespace LosNaranjitos {
             
             private global::System.Data.DataColumn columnActivo;
             
+            private global::System.Data.DataColumn columnConsecutivo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public VProveedor_InsumoDataTable() {
@@ -384,6 +386,14 @@ namespace LosNaranjitos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ConsecutivoColumn {
+                get {
+                    return this.columnConsecutivo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -419,7 +429,7 @@ namespace LosNaranjitos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VProveedor_InsumoRow AddVProveedor_InsumoRow(string IdInsumo, string Proveedor, string Nombre, string IdMedida, decimal PrecioCompra, double CantInventario, bool Activo) {
+            public VProveedor_InsumoRow AddVProveedor_InsumoRow(string IdInsumo, string Proveedor, string Nombre, string IdMedida, decimal PrecioCompra, double CantInventario, bool Activo, string Consecutivo) {
                 VProveedor_InsumoRow rowVProveedor_InsumoRow = ((VProveedor_InsumoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IdInsumo,
@@ -428,7 +438,8 @@ namespace LosNaranjitos {
                         IdMedida,
                         PrecioCompra,
                         CantInventario,
-                        Activo};
+                        Activo,
+                        Consecutivo};
                 rowVProveedor_InsumoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVProveedor_InsumoRow);
                 return rowVProveedor_InsumoRow;
@@ -465,6 +476,7 @@ namespace LosNaranjitos {
                 this.columnPrecioCompra = base.Columns["PrecioCompra"];
                 this.columnCantInventario = base.Columns["CantInventario"];
                 this.columnActivo = base.Columns["Activo"];
+                this.columnConsecutivo = base.Columns["Consecutivo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -484,6 +496,8 @@ namespace LosNaranjitos {
                 base.Columns.Add(this.columnCantInventario);
                 this.columnActivo = new global::System.Data.DataColumn("Activo", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnActivo);
+                this.columnConsecutivo = new global::System.Data.DataColumn("Consecutivo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnConsecutivo);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdInsumo}, true));
                 this.columnIdInsumo.AllowDBNull = false;
@@ -498,6 +512,8 @@ namespace LosNaranjitos {
                 this.columnPrecioCompra.AllowDBNull = false;
                 this.columnCantInventario.AllowDBNull = false;
                 this.columnActivo.AllowDBNull = false;
+                this.columnConsecutivo.AllowDBNull = false;
+                this.columnConsecutivo.MaxLength = 10;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -714,6 +730,17 @@ namespace LosNaranjitos {
                     this[this.tableVProveedor_Insumo.ActivoColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Consecutivo {
+                get {
+                    return ((string)(this[this.tableVProveedor_Insumo.ConsecutivoColumn]));
+                }
+                set {
+                    this[this.tableVProveedor_Insumo.ConsecutivoColumn] = value;
+                }
+            }
         }
         
         /// <summary>
@@ -882,6 +909,7 @@ namespace LosNaranjitos.OrangeDB1DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("PrecioCompra", "PrecioCompra");
             tableMapping.ColumnMappings.Add("CantInventario", "CantInventario");
             tableMapping.ColumnMappings.Add("Activo", "Activo");
+            tableMapping.ColumnMappings.Add("Consecutivo", "Consecutivo");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -898,8 +926,8 @@ namespace LosNaranjitos.OrangeDB1DataSetTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IdInsumo, Proveedor, Nombre, IdMedida, PrecioCompra, CantInventario, Activ" +
-                "o FROM VProveedor_Insumo";
+            this._commandCollection[0].CommandText = "SELECT Consecutivo,IdInsumo, Proveedor, Nombre, IdMedida, PrecioCompra, CantInven" +
+                "tario, Activo FROM VProveedor_Insumo";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

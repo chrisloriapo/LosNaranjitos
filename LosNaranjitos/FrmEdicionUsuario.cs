@@ -12,9 +12,6 @@ namespace LosNaranjitos
 {
     public partial class FrmEdicionUsuario : Form
     {
-        BL.Interfaces.IUsuario OpUsuarios = new BL.Clases.Usuario();
-        BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
-        DATOS.Error ER = new DATOS.Error();
         public static DATOS.Usuario UsuarioEditar = new DATOS.Usuario();
 
         public FrmEdicionUsuario()
@@ -26,15 +23,12 @@ namespace LosNaranjitos
         {
             try
             {
-                cbbUsuarios.DataSource = OpUsuarios.ListarUsuarios().Select(p => p.IdUsuario).ToList();
+                cbbUsuarios.DataSource = Utilitarios.OpUsuarios.ListarUsuarios().Select(p => p.Username).ToList();
             }
             catch (Exception ex)
             {
 
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Usuarios al Intentar Seleccionar el usuario a editar");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -44,19 +38,15 @@ namespace LosNaranjitos
         {
             try
             {
-                UsuarioEditar = OpUsuarios.ListarUsuarios().FirstOrDefault(x => x.IdUsuario == cbbUsuarios.SelectedValue.ToString());
+                UsuarioEditar = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault(x => x.Username == cbbUsuarios.SelectedValue.ToString());
                 lblNombre.Text = "Nombre: " + UsuarioEditar.Nombre + " " + UsuarioEditar.Apellido1 + " " + UsuarioEditar.Apellido2;
                 lblIdPersonal.Text = "Id Personal: " + UsuarioEditar.IdPersonal;
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Usuarios al Intentar Seleccionar el usuario a editar");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -67,7 +57,7 @@ namespace LosNaranjitos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            UsuarioEditar = OpUsuarios.ListarUsuarios().FirstOrDefault(x => x.IdUsuario == cbbUsuarios.SelectedValue.ToString());
+            UsuarioEditar = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault(x => x.Username == cbbUsuarios.SelectedValue.ToString());
             FrmUsuarios.EditUser = UsuarioEditar;
             Utilitarios.Cambio = true;
 

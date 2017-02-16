@@ -147,6 +147,7 @@ namespace LosNaranjitos
         }
 
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+
         {
             var mensaje = MessageBox.Show("¿Desea salir del sistema?", "Advertencia",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -233,7 +234,7 @@ namespace LosNaranjitos
 
         private void consecutivosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmErrores a = new FrmErrores();
+            FrmConsecutivo a = new FrmConsecutivo();
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
             a.Show();
@@ -253,6 +254,16 @@ namespace LosNaranjitos
 
 
             }
+        }
+
+        private void consecutivosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            FrmErrores a = new FrmErrores();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
+
         }
     }
 }

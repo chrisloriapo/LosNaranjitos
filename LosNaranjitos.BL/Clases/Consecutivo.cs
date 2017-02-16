@@ -25,7 +25,12 @@ namespace LosNaranjitos.BL.Clases
 
         public DATOS.Consecutivo BuscarConsecutivo(string Prefijo)
         {
-            return BuscarConsecutivo(Prefijo);
+            return Consecs.BuscarConsecutivo(Prefijo);
+        }
+
+        public DATOS.Consecutivo BuscarConsecutivoPorTipo(string Tipo)
+        {
+            return Consecs.BuscarConsecutivoPorTipo(Tipo);
         }
 
         public void EliminarConsecutivo(DATOS.Consecutivo Consec)

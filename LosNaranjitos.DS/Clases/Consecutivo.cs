@@ -33,6 +33,13 @@ namespace LosNaranjitos.DS.Clases
             return Buscar;
         }
 
+        public DATOS.Consecutivo BuscarConsecutivoPorTipo(string Tipo)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Consecutivo Buscar = db.Select<DATOS.Consecutivo>(x => x.Tipo == Tipo).FirstOrDefault();
+            return Buscar;        }
+
         public void EliminarConsecutivo(DATOS.Consecutivo Consec)
         {
 

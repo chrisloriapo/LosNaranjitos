@@ -12,7 +12,6 @@ namespace LosNaranjitos
 {
     public partial class FrmErrores : Form
     {
-        public BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
         public DATOS.Error ER = new DATOS.Error();
 
         public FrmErrores()
@@ -24,28 +23,38 @@ namespace LosNaranjitos
         {
             try
             {
-                dgvListado.DataSource = OpErrpr.ListarErrores().ToList();
+                dgvListado.DataSource = Utilitarios.OpError.ListarErrores().OrderByDescending(x=>x.Hora).ToList();
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Intentar Cargar los Errores Registrados");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-  
+
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Insumos");
             this.Dispose();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var ListaLocal = Utilitarios.OpError.ListarErrores().ToList();
 
+                ListaLocal = ListaLocal.Where(x => x.IdError == txtBuscar.Text).ToList();
+                dgvListado.DataSource = ListaLocal;
+            }
+            catch (Exception ex)
+            {
+
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Errores al Buscar en el formulario ");
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -49,7 +49,7 @@
             this.precioCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantInventarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.vProveedorInsumoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.consecutivoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbBuscar = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -59,15 +59,17 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtIdInsumo = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbProveedor = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtPrecioCompra = new System.Windows.Forms.TextBox();
-            this.chkActivo = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbProveedor = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtIdInsumo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblConsecutivo = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
@@ -78,6 +80,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.chkActivo = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -105,6 +108,7 @@
             this.txtAjuste = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.vProveedorInsumoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.vProveedor_InsumoTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.VProveedor_InsumoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource)).BeginInit();
@@ -117,13 +121,13 @@
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -135,6 +139,7 @@
             this.groupBox8.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // ttMensaje
@@ -255,8 +260,9 @@
             this.idMedidaDataGridViewTextBoxColumn,
             this.precioCompraDataGridViewTextBoxColumn,
             this.cantInventarioDataGridViewTextBoxColumn,
-            this.activoDataGridViewCheckBoxColumn});
-            this.dgvListado.DataSource = this.vProveedorInsumoBindingSource1;
+            this.activoDataGridViewCheckBoxColumn,
+            this.consecutivoDataGridViewTextBoxColumn});
+            this.dgvListado.DataSource = this.vProveedorInsumoBindingSource;
             this.dgvListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListado.Location = new System.Drawing.Point(3, 94);
             this.dgvListado.MultiSelect = false;
@@ -315,10 +321,12 @@
             this.activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
             this.activoDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
-            // vProveedorInsumoBindingSource1
+            // consecutivoDataGridViewTextBoxColumn
             // 
-            this.vProveedorInsumoBindingSource1.DataMember = "VProveedor_Insumo";
-            this.vProveedorInsumoBindingSource1.DataSource = this.orangeDB1DataSetBindingSource;
+            this.consecutivoDataGridViewTextBoxColumn.DataPropertyName = "Consecutivo";
+            this.consecutivoDataGridViewTextBoxColumn.HeaderText = "Consecutivo";
+            this.consecutivoDataGridViewTextBoxColumn.Name = "consecutivoDataGridViewTextBoxColumn";
+            this.consecutivoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -433,15 +441,15 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.txtIdInsumo, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label4, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.txtNombre, 0, 3);
-            this.tableLayoutPanel4.Controls.Add(this.label6, 0, 4);
-            this.tableLayoutPanel4.Controls.Add(this.cbProveedor, 0, 5);
-            this.tableLayoutPanel4.Controls.Add(this.label5, 0, 6);
-            this.tableLayoutPanel4.Controls.Add(this.txtPrecioCompra, 0, 7);
-            this.tableLayoutPanel4.Controls.Add(this.chkActivo, 0, 8);
+            this.tableLayoutPanel4.Controls.Add(this.txtPrecioCompra, 0, 8);
+            this.tableLayoutPanel4.Controls.Add(this.label5, 0, 7);
+            this.tableLayoutPanel4.Controls.Add(this.cbProveedor, 0, 6);
+            this.tableLayoutPanel4.Controls.Add(this.label6, 0, 5);
+            this.tableLayoutPanel4.Controls.Add(this.txtNombre, 0, 4);
+            this.tableLayoutPanel4.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel4.Controls.Add(this.txtIdInsumo, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.label3, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel9, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -459,96 +467,129 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(299, 285);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
-            // label3
+            // txtPrecioCompra
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Código";
+            this.txtPrecioCompra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPrecioCompra.Location = new System.Drawing.Point(3, 251);
+            this.txtPrecioCompra.Name = "txtPrecioCompra";
+            this.txtPrecioCompra.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtPrecioCompra.Size = new System.Drawing.Size(293, 20);
+            this.txtPrecioCompra.TabIndex = 26;
             // 
-            // txtIdInsumo
+            // label5
             // 
-            this.txtIdInsumo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtIdInsumo.Location = new System.Drawing.Point(3, 34);
-            this.txtIdInsumo.MaxLength = 50;
-            this.txtIdInsumo.Name = "txtIdInsumo";
-            this.txtIdInsumo.Size = new System.Drawing.Size(293, 20);
-            this.txtIdInsumo.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label4.Location = new System.Drawing.Point(3, 62);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Nombre";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNombre.Location = new System.Drawing.Point(3, 96);
-            this.txtNombre.MaxLength = 50;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(293, 20);
-            this.txtNombre.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label6.Location = new System.Drawing.Point(3, 124);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 15);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Proveedor";
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label5.Location = new System.Drawing.Point(3, 217);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(293, 31);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "Precio Compra";
             // 
             // cbProveedor
             // 
             this.cbProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProveedor.FormattingEnabled = true;
-            this.cbProveedor.Location = new System.Drawing.Point(3, 158);
+            this.cbProveedor.Location = new System.Drawing.Point(3, 189);
             this.cbProveedor.Name = "cbProveedor";
             this.cbProveedor.Size = new System.Drawing.Size(293, 21);
             this.cbProveedor.TabIndex = 24;
             // 
-            // label5
+            // label6
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label5.Location = new System.Drawing.Point(3, 186);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 15);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Precio Compra";
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label6.Location = new System.Drawing.Point(3, 155);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(293, 31);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Proveedor";
             // 
-            // txtPrecioCompra
+            // txtNombre
             // 
-            this.txtPrecioCompra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPrecioCompra.Location = new System.Drawing.Point(3, 220);
-            this.txtPrecioCompra.Name = "txtPrecioCompra";
-            this.txtPrecioCompra.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtPrecioCompra.Size = new System.Drawing.Size(293, 20);
-            this.txtPrecioCompra.TabIndex = 26;
+            this.txtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNombre.Location = new System.Drawing.Point(3, 127);
+            this.txtNombre.MaxLength = 50;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(293, 20);
+            this.txtNombre.TabIndex = 7;
             // 
-            // chkActivo
+            // label4
             // 
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.Location = new System.Drawing.Point(3, 251);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(62, 17);
-            this.chkActivo.TabIndex = 27;
-            this.chkActivo.Text = "Activo";
-            this.chkActivo.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label4.Location = new System.Drawing.Point(3, 93);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(293, 31);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Nombre";
+            // 
+            // txtIdInsumo
+            // 
+            this.txtIdInsumo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtIdInsumo.Location = new System.Drawing.Point(3, 65);
+            this.txtIdInsumo.MaxLength = 50;
+            this.txtIdInsumo.Name = "txtIdInsumo";
+            this.txtIdInsumo.Size = new System.Drawing.Size(293, 20);
+            this.txtIdInsumo.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label3.Location = new System.Drawing.Point(3, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(293, 31);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Código";
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 2;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Controls.Add(this.lblConsecutivo, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.label14, 0, 0);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(293, 25);
+            this.tableLayoutPanel9.TabIndex = 27;
+            // 
+            // lblConsecutivo
+            // 
+            this.lblConsecutivo.AutoSize = true;
+            this.lblConsecutivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblConsecutivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConsecutivo.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblConsecutivo.Location = new System.Drawing.Point(149, 0);
+            this.lblConsecutivo.Name = "lblConsecutivo";
+            this.lblConsecutivo.Size = new System.Drawing.Size(141, 25);
+            this.lblConsecutivo.TabIndex = 6;
+            this.lblConsecutivo.Text = "INS-";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label14.Location = new System.Drawing.Point(3, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(140, 25);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Consecutivo:";
             // 
             // groupBox5
             // 
@@ -571,6 +612,7 @@
             this.tableLayoutPanel5.Controls.Add(this.txtStock, 0, 3);
             this.tableLayoutPanel5.Controls.Add(this.label8, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel1, 0, 8);
+            this.tableLayoutPanel5.Controls.Add(this.chkActivo, 0, 4);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -590,11 +632,12 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.OrangeRed;
             this.label10.Location = new System.Drawing.Point(3, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 15);
+            this.label10.Size = new System.Drawing.Size(293, 31);
             this.label10.TabIndex = 21;
             this.label10.Text = "Medida";
             // 
@@ -619,11 +662,12 @@
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.OrangeRed;
             this.label8.Location = new System.Drawing.Point(3, 62);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 15);
+            this.label8.Size = new System.Drawing.Size(293, 31);
             this.label8.TabIndex = 23;
             this.label8.Text = "Stock";
             // 
@@ -680,6 +724,19 @@
             this.btnNuevo.Text = "&Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.AutoSize = true;
+            this.chkActivo.Checked = true;
+            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkActivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkActivo.Location = new System.Drawing.Point(3, 127);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(293, 25);
+            this.chkActivo.TabIndex = 27;
+            this.chkActivo.Text = "Activo";
+            this.chkActivo.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
@@ -1039,6 +1096,11 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // vProveedorInsumoBindingSource1
+            // 
+            this.vProveedorInsumoBindingSource1.DataMember = "VProveedor_Insumo";
+            this.vProveedorInsumoBindingSource1.DataSource = this.orangeDB1DataSetBindingSource;
+            // 
             // vProveedor_InsumoTableAdapter
             // 
             this.vProveedor_InsumoTableAdapter.ClearBeforeFill = true;
@@ -1066,7 +1128,6 @@
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1075,6 +1136,8 @@
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel9.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
@@ -1089,6 +1152,7 @@
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel8.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1163,6 +1227,7 @@
         private System.Windows.Forms.ComboBox cbbCodigoStock;
         private System.Windows.Forms.TextBox txtProveedorStock;
         private System.Windows.Forms.TextBox txtMedidaStock;
+        private System.Windows.Forms.BindingSource vProveedorInsumoBindingSource1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idInsumoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn proveedorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
@@ -1170,6 +1235,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precioCompraDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantInventarioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.BindingSource vProveedorInsumoBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn consecutivoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.Label lblConsecutivo;
+        private System.Windows.Forms.Label label14;
     }
 }

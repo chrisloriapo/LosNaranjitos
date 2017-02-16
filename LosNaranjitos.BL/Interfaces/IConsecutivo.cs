@@ -21,5 +21,8 @@ namespace LosNaranjitos.BL.Interfaces
 
         bool ExisteConsecutivo(string Prefijo);
 
+        DATOS.Consecutivo BuscarConsecutivoPorTipo(string Tipo);
+
+
     }
 }

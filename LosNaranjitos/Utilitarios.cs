@@ -60,7 +60,7 @@ namespace LosNaranjitos
             }
             catch (Exception)
             {
-                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error en el sistema al Agregar a la Bitacora", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
@@ -75,7 +75,7 @@ namespace LosNaranjitos
                 List<Consecutivo> Consecutivos = OpConsecutivo.ListarConsecutivos();
                 DATOS.Error ER = new DATOS.Error();
 
-                ER = OpError.ListarErrores().OrderByDescending(x => x.IdError).First();
+                ER = OpError.ListarErrores().OrderByDescending(x => x.IdError).FirstOrDefault();
 
                 string Prefijo = Consecutivos.Where(x => x.Tipo == "Error").Select(x => x.Prefijo).FirstOrDefault();
                 Consecutivo = OpConsecutivo.BuscarConsecutivo(Prefijo);
@@ -95,18 +95,16 @@ namespace LosNaranjitos
                 OpConsecutivo.ActualizarConsecutivo(Consecutivo);
                 GeneralBitacora(Usuario, AccionBitacora);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+                MessageBox.Show("Error en el sistema al guardar Error" +ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
         }
 
-
-
-
-
+        
         public static string Decriptar(string contra, string llave)
         {
             byte[] keyArray = Encoding.UTF8.GetBytes(llave);

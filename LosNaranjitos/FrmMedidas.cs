@@ -117,7 +117,7 @@ namespace LosNaranjitos
 
                         Utilitarios.OpMedidas.AgregarMedida(MedidaPrivate);
 
-                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(lblConsecutivo.Text.Remove(3, 8));
+                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Medida");
                         Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
                         Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 

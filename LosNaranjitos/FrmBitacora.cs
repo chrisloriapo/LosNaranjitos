@@ -12,9 +12,6 @@ namespace LosNaranjitos
 {
     public partial class FrmBitacora : Form
     {
-        public BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
-        public BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
-        public DATOS.Error ER = new DATOS.Error();
         public FrmBitacora()
         {
             InitializeComponent();
@@ -24,21 +21,42 @@ namespace LosNaranjitos
         {
             try
             {
-                dgvListado.DataSource = OpBitacora.ListarRegistros().ToList();
+                var Lista = Utilitarios.OpBitacora.ListarRegistros().OrderByDescending(x=>x.Fecha);
+                foreach (var item in Lista)
+                {
+                    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
+                }
+                dgvListado.DataSource = Lista.ToList();
+                
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Bitacora al Cargar formulario");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void dgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var ListaLocal = Utilitarios.OpBitacora.ListarRegistros().ToList();
 
+                ListaLocal = ListaLocal.Where(x => x.IdBitacora == txtBuscar.Text).ToList();
+                dgvListado.DataSource = ListaLocal;
+            }
+            catch (Exception ex)
+            {
+
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Errores al Buscar en el formulario ");
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Bitacora");
+            this.Dispose();
         }
     }
 }

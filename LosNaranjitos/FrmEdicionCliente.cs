@@ -12,9 +12,6 @@ namespace LosNaranjitos
 {
     public partial class FrmEdicionCliente : Form
     {
-        BL.Interfaces.ICliente OpClientes = new BL.Clases.Cliente();
-        BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
-        DATOS.Error ER = new DATOS.Error();
         public static DATOS.Cliente ClienteEditar = new DATOS.Cliente();
 
         public FrmEdicionCliente()
@@ -26,15 +23,11 @@ namespace LosNaranjitos
         {
             try
             {
-                cbbCliente.DataSource = OpClientes.ListarClientes().Select(p => p.IdPersonal).ToList();
+                cbbCliente.DataSource = Utilitarios.OpClientes.ListarClientes().Select(p => p.IdPersonal).ToList();
             }
             catch (Exception ex)
             {
-
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Clientes al Intentar Seleccionar el Cliente a editar");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -44,16 +37,13 @@ namespace LosNaranjitos
         {
             try
             {
-                ClienteEditar = OpClientes.ListarClientes().FirstOrDefault(x => x.IdPersonal == cbbCliente.SelectedValue.ToString());
+                ClienteEditar = Utilitarios.OpClientes.ListarClientes().FirstOrDefault(x => x.IdPersonal == cbbCliente.SelectedValue.ToString());
                 lblNombre.Text = "Nombre: " + ClienteEditar.Nombre + " " + ClienteEditar.Apellido1 + " " + ClienteEditar.Apellido2;
                 lblIdPersonal.Text = "Id Personal: " + ClienteEditar.IdPersonal;
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Clientes al Intentar Seleccionar el Cliente a editar");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -67,7 +57,7 @@ namespace LosNaranjitos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            ClienteEditar = OpClientes.ListarClientes().FirstOrDefault(x => x.IdPersonal == cbbCliente.SelectedValue.ToString());
+            ClienteEditar = Utilitarios.OpClientes.ListarClientes().FirstOrDefault(x => x.IdPersonal == cbbCliente.SelectedValue.ToString());
             FrmCliente.EditCLiente = ClienteEditar;
             Utilitarios.Cambio = true;
 

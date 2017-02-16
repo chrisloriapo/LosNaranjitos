@@ -441,7 +441,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(338, 20);
             this.txtNombre.TabIndex = 380;
-            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress_1);
             // 
             // lblApellido1
             // 
@@ -599,6 +599,8 @@
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
+            this.chkEstado.Checked = true;
+            this.chkEstado.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkEstado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkEstado.Location = new System.Drawing.Point(3, 283);
             this.chkEstado.Name = "chkEstado";

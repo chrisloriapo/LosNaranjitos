@@ -10,7 +10,7 @@ namespace LosNaranjitos.DATOS
 {
     public class Error
     {
-        [AutoIncrement][PrimaryKey]
+        [PrimaryKey]
         public string IdError { get; set; }
 
         public string Tipo { get; set; }
