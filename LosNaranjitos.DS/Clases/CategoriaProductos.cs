@@ -26,7 +26,7 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(Categoria);
         }
 
-        public DATOS.CategoriaProductos BuscarCategoriaProductos(int IDCategoria)
+        public DATOS.CategoriaProductos BuscarCategoriaProductos(string IDCategoria)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -34,7 +34,7 @@ namespace LosNaranjitos.DS.Clases
             return Buscar;
         }
 
-        public bool ExisteCategoriaProductos(int IDCategoria)
+        public bool ExisteCategoriaProductos(string IDCategoria)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();

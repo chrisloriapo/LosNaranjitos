@@ -11,6 +11,10 @@ namespace LosNaranjitos.BL.Clases
     public class Pedido : IPedido
     {
         public DS.Interfaces.IPedido PedidProdc = new DS.Clases.Pedido();
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            return PedidProdc.ExisteConsecutivo(Consecutivo);
+        }
         public void ActualizarPedido(DATOS.Pedido Orden)
         {
             PedidProdc.ActualizarPedido(Orden);
@@ -29,6 +33,11 @@ namespace LosNaranjitos.BL.Clases
         public DATOS.Pedido BuscarProductoCliente(string IdCliente)
         {
             return PedidProdc.BuscarProductoCliente(IdCliente);
+        }
+
+        public DATOS.Pedido BuscarProductoConsecutivo(string Consec)
+        {
+            return PedidProdc.BuscarProductoConsecutivo(Consec);
         }
 
         public bool ExistePedido(int IdPedido)

@@ -11,6 +11,11 @@ namespace LosNaranjitos.BL.Clases
     public class DetallePedido : IDetallePedido
     {
         public DS.Interfaces.IDetallePedido Pedprocedimientos = new DS.Clases.DetallePedido();
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            return Pedprocedimientos.ExisteConsecutivo(Consecutivo);
+        } 
         public void ActualizarDetalleOrden(DATOS.DetallePedido DetalleOrden)
         {
             Pedprocedimientos.ActualizarDetalleOrden(DetalleOrden);
@@ -19,6 +24,11 @@ namespace LosNaranjitos.BL.Clases
         public void AgregarDetalle(DATOS.DetallePedido DetalleOrden)
         {
             Pedprocedimientos.AgregarDetalle(DetalleOrden);
+        }
+
+        public DATOS.DetallePedido BuscarPorConsecutivo(string Conse)
+        {
+            return Pedprocedimientos.BuscarPorConsecutivo(Conse);
         }
 
         public DATOS.DetallePedido BuscarPorPedido(int Orden)

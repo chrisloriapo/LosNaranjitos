@@ -20,6 +20,8 @@ namespace LosNaranjitos.DATOS
         public string Correo { get; set; }
         [Required]
         public bool Activo { get; set; }
+        [Required]
+        public string Consecutivo { get; set; }
     }
 
 }

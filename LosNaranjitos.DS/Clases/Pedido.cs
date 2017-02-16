@@ -41,6 +41,45 @@ namespace LosNaranjitos.DS.Clases
             return BuscIdClient;
         }
 
+        public DATOS.Pedido BuscarProductoConsecutivo(string Consec)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Pedido BuscIdClient = db.Select<DATOS.Pedido>(x => x.Consecutivo == Consec).FirstOrDefault();
+            return BuscIdClient;
+        }
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.Pedido Us = db.Select<DATOS.Pedido>(x => x.Consecutivo == Consecutivo).FirstOrDefault();
+
+                if (Us.Consecutivo == Consecutivo)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
         public bool ExistePedido(int IdPedido)
         {
             var conexion = _Conexion.CrearConexion();

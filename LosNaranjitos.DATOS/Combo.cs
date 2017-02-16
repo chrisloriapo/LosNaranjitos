@@ -10,7 +10,10 @@ namespace LosNaranjitos.DATOS
 {
     public class Combo
     {
-        [Required][PrimaryKey]
+        [Required]
+        public string Consecutivo { get; set; }
+        [Required]
+        [PrimaryKey]
         public string Codigo { get; set; }
         [Required]
         public string Nombre { get; set; }
@@ -20,6 +23,7 @@ namespace LosNaranjitos.DATOS
         public decimal Precio { get; set; }
         [Required]
         public bool Activo { get; set; }
+
 
     }
 }

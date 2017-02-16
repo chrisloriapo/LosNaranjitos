@@ -11,6 +11,10 @@ namespace LosNaranjitos.BL.Clases
     public class Insumos : IInsumos
     {
         public DS.Interfaces.IInsumos IsumosProcde = new DS.Clases.Insumos();
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            return IsumosProcde.ExisteConsecutivo(Consecutivo);
+        }
         public void ActualizarInsumo(DATOS.Insumos Insumo)
         {
             IsumosProcde.ActualizarInsumo(Insumo);
@@ -19,6 +23,11 @@ namespace LosNaranjitos.BL.Clases
         public void AgregarInsumo(DATOS.Insumos Insumo)
         {
             IsumosProcde.AgregarInsumo(Insumo);
+        }
+
+        public DATOS.Insumos BuscarInsumoPorConsecutivo(string Consecutivo)
+        {
+            return IsumosProcde.BuscarInsumoPorConsecutivo(Consecutivo);
         }
 
         public DATOS.Insumos BuscarInsumoPorProveedor(string IdProveedor)

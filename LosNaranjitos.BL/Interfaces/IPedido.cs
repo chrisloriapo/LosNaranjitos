@@ -14,6 +14,9 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.Pedido BuscarProductoCliente(string IdCliente);
 
+        DATOS.Pedido BuscarProductoConsecutivo(string Consec);
+
+
         void AgregarPedido(DATOS.Pedido Orden);
 
         void ActualizarPedido(DATOS.Pedido Orden);
@@ -21,5 +24,8 @@ namespace LosNaranjitos.BL.Interfaces
         void Inactivar(DATOS.Pedido Orden);
 
         bool ExistePedido(int IdPedido);
+
+        bool ExisteConsecutivo(string Consecutivo);
+
     }
 }

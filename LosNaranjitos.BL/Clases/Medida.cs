@@ -11,6 +11,10 @@ namespace LosNaranjitos.BL.Clases
     public class Medida : IMedida
     {
         public DS.Interfaces.IMedida MedProced = new DS.Clases.Medida();
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            return MedProced.ExisteConsecutivo(Consecutivo);
+        }
         public void ActualizarMEdida(DATOS.Medida MEdida)
         {
             MedProced.ActualizarMEdida(MEdida);
@@ -19,6 +23,11 @@ namespace LosNaranjitos.BL.Clases
         public void AgregarMedida(DATOS.Medida MEdida)
         {
             MedProced.AgregarMedida(MEdida);
+        }
+
+        public DATOS.Medida BuscarConsecutivo(string IdMedida)
+        {
+            return MedProced.BuscarConsecutivo(IdMedida);
         }
 
         public DATOS.Medida BuscarMedida(string IdMedida)

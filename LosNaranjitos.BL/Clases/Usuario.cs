@@ -11,6 +11,7 @@ namespace LosNaranjitos.BL.Clases
     public class Usuario : IUsuario
     {
         public DS.Interfaces.IUsuario USUARIO = new DS.Clases.Usuario();
+
         public void ActualizarUsuario(DATOS.Usuario User)
         {
             USUARIO.ActualizarUsuario(User);
@@ -28,9 +29,19 @@ namespace LosNaranjitos.BL.Clases
             return USUARIO.BuscarUsuario(iduser);
         }
 
+        public DATOS.Usuario BuscarUsuarioPorConsecutivo(string Consecutv)
+        {
+            return USUARIO.BuscarUsuarioPorConsecutivo(Consecutv);
+        }
+
         public DATOS.Usuario BuscarUsuarioXUsername(string username)
         {
             return USUARIO.BuscarUsuarioXUsername(username);
+        }
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            return USUARIO.ExisteConsecutivo(Consecutivo);
         }
 
         public bool ExisteUsuario(string username)
@@ -53,7 +64,7 @@ namespace LosNaranjitos.BL.Clases
                 item.Nombre = Utilitario.Decriptar(item.Nombre, Utilitario.Llave);
                 item.Apellido1 = Utilitario.Decriptar(item.Apellido1, Utilitario.Llave);
                 item.IdPersonal = Utilitario.Decriptar(item.IdPersonal, Utilitario.Llave);
-                item.IdUsuario = Utilitario.Decriptar(item.IdUsuario, Utilitario.Llave);
+                item.Username = Utilitario.Decriptar(item.Username, Utilitario.Llave);
                 item.Telefono = Utilitario.Decriptar(item.Telefono, Utilitario.Llave);
                 item.Correo = Utilitario.Decriptar(item.Correo, Utilitario.Llave);
                 if (item.Apellido2 != null)

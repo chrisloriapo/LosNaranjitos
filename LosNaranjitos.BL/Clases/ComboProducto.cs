@@ -11,6 +11,10 @@ namespace LosNaranjitos.BL.Clases
     public class ComboProducto : IComboProducto
     {
         public DS.Interfaces.IComboProducto ComProcedimietos = new DS.Clases.ComboProducto();
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            return ComProcedimietos.ExisteConsecutivo(Consecutivo);
+        }
         public void ActualizarComboProducto(DATOS.ComboProducto ComboProductos)
         {
             ComProcedimietos.ActualizarComboProducto(ComboProductos);
@@ -24,6 +28,11 @@ namespace LosNaranjitos.BL.Clases
         public DATOS.ComboProducto BuscarCodigoCombo(string Combo)
         {
             return ComProcedimietos.BuscarCodigoCombo(Combo);
+        }
+
+        public DATOS.ComboProducto BuscarCodigoConsecutivo(string Consecutivo)
+        {
+            return ComProcedimietos.BuscarCodigoConsecutivo(Consecutivo);
         }
 
         public DATOS.ComboProducto BuscarCodigoProducto(string Producto)

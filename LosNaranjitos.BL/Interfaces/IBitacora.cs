@@ -10,8 +10,11 @@ namespace LosNaranjitos.BL.Interfaces
     {
         List<DATOS.Bitacora> ListarRegistros();
 
-        DATOS.Bitacora BuscarBitacora(int IdBitacora);
-
+        DATOS.Bitacora BuscarBitacora(string IdBitacora);
+                
         void AgregarBitacora(DATOS.Bitacora BitacorA);
+
+        bool ExisteConsecutivo(string consecutivo);
+
     }
 }

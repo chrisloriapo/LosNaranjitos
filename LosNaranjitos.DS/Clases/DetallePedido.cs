@@ -27,6 +27,14 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(DetalleOrden);
         }
 
+        public DATOS.DetallePedido BuscarPorConsecutivo(string Conse)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.DetallePedido BusPed = db.Select<DATOS.DetallePedido>(x => x.Consecutivo == Conse).FirstOrDefault();
+            return BusPed;
+        }
+
         public DATOS.DetallePedido BuscarPorPedido(int Orden)
         {
             var conexion = _Conexion.CrearConexion();
@@ -41,6 +49,38 @@ namespace LosNaranjitos.DS.Clases
             var db = conexion.Open();
             DATOS.DetallePedido BuscProd = db.Select<DATOS.DetallePedido>(x => x.Producto == Producto).FirstOrDefault();
             return BuscProd;
+        }
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.DetallePedido Us = db.Select<DATOS.DetallePedido>(x => x.Consecutivo == Consecutivo).FirstOrDefault();
+
+                if (Us.Consecutivo == Consecutivo)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         public bool ExisteDetalle(string IdProducto, int Orden)

@@ -11,11 +11,10 @@ namespace LosNaranjitos.BL.Clases
     public class CategoriaProductos : ICategoriaProductos
     {
         public DS.Interfaces.ICategoriaProductos CPProcedimiento = new DS.Clases.CategoriaProductos();
+
         public void ActualizarCategoriaProductosE(DATOS.CategoriaProductos Categoria)
         {
             CPProcedimiento.ActualizarCategoriaProductosE(Categoria);
-
-
         }
 
         public void AgregarCategoriaProductos(DATOS.CategoriaProductos Categoria)
@@ -23,12 +22,12 @@ namespace LosNaranjitos.BL.Clases
             CPProcedimiento.AgregarCategoriaProductos(Categoria);
         }
 
-        public DATOS.CategoriaProductos BuscarCategoriaProductos(int IDCategoria)
+        public DATOS.CategoriaProductos BuscarCategoriaProductos(string IDCategoria)
         {
             return CPProcedimiento.BuscarCategoriaProductos(IDCategoria);
         }
 
-        public bool ExisteCategoriaProductos(int IDCategoria)
+        public bool ExisteCategoriaProductos(string IDCategoria)
         {
             return CPProcedimiento.ExisteCategoriaProductos(IDCategoria);
         }

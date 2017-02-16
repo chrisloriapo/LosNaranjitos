@@ -12,8 +12,7 @@ namespace LosNaranjitos.DATOS
     {
         [PrimaryKey]
         [Required]
-        [AutoIncrement]
-        public int IdRol { get; set; }
+        public string IdRol { get; set; }
         [Required]
         public string Descripcion { get; set; }
         [Required]

@@ -14,10 +14,15 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.DetallePedido BuscarPorPedido(int Orden);
 
+        DATOS.DetallePedido BuscarPorConsecutivo(string Conse);
+
         void AgregarDetalle(DATOS.DetallePedido DetalleOrden);
 
         void ActualizarDetalleOrden(DATOS.DetallePedido DetalleOrden);
 
         bool ExisteDetalle(string IdProducto, int Orden);
+
+        bool ExisteConsecutivo(string Consecutivo);
+
     }
 }

@@ -11,6 +11,11 @@ namespace LosNaranjitos.BL.Clases
     {
         public DS.Interfaces.IRolUsuario ROLUSER = new DS.Clases.RolUsuario();
 
+        public bool ExisteRol(string Consecutivo)
+        {
+            return ROLUSER.ExisteRol(Consecutivo);
+        }
+
         public void ActualizarRolUsuario(DATOS.RolUsuario Rol)
         {
             ROLUSER.ActualizarRolUsuario(Rol);
@@ -21,7 +26,7 @@ namespace LosNaranjitos.BL.Clases
             ROLUSER.ActualizarRolUsuario(Rol);
         }
 
-        public DATOS.RolUsuario BuscarRol(int IdRol)
+        public DATOS.RolUsuario BuscarRol(string IdRol)
         {
             return ROLUSER.BuscarRol(IdRol);
 

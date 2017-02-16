@@ -11,11 +11,11 @@ namespace LosNaranjitos.DATOS
     public class Consecutivo
     {
         [Required][PrimaryKey]
-        public string IdConsecutivo { get; set; }
-
-        public string PKTabla { get; set; }
+        public string Prefijo { get; set; }
 
         public string Tipo { get; set; }
+
+        public int ConsecutivoActual { get; set; }
 
     }
 

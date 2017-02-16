@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LosNaranjitos.DATOS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +16,7 @@ namespace LosNaranjitos
 
         public static DATOS.Proveedor EditProveedor = new DATOS.Proveedor();
         public static List<DATOS.Proveedor> ListaProveedores = new List<DATOS.Proveedor>();
-        public BL.Interfaces.IProveedor OpProveedor = new BL.Clases.Proveedor();
-        public BL.Interfaces.IConsecutivo ConsecutivoOperaciones = new BL.Clases.Consecutivo();
-        public BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
-        public BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
-        public DATOS.Error ER = new DATOS.Error();
-        public DATOS.Bitacora BIT = new DATOS.Bitacora();
+
 
         public FrmProveedor()
         {
@@ -42,13 +38,14 @@ namespace LosNaranjitos
             }
             else
             {
-                if (OpProveedor.ExisteProveedor(txtIdProveedor.Text))
+                if (Utilitarios.OpProveedor.ExisteProveedor(txtIdProveedor.Text))
                 {
                     EditarProveedor();
                     Utilitarios.Cambio = false;
                 }
                 else
                 {
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Usuario Fallida, Proveedor No existe");
                     MessageBox.Show("Proveedor No existe",
                     "Codigo No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -59,6 +56,8 @@ namespace LosNaranjitos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
+
         }
 
         public void AgregarProveedor()
@@ -74,46 +73,44 @@ namespace LosNaranjitos
             {
                 try
                 {
-                    if (OpProveedor.ExisteProveedor(txtIdProveedor.Text))
+                    if (Utilitarios.OpProveedor.ExisteProveedor(txtIdProveedor.Text))
                     {
                         MessageBox.Show("Proveedor Duplicado",
-                                            "No se puede Ingresar usuario duplicado", 
+                                            "No se puede Ingresar usuario duplicado",
                                             MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso Fallido de Proveedor " + txtIdProveedor.Text + ", Usuario ya existe");
+
                         return;
                     }
                     else
                     {
                         DATOS.Proveedor ProvedorPrivate = new DATOS.Proveedor
                         {
+                            Consecutivo = lblConsecutivo.Text,
                             IdProveedor = txtIdProveedor.Text,
                             Nombre = txtEmpresa.Text,
                             Activo = chkEstado.Checked,
                             Telefono = txtTelefono.Text,
                             Correo = txtEmail.Text,
                         };
-                        OpProveedor.AgregarProveedor(ProvedorPrivate);
-                        DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo
-                            ("Proveedor").OrderByDescending(x => x.IdConsecutivo).First();
-                        UltimoConsecutivo.PKTabla = ProvedorPrivate.IdProveedor;
-                        ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
-                        BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
-                        BIT.Accion = "Ingreso de Proveedor Nuevo";
-                        BIT.Fecha = DateTime.Now;
-                        OpBitacora.AgregarBitacora(BIT);
+                       Utilitarios.OpProveedor.AgregarProveedor(ProvedorPrivate);
+
+                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(lblConsecutivo.Text.Remove(3, 8));
+                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
+                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Proveedor Nuevo "+ProvedorPrivate.IdProveedor);
 
                         MessageBox.Show("Los datos del Proveedor se ingresaron correctamente", "Ingreso de datos",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
                     this.Dispose();
                     clearall();
                 }
                 catch (Exception ex)
                 {
-                    ER.Descripcion = ex.Message;
-                    ER.Tipo = "Error al Popular Datos";
-                    ER.Hora = DateTime.Now;
-                    OpErrpr.AgregarError(ER);
+                    Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Proveedores al Intentar Agregar un Proveedor nuevo");
                     MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -142,6 +139,7 @@ namespace LosNaranjitos
                 {
                     DATOS.Proveedor ProvedorPrivate = new DATOS.Proveedor
                     {
+                        Consecutivo = lblConsecutivo.Text,
                         IdProveedor = txtIdProveedor.Text,
                         Nombre = Utilitarios.Encriptar(txtEmpresa.Text, Utilitarios.Llave),
                         Activo = chkEstado.Checked,
@@ -149,11 +147,8 @@ namespace LosNaranjitos
                         Correo = txtEmail.Text,
                     };
 
-                    OpProveedor.ActualizarProveedor(ProvedorPrivate);
-                    BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
-                    BIT.Accion = "Edicion de Proveedor";
-                    BIT.Fecha = DateTime.Now;
-                    OpBitacora.AgregarBitacora(BIT);
+                    Utilitarios. OpProveedor.ActualizarProveedor(ProvedorPrivate);
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Proveedor " + ProvedorPrivate.IdProveedor);
                     MessageBox.Show("Los datos del Proveedor se Actualizaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
@@ -162,10 +157,7 @@ namespace LosNaranjitos
                 catch (Exception ex)
                 {
 
-                    ER.Descripcion = ex.Message;
-                    ER.Tipo = "Error al Popular Datos";
-                    ER.Hora = DateTime.Now;
-                    OpErrpr.AgregarError(ER);
+                    Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Proveedores al Editar Proveedor ");
                     MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
@@ -176,7 +168,23 @@ namespace LosNaranjitos
         {
             try
             {
-                ListaProveedores = OpProveedor.ListarProveedores();
+                if (Utilitarios.Cambio == false)
+                {
+                    DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    DATOS.Proveedor UltimoProveedor = Utilitarios.OpProveedor.ListarProveedores().OrderByDescending(x => x.Consecutivo).First();
+                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Proveedor").Select(x => x.Prefijo).FirstOrDefault();
+                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    int CSProveedor = Consecutivo.ConsecutivoActual + 1;
+                    UltimoProveedor.Consecutivo = Prefijo + "-" + CSProveedor;
+                    if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoProveedor.Consecutivo))
+                    {
+                        MessageBox.Show("Existe otro Consecutivo " + UltimoProveedor.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        btnNuevo.Enabled = false;
+                    }
+                    lblConsecutivo.Text = UltimoProveedor.Consecutivo;
+                }
+                ListaProveedores = Utilitarios.OpProveedor.ListarProveedores();
                 var ListaLocal = ListaProveedores.ToList();
                 dgvListado.DataSource = ListaLocal;
 
@@ -221,10 +229,7 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Proveedores al Cargar el formulario ");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
@@ -234,7 +239,7 @@ namespace LosNaranjitos
         {
             try
             {
-                ListaProveedores = OpProveedor.ListarProveedores();
+                ListaProveedores = Utilitarios.OpProveedor.ListarProveedores();
                 var ListaLocal = ListaProveedores.ToList();
                 switch (cbBuscar.SelectedItem.ToString())
                 {
@@ -255,10 +260,7 @@ namespace LosNaranjitos
             catch (Exception ex)
             {
 
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Proveedores al Buscar el formulario ");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -267,7 +269,7 @@ namespace LosNaranjitos
         {
             try
             {
-                ListaProveedores = OpProveedor.ListarProveedores();
+                ListaProveedores = Utilitarios.OpProveedor.ListarProveedores();
                 var ListaLocal = ListaProveedores.ToList();
 
                 var autosearch = new AutoCompleteStringCollection();
@@ -297,10 +299,7 @@ namespace LosNaranjitos
             catch (Exception ex)
             {
 
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Proveedores al Cargar el Combobox de Busqueda ");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -308,6 +307,8 @@ namespace LosNaranjitos
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
+
         }
     }
 }

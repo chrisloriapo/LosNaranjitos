@@ -12,6 +12,12 @@ namespace LosNaranjitos.BL.Clases
     public class Proveedor : IProveedor
     {
         public DS.Interfaces.IProveedor ProvProcd = new DS.Clases.Proveedor();
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            return ProvProcd.ExisteConsecutivo(Consecutivo);
+        }
+
         public void ActualizarProveedor(DATOS.Proveedor Pro)
         {
             ProvProcd.ActualizarProveedor(Pro);
@@ -25,6 +31,11 @@ namespace LosNaranjitos.BL.Clases
         public DATOS.Proveedor BuscarProveedor(string IdProveedor)
         {
             return ProvProcd.BuscarProveedor(IdProveedor);
+        }
+
+        public DATOS.Proveedor BuscarProveedorPorConsecutivo(string Consecutivo)
+        {
+            return ProvProcd.BuscarProveedorPorConsecutivo(Consecutivo);
         }
 
         public DATOS.Proveedor BuscarProveedorPorNombre(string IdProveedor)

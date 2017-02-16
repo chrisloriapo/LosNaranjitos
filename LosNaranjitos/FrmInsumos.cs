@@ -14,12 +14,7 @@ namespace LosNaranjitos
     {
         public static DATOS.Insumos EditInsumo = new DATOS.Insumos();
         public static List<DATOS.Insumos> ListaInsumos = new List<DATOS.Insumos>();
-        public BL.Interfaces.IInsumos OpInsumos = new BL.Clases.Insumos();
-        public BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
-        public BL.Interfaces.IProveedor OpProveedor = new BL.Clases.Proveedor();
-        public BL.Interfaces.IConsecutivo ConsecutivoOperaciones = new BL.Clases.Consecutivo();
-        public BL.Interfaces.IMedida OpMedidas = new BL.Clases.Medida();
-        public BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
+
         public DATOS.Error ER = new DATOS.Error();
         public DATOS.Bitacora BIT = new DATOS.Bitacora();
 
@@ -33,15 +28,15 @@ namespace LosNaranjitos
 
         private void FrmInsumos_Load(object sender, EventArgs e)
         {
-
+            
             try
             {
                 this.vProveedor_InsumoTableAdapter.Fill(this.orangeDB1DataSet.VProveedor_Insumo);
                 var ListaLocal = this.orangeDB1DataSet.VProveedor_Insumo.ToList();
                 dgvListado.DataSource = ListaLocal;
-                cbMedida.DataSource = OpMedidas.ListarMedidas().Select(x => x.IdMedida).ToList();
-                cbProveedor.DataSource = OpProveedor.ListarProveedores().Select(x => x.Nombre).ToList();
-                cbbCodigoStock.DataSource = OpInsumos.ListarInsumos().Select(x => x.IdInsumo).ToList();
+                cbMedida.DataSource = Utilitarios.OpMedidas.ListarMedidas().Select(x => x.IdMedida).ToList();
+                cbProveedor.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(x => x.Nombre).ToList();
+                cbbCodigoStock.DataSource = Utilitarios.OpInsumos.ListarInsumos().Select(x => x.IdInsumo).ToList();
 
                 var autosearch = new AutoCompleteStringCollection();
                 txtBuscar.AutoCompleteCustomSource = autosearch;
@@ -59,7 +54,7 @@ namespace LosNaranjitos
                 while (Utilitarios.Cambio)
                 {
                     DATOS.Proveedor Prov = new DATOS.Proveedor();
-                    Prov = OpProveedor.BuscarProveedor(EditInsumo.Proveedor);
+                    Prov = Utilitarios.OpProveedor.BuscarProveedor(EditInsumo.Proveedor);
 
                     tabControl1.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
@@ -87,7 +82,7 @@ namespace LosNaranjitos
                 ER.Descripcion = ex.Message;
                 ER.Tipo = "Error al Popular Datos";
                 ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.OpError.AgregarError(ER);
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -133,10 +128,10 @@ namespace LosNaranjitos
                         UltimoConsecutivo.PKTabla = InsumoPrivate.IdInsumo;
                         ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
 
-                        BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
+                        BIT.Usuario = FrmLogin.UsuarioGlobal.Username;
                         BIT.Accion = "Ingreso de Insumo Nuevo "+InsumoPrivate.IdInsumo ;
                         BIT.Fecha = DateTime.Now;
-                        OpBitacora.AgregarBitacora(BIT);
+                        Utilitarios.OpBitacora.AgregarBitacora(BIT);
                     }
                     MessageBox.Show("Los datos del Proveedor se ingresaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -164,7 +159,7 @@ namespace LosNaranjitos
             }
             else
             {
-                if (OpInsumos.ExisteInsumo(txtIdInsumo.Text))
+                if (Utilitarios.OpInsumos.ExisteInsumo(txtIdInsumo.Text))
                 {
                     EditarInsumo();
                     Utilitarios.Cambio = false;

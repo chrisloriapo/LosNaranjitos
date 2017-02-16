@@ -12,10 +12,16 @@ namespace LosNaranjitos.DS.Interfaces
 
         DATOS.Medida BuscarMedida(string IdMedida);
 
+        DATOS.Medida BuscarConsecutivo(string IdMedida);
+
+
         void AgregarMedida(DATOS.Medida MEdida);
 
         void ActualizarMEdida(DATOS.Medida MEdida);
 
         bool ExisteMEdida(string IdMedida);
+
+        bool ExisteConsecutivo(string Consecutivo);
+
     }
 }

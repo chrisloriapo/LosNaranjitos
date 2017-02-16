@@ -14,10 +14,16 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.ProductoInsumo BuscarPorInsumo(string Insumo);
 
+        DATOS.ProductoInsumo BuscarPorConsecutivo(string Consec);
+
+
         void AgregarProductoInsumo(DATOS.ProductoInsumo ProductoINSUMO);
 
         void ActualizarProductoInsumo(DATOS.ProductoInsumo ProductoINSUMO);
 
         bool ExisteProductoINSUMO(string IdProducto,string IdInsumo);
+
+        bool ExisteConsecutivo(string Consecutivo);
+
     }
 }

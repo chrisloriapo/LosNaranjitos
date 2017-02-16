@@ -25,38 +25,31 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(Consec);
         }
 
-        public DATOS.Consecutivo BuscarConsecutivo(string ID)
+        public DATOS.Consecutivo BuscarConsecutivo(string Prefijo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
-            DATOS.Consecutivo Buscar = db.Select<DATOS.Consecutivo>(x => x.IdConsecutivo == ID).FirstOrDefault();
-            return Buscar;
-        }
-
-        public DATOS.Consecutivo BuscarConsecutivoPorTipoyPK(string PK, string Tipo)
-        {
-            var conexion = _Conexion.CrearConexion();
-            var db = conexion.Open();
-            DATOS.Consecutivo Buscar = db.Select<DATOS.Consecutivo>(x => x.PKTabla == PK && x.Tipo==Tipo).FirstOrDefault();
+            DATOS.Consecutivo Buscar = db.Select<DATOS.Consecutivo>(x => x.Prefijo == Prefijo).FirstOrDefault();
             return Buscar;
         }
 
         public void EliminarConsecutivo(DATOS.Consecutivo Consec)
         {
+
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
             db.Delete(Consec);
         }
 
-        public bool ExisteConsecutivo(string ID)
+        public bool ExisteConsecutivo(string Prefijo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
             try
             {
-                DATOS.Consecutivo Us = db.Select<DATOS.Consecutivo>(x => x.IdConsecutivo == ID).FirstOrDefault();
+                DATOS.Consecutivo Us = db.Select<DATOS.Consecutivo>(x => x.Prefijo == Prefijo).FirstOrDefault();
 
-                if (Us.IdConsecutivo == ID)
+                if (Us.Prefijo == Prefijo)
                 {
                     return true;
                 }
@@ -80,22 +73,14 @@ namespace LosNaranjitos.DS.Clases
             }
         }
 
-    
-
-        public List<DATOS.Consecutivo> ListaPorTipo(string tipo)
-        {
-            var conexion = _Conexion.CrearConexion();
-            var db = conexion.Open();
-            List<DATOS.Consecutivo> ListConse = db.Select<DATOS.Consecutivo>(x=>x.Tipo==tipo);
-            return ListConse;
-        }
-
         public List<DATOS.Consecutivo> ListarConsecutivos()
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
             List<DATOS.Consecutivo> ListConse = db.Select<DATOS.Consecutivo>();
             return ListConse;
+
         }
     }
+
 }

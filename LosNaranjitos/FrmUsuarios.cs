@@ -1,4 +1,5 @@
 ﻿
+using LosNaranjitos.DATOS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,13 +16,7 @@ namespace LosNaranjitos
     {
         public static DATOS.Usuario EditUser = new DATOS.Usuario();
         public static List<DATOS.Usuario> ListaUsuarios = new List<DATOS.Usuario>();
-        public BL.Interfaces.IUsuario UsuarioOperaciones = new BL.Clases.Usuario();
-        public BL.Interfaces.IRolUsuario OperacionesRoles = new BL.Clases.RolUsuario();
-        public BL.Interfaces.IConsecutivo ConsecutivoOperaciones = new BL.Clases.Consecutivo();
-        public BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
-        public BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
-        public DATOS.Error ER = new DATOS.Error();
-        public DATOS.Bitacora BIT = new DATOS.Bitacora();
+
 
         public FrmUsuarios()
         {
@@ -30,7 +25,6 @@ namespace LosNaranjitos
 
         public void AgregarUsuario()
         {
-            string Usuario; int Consec = 1;
             if (txtConfirmarContrasena.Text != txtContraseña.Text)
             {
                 MessageBox.Show("Error", "Contraseñas No Coinciden", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -50,21 +44,13 @@ namespace LosNaranjitos
             {
                 try
                 {
-                    Usuario = txtApellido.Text + txtNombre.Text.Substring(0, 1) + Consec.ToString();
-                    Usuario = Usuario.ToLower();
-                    do
-                    {
-                        Consec = Consec + 1; //Consecutivo para IdUsuario
-                        Usuario = txtApellido.Text + txtNombre.Text.Substring(0, 1) + Consec.ToString();
-                        Usuario = Usuario.ToLower();
-                    } while (UsuarioOperaciones.ExisteUsuario(Utilitarios.Encriptar(Usuario, Utilitarios.Llave)));
 
-                    txtIdUsuario.Text = Usuario;
-                    DATOS.RolUsuario RolLocal = OperacionesRoles.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
+                    DATOS.RolUsuario RolLocal = Utilitarios.OpRol.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
 
                     DATOS.Usuario Userprivate = new DATOS.Usuario
                     {
-                        IdUsuario = Utilitarios.Encriptar(Usuario, Utilitarios.Llave),
+                        Consecutivo = lblConsecutivo.Text,
+                        Username = Utilitarios.Encriptar(txtUsername.Text, Utilitarios.Llave),
                         Nombre = Utilitarios.Encriptar(txtNombre.Text, Utilitarios.Llave),
                         Apellido1 = Utilitarios.Encriptar(txtApellido.Text, Utilitarios.Llave),
                         Apellido2 = Utilitarios.Encriptar(txtApellido2.Text, Utilitarios.Llave),
@@ -77,28 +63,23 @@ namespace LosNaranjitos
                         Direccion = txtDireccion.Text,
                     };
 
-                    UsuarioOperaciones.AgregarUsuario(Userprivate);
-                    //Logistica de Consecutivos
-                    DATOS.Consecutivo UltimoConsecutivo = ConsecutivoOperaciones.ListaPorTipo("Usuario").
-                        OrderByDescending(x => x.IdConsecutivo).First();
-                    UltimoConsecutivo.PKTabla = Userprivate.IdPersonal;
-                    ConsecutivoOperaciones.ActualizarConsecutivo(UltimoConsecutivo);
-                    BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
-                    BIT.Accion = "Ingreso de Usuario Nuevo "+Userprivate.IdUsuario;
-                    BIT.Fecha = DateTime.Now;
-                    OpBitacora.AgregarBitacora(BIT);
+                    Utilitarios.OpUsuarios.AgregarUsuario(Userprivate);
+
+                    DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(lblConsecutivo.Text.Remove(3,8));
+                    Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
+                    Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Usuario Nuevo "+Userprivate.Username );
                     MessageBox.Show("Los datos del Usuario se ingresaron correctamente",
-                   "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Dispose();                   
+"Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Dispose();
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Usuarios");
                     clearall();
                 }
                 catch (Exception ex)
                 {
 
-                    ER.Descripcion = ex.Message;
-                    ER.Tipo = "Error al Popular Datos";
-                    ER.Hora = DateTime.Now;
-                    OpErrpr.AgregarError(ER);
+                    Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Usuarios al Intentar Agregar un usuario nuevo");
                     MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -114,13 +95,32 @@ namespace LosNaranjitos
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
             try
+
             {
-                cbbRol.DataSource = OperacionesRoles.ListarRoles().Select(p =>
-                p.Descripcion).ToList();
-                ListaUsuarios = UsuarioOperaciones.ListarUsuarios();
+                if (Utilitarios.Cambio == false)
+                {
+                    DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    DATOS.Usuario UltimoUsuario = Utilitarios.OpUsuarios.ListarUsuarios().OrderByDescending(x => x.Consecutivo).First();
+                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Usuario").Select(x => x.Prefijo).FirstOrDefault();
+                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    int CSUsuario = Consecutivo.ConsecutivoActual + 1;
+                    UltimoUsuario.Consecutivo = Prefijo + "-" + CSUsuario;
+                    if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoUsuario.Consecutivo))
+                    {
+                        MessageBox.Show("Existe otro Consecutivo " + UltimoUsuario.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        btnNuevo.Enabled = false;
+                    }
+                    lblConsecutivo.Text = UltimoUsuario.Consecutivo;
+                }
+
+                cbbRol.DataSource = Utilitarios.OpRol.ListarRoles().Select(p =>
+                    p.Descripcion).ToList();
+                ListaUsuarios = Utilitarios.OpUsuarios.ListarUsuarios();
                 var ListaLocal = ListaUsuarios.Select(a => new
                 {
-                    a.IdUsuario,
+                    a.Consecutivo,
+                    a.Username,
                     a.IdPersonal,
                     a.Nombre,
                     a.Apellido1,
@@ -139,7 +139,7 @@ namespace LosNaranjitos
 
                 foreach (var pos in ListaLocal)
                 {
-                    autosearch.Add(Convert.ToString(pos.IdUsuario));
+                    autosearch.Add(Convert.ToString(pos.Username));
                 }
                 txtBuscar.AutoCompleteCustomSource = autosearch;
 
@@ -150,7 +150,8 @@ namespace LosNaranjitos
                     tbControl1.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
                     {
-                        txtIdUsuario.Text = EditUser.IdUsuario;
+                        lblConsecutivo.Text = EditUser.Consecutivo;
+                        txtUsername.Text = EditUser.Username;
                         txtNombre.Text = EditUser.Nombre;
                         txtApellido.Text = EditUser.Apellido1;
                         txtApellido2.Text = EditUser.Apellido2;
@@ -173,13 +174,12 @@ namespace LosNaranjitos
                         return;
                     }
                 }
+
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error al Popular Datos", FrmLogin.UsuarioGlobal.Username, "Error al Cargar Formulario de Usuarios");
+
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
@@ -188,12 +188,14 @@ namespace LosNaranjitos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Dispose();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Usuario");
+
         }
 
         public void clearall()
         {
             txtIdPersonal.Clear();
-            txtIdUsuario.Clear();
+            txtUsername.Clear();
             txtNombre.Clear();
             txtTelefono.Clear();
             txtEmail.Clear();
@@ -207,7 +209,7 @@ namespace LosNaranjitos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtIdUsuario.Text))
+            if (string.IsNullOrEmpty(txtUsername.Text))
             {
                 FrmEdicionUsuario a = new FrmEdicionUsuario();
                 a.Show();
@@ -219,12 +221,13 @@ namespace LosNaranjitos
                 Utilitarios.Cambio = false;
             }
         }
+
         public void EditarUsuario()
         {
             if (string.IsNullOrEmpty(txtContraseña.Text) || string.IsNullOrWhiteSpace(txtContraseña.Text) ||
               string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrWhiteSpace(txtApellido.Text) ||
               string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
-              string.IsNullOrEmpty(txtIdUsuario.Text) || string.IsNullOrWhiteSpace(txtIdUsuario.Text) ||
+              string.IsNullOrEmpty(txtUsername.Text) || string.IsNullOrWhiteSpace(txtUsername.Text) ||
               string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
             {
                 MessageBox.Show("Faltan datos por ingresar o se encuentran en blanco",
@@ -234,10 +237,11 @@ namespace LosNaranjitos
             {
                 try
                 {
-                    DATOS.RolUsuario RolLocal = OperacionesRoles.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
+                    DATOS.RolUsuario RolLocal = Utilitarios.OpRol.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
                     DATOS.Usuario Userprivate = new DATOS.Usuario
                     {
-                        IdUsuario = Utilitarios.Encriptar(txtIdUsuario.Text, Utilitarios.Llave),
+                        Consecutivo = lblConsecutivo.Text,
+                        Username = Utilitarios.Encriptar(txtUsername.Text, Utilitarios.Llave),
                         Nombre = Utilitarios.Encriptar(txtNombre.Text, Utilitarios.Llave),
                         Apellido1 = Utilitarios.Encriptar(txtApellido.Text, Utilitarios.Llave),
                         Apellido2 = Utilitarios.Encriptar(txtApellido2.Text, Utilitarios.Llave),
@@ -249,27 +253,21 @@ namespace LosNaranjitos
                         Rol = RolLocal.IdRol,
                         Direccion = txtDireccion.Text,
                     };
-                    UsuarioOperaciones.ActualizarUsuario(Userprivate);
-                    BIT.Usuario = FrmLogin.UsuarioGlobal.IdUsuario;
-                    BIT.Accion = "Edicion de Usuario";
-                    BIT.Fecha = DateTime.Now;
-                    OpBitacora.AgregarBitacora(BIT);
+                    Utilitarios.OpUsuarios.ActualizarUsuario(Userprivate);
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Usuario " + Userprivate.Username);
+
                     MessageBox.Show("Los datos del Usuario se Actualizaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Usuarios");
+
                     this.Dispose();
                     clearall();
                 }
                 catch (Exception ex)
                 {
-
-                    ER.Descripcion = ex.Message;
-                    ER.Tipo = "Error al Popular Datos";
-                    ER.Hora = DateTime.Now;
-                    OpErrpr.AgregarError(ER);
+                    Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Usuarios al Editar Usuario");
                     MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
             }
         }
 
@@ -277,10 +275,11 @@ namespace LosNaranjitos
         {
             try
             {
-                ListaUsuarios = UsuarioOperaciones.ListarUsuarios();
+                ListaUsuarios = Utilitarios.OpUsuarios.ListarUsuarios();
                 var ListaLocal = ListaUsuarios.Select(a => new
                 {
-                    a.IdUsuario,
+                    a.Consecutivo,
+                    a.Username,
                     a.IdPersonal,
                     a.Nombre,
                     a.Apellido1,
@@ -305,11 +304,11 @@ namespace LosNaranjitos
                             autosearch.Add(Convert.ToString(pos.IdPersonal));
                         }
                         break;
-                    case "IdUsuario":
+                    case "Username":
 
                         foreach (var pos in ListaLocal)
                         {
-                            autosearch.Add(Convert.ToString(pos.IdUsuario));
+                            autosearch.Add(Convert.ToString(pos.Username));
                         }
                         break;
                     case "Nombre":
@@ -326,16 +325,20 @@ namespace LosNaranjitos
                             autosearch.Add(Convert.ToString(pos.Apellido1));
                         }
                         break;
+                    case "Consecutivo":
+
+                        foreach (var pos in ListaLocal)
+                        {
+                            autosearch.Add(Convert.ToString(pos.Consecutivo));
+                        }
+                        break;
                 }
                 txtBuscar.AutoCompleteCustomSource = autosearch;
             }
             catch (Exception ex)
             {
 
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Usuarios al Cambiar Criterio en Combobox de busqueda Principal");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -344,10 +347,11 @@ namespace LosNaranjitos
         {
             try
             {
-                ListaUsuarios = UsuarioOperaciones.ListarUsuarios();
+                ListaUsuarios = Utilitarios.OpUsuarios.ListarUsuarios();
                 var ListaLocal = ListaUsuarios.Select(a => new
                 {
-                    a.IdUsuario,
+                    a.Consecutivo,
+                    a.Username,
                     a.IdPersonal,
                     a.Nombre,
                     a.Apellido1,
@@ -364,9 +368,10 @@ namespace LosNaranjitos
                         ListaLocal = ListaLocal.Where(x => x.IdPersonal == txtBuscar.Text).ToList();
 
                         break;
-                    case "IdUsuario":
+                    case "Username":
 
-                        ListaLocal = ListaLocal.Where(x => x.IdUsuario == txtBuscar.Text).ToList(); break;
+                        ListaLocal = ListaLocal.Where(x => x.Username == txtBuscar.Text).ToList();
+                        break;
                     case "Nombre":
 
                         ListaLocal = ListaLocal.Where(x => x.Nombre == txtBuscar.Text).ToList();
@@ -375,15 +380,16 @@ namespace LosNaranjitos
 
                         ListaLocal = ListaLocal.Where(x => x.Apellido1 == txtBuscar.Text).ToList();
                         break;
+                    case "Consecutivo":
+
+                        ListaLocal = ListaLocal.Where(x => x.Consecutivo == txtBuscar.Text).ToList();
+                        break;
                 }
                 dgvListado.DataSource = ListaLocal;
             }
             catch (Exception ex)
             {
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Usuarios al Buscar Usuario");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -391,11 +397,61 @@ namespace LosNaranjitos
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             this.Dispose();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Usuario");
+
         }
 
-        private void btnEditar_Click_1(object sender, EventArgs e)
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if ((int)e.KeyChar == (int)Keys.Tab && (int)e.KeyChar == (int)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
+                {
+                    MessageBox.Show("Debes digitar tu nombre antes de continuar", "Falta Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    txtApellido.ReadOnly = false;
+                }
+            }
+        }
 
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Tab && (int)e.KeyChar == (int)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
+                {
+                    MessageBox.Show("Debes digitar tu Apellido antes de continuar", "Falta Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                else
+                {
+                    try
+                    {
+                        string Usuario; int Consec = 1;
+
+                        Usuario = txtApellido.Text.Replace(" ", "") + txtNombre.Text.Substring(0, 1) + Consec.ToString();
+                        Usuario = Usuario.ToLower();
+                        do
+                        {
+                            Consec = Consec + 1; //Consecutivo para IdUsuario
+                            Usuario = txtApellido.Text + txtNombre.Text.Substring(0, 1) + Consec.ToString();
+                            Usuario = Usuario.ToLower();
+                        } while (Utilitarios.OpUsuarios.ExisteUsuario(Utilitarios.Encriptar(Usuario, Utilitarios.Llave)));
+
+                        txtUsername.Text = Usuario;
+                    }
+                    catch (Exception ex)
+                    {
+
+                        Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Usuarios texbox de Apellido");
+                        MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    txtApellido2.ReadOnly = false;
+
+                }
+            }
         }
     }
 }

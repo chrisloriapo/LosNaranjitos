@@ -25,6 +25,14 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(ProductoINSUMO);
         }
 
+        public DATOS.ProductoInsumo BuscarPorConsecutivo(string Consec)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.ProductoInsumo Us = db.Select<DATOS.ProductoInsumo>(x => x.Consecutivo == Consec).FirstOrDefault();
+            return Us;
+        }
+
         public DATOS.ProductoInsumo BuscarPorInsumo(string Insumo)
         {
             var conexion = _Conexion.CrearConexion();
@@ -39,6 +47,38 @@ namespace LosNaranjitos.DS.Clases
             var db = conexion.Open();
             DATOS.ProductoInsumo Us = db.Select<DATOS.ProductoInsumo>(x => x.CodigoProducto == Producto).FirstOrDefault();
             return Us;
+        }
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.ProductoInsumo Us = db.Select<DATOS.ProductoInsumo>(x => x.Consecutivo == Consecutivo).FirstOrDefault();
+
+                if (Us.Consecutivo == Consecutivo)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         public bool ExisteProductoINSUMO(string IdProducto, string IdInsumo)

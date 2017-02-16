@@ -11,11 +11,7 @@ namespace LosNaranjitos.DS.Interfaces
     {
         List<DATOS.Consecutivo> ListarConsecutivos();
 
-        List<DATOS.Consecutivo> ListaPorTipo(string tipo);
-
-        DATOS.Consecutivo BuscarConsecutivo(string ID);
-
-        DATOS.Consecutivo BuscarConsecutivoPorTipoyPK(string PK, string Tipo);
+        DATOS.Consecutivo BuscarConsecutivo(string Prefijo);
 
         void AgregarConsecutivo(DATOS.Consecutivo Consec);
 
@@ -23,7 +19,7 @@ namespace LosNaranjitos.DS.Interfaces
         
         void ActualizarConsecutivo(DATOS.Consecutivo Consecutivox);
 
-        bool ExisteConsecutivo(string ID);
+        bool ExisteConsecutivo(string Prefijo);
 
     }
 }

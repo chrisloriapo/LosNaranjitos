@@ -12,6 +12,8 @@ namespace LosNaranjitos.DS.Interfaces
 
         DATOS.Cliente BuscarCliente(string IdPersonal);
 
+        DATOS.Cliente BuscarClientePorConsecutivo(string Consecutivo);
+
         DATOS.Cliente BuscarClientePorCorreo(string Correo);
 
         void AgregarCliente(DATOS.Cliente CLIENTE);
@@ -21,5 +23,7 @@ namespace LosNaranjitos.DS.Interfaces
         void Inactivar(DATOS.Cliente CLIENTE);
 
         bool ExisteCLIENTE(string IDCLIENTE);
+
+        bool ExisteConsecutivo(string Consecutivo);
     }
 }

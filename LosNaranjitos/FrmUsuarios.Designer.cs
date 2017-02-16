@@ -54,8 +54,7 @@
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtIdUsuario = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblApellido1 = new System.Windows.Forms.Label();
@@ -64,6 +63,11 @@
             this.txtApellido2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblConsecutivo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -91,6 +95,8 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,7 +208,8 @@
             "IdUsuario",
             "Nombre",
             "Apellido",
-            "IdPersonal"});
+            "Username",
+            "Consecutivo"});
             this.cbBuscar.Location = new System.Drawing.Point(87, 19);
             this.cbBuscar.Name = "cbBuscar";
             this.cbBuscar.Size = new System.Drawing.Size(158, 21);
@@ -359,8 +366,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.Controls.Add(this.txtTelefono, 0, 11);
             this.tableLayoutPanel5.Controls.Add(this.label9, 0, 10);
-            this.tableLayoutPanel5.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.txtIdUsuario, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.txtUsername, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.txtNombre, 0, 3);
             this.tableLayoutPanel5.Controls.Add(this.lblApellido1, 0, 4);
@@ -369,6 +375,7 @@
             this.tableLayoutPanel5.Controls.Add(this.txtApellido2, 0, 7);
             this.tableLayoutPanel5.Controls.Add(this.label5, 0, 8);
             this.tableLayoutPanel5.Controls.Add(this.txtDireccion, 0, 9);
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel7, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -394,6 +401,7 @@
             this.txtTelefono.Location = new System.Drawing.Point(3, 293);
             this.txtTelefono.Mask = "(###)-####-####";
             this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.ReadOnly = true;
             this.txtTelefono.Size = new System.Drawing.Size(338, 20);
             this.txtTelefono.TabIndex = 389;
             // 
@@ -407,24 +415,14 @@
             this.label9.TabIndex = 388;
             this.label9.Text = "Telefono";
             // 
-            // label3
+            // txtUsername
             // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(338, 25);
-            this.label3.TabIndex = 377;
-            this.label3.Text = "Código";
-            // 
-            // txtIdUsuario
-            // 
-            this.txtIdUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtIdUsuario.Location = new System.Drawing.Point(3, 28);
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.ReadOnly = true;
-            this.txtIdUsuario.Size = new System.Drawing.Size(338, 20);
-            this.txtIdUsuario.TabIndex = 378;
+            this.txtUsername.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUsername.Location = new System.Drawing.Point(3, 28);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.ReadOnly = true;
+            this.txtUsername.Size = new System.Drawing.Size(338, 20);
+            this.txtUsername.TabIndex = 378;
             // 
             // label4
             // 
@@ -443,6 +441,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(338, 20);
             this.txtNombre.TabIndex = 380;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // lblApellido1
             // 
@@ -459,8 +458,10 @@
             this.txtApellido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtApellido.Location = new System.Drawing.Point(3, 128);
             this.txtApellido.Name = "txtApellido";
+            this.txtApellido.ReadOnly = true;
             this.txtApellido.Size = new System.Drawing.Size(338, 20);
             this.txtApellido.TabIndex = 383;
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // label11
             // 
@@ -477,6 +478,7 @@
             this.txtApellido2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtApellido2.Location = new System.Drawing.Point(3, 178);
             this.txtApellido2.Name = "txtApellido2";
+            this.txtApellido2.ReadOnly = true;
             this.txtApellido2.Size = new System.Drawing.Size(338, 20);
             this.txtApellido2.TabIndex = 385;
             // 
@@ -496,9 +498,70 @@
             this.txtDireccion.Location = new System.Drawing.Point(3, 228);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.ReadOnly = true;
             this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDireccion.Size = new System.Drawing.Size(338, 34);
             this.txtDireccion.TabIndex = 387;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.28994F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.71006F));
+            this.tableLayoutPanel7.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 1, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(338, 19);
+            this.tableLayoutPanel7.TabIndex = 390;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 19);
+            this.label3.TabIndex = 378;
+            this.label3.Text = "Código";
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Controls.Add(this.lblConsecutivo, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(101, 3);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(234, 13);
+            this.tableLayoutPanel8.TabIndex = 379;
+            // 
+            // lblConsecutivo
+            // 
+            this.lblConsecutivo.AutoSize = true;
+            this.lblConsecutivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblConsecutivo.Location = new System.Drawing.Point(120, 0);
+            this.lblConsecutivo.Name = "lblConsecutivo";
+            this.lblConsecutivo.Size = new System.Drawing.Size(111, 13);
+            this.lblConsecutivo.TabIndex = 379;
+            this.lblConsecutivo.Text = "USR-";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 13);
+            this.label1.TabIndex = 378;
+            this.label1.Text = "Consecutivo: ---->";
             // 
             // tableLayoutPanel6
             // 
@@ -560,6 +623,7 @@
             this.txtContraseña.Location = new System.Drawing.Point(3, 31);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
+            this.txtContraseña.ReadOnly = true;
             this.txtContraseña.Size = new System.Drawing.Size(338, 20);
             this.txtContraseña.TabIndex = 377;
             // 
@@ -579,6 +643,7 @@
             this.txtConfirmarContrasena.Location = new System.Drawing.Point(3, 87);
             this.txtConfirmarContrasena.Name = "txtConfirmarContrasena";
             this.txtConfirmarContrasena.PasswordChar = '*';
+            this.txtConfirmarContrasena.ReadOnly = true;
             this.txtConfirmarContrasena.Size = new System.Drawing.Size(338, 20);
             this.txtConfirmarContrasena.TabIndex = 379;
             // 
@@ -597,6 +662,7 @@
             this.txtIdPersonal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtIdPersonal.Location = new System.Drawing.Point(3, 143);
             this.txtIdPersonal.Name = "txtIdPersonal";
+            this.txtIdPersonal.ReadOnly = true;
             this.txtIdPersonal.Size = new System.Drawing.Size(338, 20);
             this.txtIdPersonal.TabIndex = 381;
             // 
@@ -637,6 +703,7 @@
             this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtEmail.Location = new System.Drawing.Point(3, 255);
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(338, 20);
             this.txtEmail.TabIndex = 385;
             // 
@@ -673,6 +740,10 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
@@ -702,8 +773,7 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtIdUsuario;
+        private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblApellido1;
@@ -726,5 +796,10 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.CheckBox chkEstado;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.Label lblConsecutivo;
+        private System.Windows.Forms.Label label1;
     }
 }

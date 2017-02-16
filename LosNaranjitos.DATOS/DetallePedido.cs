@@ -19,6 +19,8 @@ namespace LosNaranjitos.DATOS
         public int Cantidad { get; set; }
         [Required]
         public decimal SubTotal { get; set; }
+        [Required]
+        public string Consecutivo { get; set; }
 
     }
 

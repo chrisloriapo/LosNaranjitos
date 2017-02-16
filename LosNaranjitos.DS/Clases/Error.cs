@@ -18,12 +18,44 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(ERROR);
         }
 
-        public DATOS.Error BuscarError(int IdError)
+        public DATOS.Error BuscarError(string IdError)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
             DATOS.Error BuscErr = db.Select<DATOS.Error>(x => x.IdError == IdError).FirstOrDefault();
             return BuscErr;
+        }
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.Error Us = db.Select<DATOS.Error>(x => x.IdError == Consecutivo).FirstOrDefault();
+
+                if (Us.IdError == Consecutivo)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         public List<DATOS.Error> ListarErrores()

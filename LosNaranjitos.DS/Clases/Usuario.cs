@@ -34,12 +34,52 @@ namespace LosNaranjitos.DS.Clases
             return Us;
         }
 
+        public DATOS.Usuario BuscarUsuarioPorConsecutivo(string Consecutv)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Usuario Us = db.Select<DATOS.Usuario>(x => x.Consecutivo == Consecutv).FirstOrDefault();
+            return Us;
+        }
+
         public DATOS.Usuario BuscarUsuarioXUsername(string username)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
-            DATOS.Usuario Us = db.Select<DATOS.Usuario>(x => x.IdUsuario == username).FirstOrDefault();
+            DATOS.Usuario Us = db.Select<DATOS.Usuario>(x => x.Username == username).FirstOrDefault();
             return Us;
+        }
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.Usuario Us = db.Select<DATOS.Usuario>(x => x.Consecutivo == Consecutivo).FirstOrDefault();
+
+                if (Us.Consecutivo == Consecutivo)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         public bool ExisteUsuario(string username)
@@ -48,9 +88,9 @@ namespace LosNaranjitos.DS.Clases
             var db = conexion.Open();
             try
             {
-                DATOS.Usuario Us = db.Select<DATOS.Usuario>(x => x.IdUsuario == username).FirstOrDefault();
+                DATOS.Usuario Us = db.Select<DATOS.Usuario>(x => x.Username == username).FirstOrDefault();
 
-                if (Us.IdUsuario == username)
+                if (Us.Username == username)
                 {
                     return true;
                 }

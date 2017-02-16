@@ -22,6 +22,8 @@ namespace LosNaranjitos.DATOS
         public float CantidadRequerida { get; set; }
         [Required]
         public float Porcion { get; set; }
+        [Required]
+        public string Consecutivo { get; set; }
 
     }
 

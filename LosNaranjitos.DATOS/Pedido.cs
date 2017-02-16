@@ -25,6 +25,8 @@ namespace LosNaranjitos.DATOS
         [Required]
         public bool Activo { get; set; }
 
+        [Required]
+        public string Consecutivo { get; set; }
     }
 
 }

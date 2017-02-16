@@ -33,6 +33,14 @@ namespace LosNaranjitos.DS.Clases
             return BuscarCodComb;
         }
 
+        public DATOS.ComboProducto BuscarCodigoConsecutivo(string Consecutivo)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.ComboProducto BuscarCodComb = db.Select<DATOS.ComboProducto>(x => x.Consecutivo == Consecutivo).FirstOrDefault();
+            return BuscarCodComb;
+        }
+
         public DATOS.ComboProducto BuscarCodigoProducto(string Producto)
         {
             var conexion = _Conexion.CrearConexion();
@@ -50,6 +58,38 @@ namespace LosNaranjitos.DS.Clases
                 DATOS.ComboProducto Us = db.Select<DATOS.ComboProducto>(x => x.CodCombo == Combo).FirstOrDefault();
 
                 if (Us.CodProducto == Producto)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.ComboProducto Us = db.Select<DATOS.ComboProducto>(x => x.Consecutivo == Consecutivo).FirstOrDefault();
+
+                if (Us.Consecutivo == Consecutivo)
                 {
                     return true;
                 }

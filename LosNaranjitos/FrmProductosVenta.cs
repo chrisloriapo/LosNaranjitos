@@ -13,14 +13,7 @@ namespace LosNaranjitos
     public partial class FrmProductosVenta : Form
     {
 
-        public BL.Interfaces.IInsumos OpInsumos = new BL.Clases.Insumos();
-        public BL.Interfaces.IProductoInsumo OpInsumoProducto = new BL.Clases.ProductoInsumo();
-        public BL.Interfaces.IProducto OpProductos = new BL.Clases.Producto();
-        public BL.Interfaces.IConsecutivo ConsecutivoOperaciones = new BL.Clases.Consecutivo();
-        public BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
-        public BL.Interfaces.IError OpErrpr = new BL.Clases.Error();
-        public DATOS.Error ER = new DATOS.Error();
-        public DATOS.Bitacora BIT = new DATOS.Bitacora();
+
         public static DATOS.Producto EditProducto = new DATOS.Producto();
         public static DATOS.Producto NuevoProducto = new DATOS.Producto();
         public static DATOS.ProductoInsumo RecetaNueva = new DATOS.ProductoInsumo();
@@ -38,17 +31,17 @@ namespace LosNaranjitos
         {
             try
             {
-                dgvListado.DataSource = OpProductos.ListarProductos();
-                lstAllInsumos.DataSource = OpInsumos.ListarInsumos().Select(x => x.Nombre).ToList();
+                dgvListado.DataSource = Utilitarios.OpProducto.ListarProductos();
+                lstAllInsumos.DataSource = Utilitarios.OpInsumos.ListarInsumos().Select(x => x.Nombre).ToList();
 
             }
             catch (Exception ex)
             {
 
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                //ER.Descripcion = ex.Message;
+                //ER.Tipo = "Error al Popular Datos";
+                //ER.Hora = DateTime.Now;
+                //OpErrpr.AgregarError(ER);
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -82,10 +75,10 @@ namespace LosNaranjitos
             catch (Exception ex)
             {
 
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                //ER.Descripcion = ex.Message;
+                //ER.Tipo = "Error al Popular Datos";
+                //ER.Hora = DateTime.Now;
+                //OpErrpr.AgregarError(ER);
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -95,16 +88,16 @@ namespace LosNaranjitos
             try
             {
                 lstAllInsumos.Items.Clear();
-                lstAllInsumos.DataSource = OpInsumos.ListarInsumos().Select(x => x.Nombre);
+                lstAllInsumos.DataSource = Utilitarios.OpInsumos.ListarInsumos().Select(x => x.Nombre);
 
             }
             catch (Exception ex)
             {
 
-                ER.Descripcion = ex.Message;
-                ER.Tipo = "Error al Popular Datos";
-                ER.Hora = DateTime.Now;
-                OpErrpr.AgregarError(ER);
+                //ER.Descripcion = ex.Message;
+                //ER.Tipo = "Error al Popular Datos";
+                //ER.Hora = DateTime.Now;
+                //OpErrpr.AgregarError(ER);
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -119,7 +112,7 @@ namespace LosNaranjitos
             }
             else
             {
-                if (OpProductos.ExisteProducto(txtIdProducto.Text))
+                if (Utilitarios.OpProducto.ExisteProducto(txtIdProducto.Text))
                 {
                     EditarProducto();
                     Utilitarios.Cambio = false;

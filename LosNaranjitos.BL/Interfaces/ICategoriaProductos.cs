@@ -11,7 +11,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         List<DATOS.CategoriaProductos> ListarCategorias();
 
-        DATOS.CategoriaProductos BuscarCategoriaProductos(int IDCategoria);
+        DATOS.CategoriaProductos BuscarCategoriaProductos(string IDCategoria);
 
         void AgregarCategoriaProductos(DATOS.CategoriaProductos Categoria);
 
@@ -19,6 +19,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         void Inactivar(DATOS.CategoriaProductos Categoria);
 
-        bool ExisteCategoriaProductos(int IDCategoria);
+        bool ExisteCategoriaProductos(string IDCategoria);
+
     }
 }

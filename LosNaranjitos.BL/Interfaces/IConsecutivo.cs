@@ -11,20 +11,15 @@ namespace LosNaranjitos.BL.Interfaces
     {
         List<DATOS.Consecutivo> ListarConsecutivos();
 
-        List<DATOS.Consecutivo> ListaPorTipo(string tipo);
-
-
-        DATOS.Consecutivo BuscarConsecutivo(string ID);
-
-        DATOS.Consecutivo BuscarConsecutivoPorTipoyPK(string PK, string Tipo);
+        DATOS.Consecutivo BuscarConsecutivo(string Prefijo);
 
         void AgregarConsecutivo(DATOS.Consecutivo Consec);
 
+        void EliminarConsecutivo(DATOS.Consecutivo Consec);
+        
         void ActualizarConsecutivo(DATOS.Consecutivo Consecutivox);
 
-        bool ExisteConsecutivo(string ID);
-        void EliminarConsecutivo(DATOS.Consecutivo Consec);
-
+        bool ExisteConsecutivo(string Prefijo);
 
     }
 }

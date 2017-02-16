@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using LosNaranjitos.BL.Interfaces;
+using LosNaranjitos.DATOS;
 using LosNaranjitos.DS;
 
 namespace LosNaranjitos.BL.Clases
@@ -8,6 +9,12 @@ namespace LosNaranjitos.BL.Clases
     public class ProductoInsumo : IProductoInsumo
     {
         public DS.Interfaces.IProductoInsumo ProdInsumProcd = new DS.Clases.ProductoInsumo();
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            return ProdInsumProcd.ExisteConsecutivo(Consecutivo);
+        }
+
         public void ActualizarProductoInsumo(DATOS.ProductoInsumo ProductoINSUMO)
         {
             ProdInsumProcd.ActualizarProductoInsumo(ProductoINSUMO);
@@ -16,6 +23,11 @@ namespace LosNaranjitos.BL.Clases
         public void AgregarProductoInsumo(DATOS.ProductoInsumo ProductoINSUMO)
         {
             ProdInsumProcd.ActualizarProductoInsumo(ProductoINSUMO);
+        }
+
+        public DATOS.ProductoInsumo BuscarPorConsecutivo(string Consec)
+        {
+            return ProdInsumProcd.BuscarPorConsecutivo(Consec);
         }
 
         public DATOS.ProductoInsumo BuscarPorInsumo(string Insumo)

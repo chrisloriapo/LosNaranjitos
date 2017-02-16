@@ -12,11 +12,11 @@ namespace LosNaranjitos.DATOS
     {
         [PrimaryKey]
         [Required]
-        public string IdUsuario { get; set; }
+        public string Username { get; set; }
         [Required]
         public string Contrasena { get; set; }
         [Required]
-        public int Rol { get; set; }
+        public string Rol { get; set; }
         [Required]
         public string IdPersonal { get; set; }
         [Required]
@@ -33,7 +33,9 @@ namespace LosNaranjitos.DATOS
         public string Correo { get; set; }
         [Required]
         public bool Activo { get; set; }
+        [Required]
+        public string Consecutivo { get; set; }
 
-            }
+    }
 
 }

@@ -14,6 +14,8 @@ namespace LosNaranjitos.DS.Interfaces
 
         DATOS.Insumos BuscarInsumoPorProveedor(string IdProveedor);
 
+        DATOS.Insumos BuscarInsumoPorConsecutivo(string Consecutivo);
+
         void AgregarInsumo(DATOS.Insumos Insumo);
 
         void ActualizarInsumo(DATOS.Insumos Insumo);
@@ -21,5 +23,8 @@ namespace LosNaranjitos.DS.Interfaces
         void Inactivar(DATOS.Insumos Insumo);
 
         bool ExisteInsumo(string IdInsumo);
+
+        bool ExisteConsecutivo(string Consecutivo);
+
     }
 }

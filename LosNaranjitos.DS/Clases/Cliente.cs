@@ -33,6 +33,14 @@ namespace LosNaranjitos.DS.Clases
             return Buscar;
         }
 
+        public DATOS.Cliente BuscarClientePorConsecutivo(string Consecutivo)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Cliente Buscar = db.Select<DATOS.Cliente>(x => x.Consecutivo == Consecutivo).FirstOrDefault();
+            return Buscar;
+        }
+
         public DATOS.Cliente BuscarClientePorCorreo(string Correo)
         {
             var conexion = _Conexion.CrearConexion();
@@ -50,6 +58,38 @@ namespace LosNaranjitos.DS.Clases
                 DATOS.Cliente Us = db.Select<DATOS.Cliente>(x => x.IdPersonal == IDCLIENTE).FirstOrDefault();
 
                 if (Us.IdPersonal == IDCLIENTE)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.Cliente Us = db.Select<DATOS.Cliente>(x => x.Consecutivo == Consecutivo).FirstOrDefault();
+
+                if (Us.Consecutivo == Consecutivo)
                 {
                     return true;
                 }

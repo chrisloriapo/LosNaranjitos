@@ -11,6 +11,12 @@ namespace LosNaranjitos.BL.Clases
     public class Cliente : ICliente
     {
         public DS.Interfaces.ICliente ClietProce = new DS.Clases.Cliente();
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            return ClietProce.ExisteConsecutivo(Consecutivo);
+        }
+
         public void ActualizarCLIENTE(DATOS.Cliente CLIENTE)
         {
             ClietProce.ActualizarCLIENTE(CLIENTE);
@@ -25,6 +31,11 @@ namespace LosNaranjitos.BL.Clases
         public DATOS.Cliente BuscarCliente(string IdPersonal)
         {
             return ClietProce.BuscarCliente(IdPersonal);
+        }
+
+        public DATOS.Cliente BuscarClientePorConsecutivo(string Consecutivo)
+        {
+            return ClietProce.BuscarClientePorConsecutivo(Consecutivo);
         }
 
         public DATOS.Cliente BuscarClientePorCorreo(string Correo)

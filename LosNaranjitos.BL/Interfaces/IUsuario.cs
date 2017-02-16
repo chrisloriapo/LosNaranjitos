@@ -14,6 +14,8 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.Usuario BuscarUsuarioXUsername(string username);
 
+        DATOS.Usuario BuscarUsuarioPorConsecutivo(string Consecutv);
+
         void AgregarUsuario(DATOS.Usuario User);
 
         void ActualizarUsuario(DATOS.Usuario User);
@@ -21,5 +23,8 @@ namespace LosNaranjitos.BL.Interfaces
         void Inactivar(DATOS.Usuario User);
 
         bool ExisteUsuario(string username);
+
+        bool ExisteConsecutivo(string Consecutivo);
+
     }
 }

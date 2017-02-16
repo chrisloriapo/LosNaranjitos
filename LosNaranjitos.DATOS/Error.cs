@@ -11,13 +11,13 @@ namespace LosNaranjitos.DATOS
     public class Error
     {
         [AutoIncrement][PrimaryKey]
-        public int IdError { get; set; }
-        
+        public string IdError { get; set; }
+
         public string Tipo { get; set; }
-        
+
         public string Descripcion { get; set; }
 
-        public DateTime Hora { get; set; }
+        public DateTime? Hora { get; set; }
 
     }
 

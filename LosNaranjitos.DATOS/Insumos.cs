@@ -25,6 +25,8 @@ namespace LosNaranjitos.DATOS
         public string Proveedor { get; set; }
         [Required]
         public bool Activo { get; set; }
+        [Required]
+        public string Consecutivo { get; set; }
 
     }
 

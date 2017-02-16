@@ -106,8 +106,9 @@ namespace LosNaranjitos
             FrmUsuarios a = new FrmUsuarios();
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
+                        a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Usuarios ");
 
-            a.Show();
         }
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,6 +117,8 @@ namespace LosNaranjitos
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
             a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Productos ");
+
         }
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -124,6 +127,8 @@ namespace LosNaranjitos
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
             a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Proveedores ");
+
         }
 
         private void lnkUsuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -137,6 +142,8 @@ namespace LosNaranjitos
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
             a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Pedidos ");
+
         }
 
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -147,6 +154,7 @@ namespace LosNaranjitos
             if (mensaje == DialogResult.Yes)
             {
                 this.Dispose();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Aplicación ");
                 Application.Exit();
 
             }
@@ -165,6 +173,8 @@ namespace LosNaranjitos
             }
             FrmLogin ReLog = new FrmLogin();
             ReLog.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Sesion");
+
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -173,6 +183,8 @@ namespace LosNaranjitos
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
             a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Clientes ");
+
         }
 
         private void insumosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -181,6 +193,8 @@ namespace LosNaranjitos
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
             a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Insumos/Inventario ");
+
         }
 
         private void unidadesDeMedidasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -189,12 +203,10 @@ namespace LosNaranjitos
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
             a.Show();
-        }
-
-        private void insumosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Unidades de Medidas ");
 
         }
+
 
         private void promocionesCombosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -202,15 +214,12 @@ namespace LosNaranjitos
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
             a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Combos/Promociones ");
+
         }
 
-        private void consecutivosToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            FrmConsecutivo a = new FrmConsecutivo();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-        }
+
+
 
         private void bitacoraDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -218,6 +227,8 @@ namespace LosNaranjitos
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
             a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Bitacora ");
+
         }
 
         private void consecutivosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -226,6 +237,22 @@ namespace LosNaranjitos
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
             a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
+
+        }
+
+        private void FrmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+
+                if (ctrl is MdiClient)
+                {
+                    ctrl.BackColor = Color.White;
+                }
+
+
+            }
         }
     }
 }

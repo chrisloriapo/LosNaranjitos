@@ -16,9 +16,14 @@ namespace LosNaranjitos.BL.Clases
             ErrorProces.AgregarError(ERROR);
         }
 
-        public DATOS.Error BuscarError(int IdError)
+        public DATOS.Error BuscarError(string IdError)
         {
             return ErrorProces.BuscarError(IdError);
+        }
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            return ErrorProces.ExisteConsecutivo(Consecutivo);
         }
 
         public List<DATOS.Error> ListarErrores()

@@ -12,7 +12,8 @@ namespace LosNaranjitos
 {
     public partial class FrmLogin : Form
     {
-        BL.Interfaces.IUsuario UsuarioOperaciones = new BL.Clases.Usuario();
+        public DATOS.Error ER = new DATOS.Error();
+        public DATOS.Bitacora BIT = new DATOS.Bitacora();
         public static DATOS.Usuario UsuarioGlobal = new DATOS.Usuario();
         public static FrmMenuPrincipal MN = new FrmMenuPrincipal();
 
@@ -29,7 +30,7 @@ namespace LosNaranjitos
             bool Ingreso = ValidarUser();
             if (Ingreso)
             {
-                if (UsuarioGlobal.Rol == 3)
+                if (UsuarioGlobal.Rol == "ROL-3")
                 {
                     MC.Show();
                     this.Hide();
@@ -39,8 +40,10 @@ namespace LosNaranjitos
                     MN.Show();
                     this.Hide();
                 }
+                Utilitarios.GeneralBitacora(txtUsuario.Text,"Ingreso al Sistema");
 
             }
+
         }
 
         public bool ValidarUser()
@@ -55,16 +58,17 @@ namespace LosNaranjitos
             {
                 try
                 {
-                    bool ExisteUser = UsuarioOperaciones.ExisteUsuario(Utilitarios.Encriptar(txtUsuario.Text, Utilitarios.Llave));
-                    UsuarioGlobal = UsuarioOperaciones.BuscarUsuarioXUsername(Utilitarios.Encriptar(txtUsuario.Text, Utilitarios.Llave));
-                    if ((Utilitarios.Encriptar(txtUsuario.Text, Utilitarios.Llave) == UsuarioGlobal.IdUsuario) &&
+                    bool ExisteUser = Utilitarios.OpUsuarios.ExisteUsuario(Utilitarios.Encriptar(txtUsuario.Text, Utilitarios.Llave));
+                    UsuarioGlobal = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(Utilitarios.Encriptar(txtUsuario.Text, Utilitarios.Llave));
+                    if ((Utilitarios.Encriptar(txtUsuario.Text, Utilitarios.Llave) == UsuarioGlobal.Username) &&
                    (Utilitarios.Encriptar(txtPassword.Text, Utilitarios.Llave) == UsuarioGlobal.Contrasena))
                     {
                         return true;
                     }
-                    else if ((Utilitarios.Encriptar(txtUsuario.Text, Utilitarios.Llave) == UsuarioGlobal.IdUsuario) &&
+                    else if ((Utilitarios.Encriptar(txtUsuario.Text, Utilitarios.Llave) == UsuarioGlobal.Username) &&
                         (Utilitarios.Encriptar(txtPassword.Text, Utilitarios.Llave) != UsuarioGlobal.Contrasena))
                     {
+                        Utilitarios.GeneralError("Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text, "Ingreso Denegado", txtUsuario.Text, "Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text);
                         MessageBox.Show("Credenciales Incorrectos\n Trate de nuevo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtPassword.Clear();
                         txtUsuario.Clear();
@@ -81,6 +85,9 @@ namespace LosNaranjitos
                     if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
                     {
                         MessageBox.Show("Usuario No Existe", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        Utilitarios.GeneralError("Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text, "Ingreso Denegado", txtUsuario.Text, "Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text);
+
                         txtPassword.Clear();
                         txtUsuario.Clear();
                         txtUsuario.Focus();
@@ -88,8 +95,8 @@ namespace LosNaranjitos
                     }
                     else
                     {
-                        MessageBox.Show(ex.Message, "ERROR",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Utilitarios.GeneralError(ex.Message, "Error Desconocido", "No logged User", "Error durante la validaciòn del usuario ");
+                        MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
                 }
@@ -105,7 +112,18 @@ namespace LosNaranjitos
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            try
+            {
+                Utilitarios.GeneralBitacora("No User logged ", "Cierre de Aplicación ");
+                Application.Exit();
+
+            }
+            catch (Exception ex)
+            {
+                Utilitarios.GeneralError(ex.Message, "Error al Popular Datos", "No logged User", "Error durante la Salida del Sistema ");
+                MessageBox.Show(ex.Message, "ERROR",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 

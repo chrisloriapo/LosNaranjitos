@@ -23,14 +23,9 @@ namespace LosNaranjitos.BL.Clases
             Consecs.AgregarConsecutivo(Consec);
         }
 
-        public DATOS.Consecutivo BuscarConsecutivo(string ID)
+        public DATOS.Consecutivo BuscarConsecutivo(string Prefijo)
         {
-            return Consecs.BuscarConsecutivo(ID);
-        }
-
-        public DATOS.Consecutivo BuscarConsecutivoPorTipoyPK(string PK, string Tipo)
-        {
-            return Consecs.BuscarConsecutivoPorTipoyPK(PK, Tipo);
+            return BuscarConsecutivo(Prefijo);
         }
 
         public void EliminarConsecutivo(DATOS.Consecutivo Consec)
@@ -38,14 +33,9 @@ namespace LosNaranjitos.BL.Clases
             Consecs.EliminarConsecutivo(Consec);
         }
 
-        public bool ExisteConsecutivo(string ID)
+        public bool ExisteConsecutivo(string Prefijo)
         {
-            return Consecs.ExisteConsecutivo(ID);
-        }
-
-        public List<DATOS.Consecutivo> ListaPorTipo(string tipo)
-        {
-            return Consecs.ListaPorTipo(tipo);
+            return Consecs.ExisteConsecutivo(Prefijo);
         }
 
         public List<DATOS.Consecutivo> ListarConsecutivos()

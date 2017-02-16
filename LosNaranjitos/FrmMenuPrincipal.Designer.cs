@@ -46,10 +46,6 @@
             this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administraciònToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.seguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ventanasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insumosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.operacionesInsumosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unidadesDeMedidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,13 +53,17 @@
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.promocionesCombosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consecutivosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consecutivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consecutivosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventanasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.grbMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).BeginInit();
@@ -183,33 +183,6 @@
             this.administraciònToolStripMenuItem.Name = "administraciònToolStripMenuItem";
             resources.ApplyResources(this.administraciònToolStripMenuItem, "administraciònToolStripMenuItem");
             // 
-            // ventasToolStripMenuItem
-            // 
-            this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pedidosToolStripMenuItem,
-            this.reportesToolStripMenuItem});
-            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            resources.ApplyResources(this.ventasToolStripMenuItem, "ventasToolStripMenuItem");
-            // 
-            // seguridadToolStripMenuItem
-            // 
-            this.seguridadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.usuariosToolStripMenuItem,
-            this.consecutivosToolStripMenuItem1,
-            this.bitacoraToolStripMenuItem});
-            this.seguridadToolStripMenuItem.Name = "seguridadToolStripMenuItem";
-            resources.ApplyResources(this.seguridadToolStripMenuItem, "seguridadToolStripMenuItem");
-            // 
-            // ventanasToolStripMenuItem
-            // 
-            this.ventanasToolStripMenuItem.Name = "ventanasToolStripMenuItem";
-            resources.ApplyResources(this.ventanasToolStripMenuItem, "ventanasToolStripMenuItem");
-            // 
-            // ayudaToolStripMenuItem
-            // 
-            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            resources.ApplyResources(this.ayudaToolStripMenuItem, "ayudaToolStripMenuItem");
-            // 
             // insumosToolStripMenuItem
             // 
             this.insumosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -254,6 +227,14 @@
             resources.ApplyResources(this.clientesToolStripMenuItem, "clientesToolStripMenuItem");
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
+            // ventasToolStripMenuItem
+            // 
+            this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pedidosToolStripMenuItem,
+            this.reportesToolStripMenuItem});
+            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
+            resources.ApplyResources(this.ventasToolStripMenuItem, "ventasToolStripMenuItem");
+            // 
             // pedidosToolStripMenuItem
             // 
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
@@ -265,11 +246,26 @@
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
             // 
+            // seguridadToolStripMenuItem
+            // 
+            this.seguridadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuariosToolStripMenuItem,
+            this.consecutivosToolStripMenuItem1,
+            this.bitacoraToolStripMenuItem});
+            this.seguridadToolStripMenuItem.Name = "seguridadToolStripMenuItem";
+            resources.ApplyResources(this.seguridadToolStripMenuItem, "seguridadToolStripMenuItem");
+            // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             resources.ApplyResources(this.usuariosToolStripMenuItem, "usuariosToolStripMenuItem");
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // consecutivosToolStripMenuItem1
+            // 
+            this.consecutivosToolStripMenuItem1.Name = "consecutivosToolStripMenuItem1";
+            resources.ApplyResources(this.consecutivosToolStripMenuItem1, "consecutivosToolStripMenuItem1");
+            this.consecutivosToolStripMenuItem1.Click += new System.EventHandler(this.consecutivosToolStripMenuItem_Click);
             // 
             // bitacoraToolStripMenuItem
             // 
@@ -291,11 +287,15 @@
             resources.ApplyResources(this.consecutivosToolStripMenuItem, "consecutivosToolStripMenuItem");
             this.consecutivosToolStripMenuItem.Click += new System.EventHandler(this.consecutivosToolStripMenuItem_Click);
             // 
-            // consecutivosToolStripMenuItem1
+            // ventanasToolStripMenuItem
             // 
-            this.consecutivosToolStripMenuItem1.Name = "consecutivosToolStripMenuItem1";
-            resources.ApplyResources(this.consecutivosToolStripMenuItem1, "consecutivosToolStripMenuItem1");
-            this.consecutivosToolStripMenuItem1.Click += new System.EventHandler(this.consecutivosToolStripMenuItem1_Click);
+            this.ventanasToolStripMenuItem.Name = "ventanasToolStripMenuItem";
+            resources.ApplyResources(this.ventanasToolStripMenuItem, "ventanasToolStripMenuItem");
+            // 
+            // ayudaToolStripMenuItem
+            // 
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            resources.ApplyResources(this.ayudaToolStripMenuItem, "ayudaToolStripMenuItem");
             // 
             // FrmMenuPrincipal
             // 
@@ -310,6 +310,7 @@
             this.Name = "FrmMenuPrincipal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenuPrincipal_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMenuPrincipal_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.grbMain.ResumeLayout(false);
