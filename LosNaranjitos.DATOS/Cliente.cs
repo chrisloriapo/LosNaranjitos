@@ -29,7 +29,7 @@ namespace LosNaranjitos.DATOS
 
         public string Operadora { get; set; }
 
-        public DateTime UltimaVisita { get; set; }
+        //public DateTime UltimaVisita { get; set; }
 
         public decimal? Puntaje { get; set; }
 

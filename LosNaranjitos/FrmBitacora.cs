@@ -21,13 +21,15 @@ namespace LosNaranjitos
         {
             try
             {
-                var Lista = Utilitarios.OpBitacora.ListarRegistros().OrderByDescending(x=>x.Fecha);
+                var Lista = Utilitarios.OpBitacora.ListarRegistros().OrderByDescending(x => x.Fecha);
+                var Listax = new List<DATOS.Bitacora>();
                 foreach (var item in Lista)
                 {
-                    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
+                    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitario.Llave);
                 }
+
                 dgvListado.DataSource = Lista.ToList();
-                
+
             }
             catch (Exception ex)
             {
@@ -42,8 +44,29 @@ namespace LosNaranjitos
             {
                 var ListaLocal = Utilitarios.OpBitacora.ListarRegistros().ToList();
 
-                ListaLocal = ListaLocal.Where(x => x.IdBitacora == txtBuscar.Text).ToList();
-                dgvListado.DataSource = ListaLocal;
+                var Lista = Utilitarios.OpBitacora.ListarRegistros().OrderByDescending(x => x.Fecha);
+                var Listax = new List<DATOS.Bitacora>();
+                foreach (var item in Lista)
+                {
+                    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitario.Llave);
+                }
+                switch (cmbBusqueda.SelectedItem.ToString())
+                {
+                    
+                    case "Usuario":
+                        Listax = Lista.Where(x => x.Usuario == txtBuscar.Text).ToList();
+                        dgvListado.DataSource = Listax.ToList();
+
+
+                        break;
+                    case "Fecha":
+                        DateTime D1, D2;
+                        D1 = GetDateZeroTime(dtpFechaBusqueda.Value);
+                        D2 = GetDateEndTime(dtpFechaBusqueda.Value);
+                        Listax = Lista.Where(x => x.Fecha > D1 && x.Fecha < D2).ToList();
+                        dgvListado.DataSource = Listax.ToList();
+                        break;
+                }
             }
             catch (Exception ex)
             {
@@ -57,6 +80,64 @@ namespace LosNaranjitos
         {
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Bitacora");
             this.Dispose();
+        }
+
+        private void cmbBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var autosearch = new AutoCompleteStringCollection();
+                txtBuscar.AutoCompleteCustomSource = autosearch;
+                txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
+                txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                var Lista = Utilitarios.OpBitacora.ListarRegistros().OrderByDescending(x => x.Fecha);
+
+                switch (cmbBusqueda.SelectedItem.ToString())
+                {
+                    case "General":
+                        txtBuscar.Visible = false;
+                        btnBuscar.Visible = false;
+                        dtpFechaBusqueda.Visible = false;
+                        foreach (var item in Lista)
+                        {
+                            item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitario.Llave);
+                        }
+                        dgvListado.DataSource = Lista.ToList();
+                        break;
+                    case "Usuario":
+                        txtBuscar.Visible = true;
+                        btnBuscar.Visible = true;
+                        dtpFechaBusqueda.Visible = false;
+                        foreach (var pos in Lista)
+                        {
+                            autosearch.Add(Convert.ToString(pos.Usuario));
+                        }
+                        txtBuscar.AutoCompleteCustomSource = autosearch;
+
+                        break;
+                    case "Fecha":
+                        txtBuscar.Visible = false;
+                        btnBuscar.Visible = true;
+                        dtpFechaBusqueda.Visible = true;
+                        dtpFechaBusqueda.Value = DateTime.Today.AddDays(-1);
+
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Errores al Seleccionar Criterio de Busqueda en el formulario ");
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public static DateTime GetDateZeroTime(DateTime date)
+        {
+            return new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
+        }
+        public static DateTime GetDateEndTime(DateTime date)
+        {
+            return new DateTime(date.Year, date.Month, date.Day, 23, 59, 59);
         }
     }
 }

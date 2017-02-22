@@ -68,7 +68,7 @@ namespace LosNaranjitos
                     else if ((Utilitarios.Encriptar(txtUsuario.Text, Utilitarios.Llave) == UsuarioGlobal.Username) &&
                         (Utilitarios.Encriptar(txtPassword.Text, Utilitarios.Llave) != UsuarioGlobal.Contrasena))
                     {
-                        Utilitarios.GeneralError("Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text, "Ingreso Denegado", txtUsuario.Text, "Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text);
+                        Utilitarios.GeneralError("Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text, "Ingreso Denegado", Utilitarios.Encriptar( txtUsuario.Text,Utilitarios.Llave), "Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text);
                         MessageBox.Show("Credenciales Incorrectos\n Trate de nuevo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtPassword.Clear();
                         txtUsuario.Clear();
@@ -86,7 +86,7 @@ namespace LosNaranjitos
                     {
                         MessageBox.Show("Usuario No Existe", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        Utilitarios.GeneralError("Intento de ingreso fallido del supuesto usuario " + txtUsuario.Text, "Ingreso Denegado", txtUsuario.Text, "Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text);
+                        Utilitarios.GeneralError("Intento de ingreso fallido del supuesto usuario " + txtUsuario.Text, "Ingreso Denegado",Utilitarios.Encriptar( txtUsuario.Text,Utilitarios.Llave), "Intento de ingreso fallido del supuesto usuario" + txtUsuario.Text);
 
                         txtPassword.Clear();
                         txtUsuario.Clear();
@@ -95,7 +95,7 @@ namespace LosNaranjitos
                     }
                     else
                     {
-                        Utilitarios.GeneralError(ex.Message, "Error Desconocido", "No logged User", "Error durante la validaciòn del usuario ");
+                        Utilitarios.GeneralError(ex.Message, "Error Desconocido",Utilitarios.Encriptar( "No User logged",Utilitarios.Llave), "Error durante la validaciòn del usuario ");
                         MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
@@ -114,13 +114,13 @@ namespace LosNaranjitos
         {
             try
             {
-                Utilitarios.GeneralBitacora("No User logged ", "Cierre de Aplicación ");
+                Utilitarios.GeneralBitacora(Utilitarios.Encriptar("No User logged", Utilitarios.Llave), "Cierre de Aplicación ");
                 Application.Exit();
 
             }
             catch (Exception ex)
             {
-                Utilitarios.GeneralError(ex.Message, "Error al Popular Datos", "No logged User", "Error durante la Salida del Sistema ");
+                Utilitarios.GeneralError(ex.Message, "Error al Popular Datos", Utilitarios.Encriptar("No User logged", Utilitarios.Llave), "Error durante la Salida del Sistema ");
                 MessageBox.Show(ex.Message, "ERROR",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

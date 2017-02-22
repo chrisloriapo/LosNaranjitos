@@ -64,6 +64,7 @@
             this.consecutivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventanasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmerTiempo = new System.Windows.Forms.Timer(this.components);
             this.statusStrip.SuspendLayout();
             this.grbMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).BeginInit();
@@ -193,20 +194,20 @@
             // 
             // operacionesInsumosToolStripMenuItem
             // 
-            this.operacionesInsumosToolStripMenuItem.Name = "operacionesInsumosToolStripMenuItem";
             resources.ApplyResources(this.operacionesInsumosToolStripMenuItem, "operacionesInsumosToolStripMenuItem");
+            this.operacionesInsumosToolStripMenuItem.Name = "operacionesInsumosToolStripMenuItem";
             this.operacionesInsumosToolStripMenuItem.Click += new System.EventHandler(this.insumosToolStripMenuItem1_Click);
             // 
             // unidadesDeMedidaToolStripMenuItem
             // 
-            this.unidadesDeMedidaToolStripMenuItem.Name = "unidadesDeMedidaToolStripMenuItem";
             resources.ApplyResources(this.unidadesDeMedidaToolStripMenuItem, "unidadesDeMedidaToolStripMenuItem");
+            this.unidadesDeMedidaToolStripMenuItem.Name = "unidadesDeMedidaToolStripMenuItem";
             this.unidadesDeMedidaToolStripMenuItem.Click += new System.EventHandler(this.unidadesDeMedidasToolStripMenuItem_Click);
             // 
             // productosToolStripMenuItem
             // 
-            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
+            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // proveedoresToolStripMenuItem
@@ -217,8 +218,8 @@
             // 
             // promocionesCombosToolStripMenuItem
             // 
-            this.promocionesCombosToolStripMenuItem.Name = "promocionesCombosToolStripMenuItem";
             resources.ApplyResources(this.promocionesCombosToolStripMenuItem, "promocionesCombosToolStripMenuItem");
+            this.promocionesCombosToolStripMenuItem.Name = "promocionesCombosToolStripMenuItem";
             this.promocionesCombosToolStripMenuItem.Click += new System.EventHandler(this.promocionesCombosToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
@@ -232,8 +233,8 @@
             this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pedidosToolStripMenuItem,
             this.reportesToolStripMenuItem});
-            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             resources.ApplyResources(this.ventasToolStripMenuItem, "ventasToolStripMenuItem");
+            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
             // 
             // pedidosToolStripMenuItem
             // 
@@ -289,13 +290,17 @@
             // 
             // ventanasToolStripMenuItem
             // 
-            this.ventanasToolStripMenuItem.Name = "ventanasToolStripMenuItem";
             resources.ApplyResources(this.ventanasToolStripMenuItem, "ventanasToolStripMenuItem");
+            this.ventanasToolStripMenuItem.Name = "ventanasToolStripMenuItem";
             // 
             // ayudaToolStripMenuItem
             // 
-            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             resources.ApplyResources(this.ayudaToolStripMenuItem, "ayudaToolStripMenuItem");
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            // 
+            // tmerTiempo
+            // 
+            this.tmerTiempo.Tick += new System.EventHandler(this.tmerTiempo_Tick);
             // 
             // FrmMenuPrincipal
             // 
@@ -360,6 +365,7 @@
         private System.Windows.Forms.ToolStripMenuItem consecutivosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventanasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
+        private System.Windows.Forms.Timer tmerTiempo;
     }
 }
 

@@ -35,10 +35,12 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvListado = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.cmbBusqueda = new System.Windows.Forms.ComboBox();
+            this.dtpFechaBusqueda = new System.Windows.Forms.DateTimePicker();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -63,7 +65,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(579, 404);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(803, 430);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tabControl1
@@ -73,7 +75,7 @@
             this.tabControl1.Location = new System.Drawing.Point(23, 83);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(533, 278);
+            this.tabControl1.Size = new System.Drawing.Size(757, 304);
             this.tabControl1.TabIndex = 19;
             // 
             // tabPage1
@@ -82,7 +84,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(525, 252);
+            this.tabPage1.Size = new System.Drawing.Size(749, 278);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -99,7 +101,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(519, 246);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(743, 272);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dgvListado
@@ -110,23 +112,34 @@
             this.dgvListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvListado.Location = new System.Drawing.Point(3, 39);
+            this.dgvListado.Location = new System.Drawing.Point(3, 43);
             this.dgvListado.MultiSelect = false;
             this.dgvListado.Name = "dgvListado";
             this.dgvListado.ReadOnly = true;
             this.dgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListado.Size = new System.Drawing.Size(513, 204);
+            this.dgvListado.Size = new System.Drawing.Size(737, 226);
             this.dgvListado.TabIndex = 18;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.btnBuscar);
+            this.flowLayoutPanel1.Controls.Add(this.cmbBusqueda);
             this.flowLayoutPanel1.Controls.Add(this.txtBuscar);
+            this.flowLayoutPanel1.Controls.Add(this.dtpFechaBusqueda);
+            this.flowLayoutPanel1.Controls.Add(this.btnBuscar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(513, 30);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(737, 34);
             this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(130, 3);
+            this.txtBuscar.MaxLength = 15;
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(139, 20);
+            this.txtBuscar.TabIndex = 17;
+            this.txtBuscar.Visible = false;
             // 
             // btnBuscar
             // 
@@ -134,20 +147,14 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(3, 3);
+            this.btnBuscar.Location = new System.Drawing.Point(512, 3);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 18;
             this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Visible = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(84, 3);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(139, 20);
-            this.txtBuscar.TabIndex = 17;
             // 
             // groupBox1
             // 
@@ -156,7 +163,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(23, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(533, 74);
+            this.groupBox1.Size = new System.Drawing.Size(757, 74);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bitácora";
@@ -168,7 +175,7 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(481, 367);
+            this.btnSalir.Location = new System.Drawing.Point(705, 393);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 34);
             this.btnSalir.TabIndex = 21;
@@ -176,12 +183,36 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // cmbBusqueda
+            // 
+            this.cmbBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBusqueda.FormattingEnabled = true;
+            this.cmbBusqueda.Items.AddRange(new object[] {
+            "Fecha",
+            "General",
+            "Usuario"});
+            this.cmbBusqueda.Location = new System.Drawing.Point(3, 3);
+            this.cmbBusqueda.Name = "cmbBusqueda";
+            this.cmbBusqueda.Size = new System.Drawing.Size(121, 21);
+            this.cmbBusqueda.Sorted = true;
+            this.cmbBusqueda.TabIndex = 19;
+            this.cmbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbBusqueda_SelectedIndexChanged);
+            // 
+            // dtpFechaBusqueda
+            // 
+            this.dtpFechaBusqueda.Location = new System.Drawing.Point(275, 3);
+            this.dtpFechaBusqueda.Name = "dtpFechaBusqueda";
+            this.dtpFechaBusqueda.Size = new System.Drawing.Size(231, 20);
+            this.dtpFechaBusqueda.TabIndex = 20;
+            this.dtpFechaBusqueda.Value = new System.DateTime(2017, 2, 22, 13, 53, 53, 0);
+            this.dtpFechaBusqueda.Visible = false;
+            // 
             // FrmBitacora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LimeGreen;
-            this.ClientSize = new System.Drawing.Size(579, 404);
+            this.ClientSize = new System.Drawing.Size(803, 430);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -212,5 +243,7 @@
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.ComboBox cmbBusqueda;
+        private System.Windows.Forms.DateTimePicker dtpFechaBusqueda;
     }
 }

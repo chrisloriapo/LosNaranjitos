@@ -53,10 +53,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbbTipo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.txtNuevo = new System.Windows.Forms.MaskedTextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.txtNuevo = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tbC2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -382,6 +382,16 @@
             this.label4.TabIndex = 23;
             this.label4.Text = "Nuevo Valor";
             // 
+            // txtNuevo
+            // 
+            this.txtNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNuevo.Location = new System.Drawing.Point(17, 93);
+            this.txtNuevo.Mask = "99999";
+            this.txtNuevo.Name = "txtNuevo";
+            this.txtNuevo.Size = new System.Drawing.Size(211, 20);
+            this.txtNuevo.TabIndex = 24;
+            this.txtNuevo.ValidatingType = typeof(int);
+            // 
             // btnUpdate
             // 
             this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -419,16 +429,6 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // txtNuevo
-            // 
-            this.txtNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNuevo.Location = new System.Drawing.Point(17, 93);
-            this.txtNuevo.Mask = "99999";
-            this.txtNuevo.Name = "txtNuevo";
-            this.txtNuevo.Size = new System.Drawing.Size(211, 20);
-            this.txtNuevo.TabIndex = 24;
-            this.txtNuevo.ValidatingType = typeof(int);
             // 
             // FrmConsecutivo
             // 

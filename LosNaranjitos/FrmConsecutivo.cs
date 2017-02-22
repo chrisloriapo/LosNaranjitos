@@ -117,7 +117,7 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-                throw;
+                
                 Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Consecutivos al Tratar de actualizar el Consecutivo ");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

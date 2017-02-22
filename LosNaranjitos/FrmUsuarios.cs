@@ -69,7 +69,7 @@ namespace LosNaranjitos
                     Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual+1;
                     Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
-                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Usuario Nuevo " + Userprivate.Username);
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Usuario Nuevo " + Utilitarios.Decriptar(Utilitarios.Llave,(Userprivate.Username)));
                     MessageBox.Show("Los datos del Usuario se ingresaron correctamente",
 "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
@@ -406,7 +406,7 @@ namespace LosNaranjitos
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((int)e.KeyChar == (int)Keys.Tab || (int)e.KeyChar == (int)Keys.Enter)
+            if (e.KeyChar == '\r' || (int)e.KeyChar == (int)Keys.Enter)
             {
                 if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
@@ -451,7 +451,7 @@ namespace LosNaranjitos
 
         private void txtNombre_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            if ((int)e.KeyChar == (int)Keys.Tab || (int)e.KeyChar == (int)Keys.Enter)
+            if (e.KeyChar == '\r' || (int)e.KeyChar == (int)Keys.Enter)
             {
                 if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
                 {

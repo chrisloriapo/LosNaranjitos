@@ -244,6 +244,7 @@ namespace LosNaranjitos
 
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
+            tmerTiempo.Start();
             foreach (Control ctrl in this.Controls)
             {
 
@@ -264,6 +265,12 @@ namespace LosNaranjitos
             a.Show();
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
 
+        }
+
+        private void tmerTiempo_Tick(object sender, EventArgs e)
+        {
+            lblDate.Text = "Fecha: " + DateTime.Today.ToShortDateString();
+            lblTime.Text = "Hora: " + DateTime.Now.ToShortTimeString();
         }
     }
 }

@@ -152,12 +152,13 @@ namespace LosNaranjitos
                             Telefono = txtTelefono.Text,
                             Correo = txtEmail.Text,
                             Apellido1 = txtApellido.Text,
+                            
                         };
 
-                        Utilitarios.OpClientes.ActualizarCLIENTE(ClientePrivate);
+                        Utilitarios.OpClientes.AgregarCliente(ClientePrivate);
 
                         DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cliente");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
+                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual+1;
                         Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Cliente Nuevo " + ClientePrivate.IdPersonal);

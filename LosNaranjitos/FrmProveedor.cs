@@ -166,7 +166,7 @@ namespace LosNaranjitos
                        Utilitarios.OpProveedor.AgregarProveedor(ProvedorPrivate);
 
                         DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Proveedor");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
+                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual+1;
                         Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Proveedor Nuevo "+ProvedorPrivate.IdProveedor);

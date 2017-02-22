@@ -65,14 +65,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dtpUltimaVisita = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.txtPuntaje = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
@@ -463,7 +462,6 @@
             this.tableLayoutPanel6.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.txtTelefono, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel6.Controls.Add(this.dtpUltimaVisita, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.label8, 0, 4);
             this.tableLayoutPanel6.Controls.Add(this.txtPuntaje, 0, 5);
             this.tableLayoutPanel6.Controls.Add(this.label10, 0, 6);
@@ -520,15 +518,6 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Ultima Visita";
             // 
-            // dtpUltimaVisita
-            // 
-            this.dtpUltimaVisita.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpUltimaVisita.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpUltimaVisita.Location = new System.Drawing.Point(3, 96);
-            this.dtpUltimaVisita.Name = "dtpUltimaVisita";
-            this.dtpUltimaVisita.Size = new System.Drawing.Size(311, 20);
-            this.dtpUltimaVisita.TabIndex = 29;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -569,18 +558,18 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(316, 44);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // btnNuevo
+            // btnCancelar
             // 
-            this.btnNuevo.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(76, 3);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 10;
-            this.btnNuevo.Text = "&Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            this.btnCancelar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(238, 3);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnEditar
             // 
@@ -595,18 +584,18 @@
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // btnCancelar
+            // btnNuevo
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(238, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.Text = "&Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnNuevo.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNuevo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevo.Location = new System.Drawing.Point(76, 3);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
+            this.btnNuevo.TabIndex = 10;
+            this.btnNuevo.Text = "&Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // flowLayoutPanel3
             // 
@@ -703,7 +692,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker dtpUltimaVisita;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtPuntaje;
         private System.Windows.Forms.Label label10;

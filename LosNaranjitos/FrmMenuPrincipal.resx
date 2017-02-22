@@ -128,7 +128,7 @@
     <value>Estado</value>
   </data>
   <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 454</value>
+    <value>0, 566</value>
   </data>
   <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing">
     <value>827, 22</value>
@@ -307,7 +307,7 @@
     <value>0, 49</value>
   </data>
   <data name="grbMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 405</value>
+    <value>212, 517</value>
   </data>
   <data name="grbMain.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -361,13 +361,13 @@
     <value>527, 17</value>
   </metadata>
   <data name="cerrarSesionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="cerrarSesionToolStripMenuItem.Text" xml:space="preserve">
     <value>Cerrar Sesion</value>
   </data>
   <data name="salirToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="salirToolStripMenuItem.Text" xml:space="preserve">
     <value>Salir</value>
@@ -378,11 +378,17 @@
   <data name="sistemaToolStripMenuItem.Text" xml:space="preserve">
     <value>Sistema</value>
   </data>
+  <data name="operacionesInsumosToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="operacionesInsumosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 22</value>
   </data>
   <data name="operacionesInsumosToolStripMenuItem.Text" xml:space="preserve">
     <value>Operaciones Insumos</value>
+  </data>
+  <data name="unidadesDeMedidaToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="unidadesDeMedidaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 22</value>
@@ -396,6 +402,9 @@
   <data name="insumosToolStripMenuItem.Text" xml:space="preserve">
     <value>Insumos</value>
   </data>
+  <data name="productosToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="productosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 22</value>
   </data>
@@ -407,6 +416,9 @@
   </data>
   <data name="proveedoresToolStripMenuItem.Text" xml:space="preserve">
     <value>Proveedores</value>
+  </data>
+  <data name="promocionesCombosToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="promocionesCombosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 22</value>
@@ -427,16 +439,19 @@
     <value>Administraciòn</value>
   </data>
   <data name="pedidosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="pedidosToolStripMenuItem.Text" xml:space="preserve">
     <value>Pedidos</value>
   </data>
   <data name="reportesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="reportesToolStripMenuItem.Text" xml:space="preserve">
     <value>Reportes</value>
+  </data>
+  <data name="ventasToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="ventasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 20</value>
@@ -480,11 +495,17 @@
   <data name="seguridadToolStripMenuItem.Text" xml:space="preserve">
     <value>Seguridad</value>
   </data>
+  <data name="ventanasToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="ventanasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 20</value>
   </data>
   <data name="ventanasToolStripMenuItem.Text" xml:space="preserve">
     <value>Ventanas</value>
+  </data>
+  <data name="ayudaToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="ayudaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 20</value>
@@ -516,6 +537,9 @@
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <metadata name="tmerTiempo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>642, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -526,7 +550,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>827, 476</value>
+    <value>827, 588</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3417,6 +3441,12 @@
   </data>
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tmerTiempo.Name" xml:space="preserve">
+    <value>tmerTiempo</value>
+  </data>
+  <data name="&gt;&gt;tmerTiempo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMenuPrincipal</value>
