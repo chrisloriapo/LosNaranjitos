@@ -53,7 +53,7 @@
             this.groupBox1.Size = new System.Drawing.Size(424, 152);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Seleccione el Usuario a Editar";
+            this.groupBox1.Text = "Seleccione la Medida a Editar";
             // 
             // btnCancelar
             // 
@@ -90,9 +90,9 @@
             this.lblIdPersonal.ForeColor = System.Drawing.Color.White;
             this.lblIdPersonal.Location = new System.Drawing.Point(17, 112);
             this.lblIdPersonal.Name = "lblIdPersonal";
-            this.lblIdPersonal.Size = new System.Drawing.Size(47, 15);
+            this.lblIdPersonal.Size = new System.Drawing.Size(60, 15);
             this.lblIdPersonal.TabIndex = 3;
-            this.lblIdPersonal.Text = "label1";
+            this.lblIdPersonal.Text = "Detalles";
             // 
             // lblNombre
             // 
@@ -101,9 +101,9 @@
             this.lblNombre.ForeColor = System.Drawing.Color.White;
             this.lblNombre.Location = new System.Drawing.Point(17, 86);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(47, 15);
+            this.lblNombre.Size = new System.Drawing.Size(60, 15);
             this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "label1";
+            this.lblNombre.Text = "Detalles";
             // 
             // groupBox2
             // 
@@ -115,7 +115,7 @@
             this.groupBox2.Size = new System.Drawing.Size(222, 60);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Nombre de Usuario";
+            this.groupBox2.Text = "Id Medida";
             // 
             // cbbMedida
             // 

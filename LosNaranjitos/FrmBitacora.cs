@@ -91,28 +91,26 @@ namespace LosNaranjitos
                 txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
                 var Lista = Utilitarios.OpBitacora.ListarRegistros().OrderByDescending(x => x.Fecha);
+                foreach (var item in Lista)
+                {
+                    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitario.Llave);
+                    autosearch.Add(Convert.ToString(item.Usuario));
 
+                }
                 switch (cmbBusqueda.SelectedItem.ToString())
                 {
                     case "General":
                         txtBuscar.Visible = false;
                         btnBuscar.Visible = false;
                         dtpFechaBusqueda.Visible = false;
-                        foreach (var item in Lista)
-                        {
-                            item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitario.Llave);
-                        }
+
                         dgvListado.DataSource = Lista.ToList();
                         break;
                     case "Usuario":
                         txtBuscar.Visible = true;
                         btnBuscar.Visible = true;
                         dtpFechaBusqueda.Visible = false;
-                        foreach (var pos in Lista)
-                        {
-                            autosearch.Add(Convert.ToString(pos.Usuario));
-                        }
-                        txtBuscar.AutoCompleteCustomSource = autosearch;
+      
 
                         break;
                     case "Fecha":
@@ -123,6 +121,8 @@ namespace LosNaranjitos
 
                         break;
                 }
+                txtBuscar.AutoCompleteCustomSource = autosearch;
+
             }
             catch (Exception ex)
             {

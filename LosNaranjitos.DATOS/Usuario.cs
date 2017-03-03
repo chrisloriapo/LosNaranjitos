@@ -13,7 +13,7 @@ namespace LosNaranjitos.DATOS
         [PrimaryKey]
         [Required]
         public string Username { get; set; }
-        [Required]
+        [Required] 
         public string Contrasena { get; set; }
         [Required]
         public string Rol { get; set; }

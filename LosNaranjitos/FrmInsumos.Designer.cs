@@ -42,14 +42,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvListado = new System.Windows.Forms.DataGridView();
-            this.idInsumoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.proveedorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idMedidaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioCompraDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantInventarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.consecutivoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbBuscar = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -59,7 +51,6 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtPrecioCompra = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbProveedor = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -70,17 +61,27 @@
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.lblConsecutivo = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtPrecioCompra = new System.Windows.Forms.MaskedTextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtStock = new System.Windows.Forms.MaskedTextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblPrecioMermado = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cbMedida = new System.Windows.Forms.ComboBox();
-            this.txtStock = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.txtRendimientoUM = new System.Windows.Forms.MaskedTextBox();
             this.chkActivo = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.cbbPorcentajeRendimiento = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -130,7 +131,10 @@
             this.tableLayoutPanel9.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel12.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel10.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -250,19 +254,8 @@
             this.dgvListado.AllowUserToAddRows = false;
             this.dgvListado.AllowUserToDeleteRows = false;
             this.dgvListado.AllowUserToOrderColumns = true;
-            this.dgvListado.AutoGenerateColumns = false;
             this.dgvListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idInsumoDataGridViewTextBoxColumn,
-            this.proveedorDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn,
-            this.idMedidaDataGridViewTextBoxColumn,
-            this.precioCompraDataGridViewTextBoxColumn,
-            this.cantInventarioDataGridViewTextBoxColumn,
-            this.activoDataGridViewCheckBoxColumn,
-            this.consecutivoDataGridViewTextBoxColumn});
-            this.dgvListado.DataSource = this.vProveedorInsumoBindingSource;
             this.dgvListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListado.Location = new System.Drawing.Point(3, 94);
             this.dgvListado.MultiSelect = false;
@@ -271,62 +264,6 @@
             this.dgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListado.Size = new System.Drawing.Size(622, 232);
             this.dgvListado.TabIndex = 20;
-            // 
-            // idInsumoDataGridViewTextBoxColumn
-            // 
-            this.idInsumoDataGridViewTextBoxColumn.DataPropertyName = "IdInsumo";
-            this.idInsumoDataGridViewTextBoxColumn.HeaderText = "IdInsumo";
-            this.idInsumoDataGridViewTextBoxColumn.Name = "idInsumoDataGridViewTextBoxColumn";
-            this.idInsumoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // proveedorDataGridViewTextBoxColumn
-            // 
-            this.proveedorDataGridViewTextBoxColumn.DataPropertyName = "Proveedor";
-            this.proveedorDataGridViewTextBoxColumn.HeaderText = "Proveedor";
-            this.proveedorDataGridViewTextBoxColumn.Name = "proveedorDataGridViewTextBoxColumn";
-            this.proveedorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idMedidaDataGridViewTextBoxColumn
-            // 
-            this.idMedidaDataGridViewTextBoxColumn.DataPropertyName = "IdMedida";
-            this.idMedidaDataGridViewTextBoxColumn.HeaderText = "IdMedida";
-            this.idMedidaDataGridViewTextBoxColumn.Name = "idMedidaDataGridViewTextBoxColumn";
-            this.idMedidaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // precioCompraDataGridViewTextBoxColumn
-            // 
-            this.precioCompraDataGridViewTextBoxColumn.DataPropertyName = "PrecioCompra";
-            this.precioCompraDataGridViewTextBoxColumn.HeaderText = "PrecioCompra";
-            this.precioCompraDataGridViewTextBoxColumn.Name = "precioCompraDataGridViewTextBoxColumn";
-            this.precioCompraDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cantInventarioDataGridViewTextBoxColumn
-            // 
-            this.cantInventarioDataGridViewTextBoxColumn.DataPropertyName = "CantInventario";
-            this.cantInventarioDataGridViewTextBoxColumn.HeaderText = "CantInventario";
-            this.cantInventarioDataGridViewTextBoxColumn.Name = "cantInventarioDataGridViewTextBoxColumn";
-            this.cantInventarioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // activoDataGridViewCheckBoxColumn
-            // 
-            this.activoDataGridViewCheckBoxColumn.DataPropertyName = "Activo";
-            this.activoDataGridViewCheckBoxColumn.HeaderText = "Activo";
-            this.activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
-            this.activoDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // consecutivoDataGridViewTextBoxColumn
-            // 
-            this.consecutivoDataGridViewTextBoxColumn.DataPropertyName = "Consecutivo";
-            this.consecutivoDataGridViewTextBoxColumn.HeaderText = "Consecutivo";
-            this.consecutivoDataGridViewTextBoxColumn.Name = "consecutivoDataGridViewTextBoxColumn";
-            this.consecutivoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -441,7 +378,6 @@
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Controls.Add(this.txtPrecioCompra, 0, 8);
             this.tableLayoutPanel4.Controls.Add(this.label5, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.cbProveedor, 0, 6);
             this.tableLayoutPanel4.Controls.Add(this.label6, 0, 5);
@@ -450,6 +386,7 @@
             this.tableLayoutPanel4.Controls.Add(this.txtIdInsumo, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel9, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.txtPrecioCompra, 0, 8);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -466,15 +403,6 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(299, 285);
             this.tableLayoutPanel4.TabIndex = 1;
-            // 
-            // txtPrecioCompra
-            // 
-            this.txtPrecioCompra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPrecioCompra.Location = new System.Drawing.Point(3, 251);
-            this.txtPrecioCompra.Name = "txtPrecioCompra";
-            this.txtPrecioCompra.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtPrecioCompra.Size = new System.Drawing.Size(293, 20);
-            this.txtPrecioCompra.TabIndex = 26;
             // 
             // label5
             // 
@@ -572,7 +500,7 @@
             this.lblConsecutivo.AutoSize = true;
             this.lblConsecutivo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblConsecutivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConsecutivo.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblConsecutivo.ForeColor = System.Drawing.Color.Black;
             this.lblConsecutivo.Location = new System.Drawing.Point(149, 0);
             this.lblConsecutivo.Name = "lblConsecutivo";
             this.lblConsecutivo.Size = new System.Drawing.Size(141, 25);
@@ -591,6 +519,15 @@
             this.label14.TabIndex = 5;
             this.label14.Text = "Consecutivo:";
             // 
+            // txtPrecioCompra
+            // 
+            this.txtPrecioCompra.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPrecioCompra.Location = new System.Drawing.Point(3, 251);
+            this.txtPrecioCompra.Name = "txtPrecioCompra";
+            this.txtPrecioCompra.Size = new System.Drawing.Size(293, 20);
+            this.txtPrecioCompra.TabIndex = 4;
+            this.txtPrecioCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.tableLayoutPanel5);
@@ -607,12 +544,15 @@
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel12, 0, 6);
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel11, 0, 5);
             this.tableLayoutPanel5.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.cbMedida, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.txtStock, 0, 3);
             this.tableLayoutPanel5.Controls.Add(this.label8, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel1, 0, 8);
-            this.tableLayoutPanel5.Controls.Add(this.chkActivo, 0, 4);
+            this.tableLayoutPanel5.Controls.Add(this.txtRendimientoUM, 0, 3);
+            this.tableLayoutPanel5.Controls.Add(this.chkActivo, 0, 7);
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel10, 0, 4);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -628,6 +568,81 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel5.Size = new System.Drawing.Size(299, 285);
             this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.ColumnCount = 2;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.24232F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.75768F));
+            this.tableLayoutPanel12.Controls.Add(this.txtStock, 0, 0);
+            this.tableLayoutPanel12.Controls.Add(this.label17, 0, 0);
+            this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 189);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 1;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(293, 25);
+            this.tableLayoutPanel12.TabIndex = 32;
+            // 
+            // txtStock
+            // 
+            this.txtStock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtStock.Location = new System.Drawing.Point(159, 3);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(131, 20);
+            this.txtStock.TabIndex = 30;
+            this.txtStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label17.Location = new System.Drawing.Point(3, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(150, 25);
+            this.label17.TabIndex = 29;
+            this.label17.Text = "Stock por UM:";
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 2;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.24232F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.75768F));
+            this.tableLayoutPanel11.Controls.Add(this.lblPrecioMermado, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.label16, 0, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 158);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(293, 25);
+            this.tableLayoutPanel11.TabIndex = 31;
+            // 
+            // lblPrecioMermado
+            // 
+            this.lblPrecioMermado.AutoSize = true;
+            this.lblPrecioMermado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPrecioMermado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioMermado.ForeColor = System.Drawing.Color.Black;
+            this.lblPrecioMermado.Location = new System.Drawing.Point(159, 0);
+            this.lblPrecioMermado.Name = "lblPrecioMermado";
+            this.lblPrecioMermado.Size = new System.Drawing.Size(131, 25);
+            this.lblPrecioMermado.TabIndex = 30;
+            this.lblPrecioMermado.Text = "Costo:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label16.Location = new System.Drawing.Point(3, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(150, 25);
+            this.label16.TabIndex = 29;
+            this.label16.Text = "Costo:";
             // 
             // label10
             // 
@@ -651,14 +666,6 @@
             this.cbMedida.Size = new System.Drawing.Size(293, 21);
             this.cbMedida.TabIndex = 22;
             // 
-            // txtStock
-            // 
-            this.txtStock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtStock.Location = new System.Drawing.Point(3, 96);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(293, 20);
-            this.txtStock.TabIndex = 24;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -669,7 +676,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(293, 31);
             this.label8.TabIndex = 23;
-            this.label8.Text = "Stock";
+            this.label8.Text = "Rendimiento Por Medida";
             // 
             // flowLayoutPanel1
             // 
@@ -725,18 +732,63 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
+            // txtRendimientoUM
+            // 
+            this.txtRendimientoUM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtRendimientoUM.Location = new System.Drawing.Point(3, 96);
+            this.txtRendimientoUM.Name = "txtRendimientoUM";
+            this.txtRendimientoUM.Size = new System.Drawing.Size(293, 20);
+            this.txtRendimientoUM.TabIndex = 28;
+            this.txtRendimientoUM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // chkActivo
             // 
             this.chkActivo.AutoSize = true;
             this.chkActivo.Checked = true;
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActivo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkActivo.Location = new System.Drawing.Point(3, 127);
+            this.chkActivo.Location = new System.Drawing.Point(3, 220);
             this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(293, 25);
+            this.chkActivo.Size = new System.Drawing.Size(62, 17);
             this.chkActivo.TabIndex = 27;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 2;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.33788F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.66212F));
+            this.tableLayoutPanel10.Controls.Add(this.label15, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.cbbPorcentajeRendimiento, 1, 0);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 127);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 1;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(293, 25);
+            this.tableLayoutPanel10.TabIndex = 30;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label15.Location = new System.Drawing.Point(3, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(161, 25);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "% Rendimiento Porción";
+            // 
+            // cbbPorcentajeRendimiento
+            // 
+            this.cbbPorcentajeRendimiento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbbPorcentajeRendimiento.FormattingEnabled = true;
+            this.cbbPorcentajeRendimiento.Location = new System.Drawing.Point(170, 3);
+            this.cbbPorcentajeRendimiento.Name = "cbbPorcentajeRendimiento";
+            this.cbbPorcentajeRendimiento.Size = new System.Drawing.Size(120, 21);
+            this.cbbPorcentajeRendimiento.TabIndex = 30;
+            this.cbbPorcentajeRendimiento.SelectedIndexChanged += new System.EventHandler(this.cbbPorcentajeRendimiento_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -1141,7 +1193,13 @@
             this.groupBox5.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel12.ResumeLayout(false);
+            this.tableLayoutPanel12.PerformLayout();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel10.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
@@ -1189,13 +1247,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbProveedor;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtPrecioCompra;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox chkActivo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbMedida;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEditar;
@@ -1228,16 +1284,19 @@
         private System.Windows.Forms.TextBox txtProveedorStock;
         private System.Windows.Forms.TextBox txtMedidaStock;
         private System.Windows.Forms.BindingSource vProveedorInsumoBindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idInsumoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn proveedorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMedidaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioCompraDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantInventarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn consecutivoDataGridViewTextBoxColumn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Label lblConsecutivo;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.MaskedTextBox txtPrecioCompra;
+        private System.Windows.Forms.MaskedTextBox txtRendimientoUM;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox cbbPorcentajeRendimiento;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.Label lblPrecioMermado;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.MaskedTextBox txtStock;
     }
 }

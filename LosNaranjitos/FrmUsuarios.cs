@@ -188,8 +188,8 @@ namespace LosNaranjitos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Usuario");
+            this.Dispose();
 
         }
 

@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Bitacora.cs" />
+    <Compile Include="Clases\Cargas.cs" />
     <Compile Include="Clases\CategoriaProductos.cs" />
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Combo.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="Clases\RolUsuario.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Interfaces\IBitacora.cs" />
+    <Compile Include="Interfaces\ICargas.cs" />
     <Compile Include="Interfaces\ICategoriaProductos.cs" />
     <Compile Include="Interfaces\ICliente.cs" />
     <Compile Include="Interfaces\ICombo.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Utilitario.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="ServiceStack.OrmLite, Version=4.5.4.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

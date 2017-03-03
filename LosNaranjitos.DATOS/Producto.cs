@@ -18,7 +18,7 @@ namespace LosNaranjitos.DATOS
         [Required]
         public string Descripcion { get; set; }
         [Required]
-        public int Categoria { get; set; }
+        public string Categoria { get; set; }
         [Required]
         public decimal Precio { get; set; }
         [Required]

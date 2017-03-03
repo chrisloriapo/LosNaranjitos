@@ -194,20 +194,20 @@
             // 
             // operacionesInsumosToolStripMenuItem
             // 
-            resources.ApplyResources(this.operacionesInsumosToolStripMenuItem, "operacionesInsumosToolStripMenuItem");
             this.operacionesInsumosToolStripMenuItem.Name = "operacionesInsumosToolStripMenuItem";
+            resources.ApplyResources(this.operacionesInsumosToolStripMenuItem, "operacionesInsumosToolStripMenuItem");
             this.operacionesInsumosToolStripMenuItem.Click += new System.EventHandler(this.insumosToolStripMenuItem1_Click);
             // 
             // unidadesDeMedidaToolStripMenuItem
             // 
-            resources.ApplyResources(this.unidadesDeMedidaToolStripMenuItem, "unidadesDeMedidaToolStripMenuItem");
             this.unidadesDeMedidaToolStripMenuItem.Name = "unidadesDeMedidaToolStripMenuItem";
+            resources.ApplyResources(this.unidadesDeMedidaToolStripMenuItem, "unidadesDeMedidaToolStripMenuItem");
             this.unidadesDeMedidaToolStripMenuItem.Click += new System.EventHandler(this.unidadesDeMedidasToolStripMenuItem_Click);
             // 
             // productosToolStripMenuItem
             // 
-            resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // proveedoresToolStripMenuItem
@@ -218,8 +218,8 @@
             // 
             // promocionesCombosToolStripMenuItem
             // 
-            resources.ApplyResources(this.promocionesCombosToolStripMenuItem, "promocionesCombosToolStripMenuItem");
             this.promocionesCombosToolStripMenuItem.Name = "promocionesCombosToolStripMenuItem";
+            resources.ApplyResources(this.promocionesCombosToolStripMenuItem, "promocionesCombosToolStripMenuItem");
             this.promocionesCombosToolStripMenuItem.Click += new System.EventHandler(this.promocionesCombosToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
@@ -233,8 +233,8 @@
             this.ventasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pedidosToolStripMenuItem,
             this.reportesToolStripMenuItem});
-            resources.ApplyResources(this.ventasToolStripMenuItem, "ventasToolStripMenuItem");
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
+            resources.ApplyResources(this.ventasToolStripMenuItem, "ventasToolStripMenuItem");
             // 
             // pedidosToolStripMenuItem
             // 
@@ -290,13 +290,13 @@
             // 
             // ventanasToolStripMenuItem
             // 
-            resources.ApplyResources(this.ventanasToolStripMenuItem, "ventanasToolStripMenuItem");
             this.ventanasToolStripMenuItem.Name = "ventanasToolStripMenuItem";
+            resources.ApplyResources(this.ventanasToolStripMenuItem, "ventanasToolStripMenuItem");
             // 
             // ayudaToolStripMenuItem
             // 
-            resources.ApplyResources(this.ayudaToolStripMenuItem, "ayudaToolStripMenuItem");
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            resources.ApplyResources(this.ayudaToolStripMenuItem, "ayudaToolStripMenuItem");
             // 
             // tmerTiempo
             // 

@@ -35,12 +35,13 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvListado = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cmbBusqueda = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.dtpFechaBusqueda = new System.Windows.Forms.DateTimePicker();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.cmbBusqueda = new System.Windows.Forms.ComboBox();
-            this.dtpFechaBusqueda = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -122,6 +123,7 @@
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.cmbBusqueda);
             this.flowLayoutPanel1.Controls.Add(this.txtBuscar);
             this.flowLayoutPanel1.Controls.Add(this.dtpFechaBusqueda);
@@ -132,14 +134,38 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(737, 34);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
+            // cmbBusqueda
+            // 
+            this.cmbBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBusqueda.FormattingEnabled = true;
+            this.cmbBusqueda.Items.AddRange(new object[] {
+            "Fecha",
+            "General",
+            "Usuario"});
+            this.cmbBusqueda.Location = new System.Drawing.Point(103, 3);
+            this.cmbBusqueda.Name = "cmbBusqueda";
+            this.cmbBusqueda.Size = new System.Drawing.Size(121, 21);
+            this.cmbBusqueda.Sorted = true;
+            this.cmbBusqueda.TabIndex = 19;
+            this.cmbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbBusqueda_SelectedIndexChanged);
+            // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(130, 3);
+            this.txtBuscar.Location = new System.Drawing.Point(230, 3);
             this.txtBuscar.MaxLength = 15;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(139, 20);
             this.txtBuscar.TabIndex = 17;
             this.txtBuscar.Visible = false;
+            // 
+            // dtpFechaBusqueda
+            // 
+            this.dtpFechaBusqueda.Location = new System.Drawing.Point(375, 3);
+            this.dtpFechaBusqueda.Name = "dtpFechaBusqueda";
+            this.dtpFechaBusqueda.Size = new System.Drawing.Size(231, 20);
+            this.dtpFechaBusqueda.TabIndex = 20;
+            this.dtpFechaBusqueda.Value = new System.DateTime(2017, 2, 22, 13, 53, 53, 0);
+            this.dtpFechaBusqueda.Visible = false;
             // 
             // btnBuscar
             // 
@@ -147,7 +173,7 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(512, 3);
+            this.btnBuscar.Location = new System.Drawing.Point(612, 3);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 18;
@@ -183,29 +209,14 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // cmbBusqueda
+            // label1
             // 
-            this.cmbBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBusqueda.FormattingEnabled = true;
-            this.cmbBusqueda.Items.AddRange(new object[] {
-            "Fecha",
-            "General",
-            "Usuario"});
-            this.cmbBusqueda.Location = new System.Drawing.Point(3, 3);
-            this.cmbBusqueda.Name = "cmbBusqueda";
-            this.cmbBusqueda.Size = new System.Drawing.Size(121, 21);
-            this.cmbBusqueda.Sorted = true;
-            this.cmbBusqueda.TabIndex = 19;
-            this.cmbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbBusqueda_SelectedIndexChanged);
-            // 
-            // dtpFechaBusqueda
-            // 
-            this.dtpFechaBusqueda.Location = new System.Drawing.Point(275, 3);
-            this.dtpFechaBusqueda.Name = "dtpFechaBusqueda";
-            this.dtpFechaBusqueda.Size = new System.Drawing.Size(231, 20);
-            this.dtpFechaBusqueda.TabIndex = 20;
-            this.dtpFechaBusqueda.Value = new System.DateTime(2017, 2, 22, 13, 53, 53, 0);
-            this.dtpFechaBusqueda.Visible = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Tipo de Búsqueda";
             // 
             // FrmBitacora
             // 
@@ -245,5 +256,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ComboBox cmbBusqueda;
         private System.Windows.Forms.DateTimePicker dtpFechaBusqueda;
+        private System.Windows.Forms.Label label1;
     }
 }

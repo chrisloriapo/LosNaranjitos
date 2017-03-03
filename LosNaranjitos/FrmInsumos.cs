@@ -26,6 +26,10 @@ namespace LosNaranjitos
 
             try
             {
+                for (int i = 0; i < 101; i++)
+                {
+                    cbbPorcentajeRendimiento.Items.Add(i);
+                }
                 //Verificacion de Consecutivo
                 if (Utilitarios.Cambio == false)
                 {
@@ -45,9 +49,9 @@ namespace LosNaranjitos
                 }
                 //Carga de Formulario Usual
 
-                this.vProveedor_InsumoTableAdapter.Fill(this.orangeDB1DataSet.VProveedor_Insumo);
-                var ListaLocal = this.orangeDB1DataSet.VProveedor_Insumo.ToList();
-                dgvListado.DataSource = ListaLocal;
+
+                var ListaLocal = Utilitarios.OpInsumos.ListarInsumos();
+                              ; dgvListado.DataSource = ListaLocal;
                 cbMedida.DataSource = Utilitarios.OpMedidas.ListarMedidas().Select(x => x.IdMedida).ToList();
                 cbProveedor.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(x => x.Nombre).ToList();
                 cbbCodigoStock.DataSource = Utilitarios.OpInsumos.ListarInsumos().Select(x => x.IdInsumo).ToList();
@@ -82,6 +86,10 @@ namespace LosNaranjitos
 
                         cbProveedor.SelectedItem = Prov.Nombre;
                         chkActivo.Checked = EditInsumo.Activo;
+                        lblPrecioMermado.Text = EditInsumo.PrecioMermado.ToString();
+                        txtRendimientoUM.Text = EditInsumo.RendimientoUM.ToString();
+                        cbbPorcentajeRendimiento.Text = (EditInsumo.RendimientoPorcion * 100).ToString();
+
                         return;
                     }
                     else
@@ -132,12 +140,15 @@ namespace LosNaranjitos
                             CantInventario = float.Parse(txtStock.Text),
                             IdMedida = cbMedida.SelectedValue.ToString(),
                             Proveedor = Prov.IdProveedor,
+                            PrecioMermado = Convert.ToDecimal(lblPrecioMermado.Text),
+                            RendimientoPorcion = float.Parse(cbbPorcentajeRendimiento.Text) / 100,
+                            RendimientoUM = float.Parse(txtRendimientoUM.Text)
                         };
 
                         Utilitarios.OpInsumos.AgregarInsumo(InsumoPrivate);
 
                         DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Insumo");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
+                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual+1;
                         Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Insumos Nuevo " + InsumoPrivate.IdInsumo);
@@ -162,7 +173,6 @@ namespace LosNaranjitos
             {
                 FrmEdicionInsumos a = new FrmEdicionInsumos();
                 a.Show();
-                this.Dispose();
             }
             else
             {
@@ -190,6 +200,8 @@ namespace LosNaranjitos
         {
             try
             {
+
+
                 var ListaLocal = new DataTable();
 
                 foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
@@ -299,7 +311,10 @@ namespace LosNaranjitos
                         Activo = chkActivo.Checked,
                         PrecioCompra = decimal.Parse(txtPrecioCompra.Text),
                         IdMedida = cbMedida.SelectedValue.ToString(),
-                        Proveedor = ProveedorId.IdProveedor
+                        Proveedor = ProveedorId.IdProveedor,
+                        PrecioMermado = Convert.ToDecimal(lblPrecioMermado.Text),
+                        RendimientoPorcion = float.Parse(cbbPorcentajeRendimiento.Text) / 100,
+                        RendimientoUM = float.Parse(txtRendimientoUM.Text)
                     };
 
                     Utilitarios.OpInsumos.ActualizarInsumo(InsumoPrivate);
@@ -389,6 +404,37 @@ namespace LosNaranjitos
             txtNombre.Clear();
             txtStock.Clear();
             txtPrecioCompra.Clear();
+        }
+
+        private void cbbPorcentajeRendimiento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtPrecioCompra.Text) || string.IsNullOrWhiteSpace(txtPrecioCompra.Text))
+                {
+                    MessageBox.Show("Debes digitar el Precio del producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPrecioCompra.Focus();
+                    //cbbPorcentajeRendimiento.Text = "";
+                    return;
+                }
+                if (string.IsNullOrEmpty(txtRendimientoUM.Text) || string.IsNullOrWhiteSpace(txtRendimientoUM.Text))
+                {
+                    MessageBox.Show("Debes digitar el Rendimiento del producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtRendimientoUM.Focus();
+                    //cbbPorcentajeRendimiento.Text = "";
+                    return;
+                }
+                else
+                {
+                    float precio = ((float.Parse(txtPrecioCompra.Text) / float.Parse(txtRendimientoUM.Text)) *(1- ((float.Parse(cbbPorcentajeRendimiento.SelectedItem.ToString()) / 100))) + (float.Parse(txtPrecioCompra.Text) / float.Parse(txtRendimientoUM.Text)));
+                    lblPrecioMermado.Text = precio.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Intentar Calcular Precio de Mermado stock de Insumo");
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

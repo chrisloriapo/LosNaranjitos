@@ -16,13 +16,11 @@ namespace LosNaranjitos.DATOS
         [PrimaryKey]
         [Required]
         public string IdInsumo { get; set; }
-        [Required]
-        public string IdMedida { get; set; }
+        
         [Required]
         public float CantidadRequerida { get; set; }
         [Required]
-        public float Porcion { get; set; }
-        [Required]
+
         public string Consecutivo { get; set; }
 
     }

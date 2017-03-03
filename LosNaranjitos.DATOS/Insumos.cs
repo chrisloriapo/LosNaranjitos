@@ -8,25 +8,33 @@ using ServiceStack.DataAnnotations;
 
 namespace LosNaranjitos.DATOS
 {
+
     public class Insumos
     {
-        [PrimaryKey]
-        [Required]
-        public string IdInsumo { get; set; }
-        [Required]
-        public string Nombre { get; set; }
-        [Required]
-        public string IdMedida { get; set; }
-        [Required]
-        public decimal PrecioCompra { get; set; }
-        [Required]
-        public float CantInventario { get; set; }
-        [Required]
-        public string Proveedor { get; set; }
-        [Required]
-        public bool Activo { get; set; }
-        [Required]
         public string Consecutivo { get; set; }
+
+        [PrimaryKey]
+        public string IdInsumo { get; set; }
+
+        public string Nombre { get; set; }
+
+        public string IdMedida { get; set; }
+
+        public decimal PrecioCompra { get; set; }
+
+        public float? RendimientoUM { get; set; }
+
+        public float RendimientoPorcion { get; set; }
+
+        public decimal PrecioMermado { get; set; }
+
+        public float CantInventario { get; set; }
+
+        public string Proveedor { get; set; }
+
+        public bool Activo { get; set; }
+
+
 
     }
 

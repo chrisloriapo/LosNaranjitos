@@ -22,7 +22,7 @@ namespace LosNaranjitos.BL.Clases
 
         public void AgregarProductoInsumo(DATOS.ProductoInsumo ProductoINSUMO)
         {
-            ProdInsumProcd.ActualizarProductoInsumo(ProductoINSUMO);
+            ProdInsumProcd.AgregarProductoInsumo(ProductoINSUMO);
         }
 
         public DATOS.ProductoInsumo BuscarPorConsecutivo(string Consec)

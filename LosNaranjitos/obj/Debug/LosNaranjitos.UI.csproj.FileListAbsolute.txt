@@ -191,3 +191,17 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto
 C:\Users\Jenny\Desktop\Shared-20170213T195845Z\Shared\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.UI.csprojResolveAssemblyReference.cache
 C:\Users\Jenny\Desktop\Shared-20170213T195845Z\Shared\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.exe
 C:\Users\Jenny\Desktop\Shared-20170213T195845Z\Shared\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmCargas.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll

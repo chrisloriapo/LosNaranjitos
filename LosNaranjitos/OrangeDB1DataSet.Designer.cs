@@ -291,9 +291,13 @@ namespace LosNaranjitos {
             
             private global::System.Data.DataColumn columnCantInventario;
             
-            private global::System.Data.DataColumn columnActivo;
-            
             private global::System.Data.DataColumn columnConsecutivo;
+            
+            private global::System.Data.DataColumn columnRendimientoUM;
+            
+            private global::System.Data.DataColumn columnRendimientoPorcion;
+            
+            private global::System.Data.DataColumn columnActivo;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -378,17 +382,33 @@ namespace LosNaranjitos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ActivoColumn {
+            public global::System.Data.DataColumn ConsecutivoColumn {
                 get {
-                    return this.columnActivo;
+                    return this.columnConsecutivo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ConsecutivoColumn {
+            public global::System.Data.DataColumn RendimientoUMColumn {
                 get {
-                    return this.columnConsecutivo;
+                    return this.columnRendimientoUM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RendimientoPorcionColumn {
+                get {
+                    return this.columnRendimientoPorcion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ActivoColumn {
+                get {
+                    return this.columnActivo;
                 }
             }
             
@@ -429,7 +449,7 @@ namespace LosNaranjitos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public VProveedor_InsumoRow AddVProveedor_InsumoRow(string IdInsumo, string Proveedor, string Nombre, string IdMedida, decimal PrecioCompra, double CantInventario, bool Activo, string Consecutivo) {
+            public VProveedor_InsumoRow AddVProveedor_InsumoRow(string IdInsumo, string Proveedor, string Nombre, string IdMedida, decimal PrecioCompra, double CantInventario, string Consecutivo, double RendimientoUM, double RendimientoPorcion, decimal Activo) {
                 VProveedor_InsumoRow rowVProveedor_InsumoRow = ((VProveedor_InsumoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IdInsumo,
@@ -438,8 +458,10 @@ namespace LosNaranjitos {
                         IdMedida,
                         PrecioCompra,
                         CantInventario,
-                        Activo,
-                        Consecutivo};
+                        Consecutivo,
+                        RendimientoUM,
+                        RendimientoPorcion,
+                        Activo};
                 rowVProveedor_InsumoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVProveedor_InsumoRow);
                 return rowVProveedor_InsumoRow;
@@ -475,8 +497,10 @@ namespace LosNaranjitos {
                 this.columnIdMedida = base.Columns["IdMedida"];
                 this.columnPrecioCompra = base.Columns["PrecioCompra"];
                 this.columnCantInventario = base.Columns["CantInventario"];
-                this.columnActivo = base.Columns["Activo"];
                 this.columnConsecutivo = base.Columns["Consecutivo"];
+                this.columnRendimientoUM = base.Columns["RendimientoUM"];
+                this.columnRendimientoPorcion = base.Columns["RendimientoPorcion"];
+                this.columnActivo = base.Columns["Activo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -494,10 +518,14 @@ namespace LosNaranjitos {
                 base.Columns.Add(this.columnPrecioCompra);
                 this.columnCantInventario = new global::System.Data.DataColumn("CantInventario", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCantInventario);
-                this.columnActivo = new global::System.Data.DataColumn("Activo", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnActivo);
                 this.columnConsecutivo = new global::System.Data.DataColumn("Consecutivo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnConsecutivo);
+                this.columnRendimientoUM = new global::System.Data.DataColumn("RendimientoUM", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRendimientoUM);
+                this.columnRendimientoPorcion = new global::System.Data.DataColumn("RendimientoPorcion", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRendimientoPorcion);
+                this.columnActivo = new global::System.Data.DataColumn("Activo", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnActivo);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdInsumo}, true));
                 this.columnIdInsumo.AllowDBNull = false;
@@ -511,9 +539,10 @@ namespace LosNaranjitos {
                 this.columnIdMedida.MaxLength = 8;
                 this.columnPrecioCompra.AllowDBNull = false;
                 this.columnCantInventario.AllowDBNull = false;
-                this.columnActivo.AllowDBNull = false;
                 this.columnConsecutivo.AllowDBNull = false;
                 this.columnConsecutivo.MaxLength = 10;
+                this.columnRendimientoPorcion.AllowDBNull = false;
+                this.columnActivo.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -722,9 +751,48 @@ namespace LosNaranjitos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Activo {
+            public string Consecutivo {
                 get {
-                    return ((bool)(this[this.tableVProveedor_Insumo.ActivoColumn]));
+                    return ((string)(this[this.tableVProveedor_Insumo.ConsecutivoColumn]));
+                }
+                set {
+                    this[this.tableVProveedor_Insumo.ConsecutivoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double RendimientoUM {
+                get {
+                    try {
+                        return ((double)(this[this.tableVProveedor_Insumo.RendimientoUMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'RendimientoUM\' de la tabla \'VProveedor_Insumo\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableVProveedor_Insumo.RendimientoUMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double RendimientoPorcion {
+                get {
+                    return ((double)(this[this.tableVProveedor_Insumo.RendimientoPorcionColumn]));
+                }
+                set {
+                    this[this.tableVProveedor_Insumo.RendimientoPorcionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Activo {
+                get {
+                    return ((decimal)(this[this.tableVProveedor_Insumo.ActivoColumn]));
                 }
                 set {
                     this[this.tableVProveedor_Insumo.ActivoColumn] = value;
@@ -733,13 +801,14 @@ namespace LosNaranjitos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Consecutivo {
-                get {
-                    return ((string)(this[this.tableVProveedor_Insumo.ConsecutivoColumn]));
-                }
-                set {
-                    this[this.tableVProveedor_Insumo.ConsecutivoColumn] = value;
-                }
+            public bool IsRendimientoUMNull() {
+                return this.IsNull(this.tableVProveedor_Insumo.RendimientoUMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRendimientoUMNull() {
+                this[this.tableVProveedor_Insumo.RendimientoUMColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -908,8 +977,10 @@ namespace LosNaranjitos.OrangeDB1DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("IdMedida", "IdMedida");
             tableMapping.ColumnMappings.Add("PrecioCompra", "PrecioCompra");
             tableMapping.ColumnMappings.Add("CantInventario", "CantInventario");
-            tableMapping.ColumnMappings.Add("Activo", "Activo");
             tableMapping.ColumnMappings.Add("Consecutivo", "Consecutivo");
+            tableMapping.ColumnMappings.Add("RendimientoUM", "RendimientoUM");
+            tableMapping.ColumnMappings.Add("RendimientoPorcion", "RendimientoPorcion");
+            tableMapping.ColumnMappings.Add("Activo", "Activo");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -927,7 +998,8 @@ namespace LosNaranjitos.OrangeDB1DataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Consecutivo,IdInsumo, Proveedor, Nombre, IdMedida, PrecioCompra, CantInven" +
-                "tario, Activo FROM VProveedor_Insumo";
+                "tario, RendimientoUM\r\n      ,RendimientoPorcion,PrecioMermado Activo FROM VProve" +
+                "edor_Insumo";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

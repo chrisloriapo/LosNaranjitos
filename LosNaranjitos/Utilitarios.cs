@@ -27,6 +27,8 @@ namespace LosNaranjitos
         public static BL.Interfaces.IProveedor OpProveedor = new BL.Clases.Proveedor();
         public static BL.Interfaces.IRolUsuario OpRol = new BL.Clases.RolUsuario();
         public static BL.Interfaces.IUsuario OpUsuarios = new BL.Clases.Usuario();
+        public static BL.Interfaces.ICargas OpCargas = new BL.Clases.Cargas();
+
 
         public static string Llave = "hendmsjskruwiqud";
         public static bool Cambio = false;
