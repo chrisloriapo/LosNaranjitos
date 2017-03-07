@@ -66,7 +66,7 @@ namespace LosNaranjitos
         {
         }
 
-        
+
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -98,7 +98,7 @@ namespace LosNaranjitos
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,18 +106,8 @@ namespace LosNaranjitos
             FrmUsuarios a = new FrmUsuarios();
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
-                        a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Usuarios ");
-
-        }
-
-        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmProductosVenta a = new FrmProductosVenta();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
             a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Productos ");
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Usuarios ");
 
         }
 
@@ -133,7 +123,7 @@ namespace LosNaranjitos
 
         private void lnkUsuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-           
+
         }
 
         private void pedidosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -157,25 +147,19 @@ namespace LosNaranjitos
                 this.Dispose();
                 Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Aplicación ");
                 Application.Exit();
-
             }
             else
             {
                 e.Cancel = true;
             }
-
         }
 
         private void tstICerrarSesion_Click(object sender, EventArgs e)
         {
-            foreach (Form frm in Application.OpenForms)
-            {
-                frm.Close();
-            }
             FrmLogin ReLog = new FrmLogin();
             ReLog.Show();
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Sesion");
-
+            this.Dispose();
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -208,20 +192,6 @@ namespace LosNaranjitos
 
         }
 
-
-        private void promocionesCombosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmCombo a = new FrmCombo();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Combos/Promociones ");
-
-        }
-
-
-
-
         private void bitacoraDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmBitacora a = new FrmBitacora();
@@ -245,6 +215,7 @@ namespace LosNaranjitos
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             tmerTiempo.Start();
+            lnkUsuario.Text = Utilitarios.Decriptar( FrmLogin.UsuarioGlobal.Nombre,Utilitarios.Llave) + " " + Utilitarios.Decriptar(FrmLogin.UsuarioGlobal.Apellido1, Utilitarios.Llave);
             foreach (Control ctrl in this.Controls)
             {
 
@@ -264,13 +235,57 @@ namespace LosNaranjitos
             a.WindowState = FormWindowState.Maximized;
             a.Show();
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
-
         }
 
         private void tmerTiempo_Tick(object sender, EventArgs e)
         {
             lblDate.Text = "Fecha: " + DateTime.Today.ToShortDateString();
             lblTime.Text = "Hora: " + DateTime.Now.ToShortTimeString();
+        }
+
+        private void tstabout_Click(object sender, EventArgs e)
+        {
+            FrmAbout a = new FrmAbout();
+            a.MdiParent = this;
+            a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Se mostro el formulario de Acerca De ");
+
+        }
+
+        private void productosALaVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmProductosVenta a = new FrmProductosVenta();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Productos ");
+        }
+
+        private void combosPromocionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCombo a = new FrmCombo();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Combos/Promociones ");
+        }
+
+        private void ComprasTst_Click(object sender, EventArgs e)
+        {
+            FrmCompras a = new FrmCompras();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Compras ");
+        }
+
+        private void tsMiCargas_Click(object sender, EventArgs e)
+        {
+            FrmCargas a = new FrmCargas();
+            a.MdiParent = this;
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cargas-Impuestos ");
         }
     }
 }

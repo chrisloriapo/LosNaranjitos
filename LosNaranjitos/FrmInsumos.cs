@@ -30,6 +30,7 @@ namespace LosNaranjitos
                 {
                     cbbPorcentajeRendimiento.Items.Add(i);
                 }
+                cbbPorcentajeRendimiento.SelectedIndex = 0;
                 //Verificacion de Consecutivo
                 if (Utilitarios.Cambio == false)
                 {
@@ -49,9 +50,9 @@ namespace LosNaranjitos
                 }
                 //Carga de Formulario Usual
 
-
+                cbBuscar.SelectedIndex = 0;
                 var ListaLocal = Utilitarios.OpInsumos.ListarInsumos();
-                              ; dgvListado.DataSource = ListaLocal;
+                dgvListado.DataSource = ListaLocal;
                 cbMedida.DataSource = Utilitarios.OpMedidas.ListarMedidas().Select(x => x.IdMedida).ToList();
                 cbProveedor.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(x => x.Nombre).ToList();
                 cbbCodigoStock.DataSource = Utilitarios.OpInsumos.ListarInsumos().Select(x => x.IdInsumo).ToList();
@@ -148,7 +149,7 @@ namespace LosNaranjitos
                         Utilitarios.OpInsumos.AgregarInsumo(InsumoPrivate);
 
                         DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Insumo");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual+1;
+                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
                         Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Insumos Nuevo " + InsumoPrivate.IdInsumo);
@@ -156,7 +157,9 @@ namespace LosNaranjitos
                         MessageBox.Show("Los datos del Insumo se ingresaron correctamente",
 "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Insumos");
-                        this.Dispose();
+                        clearall();
+                        dgvListado.DataSource = Utilitarios.OpInsumos.ListarInsumos();
+                        tabControl1.SelectedIndex = 0;
                     }
                 }
                 catch (Exception ex)
@@ -193,6 +196,7 @@ namespace LosNaranjitos
         private void button1_Click(object sender, EventArgs e)
         {
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Insumos");
+            clearall();
             this.Dispose();
         }
 
@@ -200,36 +204,16 @@ namespace LosNaranjitos
         {
             try
             {
+                var ListaLocal = Utilitarios.OpInsumos.ListarInsumos();
 
-
-                var ListaLocal = new DataTable();
-
-                foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
-                {
-                    ListaLocal.ImportRow(item);
-                }
 
                 switch (cbBuscar.SelectedItem.ToString())
                 {
                     case "Codigo":
-                        ListaLocal.Clear();
-                        foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
-                        {
-                            if (item.IdInsumo == txtBuscar.Text)
-                            {
-                                ListaLocal.ImportRow(item);
-                            }
-                        }
+                        ListaLocal = ListaLocal.Where(x => x.IdInsumo == txtBuscar.Text).ToList();
                         break;
                     case "Proveedor":
-                        ListaLocal.Clear();
-                        foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
-                        {
-                            if (item.Proveedor == txtBuscar.Text)
-                            {
-                                ListaLocal.ImportRow(item);
-                            }
-                        }
+                        ListaLocal = ListaLocal.Where(x => x.Proveedor == txtBuscar.Text).ToList();
                         break;
                 }
                 dgvListado.DataSource = ListaLocal;
@@ -323,8 +307,9 @@ namespace LosNaranjitos
                     MessageBox.Show("Los datos del Proveedor se Actualizaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
-                    this.Dispose();
                     clearall();
+                    dgvListado.DataSource = Utilitarios.OpInsumos.ListarInsumos();
+                    tabControl1.SelectedIndex = 0;
                 }
                 catch (Exception ex)
                 {
@@ -337,8 +322,10 @@ namespace LosNaranjitos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Insumos");
-            this.Dispose(); clearall();
+            clearall();
+            this.Dispose();
         }
+
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -348,6 +335,10 @@ namespace LosNaranjitos
                 InsumoPrivate.CantInventario = InsumoPrivate.CantInventario + float.Parse(txtAjuste.Text);
                 Utilitarios.OpInsumos.ActualizarInsumo(InsumoPrivate);
                 Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Actualizacion de Cantidad en Stock " + InsumoPrivate.IdInsumo);
+                MessageBox.Show("Actualizacion de Cantidad en Stock", "Actualización Completa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvListado.DataSource = Utilitarios.OpInsumos.ListarInsumos();
+                clearall();
+
             }
             catch (Exception ex)
             {
@@ -390,6 +381,9 @@ namespace LosNaranjitos
                 var InsumoPrivate = Utilitarios.OpInsumos.BuscarInsumos(cbbCodigoStock.SelectedValue.ToString());
                 InsumoPrivate.CantInventario = float.Parse(txtAjuste.Text);
                 Utilitarios.OpInsumos.ActualizarInsumo(InsumoPrivate);
+                MessageBox.Show("Actualizacion de Cantidad en Stock", "Actualización COmpleta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvListado.DataSource = Utilitarios.OpInsumos.ListarInsumos();
+                clearall();
             }
             catch (Exception ex)
             {
@@ -404,30 +398,39 @@ namespace LosNaranjitos
             txtNombre.Clear();
             txtStock.Clear();
             txtPrecioCompra.Clear();
+            txtBuscar.Clear();
+            txtAjuste.Clear();
+            txtRendimientoUM.Clear();
+
         }
 
         private void cbbPorcentajeRendimiento_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrEmpty(txtPrecioCompra.Text) || string.IsNullOrWhiteSpace(txtPrecioCompra.Text))
+                if (this.WindowState == FormWindowState.Maximized)
                 {
-                    MessageBox.Show("Debes digitar el Precio del producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtPrecioCompra.Focus();
-                    //cbbPorcentajeRendimiento.Text = "";
-                    return;
-                }
-                if (string.IsNullOrEmpty(txtRendimientoUM.Text) || string.IsNullOrWhiteSpace(txtRendimientoUM.Text))
-                {
-                    MessageBox.Show("Debes digitar el Rendimiento del producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtRendimientoUM.Focus();
-                    //cbbPorcentajeRendimiento.Text = "";
-                    return;
-                }
-                else
-                {
-                    float precio = ((float.Parse(txtPrecioCompra.Text) / float.Parse(txtRendimientoUM.Text)) *(1- ((float.Parse(cbbPorcentajeRendimiento.SelectedItem.ToString()) / 100))) + (float.Parse(txtPrecioCompra.Text) / float.Parse(txtRendimientoUM.Text)));
-                    lblPrecioMermado.Text = precio.ToString();
+
+
+                    if (string.IsNullOrEmpty(txtPrecioCompra.Text) || string.IsNullOrWhiteSpace(txtPrecioCompra.Text))
+                    {
+                        MessageBox.Show("Debes digitar el Precio del producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtPrecioCompra.Focus();
+                        //cbbPorcentajeRendimiento.Text = "";
+                        return;
+                    }
+                    if (string.IsNullOrEmpty(txtRendimientoUM.Text) || string.IsNullOrWhiteSpace(txtRendimientoUM.Text))
+                    {
+                        MessageBox.Show("Debes digitar el Rendimiento del producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtRendimientoUM.Focus();
+                        //cbbPorcentajeRendimiento.Text = "";
+                        return;
+                    }
+                    else
+                    {
+                        float precio = ((float.Parse(txtPrecioCompra.Text) / float.Parse(txtRendimientoUM.Text)) * (1 - ((float.Parse(cbbPorcentajeRendimiento.SelectedItem.ToString()) / 100))) + (float.Parse(txtPrecioCompra.Text) / float.Parse(txtRendimientoUM.Text)));
+                        lblPrecioMermado.Text = precio.ToString();
+                    }
                 }
             }
             catch (Exception ex)

@@ -48,12 +48,14 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(18, 18);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 152);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(636, 234);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Seleccione el Usuario a Editar";
+            this.groupBox1.Text = "Seleccione el Proveedor a Editar";
             // 
             // btnCancelar
             // 
@@ -61,9 +63,10 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(305, 55);
+            this.btnCancelar.Location = new System.Drawing.Point(458, 85);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(112, 35);
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -75,9 +78,10 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(305, 26);
+            this.btnEditar.Location = new System.Drawing.Point(458, 40);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.Size = new System.Drawing.Size(112, 35);
             this.btnEditar.TabIndex = 10;
             this.btnEditar.Text = "E&ditar";
             this.btnEditar.UseVisualStyleBackColor = false;
@@ -89,9 +93,10 @@
             this.lblIdPersonal.BackColor = System.Drawing.Color.LimeGreen;
             this.lblIdPersonal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdPersonal.ForeColor = System.Drawing.Color.White;
-            this.lblIdPersonal.Location = new System.Drawing.Point(17, 112);
+            this.lblIdPersonal.Location = new System.Drawing.Point(26, 172);
+            this.lblIdPersonal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIdPersonal.Name = "lblIdPersonal";
-            this.lblIdPersonal.Size = new System.Drawing.Size(47, 15);
+            this.lblIdPersonal.Size = new System.Drawing.Size(64, 22);
             this.lblIdPersonal.TabIndex = 3;
             this.lblIdPersonal.Text = "label1";
             // 
@@ -101,9 +106,10 @@
             this.lblNombre.BackColor = System.Drawing.Color.LimeGreen;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(17, 86);
+            this.lblNombre.Location = new System.Drawing.Point(26, 132);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(47, 15);
+            this.lblNombre.Size = new System.Drawing.Size(64, 22);
             this.lblNombre.TabIndex = 2;
             this.lblNombre.Text = "label1";
             // 
@@ -111,9 +117,11 @@
             // 
             this.groupBox2.Controls.Add(this.cbbProveedores);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(17, 19);
+            this.groupBox2.Location = new System.Drawing.Point(26, 29);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(222, 60);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(333, 92);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Nombre de Proveedor";
@@ -122,22 +130,28 @@
             // 
             this.cbbProveedores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbProveedores.FormattingEnabled = true;
-            this.cbbProveedores.Location = new System.Drawing.Point(6, 19);
+            this.cbbProveedores.Location = new System.Drawing.Point(9, 29);
+            this.cbbProveedores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbbProveedores.Name = "cbbProveedores";
-            this.cbbProveedores.Size = new System.Drawing.Size(189, 21);
+            this.cbbProveedores.Size = new System.Drawing.Size(282, 28);
             this.cbbProveedores.TabIndex = 0;
+            this.cbbProveedores.SelectedIndexChanged += new System.EventHandler(this.cbbProveedores_SelectedIndexChanged);
             // 
             // FrmEdicionProveedor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LimeGreen;
-            this.ClientSize = new System.Drawing.Size(451, 187);
+            this.ClientSize = new System.Drawing.Size(676, 288);
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmEdicionProveedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmEdicionProveedor";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.FrmEdicionProveedor_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

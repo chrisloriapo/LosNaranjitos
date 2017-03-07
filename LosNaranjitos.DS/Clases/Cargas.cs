@@ -38,8 +38,8 @@ namespace LosNaranjitos.DS.Clases
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
-            DATOS.Cargas ROL = db.Select<DATOS.Cargas>(x => x.Descripcion == Descripcion).FirstOrDefault();
-            return ROL;
+            DATOS.Cargas Carga = db.Select<DATOS.Cargas>(x => x.Descripcion == Descripcion).FirstOrDefault();
+            return Carga;
         }
 
         public bool ExisteCarga(string IdCarga)
@@ -51,6 +51,38 @@ namespace LosNaranjitos.DS.Clases
                 DATOS.Cargas Carga = db.Select<DATOS.Cargas>(x => x.Consecutivo == IdCarga).FirstOrDefault();
 
                 if (Carga.Consecutivo == IdCarga)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.Cargas Us = db.Select<DATOS.Cargas>(x => x.Consecutivo == Consecutivo).FirstOrDefault();
+
+                if (Us.Consecutivo == Consecutivo)
                 {
                     return true;
                 }

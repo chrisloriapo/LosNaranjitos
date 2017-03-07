@@ -12,6 +12,8 @@ namespace LosNaranjitos
     public class Utilitarios
     {
         public static BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
+        public static BL.Interfaces.IFacturaCompra OpFacturaCompra = new BL.Clases.FacturaCompra();
+
         public static BL.Interfaces.ICategoriaProductos OpCategorias = new BL.Clases.CategoriaProductos();
         public static BL.Interfaces.ICliente OpClientes = new BL.Clases.Cliente();
         public static BL.Interfaces.ICombo OpCombo = new BL.Clases.Combo();

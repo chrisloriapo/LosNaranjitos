@@ -21,5 +21,8 @@ namespace LosNaranjitos.BL.Interfaces
         void Inactivar(DATOS.Cargas Carga);
 
         bool ExisteCarga(string IdCarga);
+
+        bool ExisteConsecutivo(string Consecutivo);
+
     }
 }

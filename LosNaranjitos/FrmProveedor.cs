@@ -35,7 +35,7 @@ namespace LosNaranjitos
                     Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
                     int CSProveedor = Consecutivo.ConsecutivoActual + 1;
                     UltimoProveedor.Consecutivo = Prefijo + "-" + CSProveedor;
-                    if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoProveedor.Consecutivo))
+                    if (Utilitarios.OpProveedor.ExisteConsecutivo(UltimoProveedor.Consecutivo))
                     {
                         MessageBox.Show("Existe otro Consecutivo " + UltimoProveedor.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         btnNuevo.Enabled = false;
@@ -115,7 +115,7 @@ namespace LosNaranjitos
                 }
                 else
                 {
-                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Usuario Fallida, Proveedor No existe");
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Proveedor Fallida, Proveedor No existe");
                     MessageBox.Show("Proveedor No existe",
                     "Codigo No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -125,8 +125,8 @@ namespace LosNaranjitos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Dispose();
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
+            this.Dispose();
 
         }
 
@@ -146,7 +146,7 @@ namespace LosNaranjitos
                     if (Utilitarios.OpProveedor.ExisteProveedor(txtIdProveedor.Text))
                     {
                         MessageBox.Show("Proveedor Duplicado",
-                                            "No se puede Ingresar usuario duplicado",
+                                            "No se puede Ingresar un proveedor duplicado",
                                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso Fallido de Proveedor " + txtIdProveedor.Text + ", Proveedor ya existe");
 

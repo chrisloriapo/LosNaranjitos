@@ -57,7 +57,7 @@ namespace LosNaranjitos
         {
             try
             {
-                if (Utilitarios.Cambio == false)
+                if (!Utilitarios.Cambio )
                 {
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
@@ -277,6 +277,12 @@ namespace LosNaranjitos
 
             }
     }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Clientes");
+            this.Dispose();
+        }
     }
 }
 

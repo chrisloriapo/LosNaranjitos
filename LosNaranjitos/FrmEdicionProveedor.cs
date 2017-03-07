@@ -32,6 +32,7 @@ namespace LosNaranjitos
             Utilitarios.Cambio = true;
             this.Dispose();
             FrmProveedor a = new FrmProveedor();
+            a.WindowState= FormWindowState.Maximized;
             a.MdiParent = FrmLogin.MN;
             a.Show();
         }

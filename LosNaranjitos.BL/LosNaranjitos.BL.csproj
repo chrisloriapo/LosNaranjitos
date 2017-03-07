@@ -57,6 +57,7 @@
     <Compile Include="Clases\Consecutivo.cs" />
     <Compile Include="Clases\DetallePedido.cs" />
     <Compile Include="Clases\Error.cs" />
+    <Compile Include="Clases\FacturaCompra.cs" />
     <Compile Include="Clases\Insumos.cs" />
     <Compile Include="Clases\Medida.cs" />
     <Compile Include="Clases\Pedido.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Interfaces\IConsecutivo.cs" />
     <Compile Include="Interfaces\IDetallePedido.cs" />
     <Compile Include="Interfaces\IError.cs" />
+    <Compile Include="Interfaces\IFacturaCompra.cs" />
     <Compile Include="Interfaces\IInsumos.cs" />
     <Compile Include="Interfaces\IMedida.cs" />
     <Compile Include="Interfaces\IPedido.cs" />

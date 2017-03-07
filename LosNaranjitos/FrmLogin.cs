@@ -24,25 +24,37 @@ namespace LosNaranjitos
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            //try
+            //{
+                FrmMenuCaja MC = new FrmMenuCaja();
 
-            FrmMenuCaja MC = new FrmMenuCaja();
-
-            bool Ingreso = ValidarUser();
-            if (Ingreso)
-            {
-                if (UsuarioGlobal.Rol == "ROL-3")
+                bool Ingreso = ValidarUser();
+                if (Ingreso)
                 {
-                    MC.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MN.Show();
-                    this.Hide();
-                }
-                Utilitarios.GeneralBitacora(UsuarioGlobal.Username,"Ingreso al Sistema");
+                    if (UsuarioGlobal.Rol == "ROL-3")
+                    {
+                        MC.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MN = new FrmMenuPrincipal();
+                        MN.Show();
+                        this.Hide();
+                    }
+                    Utilitarios.GeneralBitacora(UsuarioGlobal.Username, "Ingreso al Sistema");
 
-            }
+                }
+         //  }
+//            catch (Exception ex)
+//            {
+//                if (ex.Message == "No se puede obtener acceso al objeto desechado.Nombre del objeto: 'FrmMenuPrincipal'.")
+//                {
+//FrmMenuPrincipal MNN =new FrmMenuPrincipal()
+//                }
+
+                   //     }
+
 
         }
 

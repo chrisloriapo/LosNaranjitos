@@ -47,7 +47,11 @@ namespace LosNaranjitos
                 Itemx.SubItems.Add(item.CantidadRequerida.ToString());
 
             }
-            this.reportViewer1.RefreshReport();
+        }
+
+        private void reportDocument1_InitReport(object sender, EventArgs e)
+        {
+
         }
     }
 }

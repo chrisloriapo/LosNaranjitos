@@ -189,9 +189,8 @@ namespace LosNaranjitos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Limpiar();
-            this.Dispose();
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Unidades de Medida");
-
+            this.Dispose();
         }
 
         private void btnNuevo_Click_1(object sender, EventArgs e)

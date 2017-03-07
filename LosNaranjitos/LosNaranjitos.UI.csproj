@@ -47,6 +47,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -63,11 +66,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbout.Designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBitacora.cs">
       <SubType>Form</SubType>
@@ -87,6 +102,12 @@
     <Compile Include="FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompras.Designer.cs">
+      <DependentUpon>FrmCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConfirmarCombo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +125,24 @@
     </Compile>
     <Compile Include="FrmConsecutivo.Designer.cs">
       <DependentUpon>FrmConsecutivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEdicionCargas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEdicionCargas.Designer.cs">
+      <DependentUpon>FrmEdicionCargas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEdicionCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEdicionCombo.Designer.cs">
+      <DependentUpon>FrmEdicionCombo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEdicionFacturaCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEdicionFacturaCompra.Designer.cs">
+      <DependentUpon>FrmEdicionFacturaCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEdicionProducto.cs">
       <SubType>Form</SubType>
@@ -223,8 +262,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Utilitarios.cs" />
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBitacora.resx">
       <DependentUpon>FrmBitacora.cs</DependentUpon>
@@ -235,6 +281,9 @@
     <EmbeddedResource Include="FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompras.resx">
+      <DependentUpon>FrmCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConfirmarCombo.resx">
       <DependentUpon>FrmConfirmarCombo.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +292,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConsecutivo.resx">
       <DependentUpon>FrmConsecutivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEdicionCargas.resx">
+      <DependentUpon>FrmEdicionCargas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEdicionCombo.resx">
+      <DependentUpon>FrmEdicionCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEdicionFacturaCompra.resx">
+      <DependentUpon>FrmEdicionFacturaCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEdicionProducto.resx">
       <DependentUpon>FrmEdicionProducto.cs</DependentUpon>
@@ -314,15 +372,6 @@
     <None Include="OrangeDB1DataSet.xss">
       <DependentUpon>OrangeDB1DataSet.xsd</DependentUpon>
     </None>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -399,6 +448,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Sin título.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja-registradora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salida.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cocinero.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

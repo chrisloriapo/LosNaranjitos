@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("LosNaranjitos")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Punto de Venta Soda los Naranjitos")]
+[assembly: AssemblyDescription("Sistema de Control de Tareas y Venta para Soda Los Naranjitos")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LosNaranjitos")]
+[assembly: AssemblyCompany("Bussines Core LTM Solutions")]
+[assembly: AssemblyProduct("Punto de Venta Soda los Naranjitos")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

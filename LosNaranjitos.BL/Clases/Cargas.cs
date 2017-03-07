@@ -37,6 +37,10 @@ namespace LosNaranjitos.BL.Clases
             return CargasOP.ExisteCarga(IdCarga);
         }
 
+        public bool ExisteConsecutivo(string Consecutivo)
+        {
+            return CargasOP.ExisteConsecutivo(Consecutivo);        }
+
         public void Inactivar(DATOS.Cargas Carga)
         {
             CargasOP.ActualizarCargas(Carga);

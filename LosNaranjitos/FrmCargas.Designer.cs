@@ -31,15 +31,20 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.Consecutivo = new System.Windows.Forms.Label();
-            this.cbbTipo = new System.Windows.Forms.ComboBox();
+            this.cbbPorcentajeCarga = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblConsecutivo = new System.Windows.Forms.Label();
+            this.chkActivo = new System.Windows.Forms.CheckBox();
             this.grbBuscar = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.cbbCargas = new System.Windows.Forms.ComboBox();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -49,24 +54,19 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tbC2 = new System.Windows.Forms.TabControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.lblConsecutivo = new System.Windows.Forms.Label();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.chkActivo = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel4.SuspendLayout();
             this.grbBuscar.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCargas)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tbC2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSalir
@@ -82,6 +82,7 @@
             this.btnSalir.TabIndex = 21;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnAgregar
             // 
@@ -92,26 +93,27 @@
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Nueva Carga";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // Consecutivo
             // 
             this.Consecutivo.AutoSize = true;
             this.Consecutivo.Location = new System.Drawing.Point(23, 0);
             this.Consecutivo.Name = "Consecutivo";
-            this.Consecutivo.Size = new System.Drawing.Size(124, 13);
+            this.Consecutivo.Size = new System.Drawing.Size(77, 13);
             this.Consecutivo.TabIndex = 21;
-            this.Consecutivo.Text = "Tipo de Consecutivo";
+            this.Consecutivo.Text = "Consecutivo";
             // 
-            // cbbTipo
+            // cbbPorcentajeCarga
             // 
-            this.cbbTipo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbTipo.FormattingEnabled = true;
-            this.cbbTipo.Location = new System.Drawing.Point(23, 117);
-            this.cbbTipo.Name = "cbbTipo";
-            this.cbbTipo.Size = new System.Drawing.Size(290, 21);
-            this.cbbTipo.Sorted = true;
-            this.cbbTipo.TabIndex = 20;
+            this.cbbPorcentajeCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbbPorcentajeCarga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbPorcentajeCarga.FormattingEnabled = true;
+            this.cbbPorcentajeCarga.Location = new System.Drawing.Point(23, 117);
+            this.cbbPorcentajeCarga.Name = "cbbPorcentajeCarga";
+            this.cbbPorcentajeCarga.Size = new System.Drawing.Size(290, 21);
+            this.cbbPorcentajeCarga.Sorted = true;
+            this.cbbPorcentajeCarga.TabIndex = 20;
             // 
             // label4
             // 
@@ -132,7 +134,7 @@
             this.tableLayoutPanel4.Controls.Add(this.Consecutivo, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.label4, 1, 2);
             this.tableLayoutPanel4.Controls.Add(this.lblConsecutivo, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.cbbTipo, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.cbbPorcentajeCarga, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.chkActivo, 1, 4);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 16);
@@ -147,6 +149,30 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(337, 233);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
+            // lblConsecutivo
+            // 
+            this.lblConsecutivo.AutoSize = true;
+            this.lblConsecutivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblConsecutivo.ForeColor = System.Drawing.Color.Black;
+            this.lblConsecutivo.Location = new System.Drawing.Point(23, 38);
+            this.lblConsecutivo.Name = "lblConsecutivo";
+            this.lblConsecutivo.Size = new System.Drawing.Size(290, 38);
+            this.lblConsecutivo.TabIndex = 24;
+            this.lblConsecutivo.Text = "CHR-";
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.AutoSize = true;
+            this.chkActivo.Checked = true;
+            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkActivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkActivo.Location = new System.Drawing.Point(23, 155);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(290, 32);
+            this.chkActivo.TabIndex = 25;
+            this.chkActivo.Text = "Activo";
+            this.chkActivo.UseVisualStyleBackColor = true;
+            // 
             // grbBuscar
             // 
             this.grbBuscar.Controls.Add(this.tableLayoutPanel4);
@@ -158,7 +184,7 @@
             this.grbBuscar.Size = new System.Drawing.Size(343, 252);
             this.grbBuscar.TabIndex = 0;
             this.grbBuscar.TabStop = false;
-            this.grbBuscar.Text = "Buscar";
+            this.grbBuscar.Text = "Cargas";
             // 
             // groupBox1
             // 
@@ -189,6 +215,16 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(338, 233);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDescripcion.Location = new System.Drawing.Point(23, 33);
+            this.txtDescripcion.MaxLength = 30;
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(291, 142);
+            this.txtDescripcion.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel5);
@@ -200,7 +236,7 @@
             this.groupBox2.Size = new System.Drawing.Size(344, 252);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Detalles";
+            this.groupBox2.Text = "Descripción";
             // 
             // tabPage2
             // 
@@ -210,7 +246,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(705, 311);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Editar Consecutivo";
+            this.tabPage2.Text = "Mantenimiento Cargas";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
@@ -229,6 +265,32 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.32258F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(699, 305);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.btnActualizar, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.btnAgregar, 1, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(352, 261);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(344, 41);
+            this.tableLayoutPanel6.TabIndex = 3;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnActualizar.Location = new System.Drawing.Point(3, 3);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(166, 35);
+            this.btnActualizar.TabIndex = 3;
+            this.btnActualizar.Text = "Actualizar Carga";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnBuscar
             // 
@@ -346,64 +408,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(759, 463);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // txtDescripcion
-            // 
-            this.txtDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDescripcion.Location = new System.Drawing.Point(23, 33);
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(291, 142);
-            this.txtDescripcion.TabIndex = 0;
-            // 
-            // lblConsecutivo
-            // 
-            this.lblConsecutivo.AutoSize = true;
-            this.lblConsecutivo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblConsecutivo.ForeColor = System.Drawing.Color.Black;
-            this.lblConsecutivo.Location = new System.Drawing.Point(23, 38);
-            this.lblConsecutivo.Name = "lblConsecutivo";
-            this.lblConsecutivo.Size = new System.Drawing.Size(290, 38);
-            this.lblConsecutivo.TabIndex = 24;
-            this.lblConsecutivo.Text = "CHR-";
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.btnActualizar, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.btnAgregar, 1, 0);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(352, 261);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(344, 41);
-            this.tableLayoutPanel6.TabIndex = 3;
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnActualizar.Location = new System.Drawing.Point(3, 3);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(166, 35);
-            this.btnActualizar.TabIndex = 3;
-            this.btnActualizar.Text = "Actualizar Carga";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            // 
-            // chkActivo
-            // 
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.Checked = true;
-            this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkActivo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkActivo.Location = new System.Drawing.Point(23, 155);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(290, 32);
-            this.chkActivo.TabIndex = 25;
-            this.chkActivo.Text = "Activo";
-            this.chkActivo.UseVisualStyleBackColor = true;
-            // 
             // FrmCargas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,6 +419,7 @@
             this.Name = "FrmCargas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Soda Los Naranjitos";
+            this.Load += new System.EventHandler(this.FrmCargas_Load);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.grbBuscar.ResumeLayout(false);
@@ -423,6 +428,7 @@
             this.groupBox2.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCargas)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
@@ -430,7 +436,6 @@
             this.tabPage1.ResumeLayout(false);
             this.tbC2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -440,7 +445,7 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label Consecutivo;
-        private System.Windows.Forms.ComboBox cbbTipo;
+        private System.Windows.Forms.ComboBox cbbPorcentajeCarga;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.GroupBox grbBuscar;

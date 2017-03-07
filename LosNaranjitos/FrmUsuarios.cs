@@ -66,10 +66,10 @@ namespace LosNaranjitos
                     Utilitarios.OpUsuarios.AgregarUsuario(Userprivate);
 
                     DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Usuario");
-                    Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual+1;
+                    Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
                     Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
-                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Usuario Nuevo " + Utilitarios.Decriptar(Utilitarios.Llave,(Userprivate.Username)));
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Usuario Nuevo " + Utilitarios.Decriptar(Utilitarios.Llave, (Userprivate.Username)));
                     MessageBox.Show("Los datos del Usuario se ingresaron correctamente",
 "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
@@ -406,7 +406,9 @@ namespace LosNaranjitos
 
         private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == '\r' || (int)e.KeyChar == (int)Keys.Enter)
+            if (!Utilitarios.Cambio)
+            {
+                if (e.KeyChar == '\r' || (int)e.KeyChar == (int)Keys.Enter)
             {
                 if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
@@ -446,11 +448,15 @@ namespace LosNaranjitos
                     txtIdPersonal.ReadOnly = false;
 
                 }
+                }
             }
         }
 
         private void txtNombre_KeyPress_1(object sender, KeyPressEventArgs e)
         {
+
+
+
             if (e.KeyChar == '\r' || (int)e.KeyChar == (int)Keys.Enter)
             {
                 if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
@@ -462,8 +468,30 @@ namespace LosNaranjitos
                 {
                     txtApellido.Focus();
                     txtApellido.ReadOnly = false;
+
                 }
             }
+        }
+
+        private void ClearAll()
+        {
+            txtApellido2.Clear();
+            txtApellido.Clear();
+            txtDireccion.Clear();
+            txtEmail.Clear();
+            txtTelefono.Clear();
+            txtConfirmarContrasena.Clear();
+            txtContraseña.Clear();
+            txtIdPersonal.Clear();
+            EditUser = null;
+            Utilitarios.Cambio = false;
+        }
+
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Usuario");
+            this.Dispose();
         }
     }
 }

@@ -106,11 +106,11 @@
             this.txtCantidadStock = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtAjuste = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.vProveedorInsumoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.vProveedor_InsumoTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.VProveedor_InsumoTableAdapter();
+            this.txtAjuste = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSetBindingSource)).BeginInit();
@@ -523,6 +523,7 @@
             // 
             this.txtPrecioCompra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPrecioCompra.Location = new System.Drawing.Point(3, 251);
+            this.txtPrecioCompra.Mask = "9999999999";
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(293, 20);
             this.txtPrecioCompra.TabIndex = 4;
@@ -588,6 +589,7 @@
             // 
             this.txtStock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtStock.Location = new System.Drawing.Point(159, 3);
+            this.txtStock.Mask = "999999999";
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(131, 20);
             this.txtStock.TabIndex = 30;
@@ -736,10 +738,12 @@
             // 
             this.txtRendimientoUM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtRendimientoUM.Location = new System.Drawing.Point(3, 96);
+            this.txtRendimientoUM.Mask = "99999";
             this.txtRendimientoUM.Name = "txtRendimientoUM";
             this.txtRendimientoUM.Size = new System.Drawing.Size(293, 20);
             this.txtRendimientoUM.TabIndex = 28;
             this.txtRendimientoUM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtRendimientoUM.ValidatingType = typeof(int);
             // 
             // chkActivo
             // 
@@ -783,6 +787,7 @@
             // cbbPorcentajeRendimiento
             // 
             this.cbbPorcentajeRendimiento.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbbPorcentajeRendimiento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbPorcentajeRendimiento.FormattingEnabled = true;
             this.cbbPorcentajeRendimiento.Location = new System.Drawing.Point(170, 3);
             this.cbbPorcentajeRendimiento.Name = "cbbPorcentajeRendimiento";
@@ -1115,15 +1120,6 @@
             this.label13.TabIndex = 25;
             this.label13.Text = "Agregar/Ajustar";
             // 
-            // txtAjuste
-            // 
-            this.txtAjuste.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAjuste.Location = new System.Drawing.Point(3, 158);
-            this.txtAjuste.MaxLength = 10;
-            this.txtAjuste.Name = "txtAjuste";
-            this.txtAjuste.Size = new System.Drawing.Size(294, 20);
-            this.txtAjuste.TabIndex = 26;
-            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnSalir);
@@ -1156,6 +1152,16 @@
             // vProveedor_InsumoTableAdapter
             // 
             this.vProveedor_InsumoTableAdapter.ClearBeforeFill = true;
+            // 
+            // txtAjuste
+            // 
+            this.txtAjuste.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAjuste.Location = new System.Drawing.Point(3, 158);
+            this.txtAjuste.Mask = "999999";
+            this.txtAjuste.Name = "txtAjuste";
+            this.txtAjuste.Size = new System.Drawing.Size(294, 20);
+            this.txtAjuste.TabIndex = 31;
+            this.txtAjuste.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FrmInsumos
             // 
@@ -1273,7 +1279,6 @@
         private System.Windows.Forms.TextBox txtCantidadStock;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtAjuste;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnAjustar;
         private System.Windows.Forms.Button btnCancelarEdit;
@@ -1298,5 +1303,6 @@
         private System.Windows.Forms.Label lblPrecioMermado;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.MaskedTextBox txtStock;
+        private System.Windows.Forms.MaskedTextBox txtAjuste;
     }
 }
