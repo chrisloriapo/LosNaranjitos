@@ -121,15 +121,17 @@
     <value>223, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 875</value>
+  <data name="toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 17</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="statusStrip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 21, 0</value>
+  <data name="toolStripStatusLabel.Text" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 460</value>
   </data>
   <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1240, 30</value>
+    <value>827, 22</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="statusStrip.TabIndex" type="System.Int32, mscorlib">
@@ -150,12 +152,6 @@
   <data name="&gt;&gt;statusStrip.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="toolStripStatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 25</value>
-  </data>
-  <data name="toolStripStatusLabel.Text" xml:space="preserve">
-    <value>Estado</value>
-  </data>
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>332, 17</value>
   </metadata>
@@ -168,6 +164,7 @@
   <data name="lnkUsuario.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lnkUsuario.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -175,13 +172,10 @@
     <value>NoControl</value>
   </data>
   <data name="lnkUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 329</value>
-  </data>
-  <data name="lnkUsuario.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>3, 137</value>
   </data>
   <data name="lnkUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 54</value>
+    <value>196, 23</value>
   </data>
   <data name="lnkUsuario.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -214,13 +208,10 @@
     <value>NoControl</value>
   </data>
   <data name="pcbUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 5</value>
-  </data>
-  <data name="pcbUsuario.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>3, 3</value>
   </data>
   <data name="pcbUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 319</value>
+    <value>196, 131</value>
   </data>
   <data name="pcbUsuario.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -244,13 +235,16 @@
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+    <value>2, 2</value>
+  </data>
+  <data name="tableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 383</value>
+    <value>202, 160</value>
   </data>
   <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -286,13 +280,10 @@
     <value>NoControl</value>
   </data>
   <data name="lblTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 327</value>
-  </data>
-  <data name="lblTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>3, 182</value>
   </data>
   <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 56</value>
+    <value>196, 37</value>
   </data>
   <data name="lblTime.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -328,13 +319,10 @@
     <value>NoControl</value>
   </data>
   <data name="lblDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 258</value>
-  </data>
-  <data name="lblDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>3, 144</value>
   </data>
   <data name="lblDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>296, 69</value>
+    <value>196, 38</value>
   </data>
   <data name="lblDate.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -361,13 +349,16 @@
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 392</value>
+    <value>2, 166</value>
+  </data>
+  <data name="tableLayoutPanel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="tableLayoutPanel3.RowCount" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 383</value>
+    <value>202, 219</value>
   </data>
   <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -385,19 +376,22 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblTime" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblDate" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,78,89909,Percent,21,10092,Absolute,55" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblTime" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblDate" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,78,89909,Percent,21,10092,Absolute,36" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 32</value>
+    <value>3, 21</value>
+  </data>
+  <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>310, 778</value>
+    <value>206, 387</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -415,7 +409,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel3" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50,Absolute,20,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel3" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,42,63566,Percent,57,36434,Absolute,13,Absolute,13" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -424,13 +418,10 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>68, 63</value>
-  </data>
-  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+    <value>45, 41</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 26</value>
+    <value>101, 18</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -457,16 +448,10 @@
     <value>Verdana, 11pt, style=Bold</value>
   </data>
   <data name="grbMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 60</value>
-  </data>
-  <data name="grbMain.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="grbMain.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
+    <value>0, 49</value>
   </data>
   <data name="grbMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 815</value>
+    <value>212, 411</value>
   </data>
   <data name="grbMain.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -489,14 +474,14 @@
   <metadata name="toolStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>125, 17</value>
   </metadata>
-  <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 35</value>
+  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
   </data>
-  <data name="toolStrip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 2, 0</value>
+  <data name="toolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
   </data>
   <data name="toolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1240, 25</value>
+    <value>827, 25</value>
   </data>
   <data name="toolStrip.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -516,20 +501,176 @@
   <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>527, 17</value>
   </metadata>
+  <data name="tsiCerrarSesion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
+  </data>
+  <data name="tsiCerrarSesion.Text" xml:space="preserve">
+    <value>Cerrar Sesion</value>
+  </data>
+  <data name="tsiAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
+  </data>
+  <data name="tsiAbout.Text" xml:space="preserve">
+    <value>Acerca de...</value>
+  </data>
+  <data name="tsiSalir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
+  </data>
+  <data name="tsiSalir.Text" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="tsmSistema.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 20</value>
+  </data>
+  <data name="tsmSistema.Text" xml:space="preserve">
+    <value>Sistema</value>
+  </data>
+  <data name="tsiOperacionesInsumos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="tsiOperacionesInsumos.Text" xml:space="preserve">
+    <value>Operaciones Insumos</value>
+  </data>
+  <data name="tsiUnidadesMedida.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="tsiUnidadesMedida.Text" xml:space="preserve">
+    <value>Unidades de Medida</value>
+  </data>
+  <data name="tsiInsumosG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="tsiInsumosG.Text" xml:space="preserve">
+    <value>Insumos</value>
+  </data>
+  <data name="productosALaVentaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 22</value>
+  </data>
+  <data name="productosALaVentaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Productos a la Venta</value>
+  </data>
+  <data name="combosPromocionesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 22</value>
+  </data>
+  <data name="combosPromocionesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Combos / Promociones</value>
+  </data>
+  <data name="tsMiCargas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 22</value>
+  </data>
+  <data name="tsMiCargas.Text" xml:space="preserve">
+    <value>Cargas / Impuestos</value>
+  </data>
+  <data name="productosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="productosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Productos</value>
+  </data>
+  <data name="tsiProovedores.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="tsiProovedores.Text" xml:space="preserve">
+    <value>Proveedores</value>
+  </data>
+  <data name="tsiCompras.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="tsiCompras.Text" xml:space="preserve">
+    <value>Compras</value>
+  </data>
+  <data name="tsiClientes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="tsiClientes.Text" xml:space="preserve">
+    <value>Clientes</value>
+  </data>
+  <data name="tsmAdministracion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="tsmAdministracion.Text" xml:space="preserve">
+    <value>Administración</value>
+  </data>
+  <data name="tsiPedido.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="tsiPedido.Text" xml:space="preserve">
+    <value>Pedidos</value>
+  </data>
+  <data name="tsiCierreCaja.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="tsiCierreCaja.Text" xml:space="preserve">
+    <value>Cierre de Caja</value>
+  </data>
+  <data name="tsiReportes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="tsiReportes.Text" xml:space="preserve">
+    <value>Reportes</value>
+  </data>
+  <data name="tsmVentas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
+  </data>
+  <data name="tsmVentas.Text" xml:space="preserve">
+    <value>Ventas</value>
+  </data>
+  <data name="tsiUsuarios.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 22</value>
+  </data>
+  <data name="tsiUsuarios.Text" xml:space="preserve">
+    <value>Usuarios</value>
+  </data>
+  <data name="tsiConsecutivos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 22</value>
+  </data>
+  <data name="tsiConsecutivos.Text" xml:space="preserve">
+    <value>Consecutivos</value>
+  </data>
+  <data name="bitacoraDeCambiosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 22</value>
+  </data>
+  <data name="bitacoraDeCambiosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Bitacora de Cambios</value>
+  </data>
+  <data name="consecutivosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 22</value>
+  </data>
+  <data name="consecutivosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Errores Registrados</value>
+  </data>
+  <data name="tsiBitacora.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 22</value>
+  </data>
+  <data name="tsiBitacora.Text" xml:space="preserve">
+    <value>Bitacora</value>
+  </data>
+  <data name="tsmSeguridad.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 20</value>
+  </data>
+  <data name="tsmSeguridad.Text" xml:space="preserve">
+    <value>Seguridad</value>
+  </data>
+  <data name="tsmVentanas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 20</value>
+  </data>
+  <data name="tsmVentanas.Text" xml:space="preserve">
+    <value>Ventanas</value>
+  </data>
+  <data name="tsmAyuda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
+  </data>
+  <data name="tsmAyuda.Text" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>9, 3, 0, 3</value>
-  </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1240, 35</value>
+    <value>827, 24</value>
   </data>
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -549,171 +690,9 @@
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="tsmSistema.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 29</value>
-  </data>
-  <data name="tsmSistema.Text" xml:space="preserve">
-    <value>Sistema</value>
-  </data>
-  <data name="tsiCerrarSesion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiCerrarSesion.Text" xml:space="preserve">
-    <value>Cerrar Sesion</value>
-  </data>
-  <data name="tsiSalir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiSalir.Text" xml:space="preserve">
-    <value>Salir</value>
-  </data>
-  <data name="tsmAdministracion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 29</value>
-  </data>
-  <data name="tsmAdministracion.Text" xml:space="preserve">
-    <value>Administración</value>
-  </data>
-  <data name="tsiInsumosG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiInsumosG.Text" xml:space="preserve">
-    <value>Insumos</value>
-  </data>
-  <data name="tsiOperacionesInsumos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>269, 30</value>
-  </data>
-  <data name="tsiOperacionesInsumos.Text" xml:space="preserve">
-    <value>Operaciones Insumos</value>
-  </data>
-  <data name="tsiUnidadesMedida.Size" type="System.Drawing.Size, System.Drawing">
-    <value>269, 30</value>
-  </data>
-  <data name="tsiUnidadesMedida.Text" xml:space="preserve">
-    <value>Unidades de Medida</value>
-  </data>
-  <data name="productosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="productosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Productos</value>
-  </data>
-  <data name="tsiProovedores.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiProovedores.Text" xml:space="preserve">
-    <value>Proveedores</value>
-  </data>
-  <data name="tsiCompras.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiCompras.Text" xml:space="preserve">
-    <value>Compras</value>
-  </data>
-  <data name="tsiClientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiClientes.Text" xml:space="preserve">
-    <value>Clientes</value>
-  </data>
-  <data name="tsmVentas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>76, 29</value>
-  </data>
-  <data name="tsmVentas.Text" xml:space="preserve">
-    <value>Ventas</value>
-  </data>
-  <data name="tsiPedido.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiPedido.Text" xml:space="preserve">
-    <value>Pedidos</value>
-  </data>
-  <data name="tsiReportes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiReportes.Text" xml:space="preserve">
-    <value>Reportes</value>
-  </data>
-  <data name="tsmSeguridad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 29</value>
-  </data>
-  <data name="tsmSeguridad.Text" xml:space="preserve">
-    <value>Seguridad</value>
-  </data>
-  <data name="tsiUsuarios.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiUsuarios.Text" xml:space="preserve">
-    <value>Usuarios</value>
-  </data>
-  <data name="tsiConsecutivos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiConsecutivos.Text" xml:space="preserve">
-    <value>Consecutivos</value>
-  </data>
-  <data name="tsiBitacora.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiBitacora.Text" xml:space="preserve">
-    <value>Bitacora</value>
-  </data>
-  <data name="bitacoraDeCambiosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 30</value>
-  </data>
-  <data name="bitacoraDeCambiosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Bitacora de Cambios</value>
-  </data>
-  <data name="consecutivosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 30</value>
-  </data>
-  <data name="consecutivosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Errores Registrados</value>
-  </data>
-  <data name="tsmVentanas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 29</value>
-  </data>
-  <data name="tsmVentanas.Text" xml:space="preserve">
-    <value>Ventanas</value>
-  </data>
-  <data name="tsmAyuda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 29</value>
-  </data>
-  <data name="tsmAyuda.Text" xml:space="preserve">
-    <value>Ayuda</value>
-  </data>
   <metadata name="tmerTiempo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>642, 17</value>
   </metadata>
-  <data name="tsiAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiAbout.Text" xml:space="preserve">
-    <value>Acerca de...</value>
-  </data>
-  <data name="productosALaVentaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 30</value>
-  </data>
-  <data name="productosALaVentaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Productos a la Venta</value>
-  </data>
-  <data name="combosPromocionesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 30</value>
-  </data>
-  <data name="combosPromocionesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Combos / Promociones</value>
-  </data>
-  <data name="tsMiCargas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 30</value>
-  </data>
-  <data name="tsMiCargas.Text" xml:space="preserve">
-    <value>Cargas / Impuestos</value>
-  </data>
-  <data name="tsiCierreCaja.Size" type="System.Drawing.Size, System.Drawing">
-    <value>211, 30</value>
-  </data>
-  <data name="tsiCierreCaja.Text" xml:space="preserve">
-    <value>Cierre de Caja</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -721,10 +700,10 @@
     <value>51</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
+    <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1240, 905</value>
+    <value>827, 482</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3460,9 +3439,6 @@
         AAA=
 </value>
   </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -3497,6 +3473,12 @@
     <value>tsiCerrarSesion</value>
   </data>
   <data name="&gt;&gt;tsiCerrarSesion.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsiAbout.Name" xml:space="preserve">
+    <value>tsiAbout</value>
+  </data>
+  <data name="&gt;&gt;tsiAbout.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tsiSalir.Name" xml:space="preserve">
@@ -3535,6 +3517,24 @@
   <data name="&gt;&gt;productosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;productosALaVentaToolStripMenuItem.Name" xml:space="preserve">
+    <value>productosALaVentaToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;productosALaVentaToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;combosPromocionesToolStripMenuItem.Name" xml:space="preserve">
+    <value>combosPromocionesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;combosPromocionesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsMiCargas.Name" xml:space="preserve">
+    <value>tsMiCargas</value>
+  </data>
+  <data name="&gt;&gt;tsMiCargas.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;tsiProovedores.Name" xml:space="preserve">
     <value>tsiProovedores</value>
   </data>
@@ -3563,6 +3563,12 @@
     <value>tsiPedido</value>
   </data>
   <data name="&gt;&gt;tsiPedido.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsiCierreCaja.Name" xml:space="preserve">
+    <value>tsiCierreCaja</value>
+  </data>
+  <data name="&gt;&gt;tsiCierreCaja.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tsiReportes.Name" xml:space="preserve">
@@ -3624,36 +3630,6 @@
   </data>
   <data name="&gt;&gt;tmerTiempo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsiAbout.Name" xml:space="preserve">
-    <value>tsiAbout</value>
-  </data>
-  <data name="&gt;&gt;tsiAbout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;productosALaVentaToolStripMenuItem.Name" xml:space="preserve">
-    <value>productosALaVentaToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;productosALaVentaToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;combosPromocionesToolStripMenuItem.Name" xml:space="preserve">
-    <value>combosPromocionesToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;combosPromocionesToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsMiCargas.Name" xml:space="preserve">
-    <value>tsMiCargas</value>
-  </data>
-  <data name="&gt;&gt;tsMiCargas.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsiCierreCaja.Name" xml:space="preserve">
-    <value>tsiCierreCaja</value>
-  </data>
-  <data name="&gt;&gt;tsiCierreCaja.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMenuPrincipal</value>

@@ -101,5 +101,11 @@ namespace LosNaranjitos
             }
         }
         #endregion
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Ventana de Acerca de...");
+            this.Close();
+        }
     }
 }

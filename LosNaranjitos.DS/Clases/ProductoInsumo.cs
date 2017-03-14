@@ -49,6 +49,13 @@ namespace LosNaranjitos.DS.Clases
             return Us;
         }
 
+        public void EliminarInsumodeProducto(DATOS.ProductoInsumo ProductoINSUMO)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Delete(ProductoINSUMO);
+        }
+
         public bool ExisteConsecutivo(string Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();

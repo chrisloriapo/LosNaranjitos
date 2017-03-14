@@ -24,5 +24,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         bool ExisteConsecutivo(string Consecutivo);
 
+        void EliminarProductodeCombo(DATOS.ComboProducto ComboProducto);
+
     }
 }

@@ -15,7 +15,7 @@ namespace LosNaranjitos.DS.Clases
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
-            db.Update(Pro); throw new NotImplementedException();
+            db.Update(Pro);
         }
 
         public void AgregarProveedor(DATOS.Proveedor Pro)

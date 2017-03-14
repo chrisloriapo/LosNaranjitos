@@ -31,7 +31,28 @@ namespace LosNaranjitos
                 {
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
-                    DATOS.Medida UltimaMedida = Utilitarios.OpMedidas.ListarMedidas().OrderByDescending(x => x.Consecutivo).First();
+                    DATOS.Medida UltimaMedida = new Medida();
+                    try
+                    {
+                        UltimaMedida = Utilitarios.OpMedidas.ListarMedidas().OrderByDescending(x => x.Consecutivo).First();
+                        if (UltimaMedida == null)
+                        {
+                            UltimaMedida = new Medida()
+                            {
+                                IdMedida = "UMD-1"
+                            };
+                        }
+                    }
+                    catch (Exception x)
+                    {
+                        if (x.Message == "La secuencia no contiene elementos" || x.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                        {
+                            UltimaMedida = new Medida()
+                            {
+                                IdMedida = "UMD-1"
+                            };
+                        }
+                    }
                     string Prefijo = Consecutivos.Where(x => x.Tipo == "Medida").Select(x => x.Prefijo).FirstOrDefault();
                     Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
                     int CSMedida = Consecutivo.ConsecutivoActual + 1;
@@ -139,9 +160,21 @@ namespace LosNaranjitos
         {
             if (string.IsNullOrEmpty(txtMedida.Text))
             {
-                FrmEdicionMedida a = new FrmEdicionMedida();
-                a.Show();
-                this.Dispose();
+                if (Utilitarios.OpMedidas.ListarMedidas().Count() > 0)
+                {
+                    FrmEdicionMedida a = new FrmEdicionMedida();
+                    a.Show();
+                    this.Dispose();
+                }
+                else
+                {
+
+                    MessageBox.Show("No existe ninguna unidad de medida Registrada para poder editar, pureba Ingresando un nuevo registro", "No hay datos a modificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    btnEditar.Enabled = false;
+                    return;
+
+                }
+
             }
             else
             {

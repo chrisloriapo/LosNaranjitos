@@ -26,10 +26,10 @@ namespace LosNaranjitos
             return Encoding.UTF8.GetString(resultado);
         }
 
-        public static string Encriptar(string contra, string llave)
+        public static string Encriptar(string Cadena, string llave)
         {
             byte[] keyArray = Encoding.UTF8.GetBytes(llave);
-            byte[] encriptar = Encoding.UTF8.GetBytes(contra);
+            byte[] encriptar = Encoding.UTF8.GetBytes(Cadena);
 
             var tdes = new TripleDESCryptoServiceProvider();
             tdes.Key = keyArray;

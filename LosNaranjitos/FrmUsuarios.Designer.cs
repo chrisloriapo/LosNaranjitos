@@ -145,7 +145,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::LosNaranjitos.Properties.Resources.frances_fritas;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(635, 9);
             this.pictureBox1.Name = "pictureBox1";

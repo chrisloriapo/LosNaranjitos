@@ -50,15 +50,15 @@ namespace LosNaranjitos
                     DATOS.Usuario Userprivate = new DATOS.Usuario
                     {
                         Consecutivo = lblConsecutivo.Text,
-                        Username = Utilitarios.Encriptar(txtUsername.Text, Utilitarios.Llave),
-                        Nombre = Utilitarios.Encriptar(txtNombre.Text, Utilitarios.Llave),
-                        Apellido1 = Utilitarios.Encriptar(txtApellido.Text, Utilitarios.Llave),
-                        Apellido2 = Utilitarios.Encriptar(txtApellido2.Text, Utilitarios.Llave),
-                        Contrasena = Utilitarios.Encriptar(txtContraseña.Text, Utilitarios.Llave),
+                        Username = txtUsername.Text,
+                        Nombre = txtNombre.Text,
+                        Apellido1 = txtApellido.Text,
+                        Apellido2 = txtApellido2.Text,
+                        Contrasena = txtContraseña.Text,
                         Activo = true,
-                        IdPersonal = Utilitarios.Encriptar(txtIdPersonal.Text, Utilitarios.Llave),
-                        Telefono = Utilitarios.Encriptar(txtTelefono.Text, Utilitarios.Llave),
-                        Correo = Utilitarios.Encriptar(txtEmail.Text, Utilitarios.Llave),
+                        IdPersonal = txtIdPersonal.Text,
+                        Telefono = txtTelefono.Text,
+                        Correo = txtEmail.Text,
                         Rol = RolLocal.IdRol,
                         Direccion = txtDireccion.Text,
                     };
@@ -69,7 +69,7 @@ namespace LosNaranjitos
                     Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
                     Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
-                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Usuario Nuevo " + Utilitarios.Decriptar(Utilitarios.Llave, (Userprivate.Username)));
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Usuario Nuevo " + Userprivate.Username);
                     MessageBox.Show("Los datos del Usuario se ingresaron correctamente",
 "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
@@ -98,11 +98,23 @@ namespace LosNaranjitos
             try
 
             {
-                if (Utilitarios.Cambio == false)
+                if (!Utilitarios.Cambio)
                 {
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
-                    DATOS.Usuario UltimoUsuario = Utilitarios.OpUsuarios.ListarUsuarios().OrderByDescending(x => x.Consecutivo).First();
+                    DATOS.Usuario UltimoUsuario = new Usuario();
+
+                    try
+                    {
+                        UltimoUsuario = Utilitarios.OpUsuarios.ListarUsuarios().OrderByDescending(x => x.Consecutivo).First();
+                    }
+                    catch (Exception x)
+                    {
+                        if (x.Message == "La secuencia no contiene elementos")
+                        {
+                            UltimoUsuario.Consecutivo = "USR-1";
+                        }
+                    }
                     string Prefijo = Consecutivos.Where(x => x.Tipo == "Usuario").Select(x => x.Prefijo).FirstOrDefault();
                     Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
                     int CSUsuario = Consecutivo.ConsecutivoActual + 1;
@@ -117,6 +129,8 @@ namespace LosNaranjitos
 
                 cbbRol.DataSource = Utilitarios.OpRol.ListarRoles().Select(p =>
                     p.Descripcion).ToList();
+                cbbRol.SelectedIndex = 0;
+                cbBuscar.SelectedIndex = 0;
                 ListaUsuarios = Utilitarios.OpUsuarios.ListarUsuarios();
                 var ListaLocal = ListaUsuarios.Select(a => new
                 {
@@ -242,15 +256,15 @@ namespace LosNaranjitos
                     DATOS.Usuario Userprivate = new DATOS.Usuario
                     {
                         Consecutivo = lblConsecutivo.Text,
-                        Username = Utilitarios.Encriptar(txtUsername.Text, Utilitarios.Llave),
-                        Nombre = Utilitarios.Encriptar(txtNombre.Text, Utilitarios.Llave),
-                        Apellido1 = Utilitarios.Encriptar(txtApellido.Text, Utilitarios.Llave),
-                        Apellido2 = Utilitarios.Encriptar(txtApellido2.Text, Utilitarios.Llave),
-                        Contrasena = Utilitarios.Encriptar(txtContraseña.Text, Utilitarios.Llave),
+                        Username = txtUsername.Text,
+                        Nombre = txtNombre.Text,
+                        Apellido1 = txtApellido.Text,
+                        Apellido2 = txtApellido2.Text,
+                        Contrasena = txtContraseña.Text,
                         Activo = chkEstado.Checked,
-                        IdPersonal = Utilitarios.Encriptar(txtIdPersonal.Text, Utilitarios.Llave),
-                        Telefono = Utilitarios.Encriptar(txtTelefono.Text, Utilitarios.Llave),
-                        Correo = Utilitarios.Encriptar(txtEmail.Text, Utilitarios.Llave),
+                        IdPersonal = txtIdPersonal.Text,
+                        Telefono = txtTelefono.Text,
+                        Correo = txtEmail.Text,
                         Rol = RolLocal.IdRol,
                         Direccion = txtDireccion.Text,
                     };
@@ -409,54 +423,51 @@ namespace LosNaranjitos
             if (!Utilitarios.Cambio)
             {
                 if (e.KeyChar == '\r' || (int)e.KeyChar == (int)Keys.Enter)
-            {
-                if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
                 {
-                    MessageBox.Show("Debes digitar tu Apellido antes de continuar", "Falta Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
-                else
-                {
-                    try
+                    if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
                     {
-                        string Usuario; int Consec = 1;
-
-                        Usuario = txtApellido.Text.Replace(" ", "") + txtNombre.Text.Substring(0, 1) + Consec.ToString();
-                        Usuario = Usuario.ToLower();
-                        do
+                        MessageBox.Show("Debes digitar tu Apellido antes de continuar", "Falta Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        return;
+                    }
+                    else
+                    {
+                        try
                         {
-                            Consec = Consec + 1; //Consecutivo para IdUsuario
-                            Usuario = txtApellido.Text + txtNombre.Text.Substring(0, 1) + Consec.ToString();
+                            string Usuario; int Consec = 1;
+
+                            Usuario = txtApellido.Text.Replace(" ", "") + txtNombre.Text.Substring(0, 1) + Consec.ToString();
                             Usuario = Usuario.ToLower();
-                        } while (Utilitarios.OpUsuarios.ExisteUsuario(Utilitarios.Encriptar(Usuario, Utilitarios.Llave)));
+                            do
+                            {
+                                Consec = Consec + 1; //Consecutivo para IdUsuario
+                                Usuario = txtApellido.Text + txtNombre.Text.Substring(0, 1) + Consec.ToString();
+                                Usuario = Usuario.ToLower();
+                            } while (Utilitarios.OpUsuarios.ExisteUsuario(Utilitarios.Encriptar(Usuario, Utilitarios.Llave)));
 
-                        txtUsername.Text = Usuario;
+                            txtUsername.Text = Usuario;
+                        }
+                        catch (Exception ex)
+                        {
+
+                            Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Usuarios texbox de Apellido");
+                            MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        txtApellido2.ReadOnly = false;
+                        txtApellido2.Focus();
+                        txtDireccion.ReadOnly = false;
+                        txtEmail.ReadOnly = false;
+                        txtTelefono.ReadOnly = false;
+                        txtConfirmarContrasena.ReadOnly = false;
+                        txtContraseña.ReadOnly = false;
+                        txtIdPersonal.ReadOnly = false;
+
                     }
-                    catch (Exception ex)
-                    {
-
-                        Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Usuarios texbox de Apellido");
-                        MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    txtApellido2.ReadOnly = false;
-                    txtApellido2.Focus();
-                    txtDireccion.ReadOnly = false;
-                    txtEmail.ReadOnly = false;
-                    txtTelefono.ReadOnly = false;
-                    txtConfirmarContrasena.ReadOnly = false;
-                    txtContraseña.ReadOnly = false;
-                    txtIdPersonal.ReadOnly = false;
-
-                }
                 }
             }
         }
 
         private void txtNombre_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-
-
-
             if (e.KeyChar == '\r' || (int)e.KeyChar == (int)Keys.Enter)
             {
                 if (string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
@@ -468,7 +479,6 @@ namespace LosNaranjitos
                 {
                     txtApellido.Focus();
                     txtApellido.ReadOnly = false;
-
                 }
             }
         }

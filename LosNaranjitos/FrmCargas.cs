@@ -24,16 +24,46 @@ namespace LosNaranjitos
         {
             try
             {
+                if (Utilitarios.OpCargas.ListarCargas().Count == 0)
+                {
+                    btnActualizar.Enabled = false;
+                }
+
                 for (int i = 0; i < 101; i++)
                 {
                     cbbPorcentajeCarga.Items.Add(i);
                 }
+                cbbCargas.SelectedIndex = 0;
+                cbbPorcentajeCarga.SelectedIndex = 0;
+                cbbPorcentajeCarga.Sorted = true;
                 //Verificacion de Consecutivo
                 if (Utilitarios.Cambio == false)
                 {
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
-                    DATOS.Cargas UltimaCarga = Utilitarios.OpCargas.ListarCargas().OrderByDescending(x => x.Consecutivo).First();
+                    DATOS.Cargas UltimaCarga = new Cargas();
+                    try
+                    {
+                        UltimaCarga = Utilitarios.OpCargas.ListarCargas().OrderByDescending(x => x.Consecutivo).First();
+                        if (UltimaCarga == null)
+                        {
+                            UltimaCarga = new Cargas()
+                            {
+                                Consecutivo = "CHR-1"
+                            };
+                        }
+                    }
+                    catch (Exception x)
+                    {
+                        if (x.Message == "La secuencia no contiene elementos" || x.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                        {
+                            UltimaCarga = new Cargas()
+                            {
+                                Consecutivo = "CHR-1"
+                            };
+                        }
+                    }
+
                     string Prefijo = Consecutivos.Where(x => x.Tipo == "Cargas").Select(x => x.Prefijo).FirstOrDefault();
                     Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
                     int CSCarga = Consecutivo.ConsecutivoActual + 1;

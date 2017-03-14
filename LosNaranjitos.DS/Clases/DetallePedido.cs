@@ -35,7 +35,7 @@ namespace LosNaranjitos.DS.Clases
             return BusPed;
         }
 
-        public DATOS.DetallePedido BuscarPorPedido(int Orden)
+        public DATOS.DetallePedido BuscarPorPedido(string Orden)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -83,7 +83,7 @@ namespace LosNaranjitos.DS.Clases
             }
         }
 
-        public bool ExisteDetalle(string IdProducto, int Orden)
+        public bool ExisteDetalle(string IdProducto, string Orden)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();

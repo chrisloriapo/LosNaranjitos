@@ -38,15 +38,15 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tbcInsumos = new System.Windows.Forms.TabControl();
+            this.tbListado = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvListado = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbBuscar = new System.Windows.Forms.ComboBox();
             this.button2 = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tbMantenimiento = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -82,7 +82,7 @@
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
             this.cbbPorcentajeRendimiento = new System.Windows.Forms.ComboBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tbStock = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -106,11 +106,11 @@
             this.txtCantidadStock = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.txtAjuste = new System.Windows.Forms.MaskedTextBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.vProveedorInsumoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.vProveedor_InsumoTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.VProveedor_InsumoTableAdapter();
-            this.txtAjuste = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSetBindingSource)).BeginInit();
@@ -118,12 +118,12 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tbcInsumos.SuspendLayout();
+            this.tbListado.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.tabPage2.SuspendLayout();
+            this.tbMantenimiento.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -135,7 +135,7 @@
             this.tableLayoutPanel11.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tbStock.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -176,7 +176,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tabControl1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tbcInsumos, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -211,28 +211,28 @@
             this.pictureBox2.TabIndex = 18;
             this.pictureBox2.TabStop = false;
             // 
-            // tabControl1
+            // tbcInsumos
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(23, 83);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(642, 361);
-            this.tabControl1.TabIndex = 17;
+            this.tbcInsumos.Controls.Add(this.tbListado);
+            this.tbcInsumos.Controls.Add(this.tbMantenimiento);
+            this.tbcInsumos.Controls.Add(this.tbStock);
+            this.tbcInsumos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbcInsumos.Location = new System.Drawing.Point(23, 83);
+            this.tbcInsumos.Name = "tbcInsumos";
+            this.tbcInsumos.SelectedIndex = 0;
+            this.tbcInsumos.Size = new System.Drawing.Size(642, 361);
+            this.tbcInsumos.TabIndex = 17;
             // 
-            // tabPage1
+            // tbListado
             // 
-            this.tabPage1.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(634, 335);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Listado";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tbListado.Controls.Add(this.tableLayoutPanel2);
+            this.tbListado.Location = new System.Drawing.Point(4, 22);
+            this.tbListado.Name = "tbListado";
+            this.tbListado.Padding = new System.Windows.Forms.Padding(3);
+            this.tbListado.Size = new System.Drawing.Size(634, 335);
+            this.tbListado.TabIndex = 0;
+            this.tbListado.Text = "Listado";
+            this.tbListado.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -323,16 +323,16 @@
             this.txtBuscar.Size = new System.Drawing.Size(139, 20);
             this.txtBuscar.TabIndex = 9;
             // 
-            // tabPage2
+            // tbMantenimiento
             // 
-            this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(634, 335);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Mantenimiento";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tbMantenimiento.Controls.Add(this.groupBox3);
+            this.tbMantenimiento.Location = new System.Drawing.Point(4, 22);
+            this.tbMantenimiento.Name = "tbMantenimiento";
+            this.tbMantenimiento.Padding = new System.Windows.Forms.Padding(3);
+            this.tbMantenimiento.Size = new System.Drawing.Size(634, 335);
+            this.tbMantenimiento.TabIndex = 1;
+            this.tbMantenimiento.Text = "Mantenimiento";
+            this.tbMantenimiento.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -523,11 +523,11 @@
             // 
             this.txtPrecioCompra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPrecioCompra.Location = new System.Drawing.Point(3, 251);
-            this.txtPrecioCompra.Mask = "9999999999";
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(293, 20);
             this.txtPrecioCompra.TabIndex = 4;
             this.txtPrecioCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPrecioCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // groupBox5
             // 
@@ -589,11 +589,11 @@
             // 
             this.txtStock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtStock.Location = new System.Drawing.Point(159, 3);
-            this.txtStock.Mask = "999999999";
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(131, 20);
             this.txtStock.TabIndex = 30;
             this.txtStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
             // label17
             // 
@@ -738,12 +738,11 @@
             // 
             this.txtRendimientoUM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtRendimientoUM.Location = new System.Drawing.Point(3, 96);
-            this.txtRendimientoUM.Mask = "99999";
             this.txtRendimientoUM.Name = "txtRendimientoUM";
             this.txtRendimientoUM.Size = new System.Drawing.Size(293, 20);
             this.txtRendimientoUM.TabIndex = 28;
             this.txtRendimientoUM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtRendimientoUM.ValidatingType = typeof(int);
+            this.txtRendimientoUM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRendimientoUM_KeyPress);
             // 
             // chkActivo
             // 
@@ -795,17 +794,17 @@
             this.cbbPorcentajeRendimiento.TabIndex = 30;
             this.cbbPorcentajeRendimiento.SelectedIndexChanged += new System.EventHandler(this.cbbPorcentajeRendimiento_SelectedIndexChanged);
             // 
-            // tabPage3
+            // tbStock
             // 
-            this.tabPage3.Controls.Add(this.groupBox6);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Size = new System.Drawing.Size(634, 335);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Inventario";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tbStock.Controls.Add(this.groupBox6);
+            this.tbStock.Location = new System.Drawing.Point(4, 22);
+            this.tbStock.Margin = new System.Windows.Forms.Padding(2);
+            this.tbStock.Name = "tbStock";
+            this.tbStock.Padding = new System.Windows.Forms.Padding(2);
+            this.tbStock.Size = new System.Drawing.Size(634, 335);
+            this.tbStock.TabIndex = 2;
+            this.tbStock.Text = "Inventario";
+            this.tbStock.UseVisualStyleBackColor = true;
             // 
             // groupBox6
             // 
@@ -1120,6 +1119,16 @@
             this.label13.TabIndex = 25;
             this.label13.Text = "Agregar/Ajustar";
             // 
+            // txtAjuste
+            // 
+            this.txtAjuste.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtAjuste.Location = new System.Drawing.Point(3, 158);
+            this.txtAjuste.Mask = "999999";
+            this.txtAjuste.Name = "txtAjuste";
+            this.txtAjuste.Size = new System.Drawing.Size(294, 20);
+            this.txtAjuste.TabIndex = 31;
+            this.txtAjuste.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.btnSalir);
@@ -1153,16 +1162,6 @@
             // 
             this.vProveedor_InsumoTableAdapter.ClearBeforeFill = true;
             // 
-            // txtAjuste
-            // 
-            this.txtAjuste.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAjuste.Location = new System.Drawing.Point(3, 158);
-            this.txtAjuste.Mask = "999999";
-            this.txtAjuste.Name = "txtAjuste";
-            this.txtAjuste.Size = new System.Drawing.Size(294, 20);
-            this.txtAjuste.TabIndex = 31;
-            this.txtAjuste.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // FrmInsumos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1182,13 +1181,13 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tbcInsumos.ResumeLayout(false);
+            this.tbListado.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
+            this.tbMantenimiento.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
@@ -1206,7 +1205,7 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.tableLayoutPanel10.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
+            this.tbStock.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
@@ -1231,10 +1230,10 @@
         private OrangeDB1DataSetTableAdapters.VProveedor_InsumoTableAdapter vProveedor_InsumoTableAdapter;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabControl tbcInsumos;
+        private System.Windows.Forms.TabPage tbListado;
+        private System.Windows.Forms.TabPage tbMantenimiento;
+        private System.Windows.Forms.TabPage tbStock;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cbBuscar;

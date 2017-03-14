@@ -11,8 +11,9 @@ namespace LosNaranjitos.DATOS
 
     public class DetallePedido
     {
-        [Required][PrimaryKey]
-        public int IdOrden { get; set; }
+        [Required]
+        [PrimaryKey]
+        public string IdOrden { get; set; }
         [Required]
         public string Producto { get; set; }
         [Required]
@@ -22,6 +23,7 @@ namespace LosNaranjitos.DATOS
         [Required]
         public string Consecutivo { get; set; }
 
+        public string ObservacionesDT { get; set; }
     }
 
 }

@@ -15,7 +15,7 @@ namespace LosNaranjitos
     {
         public static DATOS.Insumos EditInsumo = new DATOS.Insumos();
         public static List<DATOS.Insumos> ListaInsumos = new List<DATOS.Insumos>();
-
+        public static bool CBBool = false;
         public FrmInsumos()
         {
             InitializeComponent();
@@ -26,17 +26,58 @@ namespace LosNaranjitos
 
             try
             {
+
+                if (Utilitarios.OpProveedor.ListarProveedores().Count() == 0)
+                {
+                    MessageBox.Show("No existe ningun Proveedor Registrado, debes registrar proveedores para ingresar Insumos nuevos, pureba Ingresando un nuevo registro en el modulo de Proveedores", "No hay datos a modificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Utilitarios.GeneralError("No existe ningun Proveedor Registrado, debes registrar proveedores para ingresar Insumos nuevos, pureba Ingresando un nuevo registro en el modulo de Proveedores", "No hay datos disponibles", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Cargar el formulario ");
+                    this.BeginInvoke(new MethodInvoker(Close));
+
+                }
+                if (Utilitarios.OpInsumos.ListarInsumos().Count() == 0)
+                {
+                    tbcInsumos.TabPages.Remove(tbStock);
+                    btnEditar.Enabled = false;
+                }
+                else
+                {
+                    cbbCodigoStock.DataSource = Utilitarios.OpInsumos.ListarInsumos().Select(x => x.IdInsumo).ToList();
+                    cbbCodigoStock.SelectedIndex = 0;
+                }
+
                 for (int i = 0; i < 101; i++)
                 {
                     cbbPorcentajeRendimiento.Items.Add(i);
                 }
                 cbbPorcentajeRendimiento.SelectedIndex = 0;
+                CBBool = true;
                 //Verificacion de Consecutivo
-                if (Utilitarios.Cambio == false)
+                if (!Utilitarios.Cambio)
                 {
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
-                    DATOS.Insumos UltimoInsumo = Utilitarios.OpInsumos.ListarInsumos().OrderByDescending(x => x.Consecutivo).First();
+                    DATOS.Insumos UltimoInsumo = new Insumos();
+                    try
+                    {
+                        UltimoInsumo = Utilitarios.OpInsumos.ListarInsumos().OrderByDescending(x => x.Consecutivo).FirstOrDefault();
+                        if (UltimoInsumo == null)
+                        {
+                            UltimoInsumo = new Insumos()
+                            {
+                                Consecutivo = "INS-1"
+                            };
+                        }
+                    }
+                    catch (Exception x)
+                    {
+                        if (x.Message == "La secuencia no contiene elementos" || x.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                        {
+                            UltimoInsumo = new Insumos()
+                            {
+                                Consecutivo = "INS-1"
+                            };
+                        }
+                    }
                     string Prefijo = Consecutivos.Where(x => x.Tipo == "Insumo").Select(x => x.Prefijo).FirstOrDefault();
                     Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
                     int CSInsumo = Consecutivo.ConsecutivoActual + 1;
@@ -55,7 +96,7 @@ namespace LosNaranjitos
                 dgvListado.DataSource = ListaLocal;
                 cbMedida.DataSource = Utilitarios.OpMedidas.ListarMedidas().Select(x => x.IdMedida).ToList();
                 cbProveedor.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(x => x.Nombre).ToList();
-                cbbCodigoStock.DataSource = Utilitarios.OpInsumos.ListarInsumos().Select(x => x.IdInsumo).ToList();
+
 
                 var autosearch = new AutoCompleteStringCollection();
                 txtBuscar.AutoCompleteCustomSource = autosearch;
@@ -67,6 +108,7 @@ namespace LosNaranjitos
                     autosearch.Add(Convert.ToString(pos.Nombre));
                 }
                 txtBuscar.AutoCompleteCustomSource = autosearch;
+                cbBuscar.SelectedIndex = 0;
                 //--------------------------------------------
 
 
@@ -75,7 +117,7 @@ namespace LosNaranjitos
                     DATOS.Proveedor Prov = new DATOS.Proveedor();
                     Prov = Utilitarios.OpProveedor.BuscarProveedor(EditInsumo.Proveedor);
 
-                    tabControl1.SelectedIndex = 1;
+                    tbcInsumos.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
                     {
                         txtIdInsumo.Text = EditInsumo.IdInsumo;
@@ -159,7 +201,8 @@ namespace LosNaranjitos
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Insumos");
                         clearall();
                         dgvListado.DataSource = Utilitarios.OpInsumos.ListarInsumos();
-                        tabControl1.SelectedIndex = 0;
+                        tbcInsumos.SelectedIndex = 0;
+                        this.FrmInsumos_Load(sender, e);
                     }
                 }
                 catch (Exception ex)
@@ -309,7 +352,7 @@ namespace LosNaranjitos
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
                     clearall();
                     dgvListado.DataSource = Utilitarios.OpInsumos.ListarInsumos();
-                    tabControl1.SelectedIndex = 0;
+                    tbcInsumos.SelectedIndex = 0;
                 }
                 catch (Exception ex)
                 {
@@ -401,6 +444,7 @@ namespace LosNaranjitos
             txtBuscar.Clear();
             txtAjuste.Clear();
             txtRendimientoUM.Clear();
+            CBBool = false;
 
         }
 
@@ -408,10 +452,9 @@ namespace LosNaranjitos
         {
             try
             {
-                if (this.WindowState == FormWindowState.Maximized)
+
+                if (CBBool)
                 {
-
-
                     if (string.IsNullOrEmpty(txtPrecioCompra.Text) || string.IsNullOrWhiteSpace(txtPrecioCompra.Text))
                     {
                         MessageBox.Show("Debes digitar el Precio del producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -437,6 +480,36 @@ namespace LosNaranjitos
             {
                 Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Insumos al Intentar Calcular Precio de Mermado stock de Insumo");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtPrecioCompra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Utilitarios.EsNumerico(e.KeyChar.ToString()))
+            {
+                this.txtPrecioCompra.Clear();
+                e.Handled = true;
+                MessageBox.Show("Digita unicamente numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtRendimientoUM_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Utilitarios.EsNumerico(e.KeyChar.ToString()))
+            {
+                this.txtRendimientoUM.Clear();
+                e.Handled = true;
+                MessageBox.Show("Digita unicamente numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Utilitarios.EsNumerico(e.KeyChar.ToString()))
+            {
+                this.txtStock.Clear();
+                e.Handled = true;
+                MessageBox.Show("Digita unicamente numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

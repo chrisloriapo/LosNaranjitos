@@ -24,6 +24,7 @@ namespace LosNaranjitos
             try
             {
                 dgvListado.DataSource = Utilitarios.OpError.ListarErrores().OrderByDescending(x => x.Hora).ToList();
+                cmbBusqueda.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -133,7 +134,7 @@ namespace LosNaranjitos
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-                public static DateTime GetDateZeroTime(DateTime date)
+        public static DateTime GetDateZeroTime(DateTime date)
         {
             return new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
         }

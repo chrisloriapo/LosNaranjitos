@@ -31,9 +31,10 @@ namespace LosNaranjitos
         public static BL.Interfaces.IUsuario OpUsuarios = new BL.Clases.Usuario();
         public static BL.Interfaces.ICargas OpCargas = new BL.Clases.Cargas();
 
-
+        public static int CantidadSeleccionada = 0;
         public static string Llave = "hendmsjskruwiqud";
         public static bool Cambio = false;
+        public static bool CambioEnCajas = false;
 
 
         public static void GeneralBitacora(string Usuario, string AccionBitacora)
@@ -41,18 +42,26 @@ namespace LosNaranjitos
             try
             {
                 DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-
                 List<Consecutivo> Consecutivos = OpConsecutivo.ListarConsecutivos();
-
                 DATOS.Bitacora BIT = new DATOS.Bitacora();
-                BIT = OpBitacora.ListarRegistros().OrderByDescending(x => x.IdBitacora).First();
+                try
+                {
+                    BIT = OpBitacora.ListarRegistros().OrderByDescending(x => x.IdBitacora).First();
+                }
+                catch (Exception x)
+                {
+                    if (x.Message == "La secuencia no contiene elementos")
+                    {
+                        BIT.IdBitacora = "BIT-1";
+                    }
+                }
                 string Prefijo = Consecutivos.Where(x => x.Tipo == "Bitacora").Select(x => x.Prefijo).FirstOrDefault();
                 Consecutivo = OpConsecutivo.BuscarConsecutivo(Prefijo);
                 int CSBitacora = Consecutivo.ConsecutivoActual + 1;
                 BIT.IdBitacora = Prefijo + "-" + CSBitacora;
                 if (OpBitacora.ExisteConsecutivo(BIT.IdBitacora))
                 {
-                    MessageBox.Show("Existe otro Consecutivo"+BIT.IdBitacora+"/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Existe otro Consecutivo" + BIT.IdBitacora + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 BIT.Usuario = Usuario;
@@ -62,10 +71,11 @@ namespace LosNaranjitos
                 Consecutivo.ConsecutivoActual = CSBitacora;
                 OpConsecutivo.ActualizarConsecutivo(Consecutivo);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error en el sistema al Agregar a la Bitacora", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                MessageBox.Show("Error en el sistema al Agregar a la Bitacora", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -75,44 +85,58 @@ namespace LosNaranjitos
             try
             {
                 DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-
                 List<Consecutivo> Consecutivos = OpConsecutivo.ListarConsecutivos();
-                DATOS.Error ER = new DATOS.Error();
-
-                ER = OpError.ListarErrores().OrderByDescending(x => x.IdError).FirstOrDefault();
+                DATOS.Error Error = new DATOS.Error();
+                try
+                {
+                    Error = OpError.ListarErrores().OrderByDescending(x => x.IdError).FirstOrDefault();
+                    if (Error == null)
+                    {
+                        Error = new Error()
+                        {
+                            IdError = "ERR-1"
+                        };
+                    }
+                }
+                catch (Exception x)
+                {
+                    if (x.Message == "La secuencia no contiene elementos" || x.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                    {
+                        Error = new Error()
+                        {
+                            IdError = "ERR-1"
+                        };
+                    }
+                }
 
                 string Prefijo = Consecutivos.Where(x => x.Tipo == "Error").Select(x => x.Prefijo).FirstOrDefault();
                 Consecutivo = OpConsecutivo.BuscarConsecutivo(Prefijo);
                 int CSError = Consecutivo.ConsecutivoActual + 1;
-                ER.IdError = Prefijo + "-" + CSError;
-                if (OpBitacora.ExisteConsecutivo(ER.IdError))
+                Error.IdError = Prefijo + "-" + CSError;
+                if (OpError.ExisteConsecutivo(Error.IdError))
                 {
-                    MessageBox.Show("Existe otro Consecutivo" + ER.IdError + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Existe otro Consecutivo" + Error.IdError + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                ER.Descripcion = ErrorMessage;
-                ER.Tipo = ErrorType;
-                ER.Hora = DateTime.Now;
-                OpError.AgregarError(ER);
+                Error.Descripcion = ErrorMessage;
+                Error.Tipo = ErrorType;
+                Error.Hora = DateTime.Now;
+                OpError.AgregarError(Error);
                 Consecutivo.ConsecutivoActual = CSError;
                 OpConsecutivo.ActualizarConsecutivo(Consecutivo);
                 GeneralBitacora(Usuario, AccionBitacora);
             }
             catch (Exception ex)
             {
-                
-                MessageBox.Show("Error en el sistema al guardar Error " +ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MessageBox.Show("Error en el sistema al guardar Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
-
-        
-        public static string Decriptar(string contra, string llave)
+        public static string Decriptar(string Cadena, string llave)
         {
             byte[] keyArray = Encoding.UTF8.GetBytes(llave);
-            byte[] encriptar = Convert.FromBase64String(contra);
+            byte[] encriptar = Convert.FromBase64String(Cadena);
 
             var tdes = new TripleDESCryptoServiceProvider();
             tdes.Key = keyArray;
@@ -124,10 +148,10 @@ namespace LosNaranjitos
             return Encoding.UTF8.GetString(resultado);
         }
 
-        public static string Encriptar(string contra, string llave)
+        public static string Encriptar(string Cadena, string llave)
         {
             byte[] keyArray = Encoding.UTF8.GetBytes(llave);
-            byte[] encriptar = Encoding.UTF8.GetBytes(contra);
+            byte[] encriptar = Encoding.UTF8.GetBytes(Cadena);
 
             var tdes = new TripleDESCryptoServiceProvider();
             tdes.Key = keyArray;

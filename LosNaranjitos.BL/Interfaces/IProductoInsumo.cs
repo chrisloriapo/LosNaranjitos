@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LosNaranjitos.BL.Interfaces
 {
-   public interface IProductoInsumo
+    public interface IProductoInsumo
     {
         List<DATOS.ProductoInsumo> ListarProductoInsumo();
 
@@ -16,14 +16,15 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.ProductoInsumo BuscarPorConsecutivo(string Consec);
 
-
         void AgregarProductoInsumo(DATOS.ProductoInsumo ProductoINSUMO);
 
         void ActualizarProductoInsumo(DATOS.ProductoInsumo ProductoINSUMO);
 
-        bool ExisteProductoINSUMO(string IdProducto,string IdInsumo);
+        bool ExisteProductoINSUMO(string IdProducto, string IdInsumo);
 
         bool ExisteConsecutivo(string Consecutivo);
+
+        void EliminarInsumodeProducto(DATOS.ProductoInsumo ProductoINSUMO);
 
     }
 }

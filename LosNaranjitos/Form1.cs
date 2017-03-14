@@ -17,11 +17,6 @@ namespace LosNaranjitos
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             List<DATOS.ProductoInsumo> Receta = Utilitarios.OpProductoInsumo.ListarProductoInsumo();
@@ -49,9 +44,32 @@ namespace LosNaranjitos
             }
         }
 
-        private void reportDocument1_InitReport(object sender, EventArgs e)
+        private void txtBuscar_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtBuscar.Text) || txtBuscar.Text == "0")
+                {
+
+                }
+
+            }
+            catch (Exception)
+            {
+
+
+
+            }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+ 
         }
     }
 }

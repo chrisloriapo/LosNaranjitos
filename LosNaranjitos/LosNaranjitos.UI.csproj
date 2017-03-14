@@ -240,6 +240,12 @@
     <Compile Include="FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmTecladoNumerico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTecladoNumerico.Designer.cs">
+      <DependentUpon>FrmTecladoNumerico.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,6 +359,9 @@
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmTecladoNumerico.resx">
+      <DependentUpon>FrmTecladoNumerico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
@@ -463,6 +472,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cocinero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BC1.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

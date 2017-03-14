@@ -57,11 +57,36 @@ namespace LosNaranjitos
         {
             try
             {
-                if (!Utilitarios.Cambio )
+                if (Utilitarios.OpClientes.ListarClientes().Count() == 0)
+                {
+                    btnEditar.Enabled = false;
+                }
+                if (!Utilitarios.Cambio)
                 {
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
-                    DATOS.Cliente UltimoCliente = Utilitarios.OpClientes.ListarClientes().OrderByDescending(x => x.Consecutivo).First();
+                    DATOS.Cliente UltimoCliente = new Cliente();
+                    try
+                    {
+                        UltimoCliente = Utilitarios.OpClientes.ListarClientes().OrderByDescending(x => x.Consecutivo).First();
+                        if (UltimoCliente == null)
+                        {
+                            UltimoCliente = new Cliente()
+                            {
+                                Consecutivo = "CLI-1"
+                            };
+                        }
+                    }
+                    catch (Exception x)
+                    {
+                        if (x.Message == "La secuencia no contiene elementos" || x.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                        {
+                            UltimoCliente = new Cliente()
+                            {
+                                Consecutivo = "CLI-1"
+                            };
+                        }
+                    }
                     string Prefijo = Consecutivos.Where(x => x.Tipo == "Cliente").Select(x => x.Prefijo).FirstOrDefault();
                     Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
                     int CSCliente = Consecutivo.ConsecutivoActual + 1;
@@ -89,7 +114,7 @@ namespace LosNaranjitos
                     autosearch.Add(Convert.ToString(pos.IdPersonal));
                 }
                 txtBuscar.AutoCompleteCustomSource = autosearch;
-
+                cbBuscar.SelectedIndex = 0;
                 //------------------------------
 
                 while (Utilitarios.Cambio)
@@ -152,13 +177,13 @@ namespace LosNaranjitos
                             Telefono = txtTelefono.Text,
                             Correo = txtEmail.Text,
                             Apellido1 = txtApellido.Text,
-                            
+
                         };
 
                         Utilitarios.OpClientes.AgregarCliente(ClientePrivate);
 
                         DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cliente");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual+1;
+                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
                         Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Cliente Nuevo " + ClientePrivate.IdPersonal);
@@ -276,7 +301,7 @@ namespace LosNaranjitos
                 }
 
             }
-    }
+        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {

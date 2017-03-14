@@ -23,10 +23,10 @@ namespace LosNaranjitos
             {
                 var Lista = Utilitarios.OpBitacora.ListarRegistros().OrderByDescending(x => x.Fecha);
                 var Listax = new List<DATOS.Bitacora>();
-                foreach (var item in Lista)
-                {
-                    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitario.Llave);
-                }
+                //foreach (var item in Lista)
+                //{
+                //    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitario.Llave);
+                //}
 
                 dgvListado.DataSource = Lista.ToList();
 
@@ -36,6 +36,7 @@ namespace LosNaranjitos
                 Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Bitacora al Cargar formulario");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            cmbBusqueda.SelectedIndex = 0;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -46,13 +47,13 @@ namespace LosNaranjitos
 
                 var Lista = Utilitarios.OpBitacora.ListarRegistros().OrderByDescending(x => x.Fecha);
                 var Listax = new List<DATOS.Bitacora>();
-                foreach (var item in Lista)
-                {
-                    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitario.Llave);
-                }
+                //foreach (var item in Lista)
+                //{
+                //    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitario.Llave);
+                //}
                 switch (cmbBusqueda.SelectedItem.ToString())
                 {
-                    
+
                     case "Usuario":
                         Listax = Lista.Where(x => x.Usuario == txtBuscar.Text).ToList();
                         dgvListado.DataSource = Listax.ToList();
@@ -93,7 +94,7 @@ namespace LosNaranjitos
                 var Lista = Utilitarios.OpBitacora.ListarRegistros().OrderByDescending(x => x.Fecha);
                 foreach (var item in Lista)
                 {
-                    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitario.Llave);
+                    //item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitario.Llave);
                     autosearch.Add(Convert.ToString(item.Usuario));
 
                 }
@@ -110,7 +111,7 @@ namespace LosNaranjitos
                         txtBuscar.Visible = true;
                         btnBuscar.Visible = true;
                         dtpFechaBusqueda.Visible = false;
-      
+
 
                         break;
                     case "Fecha":

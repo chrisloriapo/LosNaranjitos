@@ -30,7 +30,29 @@ namespace LosNaranjitos
                 {
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
-                    DATOS.Proveedor UltimoProveedor = Utilitarios.OpProveedor.ListarProveedores().OrderByDescending(x => x.Consecutivo).First();
+                    DATOS.Proveedor UltimoProveedor = new DATOS.Proveedor();
+                    try
+                    {
+                        UltimoProveedor = Utilitarios.OpProveedor.ListarProveedores().OrderByDescending(x => x.Consecutivo).First();
+                        if (UltimoProveedor == null)
+                        {
+                            UltimoProveedor = new Proveedor()
+                            {
+                                Consecutivo = "PRV-1"
+                            };
+                        }
+                    }
+                    catch (Exception x)
+                    {
+                        if (x.Message == "La secuencia no contiene elementos" || x.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                        {
+                            UltimoProveedor = new Proveedor()
+                            {
+                                Consecutivo = "PRV-1"
+                            };
+                        }
+                    }
+
                     string Prefijo = Consecutivos.Where(x => x.Tipo == "Proveedor").Select(x => x.Prefijo).FirstOrDefault();
                     Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
                     int CSProveedor = Consecutivo.ConsecutivoActual + 1;
@@ -56,7 +78,7 @@ namespace LosNaranjitos
                     autosearch.Add(Convert.ToString(pos.IdProveedor));
                 }
                 txtBuscar.AutoCompleteCustomSource = autosearch;
-
+                cbBuscar.SelectedIndex = 0;
                 //------------------------------
 
                 while (Utilitarios.Cambio)
@@ -64,6 +86,7 @@ namespace LosNaranjitos
                     tabControl1.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
                     {
+                        lblConsecutivo.Text = EditProveedor.Consecutivo;
                         txtIdProveedor.Text = EditProveedor.IdProveedor;
                         txtEmpresa.Text = EditProveedor.Nombre;
                         txtTelefono.Text = EditProveedor.Telefono;
@@ -102,9 +125,19 @@ namespace LosNaranjitos
         {
             if (string.IsNullOrEmpty(txtIdProveedor.Text))
             {
-                FrmEdicionProveedor a = new FrmEdicionProveedor();
-                a.Show();
-                this.Dispose();
+                if (Utilitarios.OpProveedor.ListarProveedores().Count() > 0)
+                {
+                    FrmEdicionProveedor a = new FrmEdicionProveedor();
+                    a.Show();
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("No existe Ningún proveedor Registrado para poder editar, pureba Ingresando un nuevo proveedor", "No hay datos a modificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    btnEditar.Enabled = false;
+                    return;
+                }
+
             }
             else
             {
@@ -163,13 +196,13 @@ namespace LosNaranjitos
                             Telefono = txtTelefono.Text,
                             Correo = txtEmail.Text,
                         };
-                       Utilitarios.OpProveedor.AgregarProveedor(ProvedorPrivate);
+                        Utilitarios.OpProveedor.AgregarProveedor(ProvedorPrivate);
 
                         DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Proveedor");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual+1;
+                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
                         Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
-                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Proveedor Nuevo "+ProvedorPrivate.IdProveedor);
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Proveedor Nuevo " + ProvedorPrivate.IdProveedor);
 
                         MessageBox.Show("Los datos del Proveedor se ingresaron correctamente", "Ingreso de datos",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -205,18 +238,18 @@ namespace LosNaranjitos
                     {
                         Consecutivo = lblConsecutivo.Text,
                         IdProveedor = txtIdProveedor.Text,
-                        Nombre = Utilitarios.Encriptar(txtEmpresa.Text, Utilitarios.Llave),
+                        Nombre = txtEmpresa.Text,
                         Activo = chkEstado.Checked,
                         Telefono = txtTelefono.Text,
                         Correo = txtEmail.Text,
                     };
 
-                    Utilitarios. OpProveedor.ActualizarProveedor(ProvedorPrivate);
+                    Utilitarios.OpProveedor.ActualizarProveedor(ProvedorPrivate);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Proveedor " + ProvedorPrivate.IdProveedor);
                     MessageBox.Show("Los datos del Proveedor se Actualizaron correctamente",
                    "Actualizacion de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
-                    this.Dispose();
+                    tabControl1.TabIndex = 0;
                     clearall();
                 }
                 catch (Exception ex)
@@ -308,7 +341,7 @@ namespace LosNaranjitos
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-      
+
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
             this.Close();
         }

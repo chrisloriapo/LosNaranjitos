@@ -34,23 +34,35 @@
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.grbMain = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.lnkUsuario = new System.Windows.Forms.LinkLabel();
+            this.pcbUsuario = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsiAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAdministracion = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiInsumosG = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiOperacionesInsumos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiUnidadesMedida = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productosALaVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.combosPromocionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsMiCargas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiProovedores = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiPedido = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsiCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSeguridad = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiUsuarios = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,26 +73,14 @@
             this.tsmVentanas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.tmerTiempo = new System.Windows.Forms.Timer(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lnkUsuario = new System.Windows.Forms.LinkLabel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.tsiAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.pcbUsuario = new System.Windows.Forms.PictureBox();
-            this.productosALaVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.combosPromocionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsMiCargas = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsiCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.grbMain.SuspendLayout();
-            this.toolStrip.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.toolStrip.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip
@@ -105,6 +105,50 @@
             this.grbMain.ForeColor = System.Drawing.SystemColors.ControlText;
             this.grbMain.Name = "grbMain";
             this.grbMain.TabStop = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            // 
+            // tableLayoutPanel2
+            // 
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
+            this.tableLayoutPanel2.Controls.Add(this.lnkUsuario, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.pcbUsuario, 0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            // 
+            // lnkUsuario
+            // 
+            resources.ApplyResources(this.lnkUsuario, "lnkUsuario");
+            this.lnkUsuario.Name = "lnkUsuario";
+            this.lnkUsuario.TabStop = true;
+            // 
+            // pcbUsuario
+            // 
+            resources.ApplyResources(this.pcbUsuario, "pcbUsuario");
+            this.pcbUsuario.Image = global::LosNaranjitos.Properties.Resources.cocinero;
+            this.pcbUsuario.Name = "pcbUsuario";
+            this.pcbUsuario.TabStop = false;
+            // 
+            // tableLayoutPanel3
+            // 
+            resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
+            this.tableLayoutPanel3.Controls.Add(this.lblTime, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.lblDate, 0, 1);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            // 
+            // lblTime
+            // 
+            resources.ApplyResources(this.lblTime, "lblTime");
+            this.lblTime.Name = "lblTime";
+            // 
+            // lblDate
+            // 
+            resources.ApplyResources(this.lblDate, "lblDate");
+            this.lblDate.Name = "lblDate";
             // 
             // label1
             // 
@@ -153,6 +197,12 @@
             resources.ApplyResources(this.tsiCerrarSesion, "tsiCerrarSesion");
             this.tsiCerrarSesion.Click += new System.EventHandler(this.tstICerrarSesion_Click);
             // 
+            // tsiAbout
+            // 
+            this.tsiAbout.Name = "tsiAbout";
+            resources.ApplyResources(this.tsiAbout, "tsiAbout");
+            this.tsiAbout.Click += new System.EventHandler(this.tstabout_Click);
+            // 
             // tsiSalir
             // 
             this.tsiSalir.Name = "tsiSalir";
@@ -199,6 +249,24 @@
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             resources.ApplyResources(this.productosToolStripMenuItem, "productosToolStripMenuItem");
             // 
+            // productosALaVentaToolStripMenuItem
+            // 
+            this.productosALaVentaToolStripMenuItem.Name = "productosALaVentaToolStripMenuItem";
+            resources.ApplyResources(this.productosALaVentaToolStripMenuItem, "productosALaVentaToolStripMenuItem");
+            this.productosALaVentaToolStripMenuItem.Click += new System.EventHandler(this.productosALaVentaToolStripMenuItem_Click);
+            // 
+            // combosPromocionesToolStripMenuItem
+            // 
+            this.combosPromocionesToolStripMenuItem.Name = "combosPromocionesToolStripMenuItem";
+            resources.ApplyResources(this.combosPromocionesToolStripMenuItem, "combosPromocionesToolStripMenuItem");
+            this.combosPromocionesToolStripMenuItem.Click += new System.EventHandler(this.combosPromocionesToolStripMenuItem_Click);
+            // 
+            // tsMiCargas
+            // 
+            this.tsMiCargas.Name = "tsMiCargas";
+            resources.ApplyResources(this.tsMiCargas, "tsMiCargas");
+            this.tsMiCargas.Click += new System.EventHandler(this.tsMiCargas_Click);
+            // 
             // tsiProovedores
             // 
             this.tsiProovedores.Name = "tsiProovedores";
@@ -231,6 +299,11 @@
             this.tsiPedido.Name = "tsiPedido";
             resources.ApplyResources(this.tsiPedido, "tsiPedido");
             this.tsiPedido.Click += new System.EventHandler(this.pedidosToolStripMenuItem1_Click);
+            // 
+            // tsiCierreCaja
+            // 
+            this.tsiCierreCaja.Name = "tsiCierreCaja";
+            resources.ApplyResources(this.tsiCierreCaja, "tsiCierreCaja");
             // 
             // tsiReportes
             // 
@@ -292,79 +365,6 @@
             // 
             this.tmerTiempo.Tick += new System.EventHandler(this.tmerTiempo_Tick);
             // 
-            // tableLayoutPanel1
-            // 
-            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 0, 1);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            // 
-            // tableLayoutPanel2
-            // 
-            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
-            this.tableLayoutPanel2.Controls.Add(this.lnkUsuario, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.pcbUsuario, 0, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            // 
-            // lnkUsuario
-            // 
-            resources.ApplyResources(this.lnkUsuario, "lnkUsuario");
-            this.lnkUsuario.Name = "lnkUsuario";
-            this.lnkUsuario.TabStop = true;
-            // 
-            // tableLayoutPanel3
-            // 
-            resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
-            this.tableLayoutPanel3.Controls.Add(this.lblTime, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.lblDate, 0, 1);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            // 
-            // lblDate
-            // 
-            resources.ApplyResources(this.lblDate, "lblDate");
-            this.lblDate.Name = "lblDate";
-            // 
-            // lblTime
-            // 
-            resources.ApplyResources(this.lblTime, "lblTime");
-            this.lblTime.Name = "lblTime";
-            // 
-            // tsiAbout
-            // 
-            this.tsiAbout.Name = "tsiAbout";
-            resources.ApplyResources(this.tsiAbout, "tsiAbout");
-            this.tsiAbout.Click += new System.EventHandler(this.tstabout_Click);
-            // 
-            // pcbUsuario
-            // 
-            resources.ApplyResources(this.pcbUsuario, "pcbUsuario");
-            this.pcbUsuario.Image = global::LosNaranjitos.Properties.Resources.cocinero;
-            this.pcbUsuario.Name = "pcbUsuario";
-            this.pcbUsuario.TabStop = false;
-            // 
-            // productosALaVentaToolStripMenuItem
-            // 
-            this.productosALaVentaToolStripMenuItem.Name = "productosALaVentaToolStripMenuItem";
-            resources.ApplyResources(this.productosALaVentaToolStripMenuItem, "productosALaVentaToolStripMenuItem");
-            this.productosALaVentaToolStripMenuItem.Click += new System.EventHandler(this.productosALaVentaToolStripMenuItem_Click);
-            // 
-            // combosPromocionesToolStripMenuItem
-            // 
-            this.combosPromocionesToolStripMenuItem.Name = "combosPromocionesToolStripMenuItem";
-            resources.ApplyResources(this.combosPromocionesToolStripMenuItem, "combosPromocionesToolStripMenuItem");
-            this.combosPromocionesToolStripMenuItem.Click += new System.EventHandler(this.combosPromocionesToolStripMenuItem_Click);
-            // 
-            // tsMiCargas
-            // 
-            this.tsMiCargas.Name = "tsMiCargas";
-            resources.ApplyResources(this.tsMiCargas, "tsMiCargas");
-            this.tsMiCargas.Click += new System.EventHandler(this.tsMiCargas_Click);
-            // 
-            // tsiCierreCaja
-            // 
-            this.tsiCierreCaja.Name = "tsiCierreCaja";
-            resources.ApplyResources(this.tsiCierreCaja, "tsiCierreCaja");
-            // 
             // FrmMenuPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -383,16 +383,16 @@
             this.statusStrip.PerformLayout();
             this.grbMain.ResumeLayout(false);
             this.grbMain.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

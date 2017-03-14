@@ -18,6 +18,7 @@ namespace LosNaranjitos
         {
             InitializeComponent();
         }
+        public static GroupBox GR = new GroupBox();
 
         private void ShowNewForm(object sender, EventArgs e)
         {
@@ -128,6 +129,7 @@ namespace LosNaranjitos
 
         private void pedidosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            grbMain.Visible = false;
             FrmPedido a = new FrmPedido();
             a.MdiParent = this;
             a.WindowState = FormWindowState.Maximized;
@@ -215,16 +217,14 @@ namespace LosNaranjitos
         private void FrmMenuPrincipal_Load(object sender, EventArgs e)
         {
             tmerTiempo.Start();
-            lnkUsuario.Text = Utilitarios.Decriptar( FrmLogin.UsuarioGlobal.Nombre,Utilitarios.Llave) + " " + Utilitarios.Decriptar(FrmLogin.UsuarioGlobal.Apellido1, Utilitarios.Llave);
+            lnkUsuario.Text = FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1;
+            GR = grbMain;
             foreach (Control ctrl in this.Controls)
             {
-
                 if (ctrl is MdiClient)
                 {
                     ctrl.BackColor = Color.White;
                 }
-
-
             }
         }
 

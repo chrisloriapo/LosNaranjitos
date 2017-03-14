@@ -988,7 +988,6 @@ namespace LosNaranjitos.OrangeDB1DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::LosNaranjitos.Properties.Settings.Default.ORANGEDBTST1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

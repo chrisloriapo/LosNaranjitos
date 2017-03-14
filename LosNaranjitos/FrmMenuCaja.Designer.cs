@@ -49,11 +49,12 @@
             this.tableLayoutPanel1.Controls.Add(this.button1, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(843, 723);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(562, 470);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // btnAperturaCaja
@@ -64,24 +65,24 @@
             this.btnAperturaCaja.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAperturaCaja.FlatAppearance.BorderSize = 0;
             this.btnAperturaCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAperturaCaja.Location = new System.Drawing.Point(10, 9);
-            this.btnAperturaCaja.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.btnAperturaCaja.Location = new System.Drawing.Point(7, 6);
+            this.btnAperturaCaja.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnAperturaCaja.Name = "btnAperturaCaja";
-            this.btnAperturaCaja.Size = new System.Drawing.Size(401, 343);
+            this.btnAperturaCaja.Size = new System.Drawing.Size(267, 223);
             this.btnAperturaCaja.TabIndex = 5;
             this.btnAperturaCaja.Text = "Apertura Caja ";
             this.btnAperturaCaja.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAperturaCaja.UseVisualStyleBackColor = false;
+            this.btnAperturaCaja.Click += new System.EventHandler(this.btnAperturaCaja_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Image = global::LosNaranjitos.Properties.Resources.NaranjitosT;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 366);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 238);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(413, 352);
+            this.pictureBox1.Size = new System.Drawing.Size(275, 229);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
@@ -94,10 +95,10 @@
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(431, 9);
-            this.button3.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.button3.Location = new System.Drawing.Point(288, 6);
+            this.button3.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(402, 343);
+            this.button3.Size = new System.Drawing.Size(267, 223);
             this.button3.TabIndex = 7;
             this.button3.Text = "Salir";
             this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -111,10 +112,10 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(431, 370);
-            this.button1.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
+            this.button1.Location = new System.Drawing.Point(288, 241);
+            this.button1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(402, 344);
+            this.button1.Size = new System.Drawing.Size(267, 223);
             this.button1.TabIndex = 6;
             this.button1.Text = "Cierre   Caja";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -122,14 +123,13 @@
             // 
             // FrmMenuCaja
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LimeGreen;
-            this.ClientSize = new System.Drawing.Size(843, 723);
+            this.ClientSize = new System.Drawing.Size(562, 470);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmMenuCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMenuCaja";

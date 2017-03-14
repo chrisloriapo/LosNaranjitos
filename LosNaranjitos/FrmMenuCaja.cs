@@ -16,5 +16,14 @@ namespace LosNaranjitos
         {
             InitializeComponent();
         }
+
+        private void btnAperturaCaja_Click(object sender, EventArgs e)
+        {
+
+            FrmPedido a = new FrmPedido();
+            a.WindowState = FormWindowState.Maximized;
+            a.Show();
+            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Caja desde menu de Caja ");
+        }
     }
 }

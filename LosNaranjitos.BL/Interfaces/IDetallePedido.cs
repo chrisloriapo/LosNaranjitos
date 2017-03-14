@@ -12,7 +12,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.DetallePedido BuscarPorProducto(string Producto);
 
-        DATOS.DetallePedido BuscarPorPedido(int Orden);
+        DATOS.DetallePedido BuscarPorPedido(string Orden);
 
         DATOS.DetallePedido BuscarPorConsecutivo(string Conse);
 
@@ -20,7 +20,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         void ActualizarDetalleOrden(DATOS.DetallePedido DetalleOrden);
 
-        bool ExisteDetalle(string IdProducto, int Orden);
+        bool ExisteDetalle(string IdProducto, string Orden);
 
         bool ExisteConsecutivo(string Consecutivo);
 

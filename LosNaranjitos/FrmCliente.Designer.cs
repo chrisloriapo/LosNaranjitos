@@ -64,9 +64,6 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtPuntaje = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -439,6 +436,7 @@
             // 
             this.lblConsecutivo.AutoSize = true;
             this.lblConsecutivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblConsecutivo.ForeColor = System.Drawing.Color.Black;
             this.lblConsecutivo.Location = new System.Drawing.Point(110, 0);
             this.lblConsecutivo.Name = "lblConsecutivo";
             this.lblConsecutivo.Size = new System.Drawing.Size(101, 19);
@@ -462,9 +460,6 @@
             this.tableLayoutPanel6.Controls.Add(this.txtEmail, 0, 7);
             this.tableLayoutPanel6.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.txtTelefono, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel6.Controls.Add(this.label8, 0, 4);
-            this.tableLayoutPanel6.Controls.Add(this.txtPuntaje, 0, 5);
             this.tableLayoutPanel6.Controls.Add(this.label10, 0, 6);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(326, 3);
@@ -508,34 +503,6 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(311, 20);
             this.txtTelefono.TabIndex = 19;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(311, 31);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Ultima Visita";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(3, 124);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(311, 31);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "Puntaje";
-            // 
-            // txtPuntaje
-            // 
-            this.txtPuntaje.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPuntaje.Location = new System.Drawing.Point(3, 158);
-            this.txtPuntaje.Name = "txtPuntaje";
-            this.txtPuntaje.Size = new System.Drawing.Size(311, 20);
-            this.txtPuntaje.TabIndex = 31;
             // 
             // label10
             // 
@@ -693,9 +660,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtPuntaje;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnNuevo;

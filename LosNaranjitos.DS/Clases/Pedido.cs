@@ -25,11 +25,11 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(Orden);
         }
 
-        public DATOS.Pedido BuscarPedido(int IdPedido)
+        public DATOS.Pedido BuscarPedido(string IdPedido)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
-            DATOS.Pedido BuscPed = db.Select<DATOS.Pedido>(x => x.IdPedido == IdPedido).FirstOrDefault();
+            DATOS.Pedido BuscPed = db.Select<DATOS.Pedido>(x => x.Consecutivo == IdPedido).FirstOrDefault();
             return BuscPed;
         }
 
@@ -81,15 +81,15 @@ namespace LosNaranjitos.DS.Clases
             }
         }
 
-        public bool ExistePedido(int IdPedido)
+        public bool ExistePedido(string IdPedido)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
             try
             {
-                DATOS.Pedido Us = db.Select<DATOS.Pedido>(x => x.IdPedido == IdPedido).FirstOrDefault();
+                DATOS.Pedido Us = db.Select<DATOS.Pedido>(x => x.Consecutivo == IdPedido).FirstOrDefault();
 
-                if (Us.IdPedido == IdPedido)
+                if (Us.Consecutivo == IdPedido)
                 {
                     return true;
                 }
@@ -111,7 +111,6 @@ namespace LosNaranjitos.DS.Clases
                     return false;
                 }
             }
-            throw new NotImplementedException();
         }
 
         public void Inactivar(DATOS.Pedido Orden)

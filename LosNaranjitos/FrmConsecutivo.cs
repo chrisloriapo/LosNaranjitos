@@ -23,6 +23,7 @@ namespace LosNaranjitos
                 cbbTipo.DataSource = Utilitarios.OpConsecutivo.ListarConsecutivos().Select(x => x.Tipo).ToList();
                 cbbTipo.SelectedIndex = 0;
                 dgvConsecutivo.DataSource = Utilitarios.OpConsecutivo.ListarConsecutivos().ToList();
+                cbbConsecutivos.SelectedIndex = 0;
             }
             catch (Exception ex)
             {

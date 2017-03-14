@@ -25,11 +25,41 @@ namespace LosNaranjitos
         {
             try
             {
-                if (Utilitarios.Cambio == false)
+                if (Utilitarios.OpProveedor.ListarProveedores().Count() == 0)
+                {
+                    MessageBox.Show("No existe ningun Proveedor Registrado, debes registrar proveedores para ingresar Facturas nuevas, pureba Ingresando un nuevo registro en el modulo de Proveedores", "No hay datos a modificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Utilitarios.GeneralError("No existe ningun Proveedor Registrado, debes registrar proveedores para ingresar Facturas nuevas, pureba Ingresando un nuevo registro en el modulo de Proveedores", "No hay datos disponibles", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Facturas Compras al Cargar el formulario ");
+                    return;
+                    BeginInvoke(new MethodInvoker(Close));
+
+                }
+                if (Utilitarios.OpFacturaCompra.ListarFacturas().Count() == 0)
+                {
+                    btnEditar.Enabled = false;
+                }
+                if (!Utilitarios.Cambio)
                 {
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
-                    DATOS.FacturaCompra UltimaFactura = Utilitarios.OpFacturaCompra.ListarFacturas().OrderByDescending(x => x.Consecutivo).First();
+                    DATOS.FacturaCompra UltimaFactura = new FacturaCompra();
+                    try
+                    {
+                        UltimaFactura = Utilitarios.OpFacturaCompra.ListarFacturas().OrderByDescending(x => x.Consecutivo).FirstOrDefault();
+                        if (UltimaFactura == null)
+                        {
+                            UltimaFactura.Consecutivo = "FCP-1";
+                        }
+                    }
+                    catch (Exception x)
+                    {
+                        if (x.Message == "La secuencia no contiene elementos" || x.Message == "Referencia a objeto no establecida como instancia de un objeto." || x.Message == "Object reference not set to an instance of an object.")
+                        {
+                            UltimaFactura = new FacturaCompra()
+                            {
+                                Consecutivo = "FCP-1"
+                            };
+                        }
+                    }
                     string Prefijo = Consecutivos.Where(x => x.Tipo == "Factura-Compras").Select(x => x.Prefijo).FirstOrDefault();
                     Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
                     int CSFactura = Consecutivo.ConsecutivoActual + 1;
@@ -46,7 +76,7 @@ namespace LosNaranjitos
                 dgvListado.DataSource = ListaLocal;
 
                 dtpFechaFactura.Value = DateTime.Today;
-                cbbProveedor.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(X => X.Nombre);
+                cbbProveedor.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(X => X.Nombre).ToList();
                 var autosearch = new AutoCompleteStringCollection();
                 txtBuscar.AutoCompleteCustomSource = autosearch;
                 txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -73,6 +103,9 @@ namespace LosNaranjitos
                         lblConsecutivo.Text = EditFacturaCompra.Consecutivo;
                         DATOS.Proveedor ProvLocal = Utilitarios.OpProveedor.BuscarProveedor(EditFacturaCompra.IdProveedor);
                         cbbProveedor.SelectedItem = ProvLocal.Nombre;
+                        btnNuevo.Enabled = false;
+                        txtMonto.Text = EditFacturaCompra.Monto.ToString();
+                        return;
                     }
                     else
                     {
@@ -140,6 +173,7 @@ namespace LosNaranjitos
                     tabControl1.SelectedIndex = 0;
                     ClearAll();
                     dgvListado.Refresh();
+                    FrmCompras_Load(sender, e);
                 }
                 catch (Exception ex)
                 {
@@ -185,6 +219,7 @@ namespace LosNaranjitos
                 {
                     EditarFactura();
                     Utilitarios.Cambio = false;
+                    FrmCompras_Load(sender, e);
                 }
                 else
                 {
@@ -226,6 +261,7 @@ namespace LosNaranjitos
                     ClearAll();
                     tabControl1.SelectedIndex = 0;
                     dgvListado.Refresh();
+
                 }
                 catch (Exception ex)
                 {
@@ -236,5 +272,14 @@ namespace LosNaranjitos
             }
         }
 
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Utilitarios.EsNumerico(e.KeyChar.ToString()))
+            {
+                this.txtMonto.Clear();
+                e.Handled = true;
+                MessageBox.Show("Digita unicamente numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

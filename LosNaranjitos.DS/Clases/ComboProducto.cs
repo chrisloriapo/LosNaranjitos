@@ -49,6 +49,13 @@ namespace LosNaranjitos.DS.Clases
             return BuscarCodProd;
         }
 
+        public void EliminarProductodeCombo(DATOS.ComboProducto ComboProducto)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Delete(ComboProducto);
+        }
+
         public bool ExisteComboProducto(string Combo, string Producto)
         {
             var conexion = _Conexion.CrearConexion();
