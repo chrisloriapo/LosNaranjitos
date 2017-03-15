@@ -10,7 +10,7 @@ namespace LosNaranjitos.DATOS
     public class Pedido
     {
         [PrimaryKey]
-        [Required]
+        
         public string Consecutivo { get; set; }
 
         public string IdCliente { get; set; }

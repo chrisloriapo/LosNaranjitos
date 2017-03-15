@@ -11,11 +11,11 @@ namespace LosNaranjitos.DATOS
     public class RolUsuario
     {
         [PrimaryKey]
-        [Required]
+        
         public string IdRol { get; set; }
-        [Required]
+        
         public string Descripcion { get; set; }
-        [Required]
+        
         public bool Activo { get; set; }
     }
 

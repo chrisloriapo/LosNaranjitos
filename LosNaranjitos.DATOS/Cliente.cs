@@ -9,9 +9,9 @@ namespace LosNaranjitos.DATOS
 {
     public class Cliente
     {
-        [Required]
+        
         public string Consecutivo { get; set; }
-        [Required]
+        
         [PrimaryKey]
         public string IdPersonal { get; set; }
 

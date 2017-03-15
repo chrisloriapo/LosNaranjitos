@@ -10,7 +10,7 @@ namespace LosNaranjitos.DATOS
 {
     public class CategoriaProductos
     {
-        [Required][PrimaryKey]
+        [PrimaryKey]
         public string IdTipo { get; set; }
 
         public string Descripcion { get; set; }

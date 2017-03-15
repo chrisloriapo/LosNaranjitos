@@ -10,7 +10,7 @@ namespace LosNaranjitos.DATOS
 {
     public class Consecutivo
     {
-        [Required][PrimaryKey]
+        [PrimaryKey]
         public string Prefijo { get; set; }
 
         public string Tipo { get; set; }

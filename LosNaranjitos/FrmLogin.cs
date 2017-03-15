@@ -133,6 +133,7 @@ namespace LosNaranjitos
                     }
                     else
                     {
+                        
                         Utilitarios.GeneralError(ex.Message, "Error Desconocido", "No User logged", "Error durante la validaciòn del usuario ");
                         MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;

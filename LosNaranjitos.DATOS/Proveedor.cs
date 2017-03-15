@@ -10,17 +10,17 @@ namespace LosNaranjitos.DATOS
     public class Proveedor
     {
         [PrimaryKey]
-        [Required]
+        
         public string IdProveedor { get; set; }
-        [Required]
+        
         public string Nombre { get; set; }
-        [Required]
+        
         public string Telefono { get; set; }
-        [Required]
+        
         public string Correo { get; set; }
-        [Required]
+        
         public bool Activo { get; set; }
-        [Required]
+        
         public string Consecutivo { get; set; }
     }
 

@@ -199,6 +199,7 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
+                   
                 Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Caja al Cargar Formulario");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

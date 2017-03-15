@@ -11,15 +11,15 @@ namespace LosNaranjitos.DATOS
     public class ProductoInsumo
     {
         [PrimaryKey]
-        [Required]
+        
         public string CodigoProducto { get; set; }
         [PrimaryKey]
-        [Required]
+        
         public string IdInsumo { get; set; }
         
-        [Required]
+        
         public float CantidadRequerida { get; set; }
-        [Required]
+        
 
         public string Consecutivo { get; set; }
 

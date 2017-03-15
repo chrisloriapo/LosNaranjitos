@@ -10,7 +10,7 @@ namespace LosNaranjitos.DATOS
 {
     public class Bitacora
     {
-        [Required][PrimaryKey]
+        [PrimaryKey]
         public string IdBitacora { get; set; }
 
         public DateTime Fecha { get; set; }

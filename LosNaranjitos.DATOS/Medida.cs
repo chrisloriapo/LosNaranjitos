@@ -10,11 +10,11 @@ namespace LosNaranjitos.DATOS
 {
     public class Medida
     {
-        [PrimaryKey][Required]
+        [PrimaryKey]
         public string IdMedida { get; set; }
-        [Required]
+        
         public string Descripcion { get; set; }
-        [Required]
+        
         public string Consecutivo { get; set; }
 
     }

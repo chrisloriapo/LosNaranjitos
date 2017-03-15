@@ -25,5 +25,22 @@ namespace LosNaranjitos
             a.Show();
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Caja desde menu de Caja ");
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            var mensaje = MessageBox.Show("¿Desea salir del sistema?", "Advertencia",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (mensaje == DialogResult.Yes)
+            {
+                this.Dispose();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Aplicación ");
+                Application.Exit();
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

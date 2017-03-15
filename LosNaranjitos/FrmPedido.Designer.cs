@@ -64,21 +64,21 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAgregarAdicionales = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.lstAdicionales = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.txtCantidadAdicionales = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtObAdicionales = new System.Windows.Forms.TextBox();
             this.tbBebidas = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAgregarBebidas = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.lstBebidas = new System.Windows.Forms.ListBox();
@@ -92,7 +92,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnAgregarCombos = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.tableLayoutPanel23 = new System.Windows.Forms.TableLayoutPanel();
             this.lstCombos = new System.Windows.Forms.ListBox();
@@ -414,10 +414,13 @@
             // dgvOrden
             // 
             this.dgvOrden.AllowUserToAddRows = false;
+            this.dgvOrden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvOrden.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrden.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOrden.Location = new System.Drawing.Point(3, 165);
             this.dgvOrden.Name = "dgvOrden";
+            this.dgvOrden.RowHeadersVisible = false;
             this.dgvOrden.Size = new System.Drawing.Size(423, 357);
             this.dgvOrden.TabIndex = 6;
             // 
@@ -677,7 +680,7 @@
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.button1, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.btnAgregarAdicionales, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.button2, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
@@ -688,19 +691,19 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(54, 462);
             this.tableLayoutPanel7.TabIndex = 6;
             // 
-            // button1
+            // btnAgregarAdicionales
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkOrange;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(3, 234);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(48, 225);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "<<";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAgregarAdicionales.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnAgregarAdicionales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregarAdicionales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarAdicionales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarAdicionales.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarAdicionales.Location = new System.Drawing.Point(3, 234);
+            this.btnAgregarAdicionales.Name = "btnAgregarAdicionales";
+            this.btnAgregarAdicionales.Size = new System.Drawing.Size(48, 225);
+            this.btnAgregarAdicionales.TabIndex = 4;
+            this.btnAgregarAdicionales.Text = "<<";
+            this.btnAgregarAdicionales.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
@@ -748,7 +751,7 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.45946F));
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.54054F));
             this.tableLayoutPanel9.Controls.Add(this.label6, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.maskedTextBox1, 1, 0);
+            this.tableLayoutPanel9.Controls.Add(this.txtCantidadAdicionales, 1, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 339);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
@@ -770,23 +773,23 @@
             this.label6.Text = "Cantidad:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // maskedTextBox1
+            // txtCantidadAdicionales
             // 
-            this.maskedTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox1.Location = new System.Drawing.Point(174, 3);
-            this.maskedTextBox1.Mask = "99999";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(112, 20);
-            this.maskedTextBox1.TabIndex = 2;
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox1.ValidatingType = typeof(int);
+            this.txtCantidadAdicionales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCantidadAdicionales.Location = new System.Drawing.Point(174, 3);
+            this.txtCantidadAdicionales.Mask = "99999";
+            this.txtCantidadAdicionales.Name = "txtCantidadAdicionales";
+            this.txtCantidadAdicionales.Size = new System.Drawing.Size(112, 20);
+            this.txtCantidadAdicionales.TabIndex = 2;
+            this.txtCantidadAdicionales.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantidadAdicionales.ValidatingType = typeof(int);
             // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel10.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.textBox3, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.txtObAdicionales, 0, 1);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 368);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -809,14 +812,14 @@
             this.label7.Text = "Observaciones";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // txtObAdicionales
             // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(3, 20);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(283, 68);
-            this.textBox3.TabIndex = 3;
+            this.txtObAdicionales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtObAdicionales.Location = new System.Drawing.Point(3, 20);
+            this.txtObAdicionales.Multiline = true;
+            this.txtObAdicionales.Name = "txtObAdicionales";
+            this.txtObAdicionales.Size = new System.Drawing.Size(283, 68);
+            this.txtObAdicionales.TabIndex = 3;
             // 
             // tbBebidas
             // 
@@ -861,7 +864,7 @@
             // 
             this.tableLayoutPanel13.ColumnCount = 1;
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel13.Controls.Add(this.button3, 0, 1);
+            this.tableLayoutPanel13.Controls.Add(this.btnAgregarBebidas, 0, 1);
             this.tableLayoutPanel13.Controls.Add(this.button4, 0, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel13.Location = new System.Drawing.Point(3, 3);
@@ -872,19 +875,19 @@
             this.tableLayoutPanel13.Size = new System.Drawing.Size(54, 462);
             this.tableLayoutPanel13.TabIndex = 6;
             // 
-            // button3
+            // btnAgregarBebidas
             // 
-            this.button3.BackColor = System.Drawing.Color.DarkOrange;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 234);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(48, 225);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "<<";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnAgregarBebidas.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnAgregarBebidas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregarBebidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarBebidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarBebidas.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarBebidas.Location = new System.Drawing.Point(3, 234);
+            this.btnAgregarBebidas.Name = "btnAgregarBebidas";
+            this.btnAgregarBebidas.Size = new System.Drawing.Size(48, 225);
+            this.btnAgregarBebidas.TabIndex = 4;
+            this.btnAgregarBebidas.Text = "<<";
+            this.btnAgregarBebidas.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
@@ -1045,7 +1048,7 @@
             // 
             this.tableLayoutPanel18.ColumnCount = 1;
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel18.Controls.Add(this.button5, 0, 1);
+            this.tableLayoutPanel18.Controls.Add(this.btnAgregarCombos, 0, 1);
             this.tableLayoutPanel18.Controls.Add(this.button6, 0, 0);
             this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel18.Location = new System.Drawing.Point(3, 3);
@@ -1056,19 +1059,19 @@
             this.tableLayoutPanel18.Size = new System.Drawing.Size(54, 462);
             this.tableLayoutPanel18.TabIndex = 6;
             // 
-            // button5
+            // btnAgregarCombos
             // 
-            this.button5.BackColor = System.Drawing.Color.DarkOrange;
-            this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(3, 234);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(48, 225);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "<<";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnAgregarCombos.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnAgregarCombos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregarCombos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCombos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCombos.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarCombos.Location = new System.Drawing.Point(3, 234);
+            this.btnAgregarCombos.Name = "btnAgregarCombos";
+            this.btnAgregarCombos.Size = new System.Drawing.Size(48, 225);
+            this.btnAgregarCombos.TabIndex = 4;
+            this.btnAgregarCombos.Text = "<<";
+            this.btnAgregarCombos.UseVisualStyleBackColor = false;
             // 
             // button6
             // 
@@ -1946,21 +1949,21 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAgregarAdicionales;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.ListBox lstAdicionales;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox txtCantidadAdicionales;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtObAdicionales;
         private System.Windows.Forms.TabPage tbBebidas;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAgregarBebidas;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private System.Windows.Forms.ListBox lstBebidas;
@@ -1974,7 +1977,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel18;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnAgregarCombos;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
         private System.Windows.Forms.ListBox lstCombos;

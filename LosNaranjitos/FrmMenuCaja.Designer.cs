@@ -32,7 +32,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAperturaCaja = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -45,11 +45,11 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.btnAperturaCaja, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnSalir, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.button1, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -87,22 +87,23 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // button3
+            // btnSalir
             // 
-            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button3.BackgroundImage = global::LosNaranjitos.Properties.Resources.salida;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(288, 6);
-            this.button3.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(267, 223);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Salir";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSalir.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSalir.BackgroundImage = global::LosNaranjitos.Properties.Resources.salida;
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Location = new System.Drawing.Point(288, 6);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(267, 223);
+            this.btnSalir.TabIndex = 7;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // button1
             // 
@@ -142,7 +143,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAperturaCaja;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
