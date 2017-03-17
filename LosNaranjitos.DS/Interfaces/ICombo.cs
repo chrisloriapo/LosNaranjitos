@@ -26,5 +26,7 @@ namespace LosNaranjitos.DS.Interfaces
 
         bool ExisteConsecutivo(string Consecutivo);
 
+        bool ExisteComboPorNombre(string Nombre);
+
     }
 }

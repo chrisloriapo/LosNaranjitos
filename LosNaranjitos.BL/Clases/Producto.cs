@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using LosNaranjitos.BL.Interfaces;
 
 namespace LosNaranjitos.BL.Clases
@@ -97,6 +98,12 @@ namespace LosNaranjitos.BL.Clases
                 item.Categoria = Utilitario.Decriptar(item.Categoria, Utilitario.Llave);
             }
             return ListaRetorno;
+        }
+
+        public bool ExisteProductoPorNombre(string Nombre)
+        {
+            Nombre = Utilitario.Encriptar(Nombre, Utilitario.Llave);
+            return ProductProcd.ExisteProductoPorNombre(Nombre);
         }
     }
 }

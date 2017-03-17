@@ -42,14 +42,14 @@ namespace LosNaranjitos
         {
             try
             {
-                var ConsecutivoSelected = Utilitarios.OpConsecutivo.ListarConsecutivos().Where(x => x.Tipo == cbbTipo.SelectedItem.ToString()).FirstOrDefault();
+                var ConsecutivoSelected = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo(cbbTipo.SelectedItem.ToString());
 
                 lbl1.Text = "Prefijo:";
-                lbl2.Text = "       " + ConsecutivoSelected.Prefijo;
+                lbl2.Text = ConsecutivoSelected.Prefijo;
                 lbl3.Text = "Descripción:";
-                lbl4.Text = "       " + ConsecutivoSelected.Tipo;
+                lbl4.Text =  ConsecutivoSelected.Tipo;
                 lbl5.Text = "Consecutivo Actual:";
-                lbl6.Text = "       " + ConsecutivoSelected.ConsecutivoActual;
+                lbl6.Text = ConsecutivoSelected.ConsecutivoActual.ToString() ;
 
             }
             catch (Exception ex)
@@ -63,7 +63,7 @@ namespace LosNaranjitos
         {
             try
             {
-                DATOS.Consecutivo Consecutivl = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo(cbbTipo.SelectedValue.ToString());
+                DATOS.Consecutivo Consecutivl = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo(cbbTipo.SelectedItem.ToString());
 
                 if (string.IsNullOrEmpty(txtNuevo.Text) || string.IsNullOrWhiteSpace(txtNuevo.Text))
                 {

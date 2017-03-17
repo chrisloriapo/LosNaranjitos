@@ -113,6 +113,38 @@ namespace LosNaranjitos.DS.Clases
             }
         }
 
+        public bool ExisteProductoPorNombre(string Nombre)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.Producto Us = db.Select<DATOS.Producto>(x => x.Nombre == Nombre).FirstOrDefault();
+
+                if (Us.Nombre == Nombre)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public void Inactivar(DATOS.Producto Product)
         {
             var conexion = _Conexion.CrearConexion();

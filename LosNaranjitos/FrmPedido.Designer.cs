@@ -84,10 +84,10 @@
             this.lstBebidas = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtCantBebidas = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtObBebidas = new System.Windows.Forms.TextBox();
             this.tbCombos = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
@@ -99,11 +99,11 @@
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
+            this.txtCantCombos = new System.Windows.Forms.MaskedTextBox();
             this.txtRefrescoCombo = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel25 = new System.Windows.Forms.TableLayoutPanel();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtObCombos = new System.Windows.Forms.TextBox();
             this.tbServicios = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel31 = new System.Windows.Forms.TableLayoutPanel();
@@ -121,12 +121,15 @@
             this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
             this.label20 = new System.Windows.Forms.Label();
             this.tableLayoutPanel30 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtOtro = new System.Windows.Forms.TextBox();
+            this.txtEfectivo = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtTarjeta = new System.Windows.Forms.TextBox();
+            this.chkTarjeta = new System.Windows.Forms.CheckBox();
+            this.chkEfectivo = new System.Windows.Forms.CheckBox();
+            this.chkOtro = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel37 = new System.Windows.Forms.TableLayoutPanel();
             this.btnBuscarOrden = new System.Windows.Forms.Button();
             this.btnPagar = new System.Windows.Forms.Button();
@@ -704,6 +707,7 @@
             this.btnAgregarAdicionales.TabIndex = 4;
             this.btnAgregarAdicionales.Text = "<<";
             this.btnAgregarAdicionales.UseVisualStyleBackColor = false;
+            this.btnAgregarAdicionales.Click += new System.EventHandler(this.btnAgregarAdicionales_Click);
             // 
             // button2
             // 
@@ -888,6 +892,7 @@
             this.btnAgregarBebidas.TabIndex = 4;
             this.btnAgregarBebidas.Text = "<<";
             this.btnAgregarBebidas.UseVisualStyleBackColor = false;
+            this.btnAgregarBebidas.Click += new System.EventHandler(this.btnAgregarBebidas_Click);
             // 
             // button4
             // 
@@ -935,7 +940,7 @@
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.45946F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.54054F));
             this.tableLayoutPanel15.Controls.Add(this.label9, 0, 0);
-            this.tableLayoutPanel15.Controls.Add(this.maskedTextBox2, 1, 0);
+            this.tableLayoutPanel15.Controls.Add(this.txtCantBebidas, 1, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 339);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
@@ -957,23 +962,23 @@
             this.label9.Text = "Cantidad:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // maskedTextBox2
+            // txtCantBebidas
             // 
-            this.maskedTextBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox2.Location = new System.Drawing.Point(174, 3);
-            this.maskedTextBox2.Mask = "99999";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(112, 20);
-            this.maskedTextBox2.TabIndex = 2;
-            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox2.ValidatingType = typeof(int);
+            this.txtCantBebidas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCantBebidas.Location = new System.Drawing.Point(174, 3);
+            this.txtCantBebidas.Mask = "99999";
+            this.txtCantBebidas.Name = "txtCantBebidas";
+            this.txtCantBebidas.Size = new System.Drawing.Size(112, 20);
+            this.txtCantBebidas.TabIndex = 2;
+            this.txtCantBebidas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantBebidas.ValidatingType = typeof(int);
             // 
             // tableLayoutPanel16
             // 
             this.tableLayoutPanel16.ColumnCount = 1;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel16.Controls.Add(this.label10, 0, 0);
-            this.tableLayoutPanel16.Controls.Add(this.textBox4, 0, 1);
+            this.tableLayoutPanel16.Controls.Add(this.txtObBebidas, 0, 1);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Location = new System.Drawing.Point(3, 368);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
@@ -996,14 +1001,14 @@
             this.label10.Text = "Observaciones";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox4
+            // txtObBebidas
             // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(3, 20);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(283, 68);
-            this.textBox4.TabIndex = 3;
+            this.txtObBebidas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtObBebidas.Location = new System.Drawing.Point(3, 20);
+            this.txtObBebidas.Multiline = true;
+            this.txtObBebidas.Name = "txtObBebidas";
+            this.txtObBebidas.Size = new System.Drawing.Size(283, 68);
+            this.txtObBebidas.TabIndex = 3;
             // 
             // tbCombos
             // 
@@ -1072,6 +1077,7 @@
             this.btnAgregarCombos.TabIndex = 4;
             this.btnAgregarCombos.Text = "<<";
             this.btnAgregarCombos.UseVisualStyleBackColor = false;
+            this.btnAgregarCombos.Click += new System.EventHandler(this.btnAgregarCombos_Click);
             // 
             // button6
             // 
@@ -1120,7 +1126,7 @@
             this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.54639F));
             this.tableLayoutPanel24.Controls.Add(this.label14, 0, 1);
             this.tableLayoutPanel24.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel24.Controls.Add(this.maskedTextBox3, 1, 0);
+            this.tableLayoutPanel24.Controls.Add(this.txtCantCombos, 1, 0);
             this.tableLayoutPanel24.Controls.Add(this.txtRefrescoCombo, 1, 1);
             this.tableLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel24.Location = new System.Drawing.Point(3, 301);
@@ -1157,16 +1163,16 @@
             this.label11.Text = "Cantidad:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // maskedTextBox3
+            // txtCantCombos
             // 
-            this.maskedTextBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.maskedTextBox3.Location = new System.Drawing.Point(143, 3);
-            this.maskedTextBox3.Mask = "99999";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(143, 20);
-            this.maskedTextBox3.TabIndex = 2;
-            this.maskedTextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox3.ValidatingType = typeof(int);
+            this.txtCantCombos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCantCombos.Location = new System.Drawing.Point(143, 3);
+            this.txtCantCombos.Mask = "99999";
+            this.txtCantCombos.Name = "txtCantCombos";
+            this.txtCantCombos.Size = new System.Drawing.Size(143, 20);
+            this.txtCantCombos.TabIndex = 2;
+            this.txtCantCombos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCantCombos.ValidatingType = typeof(int);
             // 
             // txtRefrescoCombo
             // 
@@ -1182,7 +1188,7 @@
             this.tableLayoutPanel25.ColumnCount = 1;
             this.tableLayoutPanel25.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel25.Controls.Add(this.label13, 0, 0);
-            this.tableLayoutPanel25.Controls.Add(this.textBox5, 0, 1);
+            this.tableLayoutPanel25.Controls.Add(this.txtObCombos, 0, 1);
             this.tableLayoutPanel25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel25.Location = new System.Drawing.Point(3, 368);
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
@@ -1205,14 +1211,14 @@
             this.label13.Text = "Observaciones";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox5
+            // txtObCombos
             // 
-            this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox5.Location = new System.Drawing.Point(3, 20);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(283, 68);
-            this.textBox5.TabIndex = 3;
+            this.txtObCombos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtObCombos.Location = new System.Drawing.Point(3, 20);
+            this.txtObCombos.Multiline = true;
+            this.txtObCombos.Name = "txtObCombos";
+            this.txtObCombos.Size = new System.Drawing.Size(283, 68);
+            this.txtObCombos.TabIndex = 3;
             // 
             // tbServicios
             // 
@@ -1443,43 +1449,50 @@
             // 
             // tableLayoutPanel30
             // 
-            this.tableLayoutPanel30.ColumnCount = 2;
-            this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.74459F));
-            this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.25541F));
-            this.tableLayoutPanel30.Controls.Add(this.textBox9, 1, 2);
-            this.tableLayoutPanel30.Controls.Add(this.textBox8, 1, 1);
+            this.tableLayoutPanel30.ColumnCount = 3;
+            this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55F));
+            this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel30.Controls.Add(this.txtOtro, 1, 2);
+            this.tableLayoutPanel30.Controls.Add(this.txtEfectivo, 1, 1);
             this.tableLayoutPanel30.Controls.Add(this.label22, 0, 2);
             this.tableLayoutPanel30.Controls.Add(this.label23, 0, 1);
             this.tableLayoutPanel30.Controls.Add(this.label24, 0, 0);
-            this.tableLayoutPanel30.Controls.Add(this.textBox6, 1, 0);
+            this.tableLayoutPanel30.Controls.Add(this.txtTarjeta, 1, 0);
+            this.tableLayoutPanel30.Controls.Add(this.chkTarjeta, 2, 0);
+            this.tableLayoutPanel30.Controls.Add(this.chkEfectivo, 2, 1);
+            this.tableLayoutPanel30.Controls.Add(this.chkOtro, 2, 2);
             this.tableLayoutPanel30.Location = new System.Drawing.Point(3, 27);
             this.tableLayoutPanel30.Name = "tableLayoutPanel30";
             this.tableLayoutPanel30.RowCount = 3;
-            this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel30.Size = new System.Drawing.Size(462, 107);
             this.tableLayoutPanel30.TabIndex = 3;
             // 
-            // textBox9
+            // txtOtro
             // 
-            this.textBox9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox9.Location = new System.Drawing.Point(182, 73);
-            this.textBox9.MaxLength = 15;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(277, 20);
-            this.textBox9.TabIndex = 9;
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtOtro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtOtro.Location = new System.Drawing.Point(164, 73);
+            this.txtOtro.MaxLength = 15;
+            this.txtOtro.Name = "txtOtro";
+            this.txtOtro.Size = new System.Drawing.Size(248, 20);
+            this.txtOtro.TabIndex = 9;
+            this.txtOtro.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtOtro.Visible = false;
+            this.txtOtro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtOtro_KeyPress);
             // 
-            // textBox8
+            // txtEfectivo
             // 
-            this.textBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox8.Location = new System.Drawing.Point(182, 38);
-            this.textBox8.MaxLength = 15;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(277, 20);
-            this.textBox8.TabIndex = 8;
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEfectivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtEfectivo.Location = new System.Drawing.Point(164, 38);
+            this.txtEfectivo.MaxLength = 15;
+            this.txtEfectivo.Name = "txtEfectivo";
+            this.txtEfectivo.Size = new System.Drawing.Size(248, 20);
+            this.txtEfectivo.TabIndex = 8;
+            this.txtEfectivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEfectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEfectivo_KeyPress);
             // 
             // label22
             // 
@@ -1489,7 +1502,7 @@
             this.label22.ForeColor = System.Drawing.Color.OrangeRed;
             this.label22.Location = new System.Drawing.Point(3, 70);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(173, 37);
+            this.label22.Size = new System.Drawing.Size(155, 37);
             this.label22.TabIndex = 4;
             this.label22.Text = "Otro:";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1502,7 +1515,7 @@
             this.label23.ForeColor = System.Drawing.Color.OrangeRed;
             this.label23.Location = new System.Drawing.Point(3, 35);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(173, 35);
+            this.label23.Size = new System.Drawing.Size(155, 35);
             this.label23.TabIndex = 3;
             this.label23.Text = "Efectivo:";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1515,20 +1528,63 @@
             this.label24.ForeColor = System.Drawing.Color.OrangeRed;
             this.label24.Location = new System.Drawing.Point(3, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(173, 35);
+            this.label24.Size = new System.Drawing.Size(155, 35);
             this.label24.TabIndex = 6;
             this.label24.Text = "Tarjeta:";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox6
+            // txtTarjeta
             // 
-            this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Location = new System.Drawing.Point(182, 3);
-            this.textBox6.MaxLength = 15;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(277, 20);
-            this.textBox6.TabIndex = 7;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTarjeta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTarjeta.Location = new System.Drawing.Point(164, 3);
+            this.txtTarjeta.MaxLength = 15;
+            this.txtTarjeta.Name = "txtTarjeta";
+            this.txtTarjeta.Size = new System.Drawing.Size(248, 20);
+            this.txtTarjeta.TabIndex = 7;
+            this.txtTarjeta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTarjeta.Visible = false;
+            this.txtTarjeta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTarjeta_KeyPress);
+            // 
+            // chkTarjeta
+            // 
+            this.chkTarjeta.AutoSize = true;
+            this.chkTarjeta.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkTarjeta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkTarjeta.Location = new System.Drawing.Point(418, 3);
+            this.chkTarjeta.Name = "chkTarjeta";
+            this.chkTarjeta.Size = new System.Drawing.Size(41, 29);
+            this.chkTarjeta.TabIndex = 10;
+            this.chkTarjeta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkTarjeta.UseVisualStyleBackColor = true;
+            this.chkTarjeta.CheckedChanged += new System.EventHandler(this.chkTarjeta_CheckedChanged);
+            // 
+            // chkEfectivo
+            // 
+            this.chkEfectivo.AutoSize = true;
+            this.chkEfectivo.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkEfectivo.Checked = true;
+            this.chkEfectivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkEfectivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkEfectivo.Location = new System.Drawing.Point(418, 38);
+            this.chkEfectivo.Name = "chkEfectivo";
+            this.chkEfectivo.Size = new System.Drawing.Size(41, 29);
+            this.chkEfectivo.TabIndex = 11;
+            this.chkEfectivo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkEfectivo.UseVisualStyleBackColor = true;
+            this.chkEfectivo.CheckedChanged += new System.EventHandler(this.chkEfectivo_CheckedChanged);
+            // 
+            // chkOtro
+            // 
+            this.chkOtro.AutoSize = true;
+            this.chkOtro.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkOtro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkOtro.Location = new System.Drawing.Point(418, 73);
+            this.chkOtro.Name = "chkOtro";
+            this.chkOtro.Size = new System.Drawing.Size(41, 31);
+            this.chkOtro.TabIndex = 12;
+            this.chkOtro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkOtro.UseVisualStyleBackColor = true;
+            this.chkOtro.CheckedChanged += new System.EventHandler(this.chkOtro_CheckedChanged);
             // 
             // tableLayoutPanel37
             // 
@@ -1578,6 +1634,7 @@
             this.btnDescartar.TabIndex = 1;
             this.btnDescartar.Text = "DescartarOrden";
             this.btnDescartar.UseVisualStyleBackColor = true;
+            this.btnDescartar.Click += new System.EventHandler(this.btnDescartar_Click);
             // 
             // btnSometerOrden
             // 
@@ -1588,6 +1645,7 @@
             this.btnSometerOrden.TabIndex = 0;
             this.btnSometerOrden.Text = "Someter Orden";
             this.btnSometerOrden.UseVisualStyleBackColor = true;
+            this.btnSometerOrden.Click += new System.EventHandler(this.btnSometerOrden_Click);
             // 
             // tableLayoutPanel27
             // 
@@ -1969,10 +2027,10 @@
         private System.Windows.Forms.ListBox lstBebidas;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox txtCantBebidas;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtObBebidas;
         private System.Windows.Forms.TabPage tbCombos;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel17;
@@ -1984,11 +2042,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel24;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
+        private System.Windows.Forms.MaskedTextBox txtCantCombos;
         private System.Windows.Forms.TextBox txtRefrescoCombo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel25;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtObCombos;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel26;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel27;
         private System.Windows.Forms.Label label15;
@@ -2009,12 +2067,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel29;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel30;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtOtro;
+        private System.Windows.Forms.TextBox txtEfectivo;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtTarjeta;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel37;
         private System.Windows.Forms.Button btnBuscarOrden;
         private System.Windows.Forms.Button btnPagar;
@@ -2036,5 +2094,8 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cbbCliente;
+        private System.Windows.Forms.CheckBox chkTarjeta;
+        private System.Windows.Forms.CheckBox chkEfectivo;
+        private System.Windows.Forms.CheckBox chkOtro;
     }
 }

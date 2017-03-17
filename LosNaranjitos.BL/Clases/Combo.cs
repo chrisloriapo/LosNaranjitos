@@ -97,5 +97,11 @@ namespace LosNaranjitos.BL.Clases
             }
             return ListaRetorno;
         }
+
+        public bool ExisteComboPorNombre(string Nombre)
+        {
+            Nombre = Utilitario.Encriptar(Nombre, Utilitario.Llave);
+            return Cprocedimientos.ExisteComboPorNombre(Nombre);
+        }
     }
 }
