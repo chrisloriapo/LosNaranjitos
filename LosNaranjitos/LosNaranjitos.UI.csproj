@@ -105,6 +105,12 @@
     <Compile Include="FrmBitacora.Designer.cs">
       <DependentUpon>FrmBitacora.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCambioCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCambioCaja.Designer.cs">
+      <DependentUpon>FrmCambioCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCargas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +207,12 @@
     <Compile Include="FrmErrores.Designer.cs">
       <DependentUpon>FrmErrores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGestionOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionOrden.Designer.cs">
+      <DependentUpon>FrmGestionOrden.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +294,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Utilitarios.cs" />
     <EmbeddedResource Include="CrystalReport1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -295,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBitacora.resx">
       <DependentUpon>FrmBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCambioCaja.resx">
+      <DependentUpon>FrmCambioCaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCargas.resx">
       <DependentUpon>FrmCargas.cs</DependentUpon>
@@ -344,6 +364,9 @@
     <EmbeddedResource Include="FrmErrores.resx">
       <DependentUpon>FrmErrores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmGestionOrden.resx">
+      <DependentUpon>FrmGestionOrden.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,17 +408,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="OrangeDB1DataSet.xsc">
-      <DependentUpon>OrangeDB1DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="OrangeDB1DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>OrangeDB1DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="OrangeDB1DataSet.xss">
-      <DependentUpon>OrangeDB1DataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -423,7 +435,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="OrangeDB1DataSet.xsc">
+      <DependentUpon>OrangeDB1DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="OrangeDB1DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OrangeDB1DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="OrangeDB1DataSet.xss">
+      <DependentUpon>OrangeDB1DataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Resources\Logo1.jpeg" />
   </ItemGroup>
   <ItemGroup>

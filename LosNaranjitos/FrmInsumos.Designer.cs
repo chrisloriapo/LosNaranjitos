@@ -110,7 +110,7 @@
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.vProveedorInsumoBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.vProveedor_InsumoTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.VProveedor_InsumoTableAdapter();
+            //this.vProveedor_InsumoTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.VProveedor_InsumoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSetBindingSource)).BeginInit();
@@ -1160,7 +1160,7 @@
             // 
             // vProveedor_InsumoTableAdapter
             // 
-            this.vProveedor_InsumoTableAdapter.ClearBeforeFill = true;
+            //this.vProveedor_InsumoTableAdapter.ClearBeforeFill = true;
             // 
             // FrmInsumos
             // 
@@ -1227,7 +1227,7 @@
         private System.Windows.Forms.BindingSource orangeDB1DataSetBindingSource;
         private OrangeDB1DataSet orangeDB1DataSet;
         private System.Windows.Forms.BindingSource vProveedorInsumoBindingSource;
-        private OrangeDB1DataSetTableAdapters.VProveedor_InsumoTableAdapter vProveedor_InsumoTableAdapter;
+        //private OrangeDB1DataSetTableAdapters.VProveedor_InsumoTableAdapter vProveedor_InsumoTableAdapter;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TabControl tbcInsumos;

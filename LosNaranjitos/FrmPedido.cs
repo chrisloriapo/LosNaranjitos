@@ -281,13 +281,23 @@ namespace LosNaranjitos
         {
             if (chkExpress.Checked)
             {
-                txtObservacionesExpress.Visible = true;
+                if ((OrdenDetalle.Find(x => x.Producto == "Servicio Express") != null))
+                {
+                    MessageBox.Show("Ya Existe Un Servicio Express definido para la orden en curso", "No puedes Agregar dos servicios Express", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+                }
+                txtDireccion.Visible = true;
                 txtPrecioExpress.Visible = true;
+                txtTelefono.Visible = true;
+                btnExpress.Visible = true;
             }
             else
             {
-                txtObservacionesExpress.Visible = false;
+                txtDireccion.Visible = false;
                 txtPrecioExpress.Visible = false;
+                txtTelefono.Visible = false;
+                btnExpress.Visible = false;
             }
         }
 
@@ -342,11 +352,11 @@ namespace LosNaranjitos
                         DetailPP.IdOrden = lblConsecutivo.Text;
                         if (string.IsNullOrEmpty(txtObservacionesPP.Text) || string.IsNullOrWhiteSpace(txtObservacionesPP.Text))
                         {
-                            DetailPP.ObservacionesDT = null;
+                            DetailPP.ObservacionesDT = " ";
                         }
                         else
                         {
-                            DetailPP.ObservacionesDT = " "+txtObservacionesPP.Text;
+                            DetailPP.ObservacionesDT = " " + txtObservacionesPP.Text;
                         }
                         if (string.IsNullOrEmpty(txtCantidadPPrincipales.Text) || string.IsNullOrWhiteSpace(txtCantidadPPrincipales.Text) || txtCantidadPPrincipales.Text == "1")
                         {
@@ -472,7 +482,7 @@ namespace LosNaranjitos
                         DetailPP.IdOrden = lblConsecutivo.Text;
                         if (string.IsNullOrEmpty(txtObAdicionales.Text) || string.IsNullOrWhiteSpace(txtObAdicionales.Text))
                         {
-                            DetailPP.ObservacionesDT = " " ;
+                            DetailPP.ObservacionesDT = " ";
                         }
                         else
                         {
@@ -566,7 +576,7 @@ namespace LosNaranjitos
                         DetailPP.IdOrden = lblConsecutivo.Text;
                         if (string.IsNullOrEmpty(txtObBebidas.Text) || string.IsNullOrWhiteSpace(txtObBebidas.Text))
                         {
-                            DetailPP.ObservacionesDT = " " ;
+                            DetailPP.ObservacionesDT = " ";
                         }
                         else
                         {
@@ -660,11 +670,11 @@ namespace LosNaranjitos
                         DetailPP.IdOrden = lblConsecutivo.Text;
                         if (string.IsNullOrEmpty(txtObCombos.Text) || string.IsNullOrWhiteSpace(txtObCombos.Text))
                         {
-                            DetailPP.ObservacionesDT = null;
+                            DetailPP.ObservacionesDT = " ";
                         }
                         else
                         {
-                            DetailPP.ObservacionesDT = txtObCombos.Text;
+                            DetailPP.ObservacionesDT = " " + txtObCombos.Text;
                         }
                         if (string.IsNullOrEmpty(txtCantCombos.Text) || string.IsNullOrWhiteSpace(txtCantCombos.Text) || txtCantCombos.Text == "1")
                         {
@@ -713,7 +723,7 @@ namespace LosNaranjitos
                                       MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                var mensaje = MessageBox.Show("¿Desea Someter la orden " + lblConsecutivo.Text + "  al sistema?", "Advertencia",
+                var mensaje = MessageBox.Show("¿ Desea Someter la orden " + lblConsecutivo.Text + "  al sistema?", "Advertencia",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (mensaje == DialogResult.Yes)
@@ -737,6 +747,10 @@ namespace LosNaranjitos
                             DetalleSoporte.Producto = newitem.Codigo.ToString();
                             ListaSoporte.Add(DetalleSoporte);
                         }
+                        else if (item.Producto == "Servicio Express")
+                        {
+                            ListaSoporte.Add(item);
+                        }
                         else
                         {
                             var newitem = Utilitarios.OpCombo.BuscarComboPorNombre(item.Producto);
@@ -745,7 +759,7 @@ namespace LosNaranjitos
                             ListaSoporte.Add(DetalleSoporte);
                         }
                     }
-                    for (int i = 0; i < ListaSoporte.Count - 1; i++)
+                    for (int i = 0; i < ListaSoporte.Count; i++)
                     {
                         Utilitarios.OpDetallePedido.AgregarDetalle(ListaSoporte[i]);
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Producto perteneciente a la orden  " + lblConsecutivo.Text + " Agregado a pendientes, Orden Aun NO cancelada");
@@ -859,5 +873,204 @@ namespace LosNaranjitos
                 MessageBox.Show("Digita unicamente numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnExpress_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtTelefono.Text) || string.IsNullOrWhiteSpace(txtTelefono.Text) || txtTelefono.Text == "    -")
+                {
+                    MessageBox.Show("Digita el numero de contacto para este servicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtTelefono.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(txtDireccion.Text) || string.IsNullOrWhiteSpace(txtDireccion.Text))
+                {
+                    MessageBox.Show("Digita la Direccion del contacto para este servicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtDireccion.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(txtPrecioExpress.Text) || string.IsNullOrWhiteSpace(txtPrecioExpress.Text))
+                {
+                    MessageBox.Show("Digita el precio del servicio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPrecioExpress.Focus();
+                    return;
+                }
+
+                DetallePedido DetailPP = new DetallePedido();
+
+                DetailPP.Producto = "Servicio Express";
+                DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
+                DetailPP.IdOrden = lblConsecutivo.Text;
+                DetailPP.ObservacionesDT = "Telefono: " + txtTelefono.Text + " Direccion: " + txtDireccion.Text;
+                DetailPP.Cantidad = 1;
+                DetailPP.SubTotal = Convert.ToDecimal(txtPrecioExpress.Text);
+                OrdenDetalle.Add(DetailPP);
+                NuevaOrden.Subtotal = NuevaOrden.Subtotal + DetailPP.SubTotal;
+                decimal impuesto = (NuevaOrden.Subtotal * Convert.ToDecimal(0.13));
+                lblImpuesto.Text = impuesto.ToString();
+                lblServiciosAd.Text = DetailPP.SubTotal.ToString();
+                lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString();
+                lblTotal.Text = NuevaOrden.Subtotal.ToString();
+                txtTelefono.Clear();
+                txtPrecioExpress.Clear();
+                txtDireccion.Clear();
+                chkExpress.Checked = false;
+
+            }
+            catch (Exception ex)
+            {
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Caja al Agregar Servicio Express a Orden");
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtPrecioExpress_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Utilitarios.EsNumerico(e.KeyChar.ToString()))
+            {
+                this.txtPrecioExpress.Clear();
+                e.Handled = true;
+                MessageBox.Show("Digita unicamente numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            if (OrdenDetalle.Count == 0)
+            {
+                MessageBox.Show("Debes Agregar Productos a la Orden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!chkEfectivo.Checked && !chkTarjeta.Checked && !chkOtro.Checked)
+            {
+                MessageBox.Show("Debes seleccionar al menos un metodo de Pago", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (chkEfectivo.Checked && (string.IsNullOrEmpty(txtEfectivo.Text) || string.IsNullOrWhiteSpace(txtEfectivo.Text)))
+            {
+                MessageBox.Show("Digita el monto a Pagar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtEfectivo.Focus();
+                return;
+            }
+            if (chkTarjeta.Checked && (string.IsNullOrEmpty(txtTarjeta.Text) || string.IsNullOrWhiteSpace(txtTarjeta.Text)))
+            {
+                MessageBox.Show("Digita el monto a Pagar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTarjeta.Focus();
+                return;
+            }
+            if (chkOtro.Checked && (string.IsNullOrEmpty(txtOtro.Text) || string.IsNullOrWhiteSpace(txtOtro.Text)))
+            {
+                MessageBox.Show("Digita el monto a Pagar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtOtro.Focus();
+                return;
+            }
+            try
+            {
+
+                var mensaje = MessageBox.Show("¿ Desea Someter  y Pagar la orden " + lblConsecutivo.Text + "?", "Advertencia",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (mensaje == DialogResult.Yes)
+                {
+                    decimal MontoDigitado, Otro, Tarjeta, Efectivo = 0;
+                    if (chkTarjeta.Checked)
+                    {
+                        Tarjeta = Convert.ToDecimal(txtTarjeta.Text);
+                    }
+                    else
+                    {
+                        Tarjeta = 0;
+                    }
+                    if (chkEfectivo.Checked)
+                    {
+                        Efectivo = Convert.ToDecimal(txtEfectivo.Text);
+                    }
+                    else
+                    {
+                        Efectivo = 0;
+                    }
+                    if (chkOtro.Checked)
+                    {
+                        Otro = Convert.ToDecimal(txtOtro.Text);
+                    }
+                    else
+                    {
+                        Otro = 0;
+                    }
+                    MontoDigitado = Otro + Tarjeta + Efectivo;
+
+                    if (MontoDigitado < NuevaOrden.Subtotal)
+                    {
+                        MessageBox.Show("Digita el monto a Pagar correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    Consecutivo Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("PDD");
+                    NuevaOrden.Activo = true;
+                    NuevaOrden.Cancelado = true;
+                    Utilitarios.OpPedidos.AgregarPedido(NuevaOrden);
+                    Consec.ConsecutivoActual = Consec.ConsecutivoActual + 1;
+                    Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblConsecutivo.Text + " Agregada a pendientes, Orden cancelada");
+                    List<DetallePedido> ListaSoporte = new List<DetallePedido>();
+                    foreach (var item in OrdenDetalle)
+                    {
+
+                        if (Utilitarios.OpProducto.ExisteProductoPorNombre(item.Producto))
+                        {
+
+                            var newitem = Utilitarios.OpProducto.BuscarProductoPorNombre(item.Producto);
+                            DetallePedido DetalleSoporte = item;
+                            DetalleSoporte.Producto = newitem.Codigo.ToString();
+                            ListaSoporte.Add(DetalleSoporte);
+                        }
+                        else if (item.Producto == "Servicio Express")
+                        {
+                            ListaSoporte.Add(item);
+                        }
+                        else
+                        {
+                            var newitem = Utilitarios.OpCombo.BuscarComboPorNombre(item.Producto);
+                            DetallePedido DetalleSoporte = item;
+                            DetalleSoporte.Producto = newitem.Codigo.ToString();
+                            ListaSoporte.Add(DetalleSoporte);
+                        }
+                    }
+                    for (int i = 0; i < ListaSoporte.Count; i++)
+                    {
+                        Utilitarios.OpDetallePedido.AgregarDetalle(ListaSoporte[i]);
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Producto perteneciente a la orden  " + lblConsecutivo.Text + " Agregado a pendientes, Orden cancelada");
+                    }
+                    Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("DPD");
+                    Consec.ConsecutivoActual = Consec.ConsecutivoActual + OrdenDetalle.Count();
+                    Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
+                    OrdenDetalle.Clear();
+                    lblImpuesto.Text = "";
+                    lblTotal.Text = "";
+                    lblServiciosAd.Text = "";
+                    lblSubtotal.Text = "";
+                    txtTarjeta.Clear();
+                    txtOtro.Clear();
+                    txtEfectivo.Clear();
+                    chkTarjeta.Checked = false;
+                    FrmCambioCaja a = new FrmCambioCaja();
+                    FrmCambioCaja.CambioShow = (MontoDigitado - NuevaOrden.Subtotal).ToString();
+                    a.Show();
+                    this.FrmPedido_Load(sender, e);
+
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Caja al Someter y pagar la Orden");
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
+

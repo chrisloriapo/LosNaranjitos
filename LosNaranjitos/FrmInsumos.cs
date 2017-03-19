@@ -272,12 +272,9 @@ namespace LosNaranjitos
         {
             try
             {
-                var ListaLocal = new DataTable();
+                var ListaLocal = Utilitarios.OpInsumos.ListarInsumos();
 
-                foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
-                {
-                    ListaLocal.ImportRow(item);
-                }
+
                 var autosearch = new AutoCompleteStringCollection();
                 txtBuscar.AutoCompleteCustomSource = autosearch;
                 txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -287,23 +284,11 @@ namespace LosNaranjitos
                 {
                     case "Codigo":
                         ListaLocal.Clear();
-                        foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
-                        {
-                            if (item.IdInsumo == txtBuscar.Text)
-                            {
-                                ListaLocal.ImportRow(item);
-                            }
-                        }
+                      var  ListaLocalx = ListaLocal.Select(x => x.IdInsumo).ToList();
                         break;
                     case "Proveedor":
                         ListaLocal.Clear();
-                        foreach (var item in orangeDB1DataSet.VProveedor_Insumo)
-                        {
-                            if (item.Proveedor == txtBuscar.Text)
-                            {
-                                ListaLocal.ImportRow(item);
-                            }
-                        }
+                        ListaLocalx = ListaLocal.Select(x => x.Proveedor).ToList();
                         break;
                 }
                 txtBuscar.AutoCompleteCustomSource = autosearch;

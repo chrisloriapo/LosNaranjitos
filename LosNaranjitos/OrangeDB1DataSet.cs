@@ -4,8 +4,9 @@
 
     partial class OrangeDB1DataSet
     {
-        partial class VProveedor_InsumoDataTable
+        partial class BitacoraDataTable
         {
+
         }
     }
 }
@@ -13,6 +14,8 @@
 namespace LosNaranjitos.OrangeDB1DataSetTableAdapters {
     
     
-    public partial class VProveedor_InsumoTableAdapter {
+    public partial class BitacoraTableAdapter {
+ 
+
     }
 }
