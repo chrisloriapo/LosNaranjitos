@@ -51,6 +51,13 @@ namespace LosNaranjitos.DS.Clases
             return BuscProd;
         }
 
+        public void EliminarDetalleDeOrden(DATOS.DetallePedido Detalle)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            db.Delete(Detalle);
+        }
+
         public bool ExisteConsecutivo(string Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();

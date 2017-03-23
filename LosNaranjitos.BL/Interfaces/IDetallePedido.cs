@@ -24,5 +24,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         bool ExisteConsecutivo(string Consecutivo);
 
+        void EliminarDetalleDeOrden(DATOS.DetallePedido Detalle);
+
     }
 }

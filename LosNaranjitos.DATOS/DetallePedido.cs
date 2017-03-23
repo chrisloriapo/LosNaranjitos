@@ -11,16 +11,15 @@ namespace LosNaranjitos.DATOS
 
     public class DetallePedido
     {
-        
-        [PrimaryKey]
+
         public string IdOrden { get; set; }
-        
+
         public string Producto { get; set; }
-        
+
         public int Cantidad { get; set; }
-        
+
         public decimal SubTotal { get; set; }
-        
+        [PrimaryKey]
         public string Consecutivo { get; set; }
 
         public string ObservacionesDT { get; set; }

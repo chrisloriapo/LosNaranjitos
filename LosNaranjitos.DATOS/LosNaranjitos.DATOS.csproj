@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bitacora.cs" />
+    <Compile Include="Caja.cs" />
     <Compile Include="Cargas.cs" />
     <Compile Include="CategoriaProductos.cs" />
     <Compile Include="Cierre.cs" />

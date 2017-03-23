@@ -10,7 +10,7 @@ namespace LosNaranjitos.DATOS
     public class Pedido
     {
         [PrimaryKey]
-        
+
         public string Consecutivo { get; set; }
 
         public string IdCliente { get; set; }
@@ -21,11 +21,19 @@ namespace LosNaranjitos.DATOS
 
         public string Operador { get; set; }
 
+        public decimal MontoTarjeta { get; set; }
+
+        public decimal MontoEfectivo { get; set; }
+
+        public decimal MontoOtro { get; set; }
+
         public decimal Subtotal { get; set; }
+
+        public bool Cancelado { get; set; }
 
         public bool Activo { get; set; }
 
-        public bool Cancelado { get; set; }
+        public bool Cerrado { get; set; }
 
     }
 

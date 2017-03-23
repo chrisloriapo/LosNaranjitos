@@ -99,6 +99,12 @@
     <Compile Include="FrmAbout.Designer.cs">
       <DependentUpon>FrmAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAutorizacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAutorizacion.Designer.cs">
+      <DependentUpon>FrmAutorizacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBitacora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +243,12 @@
     <Compile Include="FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmModificarOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModificarOrden.Designer.cs">
+      <DependentUpon>FrmModificarOrden.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPedido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbout.resx">
       <DependentUpon>FrmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAutorizacion.resx">
+      <DependentUpon>FrmAutorizacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBitacora.resx">
       <DependentUpon>FrmBitacora.cs</DependentUpon>
@@ -387,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCombo.resx">
       <DependentUpon>FrmCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModificarOrden.resx">
+      <DependentUpon>FrmModificarOrden.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPedido.resx">
       <DependentUpon>FrmPedido.cs</DependentUpon>

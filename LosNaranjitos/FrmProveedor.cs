@@ -26,7 +26,7 @@ namespace LosNaranjitos
         {
             try
             {
-                if (Utilitarios.Cambio == false)
+                if (!Utilitarios.Cambio)
                 {
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();

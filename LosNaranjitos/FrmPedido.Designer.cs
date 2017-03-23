@@ -131,9 +131,9 @@
             this.chkOtro = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel37 = new System.Windows.Forms.TableLayoutPanel();
             this.btnBuscarOrden = new System.Windows.Forms.Button();
+            this.btnSometerOrden = new System.Windows.Forms.Button();
             this.btnPagar = new System.Windows.Forms.Button();
             this.btnDescartar = new System.Windows.Forms.Button();
-            this.btnSometerOrden = new System.Windows.Forms.Button();
             this.tableLayoutPanel27 = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
             this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
@@ -1592,6 +1592,18 @@
             this.btnBuscarOrden.TabIndex = 3;
             this.btnBuscarOrden.Text = "Gestionar Orden";
             this.btnBuscarOrden.UseVisualStyleBackColor = true;
+            this.btnBuscarOrden.Click += new System.EventHandler(this.btnBuscarOrden_Click);
+            // 
+            // btnSometerOrden
+            // 
+            this.btnSometerOrden.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSometerOrden.Location = new System.Drawing.Point(3, 3);
+            this.btnSometerOrden.Name = "btnSometerOrden";
+            this.btnSometerOrden.Size = new System.Drawing.Size(225, 21);
+            this.btnSometerOrden.TabIndex = 0;
+            this.btnSometerOrden.Text = "Someter Orden";
+            this.btnSometerOrden.UseVisualStyleBackColor = true;
+            this.btnSometerOrden.Click += new System.EventHandler(this.btnSometerOrden_Click);
             // 
             // btnPagar
             // 
@@ -1614,17 +1626,6 @@
             this.btnDescartar.Text = "Descartar Orden en Curso";
             this.btnDescartar.UseVisualStyleBackColor = true;
             this.btnDescartar.Click += new System.EventHandler(this.btnDescartar_Click);
-            // 
-            // btnSometerOrden
-            // 
-            this.btnSometerOrden.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSometerOrden.Location = new System.Drawing.Point(3, 3);
-            this.btnSometerOrden.Name = "btnSometerOrden";
-            this.btnSometerOrden.Size = new System.Drawing.Size(225, 21);
-            this.btnSometerOrden.TabIndex = 0;
-            this.btnSometerOrden.Text = "Someter Orden";
-            this.btnSometerOrden.UseVisualStyleBackColor = true;
-            this.btnSometerOrden.Click += new System.EventHandler(this.btnSometerOrden_Click);
             // 
             // tableLayoutPanel27
             // 

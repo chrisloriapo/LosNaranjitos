@@ -1175,9 +1175,9 @@
             this.Text = "Soda Los Naranjitos";
             this.Load += new System.EventHandler(this.FrmInsumos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSet)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.vProveedorInsumoBindingSource)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSetBindingSource)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.orangeDB1DataSet)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

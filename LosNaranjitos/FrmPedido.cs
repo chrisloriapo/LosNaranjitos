@@ -27,6 +27,16 @@ namespace LosNaranjitos
         private void tmerTiempo_Tick(object sender, EventArgs e)
         {
             lblTime.Text = DateTime.Now.ToString();
+            var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Where(x => x.Activo || !x.Cancelado).ToList().Select(a => new
+            {
+                a.Consecutivo,
+                a.IdCliente,
+                a.Fecha,
+                a.Subtotal,
+                a.Cancelado,
+                a.Activo,
+            }).ToList();
+            dgvPendientes.DataSource = ListaLocal;
             dgvPendientes.Refresh();
             dgvOrden.DataSource = OrdenDetalle.Select(a => new
             {
@@ -49,16 +59,7 @@ namespace LosNaranjitos
             try
             {
                 //Carga de datos  ListBoxes y datagrids
-                var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Where(x => x.Activo || !x.Cancelado).ToList().Select(a => new
-                {
-                    a.Consecutivo,
-                    a.IdCliente,
-                    a.Fecha,
-                    a.Subtotal,
-                    a.Cancelado,
-                    a.Activo,
-                }).ToList();
-                dgvPendientes.DataSource = ListaLocal;
+           
                 lstProductosPrincipales.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == "CTP-1" && x.Activo).Select(x => x.Nombre).ToList();
                 lstAdicionales.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == "CTP-2" || x.Categoria == "CTP-4" && x.Activo).Select(x => x.Nombre).ToList();
                 lstBebidas.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == "CTP-3" && x.Activo).Select(x => x.Nombre).ToList();
@@ -98,7 +99,7 @@ namespace LosNaranjitos
                         btnSometerOrden.Enabled = false;
                         tbProductosVenta.Enabled = false;
                     }
-                    cbbCliente.DataSource = Utilitarios.OpClientes.ListarClientes().Select(x => x.IdPersonal).ToList();
+                    cbbCliente.DataSource = Utilitarios.OpClientes.ListarClientes().OrderBy(x=>x.IdPersonal).Select(x => x.IdPersonal).ToList();
                     lblConsecutivo.Text = UltimoPedido.Consecutivo;
 
                     //Validacion Consecutivos Detalles de Ordenes
@@ -1070,6 +1071,20 @@ namespace LosNaranjitos
                 Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Caja al Someter y pagar la Orden");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnBuscarOrden_Click(object sender, EventArgs e)
+        {
+            FrmGestionOrden a = new FrmGestionOrden();
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(FrmMenuPrincipal))
+                {
+                    a.MdiParent = FrmLogin.MN;
+                }
+            }
+            a.Show();
+
         }
     }
 }

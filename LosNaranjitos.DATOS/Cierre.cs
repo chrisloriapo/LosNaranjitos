@@ -8,6 +8,7 @@ namespace LosNaranjitos.DATOS
 {
     public class Cierre
     {
+
         public string Consecutivo { get; set; }
 
         public DateTime Fecha { get; set; }
@@ -16,7 +17,16 @@ namespace LosNaranjitos.DATOS
 
         public string Usuario { get; set; }
 
-        public decimal Monto { get; set; }
+        public int CantidadVentas { get; set; }
+
+        public decimal MontoTarjeta { get; set; }
+
+        public decimal MontoEfectivo { get; set; }
+
+        public decimal MontroOtro { get; set; }
+
+        public decimal MontoTotal { get; set; }
+
 
     }
 

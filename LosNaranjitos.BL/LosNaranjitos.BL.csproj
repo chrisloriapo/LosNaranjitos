@@ -50,8 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Bitacora.cs" />
+    <Compile Include="Clases\Caja.cs" />
     <Compile Include="Clases\Cargas.cs" />
     <Compile Include="Clases\CategoriaProductos.cs" />
+    <Compile Include="Clases\Cierre.cs" />
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Combo.cs" />
     <Compile Include="Clases\ComboProducto.cs" />
@@ -68,8 +70,10 @@
     <Compile Include="Clases\RolUsuario.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Interfaces\IBitacora.cs" />
+    <Compile Include="Interfaces\ICaja.cs" />
     <Compile Include="Interfaces\ICargas.cs" />
     <Compile Include="Interfaces\ICategoriaProductos.cs" />
+    <Compile Include="Interfaces\ICierre.cs" />
     <Compile Include="Interfaces\ICliente.cs" />
     <Compile Include="Interfaces\ICombo.cs" />
     <Compile Include="Interfaces\IComboProducto.cs" />

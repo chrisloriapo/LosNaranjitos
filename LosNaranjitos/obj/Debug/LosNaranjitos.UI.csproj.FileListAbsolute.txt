@@ -400,3 +400,6 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\ServiceStack.OrmLite.pdb
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\ServiceStack.OrmLite.SqlServer.pdb
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmCambioCaja.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmGestionOrden.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmAutorizacion.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmModificarOrden.resources

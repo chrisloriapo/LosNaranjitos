@@ -30,8 +30,8 @@ namespace LosNaranjitos.DS.Clases
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
-            DATOS.Cargas ROL = db.Select<DATOS.Cargas>(x => x.Consecutivo == IdCarga).FirstOrDefault();
-            return ROL;
+            DATOS.Cargas Carga = db.Select<DATOS.Cargas>(x => x.Consecutivo == IdCarga).FirstOrDefault();
+            return Carga;
         }
 
         public DATOS.Cargas BuscarCargaPorDescripcion(string Descripcion)

@@ -87,5 +87,14 @@ namespace LosNaranjitos.BL.Clases
             }
             return ListaRetorno;
         }
+
+        public void EliminarDetalleDeOrden(DATOS.DetallePedido Detalle)
+        {
+            Detalle.Consecutivo = Utilitario.Encriptar(Detalle.Consecutivo, Utilitario.Llave);
+            Detalle.IdOrden = Utilitario.Encriptar(Detalle.IdOrden, Utilitario.Llave);
+            Detalle.Producto = Utilitario.Encriptar(Detalle.Producto, Utilitario.Llave);
+            Detalle.ObservacionesDT = Utilitario.Encriptar(Detalle.ObservacionesDT, Utilitario.Llave);
+            Pedprocedimientos.EliminarDetalleDeOrden(Detalle);
+        }
     }
 }

@@ -30,12 +30,17 @@ namespace LosNaranjitos
         public static BL.Interfaces.IRolUsuario OpRol = new BL.Clases.RolUsuario();
         public static BL.Interfaces.IUsuario OpUsuarios = new BL.Clases.Usuario();
         public static BL.Interfaces.ICargas OpCargas = new BL.Clases.Cargas();
+        public static BL.Interfaces.ICaja OpCaja = new BL.Clases.Caja();
+        public static BL.Interfaces.ICierre OpCierres = new BL.Clases.Cierre();
+
 
         public static int CantidadSeleccionada = 0;
         public static string Llave = "hendmsjskruwiqud";
         public static bool Cambio = false;
         public static bool CambioEnCajas = false;
 
+        public static string ComentarioAutorizacion = "";
+        public static Usuario Autorizante = new Usuario();
 
         public static void GeneralBitacora(string Usuario, string AccionBitacora)
         {
