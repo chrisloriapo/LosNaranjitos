@@ -131,6 +131,10 @@ namespace LosNaranjitos
                     OrdenLocal.Activo = false;
                     OrdenLocal.Cancelado = true;
                     OrdenLocal.Subtotal = 0;
+                    OrdenLocal.MontoEfectivo = 0;
+                    OrdenLocal.MontoOtro = 0;
+                    OrdenLocal.MontoTarjeta = 0;
+                    OrdenLocal.MontoCambio = 0;
                     Utilitarios.OpPedidos.ActualizarPedido(OrdenLocal);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblOrden.Text + " descartada correctamente.");
                     MessageBox.Show("Orden Descartada Correctamente", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -168,7 +172,7 @@ namespace LosNaranjitos
                     if (Utilitarios.OpProducto.ExisteProductoPorNombre(detalle.Producto))
                     {
                         var newitem = Utilitarios.OpProducto.BuscarProductoPorNombre(detalle.Producto);
-                         DetalleSoporte = new DetallePedido();
+                        DetalleSoporte = new DetallePedido();
                         DetalleSoporte = detalle;
                         DetalleSoporte.Producto = newitem.Codigo;
                     }
@@ -185,6 +189,8 @@ namespace LosNaranjitos
                     }
 
                     OrdenLocal.Subtotal = OrdenLocal.Subtotal - detalle.SubTotal;
+                    OrdenLocal.MontoEfectivo = OrdenLocal.MontoEfectivo - detalle.SubTotal;
+
                     Utilitarios.OpDetallePedido.EliminarDetalleDeOrden(detalle);
                     Utilitarios.OpPedidos.ActualizarPedido(OrdenLocal);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblOrden.Text + " modificada correctamente.");

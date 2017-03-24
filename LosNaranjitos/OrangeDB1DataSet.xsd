@@ -1320,6 +1320,29 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DTReporteBitacoraTableAdapter" GeneratorDataComponentClassName="DTReporteBitacoraTableAdapter" Name="DTReporteBitacora" UserDataComponentName="DTReporteBitacoraTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="DSString1 (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Bitacora.IdBitacora, Usuario.Nombre, Usuario.Apellido1, Usuario.Apellido2, Bitacora.Fecha, Bitacora.Accion
+FROM            Bitacora CROSS JOIN
+                         Usuario</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IdBitacora" DataSetColumn="IdBitacora" />
+              <Mapping SourceColumn="Nombre" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="Apellido1" DataSetColumn="Apellido1" />
+              <Mapping SourceColumn="Apellido2" DataSetColumn="Apellido2" />
+              <Mapping SourceColumn="Fecha" DataSetColumn="Fecha" />
+              <Mapping SourceColumn="Accion" DataSetColumn="Accion" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1328,7 +1351,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
   <xs:element name="OrangeDB1DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="OrangeDB1DataSet" msprop:Generator_UserDSName="OrangeDB1DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Bitacora" msprop:Generator_TableClassName="BitacoraDataTable" msprop:Generator_TableVarName="tableBitacora" msprop:Generator_RowChangedName="BitacoraRowChanged" msprop:Generator_TablePropName="Bitacora" msprop:Generator_RowDeletingName="BitacoraRowDeleting" msprop:Generator_RowChangingName="BitacoraRowChanging" msprop:Generator_RowEvHandlerName="BitacoraRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraRowDeleted" msprop:Generator_RowClassName="BitacoraRow" msprop:Generator_UserTableName="Bitacora" msprop:Generator_RowEvArgName="BitacoraRowChangeEvent">
+        <xs:element name="Bitacora" msprop:Generator_TableClassName="BitacoraDataTable" msprop:Generator_TableVarName="tableBitacora" msprop:Generator_TablePropName="Bitacora" msprop:Generator_RowDeletingName="BitacoraRowDeleting" msprop:Generator_RowChangingName="BitacoraRowChanging" msprop:Generator_RowEvHandlerName="BitacoraRowChangeEventHandler" msprop:Generator_RowDeletedName="BitacoraRowDeleted" msprop:Generator_UserTableName="Bitacora" msprop:Generator_RowChangedName="BitacoraRowChanged" msprop:Generator_RowEvArgName="BitacoraRowChangeEvent" msprop:Generator_RowClassName="BitacoraRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdBitacora" msprop:Generator_ColumnVarNameInTable="columnIdBitacora" msprop:Generator_ColumnPropNameInRow="IdBitacora" msprop:Generator_ColumnPropNameInTable="IdBitacoraColumn" msprop:Generator_UserColumnName="IdBitacora">
@@ -1356,7 +1379,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Cargas" msprop:Generator_TableClassName="CargasDataTable" msprop:Generator_TableVarName="tableCargas" msprop:Generator_RowChangedName="CargasRowChanged" msprop:Generator_TablePropName="Cargas" msprop:Generator_RowDeletingName="CargasRowDeleting" msprop:Generator_RowChangingName="CargasRowChanging" msprop:Generator_RowEvHandlerName="CargasRowChangeEventHandler" msprop:Generator_RowDeletedName="CargasRowDeleted" msprop:Generator_RowClassName="CargasRow" msprop:Generator_UserTableName="Cargas" msprop:Generator_RowEvArgName="CargasRowChangeEvent">
+        <xs:element name="Cargas" msprop:Generator_TableClassName="CargasDataTable" msprop:Generator_TableVarName="tableCargas" msprop:Generator_TablePropName="Cargas" msprop:Generator_RowDeletingName="CargasRowDeleting" msprop:Generator_RowChangingName="CargasRowChanging" msprop:Generator_RowEvHandlerName="CargasRowChangeEventHandler" msprop:Generator_RowDeletedName="CargasRowDeleted" msprop:Generator_UserTableName="Cargas" msprop:Generator_RowChangedName="CargasRowChanged" msprop:Generator_RowEvArgName="CargasRowChangeEvent" msprop:Generator_RowClassName="CargasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1378,7 +1401,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CategoriaProductos" msprop:Generator_TableClassName="CategoriaProductosDataTable" msprop:Generator_TableVarName="tableCategoriaProductos" msprop:Generator_RowChangedName="CategoriaProductosRowChanged" msprop:Generator_TablePropName="CategoriaProductos" msprop:Generator_RowDeletingName="CategoriaProductosRowDeleting" msprop:Generator_RowChangingName="CategoriaProductosRowChanging" msprop:Generator_RowEvHandlerName="CategoriaProductosRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoriaProductosRowDeleted" msprop:Generator_RowClassName="CategoriaProductosRow" msprop:Generator_UserTableName="CategoriaProductos" msprop:Generator_RowEvArgName="CategoriaProductosRowChangeEvent">
+        <xs:element name="CategoriaProductos" msprop:Generator_TableClassName="CategoriaProductosDataTable" msprop:Generator_TableVarName="tableCategoriaProductos" msprop:Generator_TablePropName="CategoriaProductos" msprop:Generator_RowDeletingName="CategoriaProductosRowDeleting" msprop:Generator_RowChangingName="CategoriaProductosRowChanging" msprop:Generator_RowEvHandlerName="CategoriaProductosRowChangeEventHandler" msprop:Generator_RowDeletedName="CategoriaProductosRowDeleted" msprop:Generator_UserTableName="CategoriaProductos" msprop:Generator_RowChangedName="CategoriaProductosRowChanged" msprop:Generator_RowEvArgName="CategoriaProductosRowChangeEvent" msprop:Generator_RowClassName="CategoriaProductosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdTipo" msprop:Generator_ColumnVarNameInTable="columnIdTipo" msprop:Generator_ColumnPropNameInRow="IdTipo" msprop:Generator_ColumnPropNameInTable="IdTipoColumn" msprop:Generator_UserColumnName="IdTipo">
@@ -1399,7 +1422,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Cierre" msprop:Generator_TableClassName="CierreDataTable" msprop:Generator_TableVarName="tableCierre" msprop:Generator_RowChangedName="CierreRowChanged" msprop:Generator_TablePropName="Cierre" msprop:Generator_RowDeletingName="CierreRowDeleting" msprop:Generator_RowChangingName="CierreRowChanging" msprop:Generator_RowEvHandlerName="CierreRowChangeEventHandler" msprop:Generator_RowDeletedName="CierreRowDeleted" msprop:Generator_RowClassName="CierreRow" msprop:Generator_UserTableName="Cierre" msprop:Generator_RowEvArgName="CierreRowChangeEvent">
+        <xs:element name="Cierre" msprop:Generator_TableClassName="CierreDataTable" msprop:Generator_TableVarName="tableCierre" msprop:Generator_TablePropName="Cierre" msprop:Generator_RowDeletingName="CierreRowDeleting" msprop:Generator_RowChangingName="CierreRowChanging" msprop:Generator_RowEvHandlerName="CierreRowChangeEventHandler" msprop:Generator_RowDeletedName="CierreRowDeleted" msprop:Generator_UserTableName="Cierre" msprop:Generator_RowChangedName="CierreRowChanged" msprop:Generator_RowEvArgName="CierreRowChangeEvent" msprop:Generator_RowClassName="CierreRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1428,7 +1451,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Cliente" msprop:Generator_TableClassName="ClienteDataTable" msprop:Generator_TableVarName="tableCliente" msprop:Generator_RowChangedName="ClienteRowChanged" msprop:Generator_TablePropName="Cliente" msprop:Generator_RowDeletingName="ClienteRowDeleting" msprop:Generator_RowChangingName="ClienteRowChanging" msprop:Generator_RowEvHandlerName="ClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="ClienteRowDeleted" msprop:Generator_RowClassName="ClienteRow" msprop:Generator_UserTableName="Cliente" msprop:Generator_RowEvArgName="ClienteRowChangeEvent">
+        <xs:element name="Cliente" msprop:Generator_TableClassName="ClienteDataTable" msprop:Generator_TableVarName="tableCliente" msprop:Generator_TablePropName="Cliente" msprop:Generator_RowDeletingName="ClienteRowDeleting" msprop:Generator_RowChangingName="ClienteRowChanging" msprop:Generator_RowEvHandlerName="ClienteRowChangeEventHandler" msprop:Generator_RowDeletedName="ClienteRowDeleted" msprop:Generator_UserTableName="Cliente" msprop:Generator_RowChangedName="ClienteRowChanged" msprop:Generator_RowEvArgName="ClienteRowChangeEvent" msprop:Generator_RowClassName="ClienteRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1500,7 +1523,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Combo" msprop:Generator_TableClassName="ComboDataTable" msprop:Generator_TableVarName="tableCombo" msprop:Generator_RowChangedName="ComboRowChanged" msprop:Generator_TablePropName="Combo" msprop:Generator_RowDeletingName="ComboRowDeleting" msprop:Generator_RowChangingName="ComboRowChanging" msprop:Generator_RowEvHandlerName="ComboRowChangeEventHandler" msprop:Generator_RowDeletedName="ComboRowDeleted" msprop:Generator_RowClassName="ComboRow" msprop:Generator_UserTableName="Combo" msprop:Generator_RowEvArgName="ComboRowChangeEvent">
+        <xs:element name="Combo" msprop:Generator_TableClassName="ComboDataTable" msprop:Generator_TableVarName="tableCombo" msprop:Generator_TablePropName="Combo" msprop:Generator_RowDeletingName="ComboRowDeleting" msprop:Generator_RowChangingName="ComboRowChanging" msprop:Generator_RowEvHandlerName="ComboRowChangeEventHandler" msprop:Generator_RowDeletedName="ComboRowDeleted" msprop:Generator_UserTableName="Combo" msprop:Generator_RowChangedName="ComboRowChanged" msprop:Generator_RowEvArgName="ComboRowChangeEvent" msprop:Generator_RowClassName="ComboRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1536,7 +1559,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ComboProducto" msprop:Generator_TableClassName="ComboProductoDataTable" msprop:Generator_TableVarName="tableComboProducto" msprop:Generator_RowChangedName="ComboProductoRowChanged" msprop:Generator_TablePropName="ComboProducto" msprop:Generator_RowDeletingName="ComboProductoRowDeleting" msprop:Generator_RowChangingName="ComboProductoRowChanging" msprop:Generator_RowEvHandlerName="ComboProductoRowChangeEventHandler" msprop:Generator_RowDeletedName="ComboProductoRowDeleted" msprop:Generator_RowClassName="ComboProductoRow" msprop:Generator_UserTableName="ComboProducto" msprop:Generator_RowEvArgName="ComboProductoRowChangeEvent">
+        <xs:element name="ComboProducto" msprop:Generator_TableClassName="ComboProductoDataTable" msprop:Generator_TableVarName="tableComboProducto" msprop:Generator_TablePropName="ComboProducto" msprop:Generator_RowDeletingName="ComboProductoRowDeleting" msprop:Generator_RowChangingName="ComboProductoRowChanging" msprop:Generator_RowEvHandlerName="ComboProductoRowChangeEventHandler" msprop:Generator_RowDeletedName="ComboProductoRowDeleted" msprop:Generator_UserTableName="ComboProducto" msprop:Generator_RowChangedName="ComboProductoRowChanged" msprop:Generator_RowEvArgName="ComboProductoRowChangeEvent" msprop:Generator_RowClassName="ComboProductoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1571,7 +1594,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Consecutivo" msprop:Generator_TableClassName="ConsecutivoDataTable" msprop:Generator_TableVarName="tableConsecutivo" msprop:Generator_RowChangedName="ConsecutivoRowChanged" msprop:Generator_TablePropName="Consecutivo" msprop:Generator_RowDeletingName="ConsecutivoRowDeleting" msprop:Generator_RowChangingName="ConsecutivoRowChanging" msprop:Generator_RowEvHandlerName="ConsecutivoRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsecutivoRowDeleted" msprop:Generator_RowClassName="ConsecutivoRow" msprop:Generator_UserTableName="Consecutivo" msprop:Generator_RowEvArgName="ConsecutivoRowChangeEvent">
+        <xs:element name="Consecutivo" msprop:Generator_TableClassName="ConsecutivoDataTable" msprop:Generator_TableVarName="tableConsecutivo" msprop:Generator_TablePropName="Consecutivo" msprop:Generator_RowDeletingName="ConsecutivoRowDeleting" msprop:Generator_RowChangingName="ConsecutivoRowChanging" msprop:Generator_RowEvHandlerName="ConsecutivoRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsecutivoRowDeleted" msprop:Generator_UserTableName="Consecutivo" msprop:Generator_RowChangedName="ConsecutivoRowChanged" msprop:Generator_RowEvArgName="ConsecutivoRowChangeEvent" msprop:Generator_RowClassName="ConsecutivoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Prefijo" msprop:Generator_ColumnVarNameInTable="columnPrefijo" msprop:Generator_ColumnPropNameInRow="Prefijo" msprop:Generator_ColumnPropNameInTable="PrefijoColumn" msprop:Generator_UserColumnName="Prefijo">
@@ -1592,7 +1615,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DetallePedido" msprop:Generator_TableClassName="DetallePedidoDataTable" msprop:Generator_TableVarName="tableDetallePedido" msprop:Generator_RowChangedName="DetallePedidoRowChanged" msprop:Generator_TablePropName="DetallePedido" msprop:Generator_RowDeletingName="DetallePedidoRowDeleting" msprop:Generator_RowChangingName="DetallePedidoRowChanging" msprop:Generator_RowEvHandlerName="DetallePedidoRowChangeEventHandler" msprop:Generator_RowDeletedName="DetallePedidoRowDeleted" msprop:Generator_RowClassName="DetallePedidoRow" msprop:Generator_UserTableName="DetallePedido" msprop:Generator_RowEvArgName="DetallePedidoRowChangeEvent">
+        <xs:element name="DetallePedido" msprop:Generator_TableClassName="DetallePedidoDataTable" msprop:Generator_TableVarName="tableDetallePedido" msprop:Generator_TablePropName="DetallePedido" msprop:Generator_RowDeletingName="DetallePedidoRowDeleting" msprop:Generator_RowChangingName="DetallePedidoRowChanging" msprop:Generator_RowEvHandlerName="DetallePedidoRowChangeEventHandler" msprop:Generator_RowDeletedName="DetallePedidoRowDeleted" msprop:Generator_UserTableName="DetallePedido" msprop:Generator_RowChangedName="DetallePedidoRowChanged" msprop:Generator_RowEvArgName="DetallePedidoRowChangeEvent" msprop:Generator_RowClassName="DetallePedidoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1628,7 +1651,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Error" msprop:Generator_TableClassName="ErrorDataTable" msprop:Generator_TableVarName="tableError" msprop:Generator_RowChangedName="ErrorRowChanged" msprop:Generator_TablePropName="Error" msprop:Generator_RowDeletingName="ErrorRowDeleting" msprop:Generator_RowChangingName="ErrorRowChanging" msprop:Generator_RowEvHandlerName="ErrorRowChangeEventHandler" msprop:Generator_RowDeletedName="ErrorRowDeleted" msprop:Generator_RowClassName="ErrorRow" msprop:Generator_UserTableName="Error" msprop:Generator_RowEvArgName="ErrorRowChangeEvent">
+        <xs:element name="Error" msprop:Generator_TableClassName="ErrorDataTable" msprop:Generator_TableVarName="tableError" msprop:Generator_TablePropName="Error" msprop:Generator_RowDeletingName="ErrorRowDeleting" msprop:Generator_RowChangingName="ErrorRowChanging" msprop:Generator_RowEvHandlerName="ErrorRowChangeEventHandler" msprop:Generator_RowDeletedName="ErrorRowDeleted" msprop:Generator_UserTableName="Error" msprop:Generator_RowChangedName="ErrorRowChanged" msprop:Generator_RowEvArgName="ErrorRowChangeEvent" msprop:Generator_RowClassName="ErrorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdError" msprop:Generator_ColumnVarNameInTable="columnIdError" msprop:Generator_ColumnPropNameInRow="IdError" msprop:Generator_ColumnPropNameInTable="IdErrorColumn" msprop:Generator_UserColumnName="IdError">
@@ -1656,7 +1679,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FacturaCompra" msprop:Generator_TableClassName="FacturaCompraDataTable" msprop:Generator_TableVarName="tableFacturaCompra" msprop:Generator_RowChangedName="FacturaCompraRowChanged" msprop:Generator_TablePropName="FacturaCompra" msprop:Generator_RowDeletingName="FacturaCompraRowDeleting" msprop:Generator_RowChangingName="FacturaCompraRowChanging" msprop:Generator_RowEvHandlerName="FacturaCompraRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaCompraRowDeleted" msprop:Generator_RowClassName="FacturaCompraRow" msprop:Generator_UserTableName="FacturaCompra" msprop:Generator_RowEvArgName="FacturaCompraRowChangeEvent">
+        <xs:element name="FacturaCompra" msprop:Generator_TableClassName="FacturaCompraDataTable" msprop:Generator_TableVarName="tableFacturaCompra" msprop:Generator_TablePropName="FacturaCompra" msprop:Generator_RowDeletingName="FacturaCompraRowDeleting" msprop:Generator_RowChangingName="FacturaCompraRowChanging" msprop:Generator_RowEvHandlerName="FacturaCompraRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaCompraRowDeleted" msprop:Generator_UserTableName="FacturaCompra" msprop:Generator_RowChangedName="FacturaCompraRowChanged" msprop:Generator_RowEvArgName="FacturaCompraRowChangeEvent" msprop:Generator_RowClassName="FacturaCompraRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1699,7 +1722,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Insumos" msprop:Generator_TableClassName="InsumosDataTable" msprop:Generator_TableVarName="tableInsumos" msprop:Generator_RowChangedName="InsumosRowChanged" msprop:Generator_TablePropName="Insumos" msprop:Generator_RowDeletingName="InsumosRowDeleting" msprop:Generator_RowChangingName="InsumosRowChanging" msprop:Generator_RowEvHandlerName="InsumosRowChangeEventHandler" msprop:Generator_RowDeletedName="InsumosRowDeleted" msprop:Generator_RowClassName="InsumosRow" msprop:Generator_UserTableName="Insumos" msprop:Generator_RowEvArgName="InsumosRowChangeEvent">
+        <xs:element name="Insumos" msprop:Generator_TableClassName="InsumosDataTable" msprop:Generator_TableVarName="tableInsumos" msprop:Generator_TablePropName="Insumos" msprop:Generator_RowDeletingName="InsumosRowDeleting" msprop:Generator_RowChangingName="InsumosRowChanging" msprop:Generator_RowEvHandlerName="InsumosRowChangeEventHandler" msprop:Generator_RowDeletedName="InsumosRowDeleted" msprop:Generator_UserTableName="Insumos" msprop:Generator_RowChangedName="InsumosRowChanged" msprop:Generator_RowEvArgName="InsumosRowChangeEvent" msprop:Generator_RowClassName="InsumosRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1746,7 +1769,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Medida" msprop:Generator_TableClassName="MedidaDataTable" msprop:Generator_TableVarName="tableMedida" msprop:Generator_RowChangedName="MedidaRowChanged" msprop:Generator_TablePropName="Medida" msprop:Generator_RowDeletingName="MedidaRowDeleting" msprop:Generator_RowChangingName="MedidaRowChanging" msprop:Generator_RowEvHandlerName="MedidaRowChangeEventHandler" msprop:Generator_RowDeletedName="MedidaRowDeleted" msprop:Generator_RowClassName="MedidaRow" msprop:Generator_UserTableName="Medida" msprop:Generator_RowEvArgName="MedidaRowChangeEvent">
+        <xs:element name="Medida" msprop:Generator_TableClassName="MedidaDataTable" msprop:Generator_TableVarName="tableMedida" msprop:Generator_TablePropName="Medida" msprop:Generator_RowDeletingName="MedidaRowDeleting" msprop:Generator_RowChangingName="MedidaRowChanging" msprop:Generator_RowEvHandlerName="MedidaRowChangeEventHandler" msprop:Generator_RowDeletedName="MedidaRowDeleted" msprop:Generator_UserTableName="Medida" msprop:Generator_RowChangedName="MedidaRowChanged" msprop:Generator_RowEvArgName="MedidaRowChangeEvent" msprop:Generator_RowClassName="MedidaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1773,7 +1796,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pedido" msprop:Generator_TableClassName="PedidoDataTable" msprop:Generator_TableVarName="tablePedido" msprop:Generator_RowChangedName="PedidoRowChanged" msprop:Generator_TablePropName="Pedido" msprop:Generator_RowDeletingName="PedidoRowDeleting" msprop:Generator_RowChangingName="PedidoRowChanging" msprop:Generator_RowEvHandlerName="PedidoRowChangeEventHandler" msprop:Generator_RowDeletedName="PedidoRowDeleted" msprop:Generator_RowClassName="PedidoRow" msprop:Generator_UserTableName="Pedido" msprop:Generator_RowEvArgName="PedidoRowChangeEvent">
+        <xs:element name="Pedido" msprop:Generator_TableClassName="PedidoDataTable" msprop:Generator_TableVarName="tablePedido" msprop:Generator_TablePropName="Pedido" msprop:Generator_RowDeletingName="PedidoRowDeleting" msprop:Generator_RowChangingName="PedidoRowChanging" msprop:Generator_RowEvHandlerName="PedidoRowChangeEventHandler" msprop:Generator_RowDeletedName="PedidoRowDeleted" msprop:Generator_UserTableName="Pedido" msprop:Generator_RowChangedName="PedidoRowChanged" msprop:Generator_RowEvArgName="PedidoRowChangeEvent" msprop:Generator_RowClassName="PedidoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1811,7 +1834,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Producto" msprop:Generator_TableClassName="ProductoDataTable" msprop:Generator_TableVarName="tableProducto" msprop:Generator_RowChangedName="ProductoRowChanged" msprop:Generator_TablePropName="Producto" msprop:Generator_RowDeletingName="ProductoRowDeleting" msprop:Generator_RowChangingName="ProductoRowChanging" msprop:Generator_RowEvHandlerName="ProductoRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductoRowDeleted" msprop:Generator_RowClassName="ProductoRow" msprop:Generator_UserTableName="Producto" msprop:Generator_RowEvArgName="ProductoRowChangeEvent">
+        <xs:element name="Producto" msprop:Generator_TableClassName="ProductoDataTable" msprop:Generator_TableVarName="tableProducto" msprop:Generator_TablePropName="Producto" msprop:Generator_RowDeletingName="ProductoRowDeleting" msprop:Generator_RowChangingName="ProductoRowChanging" msprop:Generator_RowEvHandlerName="ProductoRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductoRowDeleted" msprop:Generator_UserTableName="Producto" msprop:Generator_RowChangedName="ProductoRowChanged" msprop:Generator_RowEvArgName="ProductoRowChangeEvent" msprop:Generator_RowClassName="ProductoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1854,7 +1877,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ProductoInsumo" msprop:Generator_TableClassName="ProductoInsumoDataTable" msprop:Generator_TableVarName="tableProductoInsumo" msprop:Generator_RowChangedName="ProductoInsumoRowChanged" msprop:Generator_TablePropName="ProductoInsumo" msprop:Generator_RowDeletingName="ProductoInsumoRowDeleting" msprop:Generator_RowChangingName="ProductoInsumoRowChanging" msprop:Generator_RowEvHandlerName="ProductoInsumoRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductoInsumoRowDeleted" msprop:Generator_RowClassName="ProductoInsumoRow" msprop:Generator_UserTableName="ProductoInsumo" msprop:Generator_RowEvArgName="ProductoInsumoRowChangeEvent">
+        <xs:element name="ProductoInsumo" msprop:Generator_TableClassName="ProductoInsumoDataTable" msprop:Generator_TableVarName="tableProductoInsumo" msprop:Generator_TablePropName="ProductoInsumo" msprop:Generator_RowDeletingName="ProductoInsumoRowDeleting" msprop:Generator_RowChangingName="ProductoInsumoRowChanging" msprop:Generator_RowEvHandlerName="ProductoInsumoRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductoInsumoRowDeleted" msprop:Generator_UserTableName="ProductoInsumo" msprop:Generator_RowChangedName="ProductoInsumoRowChanged" msprop:Generator_RowEvArgName="ProductoInsumoRowChangeEvent" msprop:Generator_RowClassName="ProductoInsumoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1882,7 +1905,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Proveedor" msprop:Generator_TableClassName="ProveedorDataTable" msprop:Generator_TableVarName="tableProveedor" msprop:Generator_RowChangedName="ProveedorRowChanged" msprop:Generator_TablePropName="Proveedor" msprop:Generator_RowDeletingName="ProveedorRowDeleting" msprop:Generator_RowChangingName="ProveedorRowChanging" msprop:Generator_RowEvHandlerName="ProveedorRowChangeEventHandler" msprop:Generator_RowDeletedName="ProveedorRowDeleted" msprop:Generator_RowClassName="ProveedorRow" msprop:Generator_UserTableName="Proveedor" msprop:Generator_RowEvArgName="ProveedorRowChangeEvent">
+        <xs:element name="Proveedor" msprop:Generator_TableClassName="ProveedorDataTable" msprop:Generator_TableVarName="tableProveedor" msprop:Generator_TablePropName="Proveedor" msprop:Generator_RowDeletingName="ProveedorRowDeleting" msprop:Generator_RowChangingName="ProveedorRowChanging" msprop:Generator_RowEvHandlerName="ProveedorRowChangeEventHandler" msprop:Generator_RowDeletedName="ProveedorRowDeleted" msprop:Generator_UserTableName="Proveedor" msprop:Generator_RowChangedName="ProveedorRowChanged" msprop:Generator_RowEvArgName="ProveedorRowChangeEvent" msprop:Generator_RowClassName="ProveedorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -1924,7 +1947,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="RolUsuario" msprop:Generator_TableClassName="RolUsuarioDataTable" msprop:Generator_TableVarName="tableRolUsuario" msprop:Generator_RowChangedName="RolUsuarioRowChanged" msprop:Generator_TablePropName="RolUsuario" msprop:Generator_RowDeletingName="RolUsuarioRowDeleting" msprop:Generator_RowChangingName="RolUsuarioRowChanging" msprop:Generator_RowEvHandlerName="RolUsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="RolUsuarioRowDeleted" msprop:Generator_RowClassName="RolUsuarioRow" msprop:Generator_UserTableName="RolUsuario" msprop:Generator_RowEvArgName="RolUsuarioRowChangeEvent">
+        <xs:element name="RolUsuario" msprop:Generator_TableClassName="RolUsuarioDataTable" msprop:Generator_TableVarName="tableRolUsuario" msprop:Generator_TablePropName="RolUsuario" msprop:Generator_RowDeletingName="RolUsuarioRowDeleting" msprop:Generator_RowChangingName="RolUsuarioRowChanging" msprop:Generator_RowEvHandlerName="RolUsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="RolUsuarioRowDeleted" msprop:Generator_UserTableName="RolUsuario" msprop:Generator_RowChangedName="RolUsuarioRowChanged" msprop:Generator_RowEvArgName="RolUsuarioRowChangeEvent" msprop:Generator_RowClassName="RolUsuarioRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IdRol" msprop:Generator_ColumnVarNameInTable="columnIdRol" msprop:Generator_ColumnPropNameInRow="IdRol" msprop:Generator_ColumnPropNameInTable="IdRolColumn" msprop:Generator_UserColumnName="IdRol">
@@ -1945,7 +1968,7 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Usuario" msprop:Generator_TableClassName="UsuarioDataTable" msprop:Generator_TableVarName="tableUsuario" msprop:Generator_RowChangedName="UsuarioRowChanged" msprop:Generator_TablePropName="Usuario" msprop:Generator_RowDeletingName="UsuarioRowDeleting" msprop:Generator_RowChangingName="UsuarioRowChanging" msprop:Generator_RowEvHandlerName="UsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuarioRowDeleted" msprop:Generator_RowClassName="UsuarioRow" msprop:Generator_UserTableName="Usuario" msprop:Generator_RowEvArgName="UsuarioRowChangeEvent">
+        <xs:element name="Usuario" msprop:Generator_TableClassName="UsuarioDataTable" msprop:Generator_TableVarName="tableUsuario" msprop:Generator_TablePropName="Usuario" msprop:Generator_RowDeletingName="UsuarioRowDeleting" msprop:Generator_RowChangingName="UsuarioRowChanging" msprop:Generator_RowEvHandlerName="UsuarioRowChangeEventHandler" msprop:Generator_RowDeletedName="UsuarioRowDeleted" msprop:Generator_UserTableName="Usuario" msprop:Generator_RowChangedName="UsuarioRowChanged" msprop:Generator_RowEvArgName="UsuarioRowChangeEvent" msprop:Generator_RowClassName="UsuarioRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Consecutivo" msprop:Generator_ColumnVarNameInTable="columnConsecutivo" msprop:Generator_ColumnPropNameInRow="Consecutivo" msprop:Generator_ColumnPropNameInTable="ConsecutivoColumn" msprop:Generator_UserColumnName="Consecutivo">
@@ -2026,6 +2049,48 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Activo" msprop:Generator_ColumnVarNameInTable="columnActivo" msprop:Generator_ColumnPropNameInRow="Activo" msprop:Generator_ColumnPropNameInTable="ActivoColumn" msprop:Generator_UserColumnName="Activo" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTReporteBitacora" msprop:Generator_TableClassName="DTReporteBitacoraDataTable" msprop:Generator_TableVarName="tableDTReporteBitacora" msprop:Generator_TablePropName="DTReporteBitacora" msprop:Generator_RowDeletingName="DTReporteBitacoraRowDeleting" msprop:Generator_RowChangingName="DTReporteBitacoraRowChanging" msprop:Generator_RowEvHandlerName="DTReporteBitacoraRowChangeEventHandler" msprop:Generator_RowDeletedName="DTReporteBitacoraRowDeleted" msprop:Generator_UserTableName="DTReporteBitacora" msprop:Generator_RowChangedName="DTReporteBitacoraRowChanged" msprop:Generator_RowEvArgName="DTReporteBitacoraRowChangeEvent" msprop:Generator_RowClassName="DTReporteBitacoraRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdBitacora" msprop:Generator_ColumnVarNameInTable="columnIdBitacora" msprop:Generator_ColumnPropNameInRow="IdBitacora" msprop:Generator_ColumnPropNameInTable="IdBitacoraColumn" msprop:Generator_UserColumnName="IdBitacora">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nombre" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Apellido1" msprop:Generator_ColumnVarNameInTable="columnApellido1" msprop:Generator_ColumnPropNameInRow="Apellido1" msprop:Generator_ColumnPropNameInTable="Apellido1Column" msprop:Generator_UserColumnName="Apellido1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Apellido2" msprop:Generator_ColumnVarNameInTable="columnApellido2" msprop:Generator_ColumnPropNameInRow="Apellido2" msprop:Generator_ColumnPropNameInTable="Apellido2Column" msprop:Generator_UserColumnName="Apellido2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:dateTime" />
+              <xs:element name="Accion" msprop:Generator_ColumnVarNameInTable="columnAccion" msprop:Generator_ColumnPropNameInRow="Accion" msprop:Generator_ColumnPropNameInTable="AccionColumn" msprop:Generator_UserColumnName="Accion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -2110,24 +2175,28 @@ SELECT Consecutivo, Username, Contrasena, Rol, IdPersonal, Nombre, Apellido1, Ap
       <xs:selector xpath=".//mstns:Usuario" />
       <xs:field xpath="mstns:Username" />
     </xs:unique>
+    <xs:unique name="DTReporteBitacora_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DTReporteBitacora" />
+      <xs:field xpath="mstns:IdBitacora" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Cierre_Usuario" msdata:parent="Usuario" msdata:child="Cierre" msdata:parentkey="Username" msdata:childkey="Usuario" msprop:Generator_UserChildTable="Cierre" msprop:Generator_ChildPropName="GetCierreRows" msprop:Generator_UserRelationName="FK_Cierre_Usuario" msprop:Generator_ParentPropName="UsuarioRow" msprop:Generator_RelationVarName="relationFK_Cierre_Usuario" msprop:Generator_UserParentTable="Usuario" />
-      <msdata:Relationship name="FK_ComboProducto_Combo" msdata:parent="Combo" msdata:child="ComboProducto" msdata:parentkey="Codigo" msdata:childkey="CodCombo" msprop:Generator_UserChildTable="ComboProducto" msprop:Generator_ChildPropName="GetComboProductoRows" msprop:Generator_UserRelationName="FK_ComboProducto_Combo" msprop:Generator_RelationVarName="relationFK_ComboProducto_Combo" msprop:Generator_UserParentTable="Combo" msprop:Generator_ParentPropName="ComboRow" />
-      <msdata:Relationship name="FK_ComboProducto_Medida" msdata:parent="Medida" msdata:child="ComboProducto" msdata:parentkey="IdMedida" msdata:childkey="IdMedida" msprop:Generator_UserChildTable="ComboProducto" msprop:Generator_ChildPropName="GetComboProductoRows" msprop:Generator_UserRelationName="FK_ComboProducto_Medida" msprop:Generator_ParentPropName="MedidaRow" msprop:Generator_RelationVarName="relationFK_ComboProducto_Medida" msprop:Generator_UserParentTable="Medida" />
-      <msdata:Relationship name="FK_ComboProducto_Producto" msdata:parent="Producto" msdata:child="ComboProducto" msdata:parentkey="Codigo" msdata:childkey="CodProducto" msprop:Generator_UserChildTable="ComboProducto" msprop:Generator_ChildPropName="GetComboProductoRows" msprop:Generator_UserRelationName="FK_ComboProducto_Producto" msprop:Generator_ParentPropName="ProductoRow" msprop:Generator_RelationVarName="relationFK_ComboProducto_Producto" msprop:Generator_UserParentTable="Producto" />
-      <msdata:Relationship name="FK_DetallePedido_Pedido" msdata:parent="Pedido" msdata:child="DetallePedido" msdata:parentkey="Consecutivo" msdata:childkey="IdOrden" msprop:Generator_UserChildTable="DetallePedido" msprop:Generator_ChildPropName="GetDetallePedidoRows" msprop:Generator_UserRelationName="FK_DetallePedido_Pedido" msprop:Generator_ParentPropName="PedidoRow" msprop:Generator_RelationVarName="relationFK_DetallePedido_Pedido" msprop:Generator_UserParentTable="Pedido" />
-      <msdata:Relationship name="FK_FacturaCompra_Proveedor" msdata:parent="Proveedor" msdata:child="FacturaCompra" msdata:parentkey="IdProveedor" msdata:childkey="IdProveedor" msprop:Generator_UserChildTable="FacturaCompra" msprop:Generator_ChildPropName="GetFacturaCompraRows" msprop:Generator_UserRelationName="FK_FacturaCompra_Proveedor" msprop:Generator_ParentPropName="ProveedorRow" msprop:Generator_RelationVarName="relationFK_FacturaCompra_Proveedor" msprop:Generator_UserParentTable="Proveedor" />
-      <msdata:Relationship name="FK_FacturaCompra_Usuario" msdata:parent="Usuario" msdata:child="FacturaCompra" msdata:parentkey="Username" msdata:childkey="Operador" msprop:Generator_UserChildTable="FacturaCompra" msprop:Generator_ChildPropName="GetFacturaCompraRows" msprop:Generator_UserRelationName="FK_FacturaCompra_Usuario" msprop:Generator_ParentPropName="UsuarioRow" msprop:Generator_RelationVarName="relationFK_FacturaCompra_Usuario" msprop:Generator_UserParentTable="Usuario" />
-      <msdata:Relationship name="FK_Insumos_Medida" msdata:parent="Medida" msdata:child="Insumos" msdata:parentkey="IdMedida" msdata:childkey="IdMedida" msprop:Generator_UserChildTable="Insumos" msprop:Generator_ChildPropName="GetInsumosRows" msprop:Generator_UserRelationName="FK_Insumos_Medida" msprop:Generator_ParentPropName="MedidaRow" msprop:Generator_RelationVarName="relationFK_Insumos_Medida" msprop:Generator_UserParentTable="Medida" />
-      <msdata:Relationship name="FK_Insumos_Proveedor" msdata:parent="Proveedor" msdata:child="Insumos" msdata:parentkey="IdProveedor" msdata:childkey="Proveedor" msprop:Generator_UserChildTable="Insumos" msprop:Generator_ChildPropName="GetInsumosRows" msprop:Generator_UserRelationName="FK_Insumos_Proveedor" msprop:Generator_ParentPropName="ProveedorRow" msprop:Generator_RelationVarName="relationFK_Insumos_Proveedor" msprop:Generator_UserParentTable="Proveedor" />
-      <msdata:Relationship name="FK_Pedido_Cliente" msdata:parent="Cliente" msdata:child="Pedido" msdata:parentkey="IdPersonal" msdata:childkey="IdCliente" msprop:Generator_UserChildTable="Pedido" msprop:Generator_ChildPropName="GetPedidoRows" msprop:Generator_UserRelationName="FK_Pedido_Cliente" msprop:Generator_RelationVarName="relationFK_Pedido_Cliente" msprop:Generator_UserParentTable="Cliente" msprop:Generator_ParentPropName="ClienteRow" />
-      <msdata:Relationship name="FK_Pedido_Usuario" msdata:parent="Usuario" msdata:child="Pedido" msdata:parentkey="Username" msdata:childkey="Operador" msprop:Generator_UserChildTable="Pedido" msprop:Generator_ChildPropName="GetPedidoRows" msprop:Generator_UserRelationName="FK_Pedido_Usuario" msprop:Generator_ParentPropName="UsuarioRow" msprop:Generator_RelationVarName="relationFK_Pedido_Usuario" msprop:Generator_UserParentTable="Usuario" />
-      <msdata:Relationship name="FK_Producto_CategoriaProductos" msdata:parent="CategoriaProductos" msdata:child="Producto" msdata:parentkey="IdTipo" msdata:childkey="Categoria" msprop:Generator_UserChildTable="Producto" msprop:Generator_ChildPropName="GetProductoRows" msprop:Generator_UserRelationName="FK_Producto_CategoriaProductos" msprop:Generator_RelationVarName="relationFK_Producto_CategoriaProductos" msprop:Generator_UserParentTable="CategoriaProductos" msprop:Generator_ParentPropName="CategoriaProductosRow" />
-      <msdata:Relationship name="FK_ProductoInsumo_Insumos" msdata:parent="Insumos" msdata:child="ProductoInsumo" msdata:parentkey="IdInsumo" msdata:childkey="IdInsumo" msprop:Generator_UserChildTable="ProductoInsumo" msprop:Generator_ChildPropName="GetProductoInsumoRows" msprop:Generator_UserRelationName="FK_ProductoInsumo_Insumos" msprop:Generator_RelationVarName="relationFK_ProductoInsumo_Insumos" msprop:Generator_UserParentTable="Insumos" msprop:Generator_ParentPropName="InsumosRow" />
-      <msdata:Relationship name="FK_ProductoInsumo_Producto" msdata:parent="Producto" msdata:child="ProductoInsumo" msdata:parentkey="Codigo" msdata:childkey="CodigoProducto" msprop:Generator_UserChildTable="ProductoInsumo" msprop:Generator_ChildPropName="GetProductoInsumoRows" msprop:Generator_UserRelationName="FK_ProductoInsumo_Producto" msprop:Generator_RelationVarName="relationFK_ProductoInsumo_Producto" msprop:Generator_UserParentTable="Producto" msprop:Generator_ParentPropName="ProductoRow" />
-      <msdata:Relationship name="FK_Usuario_RolUsuario" msdata:parent="RolUsuario" msdata:child="Usuario" msdata:parentkey="IdRol" msdata:childkey="Rol" msprop:Generator_UserChildTable="Usuario" msprop:Generator_ChildPropName="GetUsuarioRows" msprop:Generator_UserRelationName="FK_Usuario_RolUsuario" msprop:Generator_RelationVarName="relationFK_Usuario_RolUsuario" msprop:Generator_UserParentTable="RolUsuario" msprop:Generator_ParentPropName="RolUsuarioRow" />
+      <msdata:Relationship name="FK_Cierre_Usuario" msdata:parent="Usuario" msdata:child="Cierre" msdata:parentkey="Username" msdata:childkey="Usuario" msprop:Generator_UserChildTable="Cierre" msprop:Generator_ChildPropName="GetCierreRows" msprop:Generator_UserRelationName="FK_Cierre_Usuario" msprop:Generator_RelationVarName="relationFK_Cierre_Usuario" msprop:Generator_UserParentTable="Usuario" msprop:Generator_ParentPropName="UsuarioRow" />
+      <msdata:Relationship name="FK_ComboProducto_Combo" msdata:parent="Combo" msdata:child="ComboProducto" msdata:parentkey="Codigo" msdata:childkey="CodCombo" msprop:Generator_UserChildTable="ComboProducto" msprop:Generator_ChildPropName="GetComboProductoRows" msprop:Generator_UserRelationName="FK_ComboProducto_Combo" msprop:Generator_ParentPropName="ComboRow" msprop:Generator_RelationVarName="relationFK_ComboProducto_Combo" msprop:Generator_UserParentTable="Combo" />
+      <msdata:Relationship name="FK_ComboProducto_Medida" msdata:parent="Medida" msdata:child="ComboProducto" msdata:parentkey="IdMedida" msdata:childkey="IdMedida" msprop:Generator_UserChildTable="ComboProducto" msprop:Generator_ChildPropName="GetComboProductoRows" msprop:Generator_UserRelationName="FK_ComboProducto_Medida" msprop:Generator_RelationVarName="relationFK_ComboProducto_Medida" msprop:Generator_UserParentTable="Medida" msprop:Generator_ParentPropName="MedidaRow" />
+      <msdata:Relationship name="FK_ComboProducto_Producto" msdata:parent="Producto" msdata:child="ComboProducto" msdata:parentkey="Codigo" msdata:childkey="CodProducto" msprop:Generator_UserChildTable="ComboProducto" msprop:Generator_ChildPropName="GetComboProductoRows" msprop:Generator_UserRelationName="FK_ComboProducto_Producto" msprop:Generator_RelationVarName="relationFK_ComboProducto_Producto" msprop:Generator_UserParentTable="Producto" msprop:Generator_ParentPropName="ProductoRow" />
+      <msdata:Relationship name="FK_DetallePedido_Pedido" msdata:parent="Pedido" msdata:child="DetallePedido" msdata:parentkey="Consecutivo" msdata:childkey="IdOrden" msprop:Generator_UserChildTable="DetallePedido" msprop:Generator_ChildPropName="GetDetallePedidoRows" msprop:Generator_UserRelationName="FK_DetallePedido_Pedido" msprop:Generator_RelationVarName="relationFK_DetallePedido_Pedido" msprop:Generator_UserParentTable="Pedido" msprop:Generator_ParentPropName="PedidoRow" />
+      <msdata:Relationship name="FK_FacturaCompra_Proveedor" msdata:parent="Proveedor" msdata:child="FacturaCompra" msdata:parentkey="IdProveedor" msdata:childkey="IdProveedor" msprop:Generator_UserChildTable="FacturaCompra" msprop:Generator_ChildPropName="GetFacturaCompraRows" msprop:Generator_UserRelationName="FK_FacturaCompra_Proveedor" msprop:Generator_RelationVarName="relationFK_FacturaCompra_Proveedor" msprop:Generator_UserParentTable="Proveedor" msprop:Generator_ParentPropName="ProveedorRow" />
+      <msdata:Relationship name="FK_FacturaCompra_Usuario" msdata:parent="Usuario" msdata:child="FacturaCompra" msdata:parentkey="Username" msdata:childkey="Operador" msprop:Generator_UserChildTable="FacturaCompra" msprop:Generator_ChildPropName="GetFacturaCompraRows" msprop:Generator_UserRelationName="FK_FacturaCompra_Usuario" msprop:Generator_RelationVarName="relationFK_FacturaCompra_Usuario" msprop:Generator_UserParentTable="Usuario" msprop:Generator_ParentPropName="UsuarioRow" />
+      <msdata:Relationship name="FK_Insumos_Medida" msdata:parent="Medida" msdata:child="Insumos" msdata:parentkey="IdMedida" msdata:childkey="IdMedida" msprop:Generator_UserChildTable="Insumos" msprop:Generator_ChildPropName="GetInsumosRows" msprop:Generator_UserRelationName="FK_Insumos_Medida" msprop:Generator_RelationVarName="relationFK_Insumos_Medida" msprop:Generator_UserParentTable="Medida" msprop:Generator_ParentPropName="MedidaRow" />
+      <msdata:Relationship name="FK_Insumos_Proveedor" msdata:parent="Proveedor" msdata:child="Insumos" msdata:parentkey="IdProveedor" msdata:childkey="Proveedor" msprop:Generator_UserChildTable="Insumos" msprop:Generator_ChildPropName="GetInsumosRows" msprop:Generator_UserRelationName="FK_Insumos_Proveedor" msprop:Generator_RelationVarName="relationFK_Insumos_Proveedor" msprop:Generator_UserParentTable="Proveedor" msprop:Generator_ParentPropName="ProveedorRow" />
+      <msdata:Relationship name="FK_Pedido_Cliente" msdata:parent="Cliente" msdata:child="Pedido" msdata:parentkey="IdPersonal" msdata:childkey="IdCliente" msprop:Generator_UserChildTable="Pedido" msprop:Generator_ChildPropName="GetPedidoRows" msprop:Generator_UserRelationName="FK_Pedido_Cliente" msprop:Generator_ParentPropName="ClienteRow" msprop:Generator_RelationVarName="relationFK_Pedido_Cliente" msprop:Generator_UserParentTable="Cliente" />
+      <msdata:Relationship name="FK_Pedido_Usuario" msdata:parent="Usuario" msdata:child="Pedido" msdata:parentkey="Username" msdata:childkey="Operador" msprop:Generator_UserChildTable="Pedido" msprop:Generator_ChildPropName="GetPedidoRows" msprop:Generator_UserRelationName="FK_Pedido_Usuario" msprop:Generator_RelationVarName="relationFK_Pedido_Usuario" msprop:Generator_UserParentTable="Usuario" msprop:Generator_ParentPropName="UsuarioRow" />
+      <msdata:Relationship name="FK_Producto_CategoriaProductos" msdata:parent="CategoriaProductos" msdata:child="Producto" msdata:parentkey="IdTipo" msdata:childkey="Categoria" msprop:Generator_UserChildTable="Producto" msprop:Generator_ChildPropName="GetProductoRows" msprop:Generator_UserRelationName="FK_Producto_CategoriaProductos" msprop:Generator_ParentPropName="CategoriaProductosRow" msprop:Generator_RelationVarName="relationFK_Producto_CategoriaProductos" msprop:Generator_UserParentTable="CategoriaProductos" />
+      <msdata:Relationship name="FK_ProductoInsumo_Insumos" msdata:parent="Insumos" msdata:child="ProductoInsumo" msdata:parentkey="IdInsumo" msdata:childkey="IdInsumo" msprop:Generator_UserChildTable="ProductoInsumo" msprop:Generator_ChildPropName="GetProductoInsumoRows" msprop:Generator_UserRelationName="FK_ProductoInsumo_Insumos" msprop:Generator_ParentPropName="InsumosRow" msprop:Generator_RelationVarName="relationFK_ProductoInsumo_Insumos" msprop:Generator_UserParentTable="Insumos" />
+      <msdata:Relationship name="FK_ProductoInsumo_Producto" msdata:parent="Producto" msdata:child="ProductoInsumo" msdata:parentkey="Codigo" msdata:childkey="CodigoProducto" msprop:Generator_UserChildTable="ProductoInsumo" msprop:Generator_ChildPropName="GetProductoInsumoRows" msprop:Generator_UserRelationName="FK_ProductoInsumo_Producto" msprop:Generator_ParentPropName="ProductoRow" msprop:Generator_RelationVarName="relationFK_ProductoInsumo_Producto" msprop:Generator_UserParentTable="Producto" />
+      <msdata:Relationship name="FK_Usuario_RolUsuario" msdata:parent="RolUsuario" msdata:child="Usuario" msdata:parentkey="IdRol" msdata:childkey="Rol" msprop:Generator_UserChildTable="Usuario" msprop:Generator_ChildPropName="GetUsuarioRows" msprop:Generator_UserRelationName="FK_Usuario_RolUsuario" msprop:Generator_ParentPropName="RolUsuarioRow" msprop:Generator_RelationVarName="relationFK_Usuario_RolUsuario" msprop:Generator_UserParentTable="RolUsuario" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

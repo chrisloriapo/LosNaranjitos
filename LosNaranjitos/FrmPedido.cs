@@ -59,7 +59,7 @@ namespace LosNaranjitos
             try
             {
                 //Carga de datos  ListBoxes y datagrids
-           
+
                 lstProductosPrincipales.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == "CTP-1" && x.Activo).Select(x => x.Nombre).ToList();
                 lstAdicionales.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == "CTP-2" || x.Categoria == "CTP-4" && x.Activo).Select(x => x.Nombre).ToList();
                 lstBebidas.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == "CTP-3" && x.Activo).Select(x => x.Nombre).ToList();
@@ -99,7 +99,7 @@ namespace LosNaranjitos
                         btnSometerOrden.Enabled = false;
                         tbProductosVenta.Enabled = false;
                     }
-                    cbbCliente.DataSource = Utilitarios.OpClientes.ListarClientes().OrderBy(x=>x.IdPersonal).Select(x => x.IdPersonal).ToList();
+                    cbbCliente.DataSource = Utilitarios.OpClientes.ListarClientes().OrderBy(x => x.IdPersonal).Select(x => x.IdPersonal).ToList();
                     lblConsecutivo.Text = UltimoPedido.Consecutivo;
 
                     //Validacion Consecutivos Detalles de Ordenes
@@ -968,7 +968,6 @@ namespace LosNaranjitos
             }
             try
             {
-
                 var mensaje = MessageBox.Show("¿ Desea Someter  y Pagar la orden " + lblConsecutivo.Text + "?", "Advertencia",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -1007,6 +1006,10 @@ namespace LosNaranjitos
                         return;
                     }
                     Consecutivo Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("PDD");
+                    NuevaOrden.MontoEfectivo = Efectivo;
+                    NuevaOrden.MontoOtro = Otro;
+                    NuevaOrden.MontoTarjeta = Tarjeta;
+                    NuevaOrden.MontoCambio = MontoDigitado - NuevaOrden.Subtotal;
                     NuevaOrden.Activo = true;
                     NuevaOrden.Cancelado = true;
                     Utilitarios.OpPedidos.AgregarPedido(NuevaOrden);
@@ -1055,7 +1058,7 @@ namespace LosNaranjitos
                     txtEfectivo.Clear();
                     chkTarjeta.Checked = false;
                     FrmCambioCaja a = new FrmCambioCaja();
-                    FrmCambioCaja.CambioShow = (MontoDigitado - NuevaOrden.Subtotal).ToString();
+                    FrmCambioCaja.CambioShow =NuevaOrden.MontoCambio.ToString();
                     a.Show();
                     this.FrmPedido_Load(sender, e);
 

@@ -19,57 +19,17 @@ namespace LosNaranjitos
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<DATOS.ProductoInsumo> Receta = Utilitarios.OpProductoInsumo.ListarProductoInsumo();
-            List<DATOS.Insumos> Insumos = Utilitarios.OpInsumos.ListarInsumos();
-
-            var result = Utilitarios.OpInsumos.ListarInsumos().Join(
-                Receta,
-            a => a.IdInsumo,
-            b => b.IdInsumo,
-            (a, b) => new { b.Consecutivo, b.IdInsumo, a.Nombre, b.CantidadRequerida });
-
-            dgvListado.DataSource = result.ToList();
-            dgvListado.RowHeadersVisible = false;
-            dgvListado.ColumnHeadersVisible = false;
-            dgvListado.GridColor = Color.White;
-            dgvListado.BackgroundColor = Color.White;
-
-            foreach (var item in result)
+            // TODO: esta línea de código carga datos en la tabla 'OrangeDB1DataSet.Bitacora' Puede moverla o quitarla según sea necesario.
+            this.BitacoraTableAdapter.Fill(this.OrangeDB1DataSet.Bitacora);
+            foreach (var item in (this.OrangeDB1DataSet.Bitacora))
             {
-                ListViewItem Itemx = new ListViewItem(item.Consecutivo);
-                Itemx.SubItems.Add(item.IdInsumo);
-                Itemx.SubItems.Add(item.Nombre);
-                Itemx.SubItems.Add(item.CantidadRequerida.ToString());
-
+                item.IdBitacora = Utilitarios.Decriptar(item.IdBitacora, Utilitarios.Llave);
+                item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
+                item.Accion = Utilitarios.Decriptar(item.Accion, Utilitarios.Llave);
             }
-        }
+            OrangeDB1DataSet.Bitacora.OrderByDescending(x=>x.IdBitacora);
 
-        private void txtBuscar_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(txtBuscar.Text) || txtBuscar.Text == "0")
-                {
-
-                }
-
-            }
-            catch (Exception)
-            {
-
-
-
-            }
-        }
-
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
- 
+            this.rpvBitacora.RefreshReport();
         }
     }
 }

@@ -309,6 +309,10 @@ namespace LosNaranjitos
                         return;
                     }
                     OrdenLocal.Cancelado = true;
+                    OrdenLocal.MontoEfectivo = Efectivo;
+                    OrdenLocal.MontoOtro = Otro;
+                    OrdenLocal.MontoTarjeta = Tarjeta;
+                    OrdenLocal.MontoCambio = MontoDigitado - OrdenLocal.Subtotal;
                     OrdenLocal.Observaciones = OrdenLocal.Observaciones + " Orden Cancelada a las " + DateTime.Now + ";";
                     Utilitarios.OpPedidos.ActualizarPedido(OrdenLocal);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + OrdenLocal.Consecutivo + " Cancelada");
@@ -420,6 +424,10 @@ namespace LosNaranjitos
                     }
                     OrdenLocal.Cancelado = true;
                     OrdenLocal.Activo = false;
+                    OrdenLocal.MontoEfectivo = Efectivo;
+                    OrdenLocal.MontoOtro = Otro;
+                    OrdenLocal.MontoTarjeta = Tarjeta;
+                    OrdenLocal.MontoCambio = MontoDigitado - OrdenLocal.Subtotal;
                     OrdenLocal.Observaciones = OrdenLocal.Observaciones + " Orden Cancelada a las " + DateTime.Now + ";";
                     Utilitarios.OpPedidos.ActualizarPedido(OrdenLocal);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + OrdenLocal.Consecutivo + " Cancelada");
