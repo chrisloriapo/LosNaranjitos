@@ -29,6 +29,8 @@ namespace LosNaranjitos.DATOS
 
         public decimal MontoCambio { get; set; }
 
+        public string Caja { get; set; }
+
     }
 
 }

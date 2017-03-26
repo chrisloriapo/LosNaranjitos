@@ -181,7 +181,14 @@ namespace LosNaranjitos
 
             return isNum;
         }
-
+        public static DateTime GetDateZeroTime(DateTime date)
+        {
+            return new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
+        }
+        public static DateTime GetDateEndTime(DateTime date)
+        {
+            return new DateTime(date.Year, date.Month, date.Day, 23, 59, 59);
+        }
 
     }
 }

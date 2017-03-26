@@ -1958,7 +1958,19 @@ namespace LosNaranjitos {
             
             private global::System.Data.DataColumn columnUsuario;
             
-            private global::System.Data.DataColumn columnMonto;
+            private global::System.Data.DataColumn columnCaja;
+            
+            private global::System.Data.DataColumn columnCantidadVentas;
+            
+            private global::System.Data.DataColumn columnMontoTarjeta;
+            
+            private global::System.Data.DataColumn columnMontoEfectivo;
+            
+            private global::System.Data.DataColumn columnMontroOtro;
+            
+            private global::System.Data.DataColumn columnMontoCambio;
+            
+            private global::System.Data.DataColumn columnMontoTotal;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2027,9 +2039,57 @@ namespace LosNaranjitos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MontoColumn {
+            public global::System.Data.DataColumn CajaColumn {
                 get {
-                    return this.columnMonto;
+                    return this.columnCaja;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CantidadVentasColumn {
+                get {
+                    return this.columnCantidadVentas;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MontoTarjetaColumn {
+                get {
+                    return this.columnMontoTarjeta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MontoEfectivoColumn {
+                get {
+                    return this.columnMontoEfectivo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MontroOtroColumn {
+                get {
+                    return this.columnMontroOtro;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MontoCambioColumn {
+                get {
+                    return this.columnMontoCambio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MontoTotalColumn {
+                get {
+                    return this.columnMontoTotal;
                 }
             }
             
@@ -2070,14 +2130,20 @@ namespace LosNaranjitos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public CierreRow AddCierreRow(string Consecutivo, System.DateTime Fecha, string Tipo, UsuarioRow parentUsuarioRowByFK_Cierre_Usuario, decimal Monto) {
+            public CierreRow AddCierreRow(string Consecutivo, System.DateTime Fecha, string Tipo, UsuarioRow parentUsuarioRowByFK_Cierre_Usuario, string Caja, int CantidadVentas, decimal MontoTarjeta, decimal MontoEfectivo, decimal MontroOtro, decimal MontoCambio, decimal MontoTotal) {
                 CierreRow rowCierreRow = ((CierreRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Consecutivo,
                         Fecha,
                         Tipo,
                         null,
-                        Monto};
+                        Caja,
+                        CantidadVentas,
+                        MontoTarjeta,
+                        MontoEfectivo,
+                        MontroOtro,
+                        MontoCambio,
+                        MontoTotal};
                 if ((parentUsuarioRowByFK_Cierre_Usuario != null)) {
                     columnValuesArray[3] = parentUsuarioRowByFK_Cierre_Usuario[1];
                 }
@@ -2114,7 +2180,13 @@ namespace LosNaranjitos {
                 this.columnFecha = base.Columns["Fecha"];
                 this.columnTipo = base.Columns["Tipo"];
                 this.columnUsuario = base.Columns["Usuario"];
-                this.columnMonto = base.Columns["Monto"];
+                this.columnCaja = base.Columns["Caja"];
+                this.columnCantidadVentas = base.Columns["CantidadVentas"];
+                this.columnMontoTarjeta = base.Columns["MontoTarjeta"];
+                this.columnMontoEfectivo = base.Columns["MontoEfectivo"];
+                this.columnMontroOtro = base.Columns["MontroOtro"];
+                this.columnMontoCambio = base.Columns["MontoCambio"];
+                this.columnMontoTotal = base.Columns["MontoTotal"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2128,8 +2200,20 @@ namespace LosNaranjitos {
                 base.Columns.Add(this.columnTipo);
                 this.columnUsuario = new global::System.Data.DataColumn("Usuario", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUsuario);
-                this.columnMonto = new global::System.Data.DataColumn("Monto", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMonto);
+                this.columnCaja = new global::System.Data.DataColumn("Caja", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCaja);
+                this.columnCantidadVentas = new global::System.Data.DataColumn("CantidadVentas", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCantidadVentas);
+                this.columnMontoTarjeta = new global::System.Data.DataColumn("MontoTarjeta", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMontoTarjeta);
+                this.columnMontoEfectivo = new global::System.Data.DataColumn("MontoEfectivo", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMontoEfectivo);
+                this.columnMontroOtro = new global::System.Data.DataColumn("MontroOtro", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMontroOtro);
+                this.columnMontoCambio = new global::System.Data.DataColumn("MontoCambio", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMontoCambio);
+                this.columnMontoTotal = new global::System.Data.DataColumn("MontoTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMontoTotal);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnConsecutivo}, true));
                 this.columnConsecutivo.AllowDBNull = false;
@@ -2140,7 +2224,14 @@ namespace LosNaranjitos {
                 this.columnTipo.MaxLength = 100;
                 this.columnUsuario.AllowDBNull = false;
                 this.columnUsuario.MaxLength = 100;
-                this.columnMonto.AllowDBNull = false;
+                this.columnCaja.AllowDBNull = false;
+                this.columnCaja.MaxLength = 50;
+                this.columnCantidadVentas.AllowDBNull = false;
+                this.columnMontoTarjeta.AllowDBNull = false;
+                this.columnMontoEfectivo.AllowDBNull = false;
+                this.columnMontroOtro.AllowDBNull = false;
+                this.columnMontoCambio.AllowDBNull = false;
+                this.columnMontoTotal.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8042,12 +8133,78 @@ namespace LosNaranjitos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Monto {
+            public string Caja {
                 get {
-                    return ((decimal)(this[this.tableCierre.MontoColumn]));
+                    return ((string)(this[this.tableCierre.CajaColumn]));
                 }
                 set {
-                    this[this.tableCierre.MontoColumn] = value;
+                    this[this.tableCierre.CajaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CantidadVentas {
+                get {
+                    return ((int)(this[this.tableCierre.CantidadVentasColumn]));
+                }
+                set {
+                    this[this.tableCierre.CantidadVentasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MontoTarjeta {
+                get {
+                    return ((decimal)(this[this.tableCierre.MontoTarjetaColumn]));
+                }
+                set {
+                    this[this.tableCierre.MontoTarjetaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MontoEfectivo {
+                get {
+                    return ((decimal)(this[this.tableCierre.MontoEfectivoColumn]));
+                }
+                set {
+                    this[this.tableCierre.MontoEfectivoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MontroOtro {
+                get {
+                    return ((decimal)(this[this.tableCierre.MontroOtroColumn]));
+                }
+                set {
+                    this[this.tableCierre.MontroOtroColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MontoCambio {
+                get {
+                    return ((decimal)(this[this.tableCierre.MontoCambioColumn]));
+                }
+                set {
+                    this[this.tableCierre.MontoCambioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MontoTotal {
+                get {
+                    return ((decimal)(this[this.tableCierre.MontoTotalColumn]));
+                }
+                set {
+                    this[this.tableCierre.MontoTotalColumn] = value;
                 }
             }
             
@@ -11878,45 +12035,72 @@ SELECT IdTipo, Descripcion, Activo FROM CategoriaProductos WHERE (IdTipo = @IdTi
             tableMapping.ColumnMappings.Add("Fecha", "Fecha");
             tableMapping.ColumnMappings.Add("Tipo", "Tipo");
             tableMapping.ColumnMappings.Add("Usuario", "Usuario");
-            tableMapping.ColumnMappings.Add("Monto", "Monto");
+            tableMapping.ColumnMappings.Add("Caja", "Caja");
+            tableMapping.ColumnMappings.Add("CantidadVentas", "CantidadVentas");
+            tableMapping.ColumnMappings.Add("MontoTarjeta", "MontoTarjeta");
+            tableMapping.ColumnMappings.Add("MontoEfectivo", "MontoEfectivo");
+            tableMapping.ColumnMappings.Add("MontroOtro", "MontroOtro");
+            tableMapping.ColumnMappings.Add("MontoCambio", "MontoCambio");
+            tableMapping.ColumnMappings.Add("MontoTotal", "MontoTotal");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Cierre] WHERE (([Consecutivo] = @Original_Consecutivo) AND ([F" +
-                "echa] = @Original_Fecha) AND ([Tipo] = @Original_Tipo) AND ([Usuario] = @Origina" +
-                "l_Usuario) AND ([Monto] = @Original_Monto))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Cierre] WHERE (([Consecutivo] = @Original_Consecutivo) AND ([Fecha] = @Original_Fecha) AND ([Tipo] = @Original_Tipo) AND ([Usuario] = @Original_Usuario) AND ([Caja] = @Original_Caja) AND ([CantidadVentas] = @Original_CantidadVentas) AND ([MontoTarjeta] = @Original_MontoTarjeta) AND ([MontoEfectivo] = @Original_MontoEfectivo) AND ([MontroOtro] = @Original_MontroOtro) AND ([MontoCambio] = @Original_MontoCambio) AND ([MontoTotal] = @Original_MontoTotal))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Consecutivo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consecutivo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Monto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Monto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Caja", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Caja", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CantidadVentas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadVentas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MontoTarjeta", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoTarjeta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MontoEfectivo", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoEfectivo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MontroOtro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontroOtro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MontoCambio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoCambio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MontoTotal", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoTotal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Cierre] ([Consecutivo], [Fecha], [Tipo], [Usuario], [Monto]) V" +
-                "ALUES (@Consecutivo, @Fecha, @Tipo, @Usuario, @Monto);\r\nSELECT Consecutivo, Fech" +
-                "a, Tipo, Usuario, Monto FROM Cierre WHERE (Consecutivo = @Consecutivo)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Cierre] ([Consecutivo], [Fecha], [Tipo], [Usuario], [Caja], [CantidadVentas], [MontoTarjeta], [MontoEfectivo], [MontroOtro], [MontoCambio], [MontoTotal]) VALUES (@Consecutivo, @Fecha, @Tipo, @Usuario, @Caja, @CantidadVentas, @MontoTarjeta, @MontoEfectivo, @MontroOtro, @MontoCambio, @MontoTotal);
+SELECT Consecutivo, Fecha, Tipo, Usuario, Caja, CantidadVentas, MontoTarjeta, MontoEfectivo, MontroOtro, MontoCambio, MontoTotal FROM Cierre WHERE (Consecutivo = @Consecutivo)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consecutivo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consecutivo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Monto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Monto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Caja", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Caja", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CantidadVentas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadVentas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MontoTarjeta", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoTarjeta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MontoEfectivo", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoEfectivo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MontroOtro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontroOtro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MontoCambio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoCambio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MontoTotal", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoTotal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Cierre] SET [Consecutivo] = @Consecutivo, [Fecha] = @Fecha, [Tipo] = @Tipo, [Usuario] = @Usuario, [Monto] = @Monto WHERE (([Consecutivo] = @Original_Consecutivo) AND ([Fecha] = @Original_Fecha) AND ([Tipo] = @Original_Tipo) AND ([Usuario] = @Original_Usuario) AND ([Monto] = @Original_Monto));
-SELECT Consecutivo, Fecha, Tipo, Usuario, Monto FROM Cierre WHERE (Consecutivo = @Consecutivo)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Cierre] SET [Consecutivo] = @Consecutivo, [Fecha] = @Fecha, [Tipo] = @Tipo, [Usuario] = @Usuario, [Caja] = @Caja, [CantidadVentas] = @CantidadVentas, [MontoTarjeta] = @MontoTarjeta, [MontoEfectivo] = @MontoEfectivo, [MontroOtro] = @MontroOtro, [MontoCambio] = @MontoCambio, [MontoTotal] = @MontoTotal WHERE (([Consecutivo] = @Original_Consecutivo) AND ([Fecha] = @Original_Fecha) AND ([Tipo] = @Original_Tipo) AND ([Usuario] = @Original_Usuario) AND ([Caja] = @Original_Caja) AND ([CantidadVentas] = @Original_CantidadVentas) AND ([MontoTarjeta] = @Original_MontoTarjeta) AND ([MontoEfectivo] = @Original_MontoEfectivo) AND ([MontroOtro] = @Original_MontroOtro) AND ([MontoCambio] = @Original_MontoCambio) AND ([MontoTotal] = @Original_MontoTotal));
+SELECT Consecutivo, Fecha, Tipo, Usuario, Caja, CantidadVentas, MontoTarjeta, MontoEfectivo, MontroOtro, MontoCambio, MontoTotal FROM Cierre WHERE (Consecutivo = @Consecutivo)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Consecutivo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consecutivo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Monto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Monto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Caja", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Caja", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CantidadVentas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadVentas", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MontoTarjeta", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoTarjeta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MontoEfectivo", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoEfectivo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MontroOtro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontroOtro", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MontoCambio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoCambio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MontoTotal", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoTotal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Consecutivo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Consecutivo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Usuario", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Monto", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "Monto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Caja", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Caja", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CantidadVentas", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CantidadVentas", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MontoTarjeta", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoTarjeta", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MontoEfectivo", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoEfectivo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MontroOtro", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontroOtro", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MontoCambio", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoCambio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MontoTotal", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "MontoTotal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11932,7 +12116,8 @@ SELECT Consecutivo, Fecha, Tipo, Usuario, Monto FROM Cierre WHERE (Consecutivo =
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Consecutivo, Fecha, Tipo, Usuario, Monto FROM dbo.Cierre";
+            this._commandCollection[0].CommandText = "SELECT Consecutivo, Fecha, Tipo, Usuario, Caja, CantidadVentas, MontoTarjeta,Mont" +
+                "oEfectivo, MontroOtro, MontoCambio, MontoTotal FROM dbo.Cierre";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -11993,7 +12178,7 @@ SELECT Consecutivo, Fecha, Tipo, Usuario, Monto FROM Cierre WHERE (Consecutivo =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Consecutivo, System.DateTime Original_Fecha, string Original_Tipo, string Original_Usuario, decimal Original_Monto) {
+        public virtual int Delete(string Original_Consecutivo, System.DateTime Original_Fecha, string Original_Tipo, string Original_Usuario, string Original_Caja, int Original_CantidadVentas, decimal Original_MontoTarjeta, decimal Original_MontoEfectivo, decimal Original_MontroOtro, decimal Original_MontoCambio, decimal Original_MontoTotal) {
             if ((Original_Consecutivo == null)) {
                 throw new global::System.ArgumentNullException("Original_Consecutivo");
             }
@@ -12013,7 +12198,18 @@ SELECT Consecutivo, Fecha, Tipo, Usuario, Monto FROM Cierre WHERE (Consecutivo =
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Usuario));
             }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((decimal)(Original_Monto));
+            if ((Original_Caja == null)) {
+                throw new global::System.ArgumentNullException("Original_Caja");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Caja));
+            }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_CantidadVentas));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((decimal)(Original_MontoTarjeta));
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_MontoEfectivo));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_MontroOtro));
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((decimal)(Original_MontoCambio));
+            this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_MontoTotal));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12034,7 +12230,7 @@ SELECT Consecutivo, Fecha, Tipo, Usuario, Monto FROM Cierre WHERE (Consecutivo =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Consecutivo, System.DateTime Fecha, string Tipo, string Usuario, decimal Monto) {
+        public virtual int Insert(string Consecutivo, System.DateTime Fecha, string Tipo, string Usuario, string Caja, int CantidadVentas, decimal MontoTarjeta, decimal MontoEfectivo, decimal MontroOtro, decimal MontoCambio, decimal MontoTotal) {
             if ((Consecutivo == null)) {
                 throw new global::System.ArgumentNullException("Consecutivo");
             }
@@ -12054,7 +12250,18 @@ SELECT Consecutivo, Fecha, Tipo, Usuario, Monto FROM Cierre WHERE (Consecutivo =
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Usuario));
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(Monto));
+            if ((Caja == null)) {
+                throw new global::System.ArgumentNullException("Caja");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Caja));
+            }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(CantidadVentas));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(MontoTarjeta));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(MontoEfectivo));
+            this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(MontroOtro));
+            this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(MontoCambio));
+            this.Adapter.InsertCommand.Parameters[10].Value = ((decimal)(MontoTotal));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12075,7 +12282,29 @@ SELECT Consecutivo, Fecha, Tipo, Usuario, Monto FROM Cierre WHERE (Consecutivo =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Consecutivo, System.DateTime Fecha, string Tipo, string Usuario, decimal Monto, string Original_Consecutivo, System.DateTime Original_Fecha, string Original_Tipo, string Original_Usuario, decimal Original_Monto) {
+        public virtual int Update(
+                    string Consecutivo, 
+                    System.DateTime Fecha, 
+                    string Tipo, 
+                    string Usuario, 
+                    string Caja, 
+                    int CantidadVentas, 
+                    decimal MontoTarjeta, 
+                    decimal MontoEfectivo, 
+                    decimal MontroOtro, 
+                    decimal MontoCambio, 
+                    decimal MontoTotal, 
+                    string Original_Consecutivo, 
+                    System.DateTime Original_Fecha, 
+                    string Original_Tipo, 
+                    string Original_Usuario, 
+                    string Original_Caja, 
+                    int Original_CantidadVentas, 
+                    decimal Original_MontoTarjeta, 
+                    decimal Original_MontoEfectivo, 
+                    decimal Original_MontroOtro, 
+                    decimal Original_MontoCambio, 
+                    decimal Original_MontoTotal) {
             if ((Consecutivo == null)) {
                 throw new global::System.ArgumentNullException("Consecutivo");
             }
@@ -12095,27 +12324,49 @@ SELECT Consecutivo, Fecha, Tipo, Usuario, Monto FROM Cierre WHERE (Consecutivo =
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Usuario));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(Monto));
+            if ((Caja == null)) {
+                throw new global::System.ArgumentNullException("Caja");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Caja));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(CantidadVentas));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((decimal)(MontoTarjeta));
+            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(MontoEfectivo));
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(MontroOtro));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(MontoCambio));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(MontoTotal));
             if ((Original_Consecutivo == null)) {
                 throw new global::System.ArgumentNullException("Original_Consecutivo");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Consecutivo));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Consecutivo));
             }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_Fecha));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_Fecha));
             if ((Original_Tipo == null)) {
                 throw new global::System.ArgumentNullException("Original_Tipo");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Tipo));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Tipo));
             }
             if ((Original_Usuario == null)) {
                 throw new global::System.ArgumentNullException("Original_Usuario");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Usuario));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Usuario));
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(Original_Monto));
+            if ((Original_Caja == null)) {
+                throw new global::System.ArgumentNullException("Original_Caja");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Caja));
+            }
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(Original_CantidadVentas));
+            this.Adapter.UpdateCommand.Parameters[17].Value = ((decimal)(Original_MontoTarjeta));
+            this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_MontoEfectivo));
+            this.Adapter.UpdateCommand.Parameters[19].Value = ((decimal)(Original_MontroOtro));
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((decimal)(Original_MontoCambio));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Original_MontoTotal));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -12136,8 +12387,29 @@ SELECT Consecutivo, Fecha, Tipo, Usuario, Monto FROM Cierre WHERE (Consecutivo =
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime Fecha, string Tipo, string Usuario, decimal Monto, string Original_Consecutivo, System.DateTime Original_Fecha, string Original_Tipo, string Original_Usuario, decimal Original_Monto) {
-            return this.Update(Original_Consecutivo, Fecha, Tipo, Usuario, Monto, Original_Consecutivo, Original_Fecha, Original_Tipo, Original_Usuario, Original_Monto);
+        public virtual int Update(
+                    System.DateTime Fecha, 
+                    string Tipo, 
+                    string Usuario, 
+                    string Caja, 
+                    int CantidadVentas, 
+                    decimal MontoTarjeta, 
+                    decimal MontoEfectivo, 
+                    decimal MontroOtro, 
+                    decimal MontoCambio, 
+                    decimal MontoTotal, 
+                    string Original_Consecutivo, 
+                    System.DateTime Original_Fecha, 
+                    string Original_Tipo, 
+                    string Original_Usuario, 
+                    string Original_Caja, 
+                    int Original_CantidadVentas, 
+                    decimal Original_MontoTarjeta, 
+                    decimal Original_MontoEfectivo, 
+                    decimal Original_MontroOtro, 
+                    decimal Original_MontoCambio, 
+                    decimal Original_MontoTotal) {
+            return this.Update(Original_Consecutivo, Fecha, Tipo, Usuario, Caja, CantidadVentas, MontoTarjeta, MontoEfectivo, MontroOtro, MontoCambio, MontoTotal, Original_Consecutivo, Original_Fecha, Original_Tipo, Original_Usuario, Original_Caja, Original_CantidadVentas, Original_MontoTarjeta, Original_MontoEfectivo, Original_MontroOtro, Original_MontoCambio, Original_MontoTotal);
         }
     }
     

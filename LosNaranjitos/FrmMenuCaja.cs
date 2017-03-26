@@ -20,10 +20,10 @@ namespace LosNaranjitos
         private void btnAperturaCaja_Click(object sender, EventArgs e)
         {
 
-            FrmPedido a = new FrmPedido();
-            a.WindowState = FormWindowState.Maximized;
+            FrmAperturaCaja a = new FrmAperturaCaja();
             a.Show();
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Caja desde menu de Caja ");
+            this.Dispose();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

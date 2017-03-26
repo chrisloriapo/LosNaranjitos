@@ -20,16 +20,27 @@ namespace LosNaranjitos
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'OrangeDB1DataSet.Bitacora' Puede moverla o quitarla según sea necesario.
-            this.BitacoraTableAdapter.Fill(this.OrangeDB1DataSet.Bitacora);
-            foreach (var item in (this.OrangeDB1DataSet.Bitacora))
+            this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
+            foreach (var item in (this.OrangeDB1DataSet.Cierre))
             {
-                item.IdBitacora = Utilitarios.Decriptar(item.IdBitacora, Utilitarios.Llave);
-                item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
-                item.Accion = Utilitarios.Decriptar(item.Accion, Utilitarios.Llave);
+                if (item.Consecutivo != Utilitarios.Encriptar("Prueba", Utilitarios.Llave))
+                {
+                    item.Delete();
+                    this.OrangeDB1DataSet.Cierre.AcceptChanges();
+                }
+                item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
             }
-            OrangeDB1DataSet.Bitacora.OrderByDescending(x=>x.IdBitacora);
+            OrangeDB1DataSet.Cierre.OrderByDescending(x => x.Consecutivo);
 
             this.rpvBitacora.RefreshReport();
         }
     }
 }
+//            this.BitacoraTableAdapter.Fill(this.OrangeDB1DataSet.Bitacora);
+//            foreach (var item in (this.OrangeDB1DataSet.Bitacora))
+//            {
+//    item.IdBitacora = Utilitarios.Decriptar(item.IdBitacora, Utilitarios.Llave);
+//    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
+//    item.Accion = Utilitarios.Decriptar(item.Accion, Utilitarios.Llave);
+//}
+//OrangeDB1DataSet.Bitacora.OrderByDescending(x => x.IdBitacora);

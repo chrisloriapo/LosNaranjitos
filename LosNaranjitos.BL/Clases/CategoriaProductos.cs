@@ -29,9 +29,12 @@ namespace LosNaranjitos.BL.Clases
         public DATOS.CategoriaProductos BuscarCategoriaProductos(string IDCategoria)
         {
             IDCategoria = Utilitario.Encriptar(IDCategoria, Utilitario.Llave);
-            DATOS.CategoriaProductos CategoriaProductosRetorno = CPProcedimiento.BuscarCategoriaProductos(IDCategoria);
-            CategoriaProductosRetorno.IdTipo = Utilitario.Decriptar(CategoriaProductosRetorno.IdTipo, Utilitario.Llave);
-            CategoriaProductosRetorno.Descripcion = Utilitario.Decriptar(CategoriaProductosRetorno.Descripcion, Utilitario.Llave);
+            DATOS.CategoriaProductos CategoriaProductosLocal = new DATOS.CategoriaProductos();
+            CategoriaProductosLocal = CPProcedimiento.BuscarCategoriaProductos(IDCategoria);
+            DATOS.CategoriaProductos CategoriaProductosRetorno = new DATOS.CategoriaProductos();
+            CategoriaProductosRetorno.IdTipo = Utilitario.Decriptar(CategoriaProductosLocal.IdTipo, Utilitario.Llave);
+            CategoriaProductosRetorno.Descripcion = Utilitario.Decriptar(CategoriaProductosLocal.Descripcion, Utilitario.Llave);
+            CategoriaProductosRetorno.Activo = CategoriaProductosLocal.Activo;
             return CategoriaProductosRetorno;
         }
 

@@ -29,6 +29,11 @@ namespace LosNaranjitos.BL.Clases
             return CierresRetorno;
         }
 
+        public bool ExisteCierreDiario(DateTime Dia)
+        {
+            return CierreOp.ExisteCierreDiario(Dia);
+        }
+
         public bool ExisteConsecutivo(string Consecutivo)
         {
             Consecutivo = Utilitario.Encriptar(Consecutivo, Utilitario.Llave);

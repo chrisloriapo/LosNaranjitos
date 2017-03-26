@@ -26,6 +26,38 @@ namespace LosNaranjitos.DS.Clases
             return CIERRE;
         }
 
+        public bool ExisteCierreDiario(DateTime Dia)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            try
+            {
+                DATOS.Cierre Us = db.Select<DATOS.Cierre>(x => x.Fecha == Dia).FirstOrDefault();
+
+                if (Us.Fecha == Dia)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public bool ExisteConsecutivo(string Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();

@@ -18,5 +18,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         bool ExisteConsecutivo(string Consecutivo);
 
+        bool ExisteCierreDiario(DateTime Dia);
+
     }
 }

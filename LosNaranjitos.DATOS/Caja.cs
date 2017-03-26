@@ -16,5 +16,7 @@ namespace LosNaranjitos.DATOS
 
         public DateTime UltimaModificacion { get; set; }
 
+        public bool Disponible { get; set; }
+
     }
 }

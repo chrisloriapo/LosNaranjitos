@@ -2068,7 +2068,6 @@
         private System.Windows.Forms.Timer tmerTiempo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel39;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cbbCliente;
         private System.Windows.Forms.CheckBox chkTarjeta;
         private System.Windows.Forms.CheckBox chkEfectivo;
@@ -2077,5 +2076,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.MaskedTextBox txtTelefono;
         private System.Windows.Forms.Button btnExpress;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
