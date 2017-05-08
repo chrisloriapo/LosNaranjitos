@@ -42,8 +42,6 @@
             this.lblTime = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,10 +58,15 @@
             this.tsiProovedores = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.cajasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiPedido = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiReportes = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDeCierresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDeInsumosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSeguridad = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiConsecutivos = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,16 +82,15 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
-            this.toolStrip.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip
             // 
+            resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            resources.ApplyResources(this.statusStrip, "statusStrip");
             this.statusStrip.Name = "statusStrip";
             // 
             // toolStripStatusLabel
@@ -155,22 +157,10 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
-            // toolStrip
-            // 
-            this.toolStrip.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.toolStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator2});
-            resources.ApplyResources(this.toolStrip, "toolStrip");
-            this.toolStrip.Name = "toolStrip";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
-            // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.DarkOrange;
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmSistema,
@@ -179,7 +169,6 @@
             this.tsmSeguridad,
             this.tsmVentanas,
             this.tsmAyuda});
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
             // tsmSistema
@@ -188,8 +177,9 @@
             this.tsiCerrarSesion,
             this.tsiAbout,
             this.tsiSalir});
-            this.tsmSistema.Name = "tsmSistema";
             resources.ApplyResources(this.tsmSistema, "tsmSistema");
+            this.tsmSistema.ForeColor = System.Drawing.Color.White;
+            this.tsmSistema.Name = "tsmSistema";
             // 
             // tsiCerrarSesion
             // 
@@ -216,9 +206,11 @@
             this.productosToolStripMenuItem,
             this.tsiProovedores,
             this.tsiCompras,
-            this.tsiClientes});
-            this.tsmAdministracion.Name = "tsmAdministracion";
+            this.tsiClientes,
+            this.cajasToolStripMenuItem});
             resources.ApplyResources(this.tsmAdministracion, "tsmAdministracion");
+            this.tsmAdministracion.ForeColor = System.Drawing.Color.White;
+            this.tsmAdministracion.Name = "tsmAdministracion";
             // 
             // tsiInsumosG
             // 
@@ -285,14 +277,21 @@
             resources.ApplyResources(this.tsiClientes, "tsiClientes");
             this.tsiClientes.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
+            // cajasToolStripMenuItem
+            // 
+            this.cajasToolStripMenuItem.Name = "cajasToolStripMenuItem";
+            resources.ApplyResources(this.cajasToolStripMenuItem, "cajasToolStripMenuItem");
+            this.cajasToolStripMenuItem.Click += new System.EventHandler(this.cajasToolStripMenuItem_Click);
+            // 
             // tsmVentas
             // 
             this.tsmVentas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiPedido,
             this.tsiCierreCaja,
             this.tsiReportes});
-            this.tsmVentas.Name = "tsmVentas";
             resources.ApplyResources(this.tsmVentas, "tsmVentas");
+            this.tsmVentas.ForeColor = System.Drawing.Color.White;
+            this.tsmVentas.Name = "tsmVentas";
             // 
             // tsiPedido
             // 
@@ -304,11 +303,41 @@
             // 
             this.tsiCierreCaja.Name = "tsiCierreCaja";
             resources.ApplyResources(this.tsiCierreCaja, "tsiCierreCaja");
+            this.tsiCierreCaja.Click += new System.EventHandler(this.tsiCierreCaja_Click);
             // 
             // tsiReportes
             // 
+            this.tsiReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteDeVentasToolStripMenuItem,
+            this.reporteDeCierresToolStripMenuItem,
+            this.reporteDeInsumosToolStripMenuItem,
+            this.reporteDeProductosToolStripMenuItem});
             this.tsiReportes.Name = "tsiReportes";
             resources.ApplyResources(this.tsiReportes, "tsiReportes");
+            // 
+            // reporteDeVentasToolStripMenuItem
+            // 
+            this.reporteDeVentasToolStripMenuItem.Name = "reporteDeVentasToolStripMenuItem";
+            resources.ApplyResources(this.reporteDeVentasToolStripMenuItem, "reporteDeVentasToolStripMenuItem");
+            this.reporteDeVentasToolStripMenuItem.Click += new System.EventHandler(this.reporteDeVentasToolStripMenuItem_Click);
+            // 
+            // reporteDeCierresToolStripMenuItem
+            // 
+            this.reporteDeCierresToolStripMenuItem.Name = "reporteDeCierresToolStripMenuItem";
+            resources.ApplyResources(this.reporteDeCierresToolStripMenuItem, "reporteDeCierresToolStripMenuItem");
+            this.reporteDeCierresToolStripMenuItem.Click += new System.EventHandler(this.reporteDeCierresToolStripMenuItem_Click);
+            // 
+            // reporteDeInsumosToolStripMenuItem
+            // 
+            this.reporteDeInsumosToolStripMenuItem.Name = "reporteDeInsumosToolStripMenuItem";
+            resources.ApplyResources(this.reporteDeInsumosToolStripMenuItem, "reporteDeInsumosToolStripMenuItem");
+            this.reporteDeInsumosToolStripMenuItem.Click += new System.EventHandler(this.reporteDeInsumosToolStripMenuItem_Click);
+            // 
+            // reporteDeProductosToolStripMenuItem
+            // 
+            this.reporteDeProductosToolStripMenuItem.Name = "reporteDeProductosToolStripMenuItem";
+            resources.ApplyResources(this.reporteDeProductosToolStripMenuItem, "reporteDeProductosToolStripMenuItem");
+            this.reporteDeProductosToolStripMenuItem.Click += new System.EventHandler(this.reporteDeProductosToolStripMenuItem_Click);
             // 
             // tsmSeguridad
             // 
@@ -316,8 +345,9 @@
             this.tsiUsuarios,
             this.tsiConsecutivos,
             this.tsiBitacora});
-            this.tsmSeguridad.Name = "tsmSeguridad";
             resources.ApplyResources(this.tsmSeguridad, "tsmSeguridad");
+            this.tsmSeguridad.ForeColor = System.Drawing.Color.White;
+            this.tsmSeguridad.Name = "tsmSeguridad";
             // 
             // tsiUsuarios
             // 
@@ -353,13 +383,15 @@
             // 
             // tsmVentanas
             // 
-            this.tsmVentanas.Name = "tsmVentanas";
             resources.ApplyResources(this.tsmVentanas, "tsmVentanas");
+            this.tsmVentanas.ForeColor = System.Drawing.Color.White;
+            this.tsmVentanas.Name = "tsmVentanas";
             // 
             // tsmAyuda
             // 
-            this.tsmAyuda.Name = "tsmAyuda";
             resources.ApplyResources(this.tsmAyuda, "tsmAyuda");
+            this.tsmAyuda.ForeColor = System.Drawing.Color.White;
+            this.tsmAyuda.Name = "tsmAyuda";
             // 
             // tmerTiempo
             // 
@@ -372,7 +404,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.grbMain);
             this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.Name = "FrmMenuPrincipal";
@@ -389,8 +420,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbUsuario)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            this.toolStrip.ResumeLayout(false);
-            this.toolStrip.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -404,8 +433,6 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.GroupBox grbMain;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmSistema;
         private System.Windows.Forms.ToolStripMenuItem tsiCerrarSesion;
@@ -435,13 +462,18 @@
         private System.Windows.Forms.PictureBox pcbUsuario;
         private System.Windows.Forms.LinkLabel lnkUsuario;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.ToolStripMenuItem tsiAbout;
         private System.Windows.Forms.ToolStripMenuItem productosALaVentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem combosPromocionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsMiCargas;
         private System.Windows.Forms.ToolStripMenuItem tsiCierreCaja;
+        private System.Windows.Forms.ToolStripMenuItem cajasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteDeVentasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteDeCierresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteDeInsumosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteDeProductosToolStripMenuItem;
+        private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Label lblDate;
     }
 }
 

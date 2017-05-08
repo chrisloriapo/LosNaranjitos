@@ -26,7 +26,7 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(MEdida);
         }
 
-        public DATOS.Medida BuscarConsecutivo(string IdMedida)
+        public DATOS.Medida BuscarConsecutivo(int IdMedida)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -42,7 +42,7 @@ namespace LosNaranjitos.DS.Clases
             return BuscMed;
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();

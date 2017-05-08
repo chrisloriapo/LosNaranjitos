@@ -14,7 +14,7 @@ namespace LosNaranjitos.BL.Clases
 
         public void ActualizarUsuario(DATOS.Usuario User)
         {
-            User.Consecutivo = Utilitario.Encriptar(User.Consecutivo, Utilitario.Llave);
+            //User.Consecutivo = Utilitario.Encriptar(User.Consecutivo, Utilitario.Llave);
             User.Username = Utilitario.Encriptar(User.Username, Utilitario.Llave);
             User.Nombre = Utilitario.Encriptar(User.Nombre, Utilitario.Llave);
             User.Apellido1 = Utilitario.Encriptar(User.Apellido1, Utilitario.Llave);
@@ -23,14 +23,14 @@ namespace LosNaranjitos.BL.Clases
             User.IdPersonal = Utilitario.Encriptar(User.IdPersonal, Utilitario.Llave);
             User.Telefono = Utilitario.Encriptar(User.Telefono, Utilitario.Llave);
             User.Correo = Utilitario.Encriptar(User.Correo, Utilitario.Llave);
-            User.Rol = Utilitario.Encriptar(User.Rol, Utilitario.Llave);
+            //User.Rol = Utilitario.Encriptar(User.Rol, Utilitario.Llave);
             USUARIO.ActualizarUsuario(User);
 
         }
 
         public void AgregarUsuario(DATOS.Usuario User)
         {
-            User.Consecutivo = Utilitario.Encriptar(User.Consecutivo, Utilitario.Llave);
+            //User.Consecutivo = Utilitario.Encriptar(User.Consecutivo, Utilitario.Llave);
             User.Username = Utilitario.Encriptar(User.Username, Utilitario.Llave);
             User.Nombre = Utilitario.Encriptar(User.Nombre, Utilitario.Llave);
             User.Apellido1 = Utilitario.Encriptar(User.Apellido1, Utilitario.Llave);
@@ -39,7 +39,7 @@ namespace LosNaranjitos.BL.Clases
             User.IdPersonal = Utilitario.Encriptar(User.IdPersonal, Utilitario.Llave);
             User.Telefono = Utilitario.Encriptar(User.Telefono, Utilitario.Llave);
             User.Correo = Utilitario.Encriptar(User.Correo, Utilitario.Llave);
-            User.Rol = Utilitario.Encriptar(User.Rol, Utilitario.Llave);
+            //User.Rol = Utilitario.Encriptar(User.Rol, Utilitario.Llave);
             USUARIO.AgregarUsuario(User);
 
         }
@@ -48,7 +48,7 @@ namespace LosNaranjitos.BL.Clases
         {
             iduser = Utilitario.Encriptar(iduser, Utilitario.Llave);
             DATOS.Usuario User = USUARIO.BuscarUsuario(iduser);
-            User.Consecutivo = Utilitario.Decriptar(User.Consecutivo, Utilitario.Llave);
+            //User.Consecutivo = Utilitario.Decriptar(User.Consecutivo, Utilitario.Llave);
             User.Username = Utilitario.Decriptar(User.Username, Utilitario.Llave);
             User.Nombre = Utilitario.Decriptar(User.Nombre, Utilitario.Llave);
             User.Apellido1 = Utilitario.Decriptar(User.Apellido1, Utilitario.Llave);
@@ -57,15 +57,15 @@ namespace LosNaranjitos.BL.Clases
             User.IdPersonal = Utilitario.Decriptar(User.IdPersonal, Utilitario.Llave);
             User.Telefono = Utilitario.Decriptar(User.Telefono, Utilitario.Llave);
             User.Correo = Utilitario.Decriptar(User.Correo, Utilitario.Llave);
-            User.Rol = Utilitario.Decriptar(User.Rol, Utilitario.Llave);
+            //User.Rol = Utilitario.Decriptar(User.Rol, Utilitario.Llave);
             return User;
         }
 
-        public DATOS.Usuario BuscarUsuarioPorConsecutivo(string Consecutv)
+        public DATOS.Usuario BuscarUsuarioPorConsecutivo(int Consecutv)
         {
-            Consecutv = Utilitario.Encriptar(Consecutv, Utilitario.Llave);
+            //Consecutv = Utilitario.Encriptar(Consecutv, Utilitario.Llave);
             DATOS.Usuario User = USUARIO.BuscarUsuarioPorConsecutivo(Consecutv);
-            User.Consecutivo = Utilitario.Decriptar(User.Consecutivo, Utilitario.Llave);
+            //User.Consecutivo = Utilitario.Decriptar(User.Consecutivo, Utilitario.Llave);
             User.Username = Utilitario.Decriptar(User.Username, Utilitario.Llave);
             User.Nombre = Utilitario.Decriptar(User.Nombre, Utilitario.Llave);
             User.Apellido1 = Utilitario.Decriptar(User.Apellido1, Utilitario.Llave);
@@ -74,7 +74,7 @@ namespace LosNaranjitos.BL.Clases
             User.IdPersonal = Utilitario.Decriptar(User.IdPersonal, Utilitario.Llave);
             User.Telefono = Utilitario.Decriptar(User.Telefono, Utilitario.Llave);
             User.Correo = Utilitario.Decriptar(User.Correo, Utilitario.Llave);
-            User.Rol = Utilitario.Decriptar(User.Rol, Utilitario.Llave);
+            //User.Rol = Utilitario.Decriptar(User.Rol, Utilitario.Llave);
             return User;
         }
 
@@ -82,7 +82,7 @@ namespace LosNaranjitos.BL.Clases
         {
             username = Utilitario.Encriptar(username, Utilitario.Llave);
             DATOS.Usuario User = USUARIO.BuscarUsuarioXUsername(username);
-            User.Consecutivo = Utilitario.Decriptar(User.Consecutivo, Utilitario.Llave);
+            //User.Consecutivo = Utilitario.Decriptar(User.Consecutivo, Utilitario.Llave);
             User.Username = Utilitario.Decriptar(User.Username, Utilitario.Llave);
             User.Nombre = Utilitario.Decriptar(User.Nombre, Utilitario.Llave);
             User.Apellido1 = Utilitario.Decriptar(User.Apellido1, Utilitario.Llave);
@@ -91,13 +91,13 @@ namespace LosNaranjitos.BL.Clases
             User.IdPersonal = Utilitario.Decriptar(User.IdPersonal, Utilitario.Llave);
             User.Telefono = Utilitario.Decriptar(User.Telefono, Utilitario.Llave);
             User.Correo = Utilitario.Decriptar(User.Correo, Utilitario.Llave);
-            User.Rol = Utilitario.Decriptar(User.Rol, Utilitario.Llave);
+            //User.Rol = Utilitario.Decriptar(User.Rol, Utilitario.Llave);
             return User;
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
-            Consecutivo = Utilitario.Encriptar(Consecutivo, Utilitario.Llave);
+            //Consecutivo = Utilitario.Encriptar(Consecutivo, Utilitario.Llave);
             return USUARIO.ExisteConsecutivo(Consecutivo);
         }
 
@@ -109,7 +109,7 @@ namespace LosNaranjitos.BL.Clases
 
         public void Inactivar(DATOS.Usuario User)
         {
-            User.Consecutivo = Utilitario.Encriptar(User.Consecutivo, Utilitario.Llave);
+            //User.Consecutivo = Utilitario.Encriptar(User.Consecutivo, Utilitario.Llave);
             User.Username = Utilitario.Encriptar(User.Username, Utilitario.Llave);
             User.Nombre = Utilitario.Encriptar(User.Nombre, Utilitario.Llave);
             User.Apellido1 = Utilitario.Encriptar(User.Apellido1, Utilitario.Llave);
@@ -118,7 +118,7 @@ namespace LosNaranjitos.BL.Clases
             User.IdPersonal = Utilitario.Encriptar(User.IdPersonal, Utilitario.Llave);
             User.Telefono = Utilitario.Encriptar(User.Telefono, Utilitario.Llave);
             User.Correo = Utilitario.Encriptar(User.Correo, Utilitario.Llave);
-            User.Rol = Utilitario.Encriptar(User.Rol, Utilitario.Llave);
+            //User.Rol = Utilitario.Encriptar(User.Rol, Utilitario.Llave);
             User.Activo = false;
             USUARIO.Inactivar(User);
         }

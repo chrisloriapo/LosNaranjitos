@@ -11,8 +11,8 @@ namespace LosNaranjitos.DATOS
 
     public class Insumos
     {
-        public string Consecutivo { get; set; }
-
+        [AutoIncrement]
+        public int Consecutivo { get; set; }
         [PrimaryKey]
         public string IdInsumo { get; set; }
 
@@ -33,9 +33,6 @@ namespace LosNaranjitos.DATOS
         public string Proveedor { get; set; }
 
         public bool Activo { get; set; }
-
-
-
     }
 
 }

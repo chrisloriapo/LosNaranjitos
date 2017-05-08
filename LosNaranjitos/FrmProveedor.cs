@@ -31,6 +31,7 @@ namespace LosNaranjitos
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.Proveedor UltimoProveedor = new DATOS.Proveedor();
+                    txtIdProveedor.ReadOnly = false;
                     try
                     {
                         UltimoProveedor = Utilitarios.OpProveedor.ListarProveedores().OrderByDescending(x => x.Consecutivo).First();
@@ -91,6 +92,7 @@ namespace LosNaranjitos
                         txtEmpresa.Text = EditProveedor.Nombre;
                         txtTelefono.Text = EditProveedor.Telefono;
                         txtEmail.Text = EditProveedor.Correo;
+                        txtIdProveedor.ReadOnly = true;
                         if (EditProveedor.Activo)
                         {
                             chkEstado.Checked = true;
@@ -120,6 +122,8 @@ namespace LosNaranjitos
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             AgregarProveedor();
+            this.FrmProveedor_Load(sender, e);
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -160,6 +164,9 @@ namespace LosNaranjitos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
+            clearall();
+            tabControl1.SelectedIndex = 0;
+            Utilitarios.Cambio = false;
             this.Dispose();
 
         }
@@ -209,7 +216,8 @@ namespace LosNaranjitos
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
-                    this.Dispose();
+                    tabControl1.SelectedIndex = 0;
+                    dgvListado.Refresh();
                     clearall();
                 }
                 catch (Exception ex)
@@ -252,6 +260,7 @@ namespace LosNaranjitos
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Proveedores");
                     tabControl1.TabIndex = 0;
                     clearall();
+                    dgvListado.Refresh();
                 }
                 catch (Exception ex)
                 {
@@ -321,13 +330,18 @@ namespace LosNaranjitos
                         {
                             autosearch.Add(Convert.ToString(pos.IdProveedor));
                         }
-
+                        txtBuscar.Visible = true;
                         break;
                     case "Empresa":
                         foreach (var pos in ListaLocal)
                         {
                             autosearch.Add(Convert.ToString(pos.Nombre));
                         }
+                        txtBuscar.Visible = true;
+                        break;
+                    case "Lista Completa":
+                        txtBuscar.Visible = false;
+                        dgvListado.DataSource = ListaLocal.ToList();
                         break;
                 }
                 txtBuscar.AutoCompleteCustomSource = autosearch;

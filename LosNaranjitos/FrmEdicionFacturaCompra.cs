@@ -45,9 +45,9 @@ namespace LosNaranjitos
             FrmCompras.EditFacturaCompra = FacturaEditar;
             Utilitarios.Cambio = true;
             this.Dispose();
-            FrmInsumos a = new FrmInsumos();
+            FrmCompras a = new FrmCompras();
             a.MdiParent = FrmLogin.MN;
-            a.WindowState = FormWindowState.Maximized;
+            a.Dock = DockStyle.Fill;
             a.Show();
 
         }

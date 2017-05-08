@@ -110,6 +110,7 @@ namespace LosNaranjitos
                     CajaNueva.Estado = false;
                     CajaNueva.OperadorActual = FrmLogin.UsuarioGlobal.Username;
                     CajaNueva.UltimaModificacion = DateTime.Now;
+                    Utilitarios.OpCaja.AgregarCaja(CajaNueva);
                     Consecutivo Consecutivox = new Consecutivo();
                     Consecutivox = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Caja");
                     Consecutivox.ConsecutivoActual = Consecutivox.ConsecutivoActual + 1;

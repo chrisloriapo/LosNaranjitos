@@ -525,8 +525,11 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\LosNaranjitos.DS.dll.config
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmAperturaCaja.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmCajaMantenimiento.resources
-C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmCierre.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmReporteCombos.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmReporteInsumos.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmReporteVentas.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmCierreCajero.resources
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.UI.csprojResolveAssemblyReference.cache
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.exe
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.FrmReporteCierres.resources

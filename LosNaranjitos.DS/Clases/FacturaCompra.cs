@@ -33,7 +33,7 @@ namespace LosNaranjitos.DS.Clases
             return Factura;
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();

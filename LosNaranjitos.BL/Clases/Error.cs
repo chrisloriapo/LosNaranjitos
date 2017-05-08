@@ -14,37 +14,37 @@ namespace LosNaranjitos.BL.Clases
 
         public void AgregarError(DATOS.Error ERROR)
         {
-            ERROR.IdError = Utilitario.Encriptar(ERROR.IdError, Utilitario.Llave);
-            ERROR.Tipo = Utilitario.Encriptar(ERROR.Tipo, Utilitario.Llave);
-            ERROR.Descripcion = Utilitario.Encriptar(ERROR.Descripcion, Utilitario.Llave);
+            //ERROR.IdError = Utilitario.Encriptar(ERROR.IdError, Utilitario.Llave);
+            //ERROR.Tipo = Utilitario.Encriptar(ERROR.Tipo, Utilitario.Llave);
+            //ERROR.Descripcion = Utilitario.Encriptar(ERROR.Descripcion, Utilitario.Llave);
             ErrorProces.AgregarError(ERROR);
         }
 
-        public DATOS.Error BuscarError(string IdError)
+        public DATOS.Error BuscarError(int IdError)
         {
-            IdError = Utilitario.Encriptar(IdError, Utilitario.Llave);
+            //IdError = Utilitario.Encriptar(IdError, Utilitario.Llave);
             DATOS.Error ErrorRetorno = ErrorProces.BuscarError(IdError);
-            ErrorRetorno.IdError = Utilitario.Decriptar(ErrorRetorno.IdError, Utilitario.Llave);
-            ErrorRetorno.Tipo = Utilitario.Decriptar(ErrorRetorno.Tipo, Utilitario.Llave);
-            ErrorRetorno.Descripcion = Utilitario.Decriptar(ErrorRetorno.Descripcion, Utilitario.Llave);
+            //ErrorRetorno.IdError = Utilitario.Decriptar(ErrorRetorno.IdError, Utilitario.Llave);
+            //ErrorRetorno.Tipo = Utilitario.Decriptar(ErrorRetorno.Tipo, Utilitario.Llave);
+            //ErrorRetorno.Descripcion = Utilitario.Decriptar(ErrorRetorno.Descripcion, Utilitario.Llave);
             return ErrorRetorno;
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
-            Consecutivo = Utilitario.Encriptar(Consecutivo, Utilitario.Llave);
+            //Consecutivo = Utilitario.Encriptar(Consecutivo, Utilitario.Llave);
             return ErrorProces.ExisteConsecutivo(Consecutivo);
         }
 
         public List<DATOS.Error> ListarErrores()
         {
             List<DATOS.Error> ListaRetorno = ErrorProces.ListarErrores();
-            foreach (var item in ListaRetorno)
-            {
-                item.IdError = Utilitario.Decriptar(item.IdError, Utilitario.Llave);
-                item.Tipo = Utilitario.Decriptar(item.Tipo, Utilitario.Llave);
-                item.Descripcion = Utilitario.Decriptar(item.Descripcion, Utilitario.Llave);
-            }
+            //foreach (var item in ListaRetorno)
+            //{
+            //    item.IdError = Utilitario.Decriptar(item.IdError, Utilitario.Llave);
+            //    item.Tipo = Utilitario.Decriptar(item.Tipo, Utilitario.Llave);
+            //    item.Descripcion = Utilitario.Decriptar(item.Descripcion, Utilitario.Llave);
+            //  }
             return ListaRetorno;
         }
     }

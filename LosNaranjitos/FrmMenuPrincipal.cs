@@ -104,22 +104,40 @@ namespace LosNaranjitos
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmUsuarios a = new FrmUsuarios();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Usuarios ");
-
+            try
+            {
+                FrmUsuarios a = new FrmUsuarios();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Usuarios ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmProveedor a = new FrmProveedor();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Proveedores ");
-
+            try
+            {
+                FrmProveedor a = new FrmProveedor();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Proveedores ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void lnkUsuario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -129,13 +147,36 @@ namespace LosNaranjitos
 
         private void pedidosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            grbMain.Visible = false;
-            FrmPedido a = new FrmPedido();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Pedidos ");
-
+            try
+            {
+                if (Utilitarios.OpCaja.ListarCajas().Where(x => x.Estado == true && x.OperadorActual == FrmLogin.UsuarioGlobal.Username).Count() > 0)
+                {
+                    grbMain.Visible = false;
+                    FrmPedido a = new FrmPedido();
+                    a.MdiParent = this;
+                    a.ControlBox = false;
+                    a.MinimizeBox = false;
+                    a.MaximizeBox = false;
+                    a.Show();
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Pedidos ");
+                }
+                else
+                {
+                    grbMain.Visible = false;
+                    FrmAperturaCaja a = new FrmAperturaCaja();
+                    a.MdiParent = this;
+                    a.ControlBox = false;
+                    a.MinimizeBox = false;
+                    a.MaximizeBox = false;
+                    a.Show();
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Pedidos ");
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void FrmMenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -158,59 +199,116 @@ namespace LosNaranjitos
 
         private void tstICerrarSesion_Click(object sender, EventArgs e)
         {
-            FrmLogin ReLog = new FrmLogin();
-            ReLog.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Sesion");
-            this.Dispose();
+            try
+            {
+                FrmLogin ReLog = new FrmLogin();
+                ReLog.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Sesion");
+                this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCliente a = new FrmCliente();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Clientes ");
-
+            try
+            {
+                FrmCliente a = new FrmCliente();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Clientes ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void insumosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            FrmInsumos a = new FrmInsumos();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Insumos/Inventario ");
+            try
+            {
+                FrmInsumos a = new FrmInsumos();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Insumos/Inventario ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
 
         private void unidadesDeMedidasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmMedidas a = new FrmMedidas();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Unidades de Medidas ");
-
+            try
+            {
+                FrmMedidas a = new FrmMedidas();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Unidades de Medidas ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void bitacoraDeCambiosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmBitacora a = new FrmBitacora();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Bitacora ");
-
+            try
+            {
+                FrmBitacora a = new FrmBitacora();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Bitacora ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void consecutivosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmConsecutivo a = new FrmConsecutivo();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
+            try
+            {
+                FrmConsecutivo a = new FrmConsecutivo();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
 
@@ -230,11 +328,21 @@ namespace LosNaranjitos
 
         private void consecutivosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            FrmErrores a = new FrmErrores();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
+            try
+            {
+                FrmErrores a = new FrmErrores();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void tmerTiempo_Tick(object sender, EventArgs e)
@@ -245,47 +353,217 @@ namespace LosNaranjitos
 
         private void tstabout_Click(object sender, EventArgs e)
         {
-            FrmAbout a = new FrmAbout();
-            a.MdiParent = this;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Se mostro el formulario de Acerca De ");
-
+            try
+            {
+                FrmAbout a = new FrmAbout();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill; a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Se mostro el formulario de Acerca De ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void productosALaVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmProductosVenta a = new FrmProductosVenta();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Productos ");
+            try
+            {
+                FrmProductosVenta a = new FrmProductosVenta();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill; 
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Productos ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void combosPromocionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCombo a = new FrmCombo();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Combos/Promociones ");
+            try
+            {
+                FrmCombo a = new FrmCombo();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Combos/Promociones ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void ComprasTst_Click(object sender, EventArgs e)
         {
-            FrmCompras a = new FrmCompras();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Compras ");
+            try
+            {
+                FrmCompras a = new FrmCompras();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill; 
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Compras ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         private void tsMiCargas_Click(object sender, EventArgs e)
         {
-            FrmCargas a = new FrmCargas();
-            a.MdiParent = this;
-            a.WindowState = FormWindowState.Maximized;
-            a.Show();
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cargas-Impuestos ");
+            try
+            {
+                FrmCargas a = new FrmCargas();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cargas-Impuestos ");
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void tsiCierreCaja_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmCierreCajero a = new FrmCierreCajero();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+
+
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cajasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmCajaMantenimiento a = new FrmCajaMantenimiento();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void reporteDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmReporteVentas a = new FrmReporteVentas();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void reporteDeCierresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmReporteCierres a = new FrmReporteCierres();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void reporteDeInsumosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmReporteInsumos a = new FrmReporteInsumos();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void reporteDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmReporteProductos a = new FrmReporteProductos();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

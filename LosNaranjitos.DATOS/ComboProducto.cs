@@ -10,16 +10,15 @@ namespace LosNaranjitos.DATOS
 {
     public class ComboProducto
     {
-        
-        public string Consecutivo { get; set; }
-        
+        [AutoIncrement]
+        public int Consecutivo { get; set; }
         [PrimaryKey]
         public string CodCombo { get; set; }
-        
+        [PrimaryKey]
         public string CodProducto { get; set; }
-        
+
         public string IdMedida { get; set; }
-        
+
         public float CantidadProducto { get; set; }
 
     }

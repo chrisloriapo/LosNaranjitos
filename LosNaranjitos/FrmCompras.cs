@@ -29,8 +29,9 @@ namespace LosNaranjitos
                 {
                     MessageBox.Show("No existe ningun Proveedor Registrado, debes registrar proveedores para ingresar Facturas nuevas, pureba Ingresando un nuevo registro en el modulo de Proveedores", "No hay datos a modificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Utilitarios.GeneralError("No existe ningun Proveedor Registrado, debes registrar proveedores para ingresar Facturas nuevas, pureba Ingresando un nuevo registro en el modulo de Proveedores", "No hay datos disponibles", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Facturas Compras al Cargar el formulario ");
-                    return;
+                    
                     BeginInvoke(new MethodInvoker(Close));
+                    return;
 
                 }
                 if (Utilitarios.OpFacturaCompra.ListarFacturas().Count() == 0)
@@ -39,6 +40,7 @@ namespace LosNaranjitos
                 }
                 if (!Utilitarios.Cambio)
                 {
+                    txtIdFactura.ReadOnly = false;
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.FacturaCompra UltimaFactura = new FacturaCompra();
@@ -105,6 +107,7 @@ namespace LosNaranjitos
                         cbbProveedor.SelectedItem = ProvLocal.Nombre;
                         btnNuevo.Enabled = false;
                         txtMonto.Text = EditFacturaCompra.Monto.ToString();
+                        txtIdFactura.ReadOnly = true;
                         return;
                     }
                     else
@@ -196,6 +199,7 @@ namespace LosNaranjitos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Compras");
+            Utilitarios.Cambio = false;
             this.Dispose();
         }
 
@@ -212,6 +216,7 @@ namespace LosNaranjitos
                 FrmEdicionFacturaCompra a = new FrmEdicionFacturaCompra();
                 a.Show();
                 this.Dispose();
+                
             }
             else
             {
@@ -220,6 +225,7 @@ namespace LosNaranjitos
                     EditarFactura();
                     Utilitarios.Cambio = false;
                     FrmCompras_Load(sender, e);
+                    
                 }
                 else
                 {
@@ -261,6 +267,7 @@ namespace LosNaranjitos
                     ClearAll();
                     tabControl1.SelectedIndex = 0;
                     dgvListado.Refresh();
+                    Utilitarios.Cambio = false;
 
                 }
                 catch (Exception ex)
@@ -273,6 +280,16 @@ namespace LosNaranjitos
         }
 
         private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Utilitarios.EsNumerico(e.KeyChar.ToString()))
+            {
+                this.txtMonto.Clear();
+                e.Handled = true;
+                MessageBox.Show("Digita unicamente numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtMonto_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (!Utilitarios.EsNumerico(e.KeyChar.ToString()))
             {

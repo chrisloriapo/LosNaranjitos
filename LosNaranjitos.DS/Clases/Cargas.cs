@@ -26,7 +26,7 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(Carga);
         }
 
-        public DATOS.Cargas BuscarCarga(string IdCarga)
+        public DATOS.Cargas BuscarCarga(int IdCarga)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -42,7 +42,7 @@ namespace LosNaranjitos.DS.Clases
             return Carga;
         }
 
-        public bool ExisteCarga(string IdCarga)
+        public bool ExisteCarga(int IdCarga)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -73,7 +73,7 @@ namespace LosNaranjitos.DS.Clases
                 }
             }
         }
-
+/*
         public bool ExisteConsecutivo(string Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
@@ -105,7 +105,7 @@ namespace LosNaranjitos.DS.Clases
                 }
             }
         }
-
+*/
         public void Inactivar(DATOS.Cargas Carga)
         {
             var conexion = _Conexion.CrearConexion();

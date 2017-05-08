@@ -50,6 +50,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(954, 534);
             this.Controls.Add(this.rptVReporteLocal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmReporteInsumos";
             this.Text = "FrmReporteInsumos";
             this.ResumeLayout(false);

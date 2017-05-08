@@ -51,6 +51,7 @@ namespace LosNaranjitos
                 if (!Utilitarios.Cambio)
                 {
                     //Validacion Consecutivos Producto
+                    txtIdCombo.ReadOnly = false;
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.Combo UltimoCombo = new Combo();
@@ -123,6 +124,7 @@ namespace LosNaranjitos
                 }
                 while (Utilitarios.Cambio)
                 {
+                    txtIdCombo.ReadOnly = true;
                     btnEditarProducto.Visible = false;
                     tbcProductos.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
@@ -195,6 +197,7 @@ namespace LosNaranjitos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Combos");
+            Utilitarios.Cambio = false;
             this.Dispose();
         }
 
@@ -207,6 +210,7 @@ namespace LosNaranjitos
             if (mensaje == DialogResult.Yes)
             {
                 Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Combos");
+                Utilitarios.Cambio = false;
                 this.Dispose();
             }
             else

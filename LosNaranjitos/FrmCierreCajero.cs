@@ -21,6 +21,10 @@ namespace LosNaranjitos
         private void FrmCierreCajero_Load(object sender, EventArgs e)
         {
 
+            btnNuevo.Visible = false;
+            btnEjecutar.Visible = true;
+            rptVReporteLocal.Visible = false;
+
         }
 
         private void cbbTipoCierre_SelectedIndexChanged(object sender, EventArgs e)
@@ -42,6 +46,11 @@ namespace LosNaranjitos
                 }
                 else
                 {
+                    if (Utilitarios.OpPedidos.ListarPedido().Where(x=>x.Cerrado==false).Count() == 0)
+                    {
+                        MessageBox.Show("No Existen Ventas Disponibles para un cierre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     dtpFecha.Value = DateTime.Today.AddDays(0);
                     dtpFecha.Visible = true;
                     cbbCaja.Visible = false;
@@ -70,7 +79,7 @@ namespace LosNaranjitos
                     switch (cbbTipoCierre.SelectedItem.ToString())
                     {
                         case "Cierre de Caja":
-                            var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Where(x => x.Operador == FrmLogin.UsuarioGlobal.Username && x.CierreOperador == false);
+                            var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Where(x => x.Operador == FrmLogin.UsuarioGlobal.Username && x.CierreOperador == false && x.Cancelado==true);
                             decimal MontoTarjeta, MontoOtro, MontoEfectivo, MontoCambio, Total = 0;
                             MontoCambio = ListaLocal.Sum(x => x.MontoCambio);
                             MontoTarjeta = ListaLocal.Sum(x => x.MontoTarjeta);
@@ -111,27 +120,29 @@ namespace LosNaranjitos
                             Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
                             Utilitarios.GeneralBitacora(CierreCaja.Usuario, "Cierre de Caja (Arqueo) ejecutado");
                             MessageBox.Show("Cierre Registrado Exitosamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
 
                             foreach (var item in (this.OrangeDB1DataSet.Cierre))
                             {
-                                if (item.Consecutivo != Utilitarios.Encriptar(CierreCaja.Consecutivo, Utilitarios.Llave))
-                                {
-                                    item.Delete();
-                                    this.OrangeDB1DataSet.Cierre.AcceptChanges();
-                                }
-                                else
-                                {
+                                //if (item.Consecutivo != Utilitarios.Encriptar(CierreCaja.Consecutivo, Utilitarios.Llave))
+                                //{
+                                //    item.Delete();
+                                //    this.OrangeDB1DataSet.Cierre.AcceptChanges();
+                                //}
+                                //else
+                                //{
                                     item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
                                     item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
                                     item.Tipo = Utilitarios.Decriptar(item.Tipo, Utilitarios.Llave);
-                                    item.Caja = Utilitarios.Decriptar(item.Caja, Utilitarios.Llave);
-                                }
-                            }
-                            OrangeDB1DataSet.Cierre.OrderByDescending(x => x.Consecutivo);
+                                //item.Caja = Utilitarios.Decriptar(item.Caja, Utilitarios.Llave);
+                           // }
+                    }
+                            OrangeDB1DataSet.Cierre.Where(x => x.Consecutivo==CierreCaja.Consecutivo);
 
-                            this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
                             this.rptVReporteLocal.RefreshReport();
                             rptVReporteLocal.Visible = true;
+                            btnEjecutar.Visible = false;
+                            btnNuevo.Visible = true;
 
                             break;
                         case "Cierre Diario":
@@ -145,7 +156,7 @@ namespace LosNaranjitos
                             DateTime D1, D2;
                             D1 = Utilitarios.GetDateZeroTime(dtpFecha.Value);
                             D2 = Utilitarios.GetDateEndTime(dtpFecha.Value);
-                            var ListaLocal2 = Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false && (x.Fecha >= D1 || x.Fecha <= D2));
+                            var ListaLocal2 = Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false && (x.Fecha >= D1 && x.Fecha <= D2));
 
                             foreach (var item in ListaLocal2)
                             {
@@ -156,7 +167,7 @@ namespace LosNaranjitos
                                 }
                                 if (!item.CierreOperador)
                                 {
-                                    MessageBox.Show("Debes Generar el Cierre de Caja del Operador "+item.Operador+" antes de Continuar", "Arqueo Pendiente", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    MessageBox.Show("Debes Generar el Cierre de Caja del Operador " + item.Operador + " antes de Continuar", "Arqueo Pendiente", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     return;
                                 }
                             }
@@ -194,46 +205,62 @@ namespace LosNaranjitos
                             Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec2);
                             Utilitarios.GeneralBitacora(CierreDiario.Usuario, "Cierre diario ejecutado");
                             MessageBox.Show("Cierre Registrado Exitosamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
 
                             foreach (var item in (this.OrangeDB1DataSet.Cierre))
                             {
-                                if (item.Consecutivo != Utilitarios.Encriptar(CierreDiario.Consecutivo, Utilitarios.Llave))
-                                {
-                                    item.Delete();
-                                    this.OrangeDB1DataSet.Cierre.AcceptChanges();
-                                }
-                                else
-                                {
-                                    item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
+                                //if (item.Consecutivo != Utilitarios.Encriptar(CierreDiario.Consecutivo, Utilitarios.Llave))
+                                //{
+                                //    item.Delete();
+                                //    this.OrangeDB1DataSet.Cierre.AcceptChanges();
+                                //}
+                                //else
+                                //{
+                                //    item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
                                     item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
                                     item.Tipo = Utilitarios.Decriptar(item.Tipo, Utilitarios.Llave);
-                                    item.Caja = Utilitarios.Decriptar(item.Caja, Utilitarios.Llave);
-                                }
+                                    //item.Caja = Utilitarios.Decriptar(item.Caja, Utilitarios.Llave);
+                                    this.OrangeDB1DataSet.Cierre.AcceptChanges();
+                              //  }
                             }
-                            OrangeDB1DataSet.Cierre.OrderByDescending(x => x.Consecutivo);
+                            OrangeDB1DataSet.Cierre.Where(x => x.Consecutivo==CierreDiario.Consecutivo);
 
-                            this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
                             this.rptVReporteLocal.RefreshReport();
                             rptVReporteLocal.Visible = true;
+                            btnEjecutar.Visible = false;
+                            btnNuevo.Visible = true;
                             break;
                     }
-
                 }
                 else
                 {
                     return;
                 }
-
-
             }
             catch (Exception ex)
             {
-
                 Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Cierre al Selecionar Ejecutar Cierre ");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
+        }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de  Cierres ");
+                this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            this.FrmCierreCajero_Load(sender, e);
         }
     }
 }

@@ -188,6 +188,7 @@ namespace LosNaranjitos
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Cargas");
+            Utilitarios.Cambio = false;
             this.Dispose();
         }
     }

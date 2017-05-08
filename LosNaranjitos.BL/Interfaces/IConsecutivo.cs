@@ -13,6 +13,9 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.Consecutivo BuscarConsecutivo(string Prefijo);
 
+        DATOS.Consecutivo BuscarConsecutivoPorTipo(string Tipo);
+
+
         void AgregarConsecutivo(DATOS.Consecutivo Consec);
 
         void EliminarConsecutivo(DATOS.Consecutivo Consec);
@@ -20,9 +23,6 @@ namespace LosNaranjitos.BL.Interfaces
         void ActualizarConsecutivo(DATOS.Consecutivo Consecutivox);
 
         bool ExisteConsecutivo(string Prefijo);
-
-        DATOS.Consecutivo BuscarConsecutivoPorTipo(string Tipo);
-
 
     }
 }

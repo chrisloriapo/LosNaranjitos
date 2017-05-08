@@ -72,9 +72,10 @@
             // 
             this.lblCajaModificar.AutoSize = true;
             this.lblCajaModificar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCajaModificar.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCajaModificar.Location = new System.Drawing.Point(19, 0);
             this.lblCajaModificar.Name = "lblCajaModificar";
-            this.lblCajaModificar.Size = new System.Drawing.Size(238, 33);
+            this.lblCajaModificar.Size = new System.Drawing.Size(238, 32);
             this.lblCajaModificar.TabIndex = 21;
             this.lblCajaModificar.Text = "Seleccione la Caja a Modificar";
             // 
@@ -82,9 +83,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(19, 66);
+            this.label2.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(19, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(238, 33);
+            this.label2.Size = new System.Drawing.Size(238, 32);
             this.label2.TabIndex = 23;
             this.label2.Text = "Justificacion:";
             // 
@@ -94,7 +96,8 @@
             this.chkActivo.Checked = true;
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkActivo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkActivo.Location = new System.Drawing.Point(19, 144);
+            this.chkActivo.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkActivo.Location = new System.Drawing.Point(19, 140);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(238, 20);
             this.chkActivo.TabIndex = 25;
@@ -109,9 +112,9 @@
             this.cbbCajasId.Items.AddRange(new object[] {
             "Consecutivo",
             "Descripcion"});
-            this.cbbCajasId.Location = new System.Drawing.Point(19, 36);
+            this.cbbCajasId.Location = new System.Drawing.Point(19, 35);
             this.cbbCajasId.Name = "cbbCajasId";
-            this.cbbCajasId.Size = new System.Drawing.Size(238, 21);
+            this.cbbCajasId.Size = new System.Drawing.Size(238, 22);
             this.cbbCajasId.Sorted = true;
             this.cbbCajasId.TabIndex = 27;
             this.cbbCajasId.SelectedIndexChanged += new System.EventHandler(this.cbbCajasId_SelectedIndexChanged);
@@ -129,7 +132,7 @@
             this.tableLayoutPanel5.Controls.Add(this.txtCajaModificar, 1, 3);
             this.tableLayoutPanel5.Controls.Add(this.cbbCajasId, 1, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 17);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 6;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -138,36 +141,40 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.17117F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.51351F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.11712F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(278, 203);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(278, 201);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // btnActualizar
             // 
+            this.btnActualizar.BackColor = System.Drawing.Color.DarkOrange;
             this.btnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnActualizar.Location = new System.Drawing.Point(19, 170);
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.Location = new System.Drawing.Point(19, 166);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(238, 30);
+            this.btnActualizar.Size = new System.Drawing.Size(238, 32);
             this.btnActualizar.TabIndex = 3;
             this.btnActualizar.Text = "Actualizar Carga";
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // txtCajaModificar
             // 
             this.txtCajaModificar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCajaModificar.Location = new System.Drawing.Point(19, 102);
+            this.txtCajaModificar.Location = new System.Drawing.Point(19, 99);
             this.txtCajaModificar.MaxLength = 30;
             this.txtCajaModificar.Multiline = true;
             this.txtCajaModificar.Name = "txtCajaModificar";
-            this.txtCajaModificar.Size = new System.Drawing.Size(238, 36);
+            this.txtCajaModificar.Size = new System.Drawing.Size(238, 35);
             this.txtCajaModificar.TabIndex = 26;
             // 
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.DarkOrange;
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
             this.btnSalir.Location = new System.Drawing.Point(542, 391);
             this.btnSalir.Name = "btnSalir";
@@ -179,13 +186,17 @@
             // 
             // btnAgregar
             // 
+            this.btnAgregar.BackColor = System.Drawing.Color.DarkOrange;
             this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Location = new System.Drawing.Point(19, 168);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(238, 32);
+            this.btnAgregar.Size = new System.Drawing.Size(238, 30);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Nueva Carga";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // Consecutivo
@@ -219,7 +230,7 @@
             this.tableLayoutPanel4.Controls.Add(this.Consecutivo, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.lblConsecutivo, 1, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 17);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 6;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -228,18 +239,18 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(278, 203);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(278, 201);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel5);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.OrangeRed;
             this.groupBox2.Location = new System.Drawing.Point(293, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(284, 222);
+            this.groupBox2.Size = new System.Drawing.Size(284, 221);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Desactivar/ Activar Caja";
@@ -248,11 +259,11 @@
             // 
             this.grbBuscar.Controls.Add(this.tableLayoutPanel4);
             this.grbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbBuscar.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbBuscar.ForeColor = System.Drawing.Color.OrangeRed;
             this.grbBuscar.Location = new System.Drawing.Point(3, 3);
             this.grbBuscar.Name = "grbBuscar";
-            this.grbBuscar.Size = new System.Drawing.Size(284, 222);
+            this.grbBuscar.Size = new System.Drawing.Size(284, 221);
             this.grbBuscar.TabIndex = 0;
             this.grbBuscar.TabStop = false;
             this.grbBuscar.Text = "Crear Nueva Caja";
@@ -260,10 +271,10 @@
             // tbMantenimiento
             // 
             this.tbMantenimiento.Controls.Add(this.tableLayoutPanel3);
-            this.tbMantenimiento.Location = new System.Drawing.Point(4, 22);
+            this.tbMantenimiento.Location = new System.Drawing.Point(4, 23);
             this.tbMantenimiento.Name = "tbMantenimiento";
             this.tbMantenimiento.Padding = new System.Windows.Forms.Padding(3);
-            this.tbMantenimiento.Size = new System.Drawing.Size(586, 276);
+            this.tbMantenimiento.Size = new System.Drawing.Size(586, 275);
             this.tbMantenimiento.TabIndex = 1;
             this.tbMantenimiento.Text = "Mantenimiento Cargas";
             this.tbMantenimiento.UseVisualStyleBackColor = true;
@@ -281,7 +292,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.67742F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.32258F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(580, 270);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(580, 269);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // cbbBusqueda
@@ -293,7 +304,7 @@
             "Descripcion"});
             this.cbbBusqueda.Location = new System.Drawing.Point(3, 3);
             this.cbbBusqueda.Name = "cbbBusqueda";
-            this.cbbBusqueda.Size = new System.Drawing.Size(189, 21);
+            this.cbbBusqueda.Size = new System.Drawing.Size(189, 23);
             this.cbbBusqueda.Sorted = true;
             this.cbbBusqueda.TabIndex = 19;
             // 
@@ -301,14 +312,14 @@
             // 
             this.txtBuscar.Location = new System.Drawing.Point(198, 3);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(139, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(139, 21);
             this.txtBuscar.TabIndex = 17;
             // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Location = new System.Drawing.Point(343, 3);
             this.btnBuscar.Name = "btnBuscar";
@@ -331,7 +342,7 @@
             this.dgvCajas.Name = "dgvCajas";
             this.dgvCajas.ReadOnly = true;
             this.dgvCajas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCajas.Size = new System.Drawing.Size(574, 224);
+            this.dgvCajas.Size = new System.Drawing.Size(574, 223);
             this.dgvCajas.TabIndex = 18;
             // 
             // flowLayoutPanel1
@@ -340,6 +351,7 @@
             this.flowLayoutPanel1.Controls.Add(this.txtBuscar);
             this.flowLayoutPanel1.Controls.Add(this.btnBuscar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(574, 34);
@@ -357,16 +369,16 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(580, 270);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(580, 269);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tbLista
             // 
             this.tbLista.Controls.Add(this.tableLayoutPanel2);
-            this.tbLista.Location = new System.Drawing.Point(4, 22);
+            this.tbLista.Location = new System.Drawing.Point(4, 23);
             this.tbLista.Name = "tbLista";
             this.tbLista.Padding = new System.Windows.Forms.Padding(3);
-            this.tbLista.Size = new System.Drawing.Size(586, 276);
+            this.tbLista.Size = new System.Drawing.Size(586, 275);
             this.tbLista.TabIndex = 0;
             this.tbLista.Text = "Listado";
             this.tbLista.UseVisualStyleBackColor = true;
@@ -376,6 +388,7 @@
             this.tbMain.Controls.Add(this.tbLista);
             this.tbMain.Controls.Add(this.tbMantenimiento);
             this.tbMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbMain.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbMain.Location = new System.Drawing.Point(23, 83);
             this.tbMain.Name = "tbMain";
             this.tbMain.SelectedIndex = 0;
@@ -405,7 +418,7 @@
             // groupBox1
             // 
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Britannic Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(23, 3);
             this.groupBox1.Name = "groupBox1";
@@ -421,10 +434,12 @@
             this.ClientSize = new System.Drawing.Size(640, 428);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmCajaMantenimiento";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Cajas";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Soda Los Naranjitos";
             this.Load += new System.EventHandler(this.FrmCajaMantenimiento_Load);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();

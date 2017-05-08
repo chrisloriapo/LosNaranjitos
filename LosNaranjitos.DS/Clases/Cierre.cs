@@ -18,7 +18,7 @@ namespace LosNaranjitos.DS.Clases
             db.Update(CIERRE);
         }
 
-        public DATOS.Cierre BuscarCierre(string IdCierre)
+        public DATOS.Cierre BuscarCierre(int IdCierre)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -58,7 +58,7 @@ namespace LosNaranjitos.DS.Clases
             }
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();

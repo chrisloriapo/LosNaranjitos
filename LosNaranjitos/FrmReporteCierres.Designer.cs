@@ -1,6 +1,6 @@
 ﻿namespace LosNaranjitos
 {
-    partial class FrmCierre
+    partial class FrmReporteCierres
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // FrmCierre
+            // FrmReporteCierres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(717, 450);
-            this.ControlBox = false;
-            this.Name = "FrmCierre";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Cierre";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "FrmReporteCierres";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "FrmReporteCierres";
             this.ResumeLayout(false);
 
         }

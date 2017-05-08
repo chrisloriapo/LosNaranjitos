@@ -9,9 +9,8 @@ namespace LosNaranjitos.DATOS
 {
     public class Cliente
     {
-        
-        public string Consecutivo { get; set; }
-        
+        [AutoIncrement]
+        public int Consecutivo { get; set; }
         [PrimaryKey]
         public string IdPersonal { get; set; }
 
@@ -29,7 +28,7 @@ namespace LosNaranjitos.DATOS
 
         public string Operadora { get; set; }
 
-        //public DateTime UltimaVisita { get; set; }
+        public DateTime? UltimaVisita { get; set; }
 
         public decimal? Puntaje { get; set; }
 

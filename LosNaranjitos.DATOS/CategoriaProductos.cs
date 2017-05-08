@@ -11,7 +11,8 @@ namespace LosNaranjitos.DATOS
     public class CategoriaProductos
     {
         [PrimaryKey]
-        public string IdTipo { get; set; }
+        [AutoIncrement]
+        public int IdTipo { get; set; }
 
         public string Descripcion { get; set; }
 

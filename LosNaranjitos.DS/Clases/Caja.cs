@@ -25,14 +25,14 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(CAJA);
         }
 
-        public DATOS.Caja BuscarCaja(string IdCaja)
+        public DATOS.Caja BuscarCaja(int IdCaja)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
             DATOS.Caja CAJA = db.Select<DATOS.Caja>(x => x.Consecutivo == IdCaja).FirstOrDefault();
             return CAJA;
         }
-
+/*
         public bool ExisteConsecutivo(string Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
@@ -64,7 +64,7 @@ namespace LosNaranjitos.DS.Clases
                 }
             }
         }
-
+*/
         public List<DATOS.Caja> ListarCajas()
         {
             var conexion = _Conexion.CrearConexion();

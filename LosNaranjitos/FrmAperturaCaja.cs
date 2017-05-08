@@ -41,9 +41,18 @@ namespace LosNaranjitos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            FrmMenuCaja a = new FrmMenuCaja();
-            a.Show();
-            this.Dispose();
+            if (FrmLogin.UsuarioGlobal.Rol != "ROL-3")
+            {
+                FrmMenuPrincipal.GR.Visible = true;
+                this.Dispose();
+            }
+            else
+            {
+                FrmMenuCaja a = new FrmMenuCaja();
+                a.Show();
+                this.Dispose();
+            }
+
         }
 
         private void btnApertura_Click(object sender, EventArgs e)
@@ -67,6 +76,14 @@ namespace LosNaranjitos
                     
                     MessageBox.Show("Caja Seleccionada Correctamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FrmPedido a = new FrmPedido();
+                    if (FrmLogin.UsuarioGlobal.Rol!="ROL-3")
+                    {
+                        a.MdiParent = FrmLogin.MN;
+                        a.ControlBox = false;
+                        a.MinimizeBox = false;
+                        a.MaximizeBox = false;
+                        a.Dock = DockStyle.Fill;
+                    }
                     a.Show();
                     this.Dispose();
                 }
@@ -80,6 +97,11 @@ namespace LosNaranjitos
                 Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Apertura de Caja");
                 MessageBox.Show("Error", "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

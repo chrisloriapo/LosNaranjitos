@@ -15,9 +15,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.Producto BuscarProductoPorNombre(string ProductoNombre);
 
-        DATOS.Producto BuscarProductoPorConsecutivo(string Consec);
-
-        bool ExisteProductoPorNombre(string Nombre);
+        DATOS.Producto BuscarProductoPorConsecutivo(int Consec);
 
         void AgregarProducto(DATOS.Producto Product);
 
@@ -27,7 +25,9 @@ namespace LosNaranjitos.BL.Interfaces
 
         bool ExisteProducto(string IdPro);
 
-        bool ExisteConsecutivo(string Consecutivo);
+        bool ExisteProductoPorNombre(string Nombre);
+
+        bool ExisteConsecutivo(int Consecutivo);
 
     }
 }

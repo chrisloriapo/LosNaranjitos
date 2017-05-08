@@ -10,8 +10,8 @@ namespace LosNaranjitos.DATOS
     public class Pedido
     {
         [PrimaryKey]
-
-        public string Consecutivo { get; set; }
+        [AutoIncrement]
+        public int Consecutivo { get; set; }
 
         public string IdCliente { get; set; }
 
@@ -35,9 +35,10 @@ namespace LosNaranjitos.DATOS
 
         public bool Activo { get; set; }
 
+        public bool? CierreOperador { get; set; }
+
         public bool Cerrado { get; set; }
 
-        public bool CierreOperador { get; set; }
 
     }
 

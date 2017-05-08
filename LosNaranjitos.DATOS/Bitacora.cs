@@ -11,7 +11,8 @@ namespace LosNaranjitos.DATOS
     public class Bitacora
     {
         [PrimaryKey]
-        public string IdBitacora { get; set; }
+        [AutoIncrement]
+        public int IdBitacora { get; set; }
 
         public DateTime Fecha { get; set; }
 

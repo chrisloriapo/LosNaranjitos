@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LosNaranjitos
 {
-    public partial class FrmCierre : Form
+    public partial class FrmReporteCierres : Form
     {
-        public FrmCierre()
+        public FrmReporteCierres()
         {
             InitializeComponent();
         }

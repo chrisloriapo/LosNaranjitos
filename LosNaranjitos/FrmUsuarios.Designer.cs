@@ -134,7 +134,7 @@
             // 
             this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Britannic Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox2.Location = new System.Drawing.Point(23, 3);
             this.groupBox2.Name = "groupBox2";
@@ -157,6 +157,7 @@
             this.tbControl1.Controls.Add(this.tabPage1);
             this.tbControl1.Controls.Add(this.tabPage2);
             this.tbControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbControl1.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbControl1.Location = new System.Drawing.Point(23, 83);
             this.tbControl1.Name = "tbControl1";
             this.tbControl1.SelectedIndex = 0;
@@ -166,10 +167,10 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 23);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(718, 396);
+            this.tabPage1.Size = new System.Drawing.Size(718, 395);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -187,7 +188,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(712, 390);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(712, 389);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox3
@@ -215,15 +216,15 @@
             "Consecutivo"});
             this.cbBuscar.Location = new System.Drawing.Point(87, 19);
             this.cbBuscar.Name = "cbBuscar";
-            this.cbBuscar.Size = new System.Drawing.Size(158, 21);
+            this.cbBuscar.Size = new System.Drawing.Size(158, 22);
             this.cbBuscar.TabIndex = 11;
             this.cbBuscar.SelectedIndexChanged += new System.EventHandler(this.cbBuscar_SelectedIndexChanged);
             // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Location = new System.Drawing.Point(440, 16);
             this.btnBuscar.Name = "btnBuscar";
@@ -238,7 +239,7 @@
             this.txtBuscar.Location = new System.Drawing.Point(265, 20);
             this.txtBuscar.MaxLength = 70;
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(139, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(139, 21);
             this.txtBuscar.TabIndex = 9;
             // 
             // dgvListado
@@ -247,6 +248,7 @@
             this.dgvListado.AllowUserToDeleteRows = false;
             this.dgvListado.AllowUserToOrderColumns = true;
             this.dgvListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListado.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvListado.Location = new System.Drawing.Point(3, 83);
@@ -255,16 +257,16 @@
             this.dgvListado.ReadOnly = true;
             this.dgvListado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListado.Size = new System.Drawing.Size(706, 304);
+            this.dgvListado.Size = new System.Drawing.Size(706, 303);
             this.dgvListado.TabIndex = 12;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(718, 396);
+            this.tabPage2.Size = new System.Drawing.Size(718, 395);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -273,11 +275,12 @@
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel3);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.OrangeRed;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(712, 390);
+            this.groupBox1.Size = new System.Drawing.Size(712, 389);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Usuarios";
@@ -289,12 +292,12 @@
             this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(706, 371);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(706, 368);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -304,7 +307,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnNuevo);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 334);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 331);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(700, 34);
             this.flowLayoutPanel1.TabIndex = 0;
@@ -312,7 +315,8 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(622, 3);
             this.btnCancelar.Name = "btnCancelar";
@@ -325,7 +329,8 @@
             // btnEditar
             // 
             this.btnEditar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Location = new System.Drawing.Point(541, 3);
             this.btnEditar.Name = "btnEditar";
@@ -338,7 +343,8 @@
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Location = new System.Drawing.Point(460, 3);
             this.btnNuevo.Name = "btnNuevo";
@@ -360,7 +366,7 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(700, 325);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(700, 322);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -395,7 +401,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090908F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(344, 319);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(344, 316);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // txtTelefono
@@ -405,13 +411,15 @@
             this.txtTelefono.Mask = "(###)-####-####";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.ReadOnly = true;
-            this.txtTelefono.Size = new System.Drawing.Size(338, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(338, 22);
             this.txtTelefono.TabIndex = 389;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label9.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 265);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(338, 25);
@@ -424,13 +432,15 @@
             this.txtUsername.Location = new System.Drawing.Point(3, 28);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.ReadOnly = true;
-            this.txtUsername.Size = new System.Drawing.Size(338, 20);
+            this.txtUsername.Size = new System.Drawing.Size(338, 22);
             this.txtUsername.TabIndex = 378;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label4.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(3, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(338, 25);
@@ -442,7 +452,7 @@
             this.txtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNombre.Location = new System.Drawing.Point(3, 78);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(338, 20);
+            this.txtNombre.Size = new System.Drawing.Size(338, 22);
             this.txtNombre.TabIndex = 380;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress_1);
             // 
@@ -450,6 +460,8 @@
             // 
             this.lblApellido1.AutoSize = true;
             this.lblApellido1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblApellido1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblApellido1.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido1.Location = new System.Drawing.Point(3, 100);
             this.lblApellido1.Name = "lblApellido1";
             this.lblApellido1.Size = new System.Drawing.Size(338, 25);
@@ -462,7 +474,7 @@
             this.txtApellido.Location = new System.Drawing.Point(3, 128);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.ReadOnly = true;
-            this.txtApellido.Size = new System.Drawing.Size(338, 20);
+            this.txtApellido.Size = new System.Drawing.Size(338, 22);
             this.txtApellido.TabIndex = 383;
             this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
@@ -470,6 +482,8 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label11.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(3, 150);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(338, 25);
@@ -482,13 +496,15 @@
             this.txtApellido2.Location = new System.Drawing.Point(3, 178);
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.ReadOnly = true;
-            this.txtApellido2.Size = new System.Drawing.Size(338, 20);
+            this.txtApellido2.Size = new System.Drawing.Size(338, 22);
             this.txtApellido2.TabIndex = 385;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 200);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(338, 25);
@@ -525,6 +541,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 19);
@@ -550,6 +568,8 @@
             // 
             this.lblConsecutivo.AutoSize = true;
             this.lblConsecutivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblConsecutivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblConsecutivo.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConsecutivo.Location = new System.Drawing.Point(120, 0);
             this.lblConsecutivo.Name = "lblConsecutivo";
             this.lblConsecutivo.Size = new System.Drawing.Size(111, 13);
@@ -560,6 +580,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 13);
@@ -596,7 +618,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(344, 319);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(344, 316);
             this.tableLayoutPanel6.TabIndex = 3;
             // 
             // chkEstado
@@ -605,9 +627,11 @@
             this.chkEstado.Checked = true;
             this.chkEstado.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkEstado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chkEstado.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkEstado.Location = new System.Drawing.Point(3, 283);
             this.chkEstado.Name = "chkEstado";
-            this.chkEstado.Size = new System.Drawing.Size(338, 33);
+            this.chkEstado.Size = new System.Drawing.Size(338, 30);
             this.chkEstado.TabIndex = 386;
             this.chkEstado.Text = "Activo";
             this.chkEstado.UseVisualStyleBackColor = true;
@@ -616,6 +640,8 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label6.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(3, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(338, 28);
@@ -629,13 +655,15 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.ReadOnly = true;
-            this.txtContraseña.Size = new System.Drawing.Size(338, 20);
+            this.txtContraseña.Size = new System.Drawing.Size(338, 22);
             this.txtContraseña.TabIndex = 377;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label7.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 56);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(338, 28);
@@ -649,13 +677,15 @@
             this.txtConfirmarContrasena.Name = "txtConfirmarContrasena";
             this.txtConfirmarContrasena.PasswordChar = '*';
             this.txtConfirmarContrasena.ReadOnly = true;
-            this.txtConfirmarContrasena.Size = new System.Drawing.Size(338, 20);
+            this.txtConfirmarContrasena.Size = new System.Drawing.Size(338, 22);
             this.txtConfirmarContrasena.TabIndex = 379;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(3, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(338, 28);
@@ -668,13 +698,15 @@
             this.txtIdPersonal.Location = new System.Drawing.Point(3, 143);
             this.txtIdPersonal.Name = "txtIdPersonal";
             this.txtIdPersonal.ReadOnly = true;
-            this.txtIdPersonal.Size = new System.Drawing.Size(338, 20);
+            this.txtIdPersonal.Size = new System.Drawing.Size(338, 22);
             this.txtIdPersonal.TabIndex = 381;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label8.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(3, 168);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(338, 28);
@@ -690,13 +722,15 @@
             "1"});
             this.cbbRol.Location = new System.Drawing.Point(3, 199);
             this.cbbRol.Name = "cbbRol";
-            this.cbbRol.Size = new System.Drawing.Size(338, 21);
+            this.cbbRol.Size = new System.Drawing.Size(338, 23);
             this.cbbRol.TabIndex = 383;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label10.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(3, 224);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(338, 28);
@@ -709,7 +743,7 @@
             this.txtEmail.Location = new System.Drawing.Point(3, 255);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
-            this.txtEmail.Size = new System.Drawing.Size(338, 20);
+            this.txtEmail.Size = new System.Drawing.Size(338, 22);
             this.txtEmail.TabIndex = 385;
             // 
             // flowLayoutPanel3
@@ -725,8 +759,8 @@
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnSalir.Location = new System.Drawing.Point(648, 3);
             this.btnSalir.Name = "btnSalir";
@@ -744,7 +778,9 @@
             this.ClientSize = new System.Drawing.Size(772, 548);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmUsuarios";
             this.ShowIcon = false;

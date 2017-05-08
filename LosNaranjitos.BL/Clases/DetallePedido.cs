@@ -12,88 +12,88 @@ namespace LosNaranjitos.BL.Clases
     {
         public DS.Interfaces.IDetallePedido Pedprocedimientos = new DS.Clases.DetallePedido();
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
-            Consecutivo = Utilitario.Encriptar(Consecutivo, Utilitario.Llave);
+            //Consecutivo = Utilitario.Encriptar(Consecutivo, Utilitario.Llave);
             return Pedprocedimientos.ExisteConsecutivo(Consecutivo);
         }
         public void ActualizarDetalleOrden(DATOS.DetallePedido DetalleOrden)
         {
-            DetalleOrden.Consecutivo = Utilitario.Encriptar(DetalleOrden.Consecutivo, Utilitario.Llave);
-            DetalleOrden.IdOrden = Utilitario.Encriptar(DetalleOrden.IdOrden, Utilitario.Llave);
-            DetalleOrden.Producto = Utilitario.Encriptar(DetalleOrden.Producto, Utilitario.Llave);
-            DetalleOrden.ObservacionesDT = Utilitario.Encriptar(DetalleOrden.ObservacionesDT, Utilitario.Llave);
+            //DetalleOrden.Consecutivo = Utilitario.Encriptar(DetalleOrden.Consecutivo, Utilitario.Llave);
+            //DetalleOrden.IdOrden = Utilitario.Encriptar(DetalleOrden.IdOrden, Utilitario.Llave);
+            //DetalleOrden.Producto = Utilitario.Encriptar(DetalleOrden.Producto, Utilitario.Llave);
+            //DetalleOrden.ObservacionesDT = Utilitario.Encriptar(DetalleOrden.ObservacionesDT, Utilitario.Llave);
             Pedprocedimientos.ActualizarDetalleOrden(DetalleOrden);
         }
 
         public void AgregarDetalle(DATOS.DetallePedido DetalleOrden)
         {
-            DetalleOrden.Consecutivo = Utilitario.Encriptar(DetalleOrden.Consecutivo, Utilitario.Llave);
-            DetalleOrden.IdOrden = Utilitario.Encriptar(DetalleOrden.IdOrden, Utilitario.Llave);
-            DetalleOrden.Producto = Utilitario.Encriptar(DetalleOrden.Producto, Utilitario.Llave);
-            DetalleOrden.ObservacionesDT = Utilitario.Encriptar(DetalleOrden.ObservacionesDT, Utilitario.Llave);
+            //DetalleOrden.Consecutivo = Utilitario.Encriptar(DetalleOrden.Consecutivo, Utilitario.Llave);
+            //DetalleOrden.IdOrden = Utilitario.Encriptar(DetalleOrden.IdOrden, Utilitario.Llave);
+            //DetalleOrden.Producto = Utilitario.Encriptar(DetalleOrden.Producto, Utilitario.Llave);
+            //DetalleOrden.ObservacionesDT = Utilitario.Encriptar(DetalleOrden.ObservacionesDT, Utilitario.Llave);
             Pedprocedimientos.AgregarDetalle(DetalleOrden);
         }
 
-        public DATOS.DetallePedido BuscarPorConsecutivo(string Conse)
+        public DATOS.DetallePedido BuscarPorConsecutivo(int Conse)
         {
-            Conse = Utilitario.Encriptar(Conse, Utilitario.Llave);
+            //Conse = Utilitario.Encriptar(Conse, Utilitario.Llave);
             DATOS.DetallePedido DetallePedidoRetorno = Pedprocedimientos.BuscarPorConsecutivo(Conse);
-            DetallePedidoRetorno.Consecutivo = Utilitario.Decriptar(DetallePedidoRetorno.Consecutivo, Utilitario.Llave);
-            DetallePedidoRetorno.IdOrden = Utilitario.Decriptar(DetallePedidoRetorno.IdOrden, Utilitario.Llave);
-            DetallePedidoRetorno.Producto = Utilitario.Decriptar(DetallePedidoRetorno.Producto, Utilitario.Llave);
-            DetallePedidoRetorno.ObservacionesDT = Utilitario.Decriptar(DetallePedidoRetorno.ObservacionesDT, Utilitario.Llave);
+            //DetallePedidoRetorno.Consecutivo = Utilitario.Decriptar(DetallePedidoRetorno.Consecutivo, Utilitario.Llave);
+            //DetallePedidoRetorno.IdOrden = Utilitario.Decriptar(DetallePedidoRetorno.IdOrden, Utilitario.Llave);
+            //DetallePedidoRetorno.Producto = Utilitario.Decriptar(DetallePedidoRetorno.Producto, Utilitario.Llave);
+            //DetallePedidoRetorno.ObservacionesDT = Utilitario.Decriptar(DetallePedidoRetorno.ObservacionesDT, Utilitario.Llave);
             return DetallePedidoRetorno;
         }
 
-        public DATOS.DetallePedido BuscarPorPedido(string Orden)
+        public DATOS.DetallePedido BuscarPorPedido(int Orden)
         {
-            Orden = Utilitario.Encriptar(Orden, Utilitario.Llave);
+            //Orden = Utilitario.Encriptar(Orden, Utilitario.Llave);
             DATOS.DetallePedido DetallePedidoRetorno = Pedprocedimientos.BuscarPorPedido(Orden);
-            DetallePedidoRetorno.Consecutivo = Utilitario.Decriptar(DetallePedidoRetorno.Consecutivo, Utilitario.Llave);
-            DetallePedidoRetorno.IdOrden = Utilitario.Decriptar(DetallePedidoRetorno.IdOrden, Utilitario.Llave);
-            DetallePedidoRetorno.Producto = Utilitario.Decriptar(DetallePedidoRetorno.Producto, Utilitario.Llave);
-            DetallePedidoRetorno.ObservacionesDT = Utilitario.Decriptar(DetallePedidoRetorno.ObservacionesDT, Utilitario.Llave);
+            //DetallePedidoRetorno.Consecutivo = Utilitario.Decriptar(DetallePedidoRetorno.Consecutivo, Utilitario.Llave);
+            //DetallePedidoRetorno.IdOrden = Utilitario.Decriptar(DetallePedidoRetorno.IdOrden, Utilitario.Llave);
+            //DetallePedidoRetorno.Producto = Utilitario.Decriptar(DetallePedidoRetorno.Producto, Utilitario.Llave);
+            //DetallePedidoRetorno.ObservacionesDT = Utilitario.Decriptar(DetallePedidoRetorno.ObservacionesDT, Utilitario.Llave);
             return DetallePedidoRetorno;
         }
 
         public DATOS.DetallePedido BuscarPorProducto(string Producto)
         {
-            Producto = Utilitario.Encriptar(Producto, Utilitario.Llave);
+            //Producto = Utilitario.Encriptar(Producto, Utilitario.Llave);
             DATOS.DetallePedido DetallePedidoRetorno = Pedprocedimientos.BuscarPorProducto(Producto);
-            DetallePedidoRetorno.Consecutivo = Utilitario.Decriptar(DetallePedidoRetorno.Consecutivo, Utilitario.Llave);
-            DetallePedidoRetorno.IdOrden = Utilitario.Decriptar(DetallePedidoRetorno.IdOrden, Utilitario.Llave);
-            DetallePedidoRetorno.Producto = Utilitario.Decriptar(DetallePedidoRetorno.Producto, Utilitario.Llave);
-            DetallePedidoRetorno.ObservacionesDT = Utilitario.Decriptar(DetallePedidoRetorno.ObservacionesDT, Utilitario.Llave);
+            //DetallePedidoRetorno.Consecutivo = Utilitario.Decriptar(DetallePedidoRetorno.Consecutivo, Utilitario.Llave);
+            //DetallePedidoRetorno.IdOrden = Utilitario.Decriptar(DetallePedidoRetorno.IdOrden, Utilitario.Llave);
+            //DetallePedidoRetorno.Producto = Utilitario.Decriptar(DetallePedidoRetorno.Producto, Utilitario.Llave);
+            //DetallePedidoRetorno.ObservacionesDT = Utilitario.Decriptar(DetallePedidoRetorno.ObservacionesDT, Utilitario.Llave);
             return DetallePedidoRetorno;
         }
 
-        public bool ExisteDetalle(string IdProducto, string Orden)
+        public bool ExisteDetalle(string IdProducto, int Orden)
         {
-            IdProducto = Utilitario.Encriptar(IdProducto, Utilitario.Llave);
-            Orden = Utilitario.Encriptar(Orden, Utilitario.Llave);
+            //IdProducto = Utilitario.Encriptar(IdProducto, Utilitario.Llave);
+            //Orden = Utilitario.Encriptar(Orden, Utilitario.Llave);
             return Pedprocedimientos.ExisteDetalle(IdProducto, Orden);
         }
 
         public List<DATOS.DetallePedido> ListarDetallesPedido()
         {
             List<DATOS.DetallePedido> ListaRetorno = Pedprocedimientos.ListarDetallesPedido();
-            foreach (var item in ListaRetorno)
-            {
-                item.Consecutivo = Utilitario.Decriptar(item.Consecutivo, Utilitario.Llave);
-                item.IdOrden = Utilitario.Decriptar(item.IdOrden, Utilitario.Llave);
-                item.Producto = Utilitario.Decriptar(item.Producto, Utilitario.Llave);
-                item.ObservacionesDT = Utilitario.Decriptar(item.ObservacionesDT, Utilitario.Llave);
-            }
+            //foreach (var item in ListaRetorno)
+            //{
+            //    item.Consecutivo = Utilitario.Decriptar(item.Consecutivo, Utilitario.Llave);
+            //    item.IdOrden = Utilitario.Decriptar(item.IdOrden, Utilitario.Llave);
+            //    item.Producto = Utilitario.Decriptar(item.Producto, Utilitario.Llave);
+            //    item.ObservacionesDT = Utilitario.Decriptar(item.ObservacionesDT, Utilitario.Llave);
+            //}
             return ListaRetorno;
         }
 
         public void EliminarDetalleDeOrden(DATOS.DetallePedido Detalle)
         {
-            Detalle.Consecutivo = Utilitario.Encriptar(Detalle.Consecutivo, Utilitario.Llave);
-            Detalle.IdOrden = Utilitario.Encriptar(Detalle.IdOrden, Utilitario.Llave);
-            Detalle.Producto = Utilitario.Encriptar(Detalle.Producto, Utilitario.Llave);
-            Detalle.ObservacionesDT = Utilitario.Encriptar(Detalle.ObservacionesDT, Utilitario.Llave);
+            //Detalle.Consecutivo = Utilitario.Encriptar(Detalle.Consecutivo, Utilitario.Llave);
+            //Detalle.IdOrden = Utilitario.Encriptar(Detalle.IdOrden, Utilitario.Llave);
+            //Detalle.Producto = Utilitario.Encriptar(Detalle.Producto, Utilitario.Llave);
+            //Detalle.ObservacionesDT = Utilitario.Encriptar(Detalle.ObservacionesDT, Utilitario.Llave);
             Pedprocedimientos.EliminarDetalleDeOrden(Detalle);
         }
     }

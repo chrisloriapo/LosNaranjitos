@@ -12,7 +12,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.ComboProducto BuscarCodigoCombo(string Combo);
 
-        DATOS.ComboProducto BuscarCodigoConsecutivo(string Consecutivo);
+        DATOS.ComboProducto BuscarCodigoConsecutivo(int Consecutivo);
 
         DATOS.ComboProducto BuscarCodigoProducto(string Producto);
 
@@ -22,9 +22,11 @@ namespace LosNaranjitos.BL.Interfaces
 
         bool ExisteComboProducto(string Combo, string Producto);
 
-        bool ExisteConsecutivo(string Consecutivo);
+        bool ExisteConsecutivo(int Consecutivo);
 
         void EliminarProductodeCombo(DATOS.ComboProducto ComboProducto);
+
+
 
     }
 }

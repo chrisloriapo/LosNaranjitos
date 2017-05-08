@@ -59,6 +59,7 @@ namespace LosNaranjitos
                     //Validacion Consecutivos Producto
                     Consecutivo Consecutivo = new Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    txtIdProducto.ReadOnly = false;
 
                     DATOS.Producto UltimoProducto = new Producto();
                     try
@@ -119,6 +120,7 @@ namespace LosNaranjitos
                         txtIdProducto.Text = EditProducto.Codigo;
                         lblConsecutivo.Text = EditProducto.Consecutivo;
                         txtNombre.Text = EditProducto.Nombre;
+                        txtIdProducto.ReadOnly = true;
                         //Carga de Categoria
 
                         DATOS.CategoriaProductos TCat = Utilitarios.OpCategorias.BuscarCategoriaProductos(EditProducto.Categoria);

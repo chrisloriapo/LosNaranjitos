@@ -14,41 +14,41 @@ namespace LosNaranjitos.BL.Clases
 
         public void ActualizarCajas(DATOS.Caja CAJA)
         {
-            CAJA.Consecutivo = Utilitario.Encriptar(CAJA.Consecutivo, Utilitario.Llave);
-            CAJA.OperadorActual = Utilitario.Encriptar(CAJA.OperadorActual, Utilitario.Llave);
+            //CAJA.Consecutivo = Utilitario.Encriptar(CAJA.Consecutivo, Utilitario.Llave);
+            //CAJA.OperadorActual = Utilitario.Encriptar(CAJA.OperadorActual, Utilitario.Llave);
             CajaOP.ActualizarCajas(CAJA);
         }
 
         public void AgregarCaja(DATOS.Caja CAJA)
         {
-            CAJA.Consecutivo = Utilitario.Encriptar(CAJA.Consecutivo, Utilitario.Llave);
-            CAJA.OperadorActual = Utilitario.Encriptar(CAJA.OperadorActual, Utilitario.Llave);
+            //CAJA.Consecutivo = Utilitario.Encriptar(CAJA.Consecutivo, Utilitario.Llave);
+            //CAJA.OperadorActual = Utilitario.Encriptar(CAJA.OperadorActual, Utilitario.Llave);
             CajaOP.AgregarCaja(CAJA);
         }
 
-        public DATOS.Caja BuscarCaja(string IdCaja)
+        public DATOS.Caja BuscarCaja(int IdCaja)
         {
-            IdCaja = Utilitario.Encriptar(IdCaja, Utilitario.Llave);
+            //IdCaja = Utilitario.Encriptar(IdCaja, Utilitario.Llave);
             DATOS.Caja CajasRetorno = CajaOP.BuscarCaja(IdCaja);
-            CajasRetorno.Consecutivo = Utilitario.Decriptar(CajasRetorno.Consecutivo, Utilitario.Llave);
-            CajasRetorno.OperadorActual = Utilitario.Decriptar(CajasRetorno.OperadorActual, Utilitario.Llave);
+            //CajasRetorno.Consecutivo = Utilitario.Decriptar(CajasRetorno.Consecutivo, Utilitario.Llave);
+            //CajasRetorno.OperadorActual = Utilitario.Decriptar(CajasRetorno.OperadorActual, Utilitario.Llave);
             return CajasRetorno;
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
-        {
-            Consecutivo = Utilitario.Encriptar(Consecutivo, Utilitario.Llave);
-            return CajaOP.ExisteConsecutivo(Consecutivo);
-        }
+        //public bool ExisteConsecutivo(int Consecutivo)
+        //{
+        //    //Consecutivo = Utilitario.Encriptar(Consecutivo, Utilitario.Llave);
+        //    return CajaOP.ExisteConsecutivo(Consecutivo);
+        //}
 
         public List<DATOS.Caja> ListarCajas()
         {
             List<DATOS.Caja> ListaRetorno = CajaOP.ListarCajas();
-            foreach (var item in ListaRetorno)
-            {
-                item.Consecutivo = Utilitario.Decriptar(item.Consecutivo, Utilitario.Llave);
-                item.OperadorActual = Utilitario.Decriptar(item.OperadorActual, Utilitario.Llave);
-            }
+            //foreach (var item in ListaRetorno)
+            //{
+            //    item.Consecutivo = Utilitario.Decriptar(item.Consecutivo, Utilitario.Llave);
+            //    item.OperadorActual = Utilitario.Decriptar(item.OperadorActual, Utilitario.Llave);
+            //}
             return ListaRetorno;
         }
     }

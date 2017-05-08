@@ -73,8 +73,8 @@
             // 
             this.btnSalir.BackColor = System.Drawing.Color.DarkOrange;
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
             this.btnSalir.Location = new System.Drawing.Point(661, 426);
             this.btnSalir.Name = "btnSalir";
@@ -86,21 +86,26 @@
             // 
             // btnAgregar
             // 
+            this.btnAgregar.BackColor = System.Drawing.Color.DarkOrange;
             this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Location = new System.Drawing.Point(175, 3);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(166, 35);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Nueva Carga";
-            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // Consecutivo
             // 
             this.Consecutivo.AutoSize = true;
+            this.Consecutivo.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Consecutivo.Location = new System.Drawing.Point(23, 0);
             this.Consecutivo.Name = "Consecutivo";
-            this.Consecutivo.Size = new System.Drawing.Size(77, 13);
+            this.Consecutivo.Size = new System.Drawing.Size(70, 14);
             this.Consecutivo.TabIndex = 21;
             this.Consecutivo.Text = "Consecutivo";
             // 
@@ -111,7 +116,7 @@
             this.cbbPorcentajeCarga.FormattingEnabled = true;
             this.cbbPorcentajeCarga.Location = new System.Drawing.Point(23, 117);
             this.cbbPorcentajeCarga.Name = "cbbPorcentajeCarga";
-            this.cbbPorcentajeCarga.Size = new System.Drawing.Size(290, 21);
+            this.cbbPorcentajeCarga.Size = new System.Drawing.Size(290, 22);
             this.cbbPorcentajeCarga.Sorted = true;
             this.cbbPorcentajeCarga.TabIndex = 20;
             // 
@@ -119,6 +124,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(23, 76);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(290, 38);
@@ -137,7 +143,7 @@
             this.tableLayoutPanel4.Controls.Add(this.cbbPorcentajeCarga, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.chkActivo, 1, 4);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 17);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 6;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -146,13 +152,14 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(337, 233);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(337, 231);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // lblConsecutivo
             // 
             this.lblConsecutivo.AutoSize = true;
             this.lblConsecutivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblConsecutivo.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConsecutivo.ForeColor = System.Drawing.Color.Black;
             this.lblConsecutivo.Location = new System.Drawing.Point(23, 38);
             this.lblConsecutivo.Name = "lblConsecutivo";
@@ -166,6 +173,7 @@
             this.chkActivo.Checked = true;
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkActivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkActivo.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkActivo.Location = new System.Drawing.Point(23, 155);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(290, 32);
@@ -177,11 +185,11 @@
             // 
             this.grbBuscar.Controls.Add(this.tableLayoutPanel4);
             this.grbBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbBuscar.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbBuscar.ForeColor = System.Drawing.Color.OrangeRed;
             this.grbBuscar.Location = new System.Drawing.Point(3, 3);
             this.grbBuscar.Name = "grbBuscar";
-            this.grbBuscar.Size = new System.Drawing.Size(343, 252);
+            this.grbBuscar.Size = new System.Drawing.Size(343, 251);
             this.grbBuscar.TabIndex = 0;
             this.grbBuscar.TabStop = false;
             this.grbBuscar.Text = "Cargas";
@@ -189,7 +197,7 @@
             // groupBox1
             // 
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Britannic Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(23, 3);
             this.groupBox1.Name = "groupBox1";
@@ -206,34 +214,34 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6F));
             this.tableLayoutPanel5.Controls.Add(this.txtDescripcion, 1, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 17);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.87554F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.9485F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.17597F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(338, 233);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(338, 231);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDescripcion.Location = new System.Drawing.Point(23, 33);
+            this.txtDescripcion.Location = new System.Drawing.Point(23, 32);
             this.txtDescripcion.MaxLength = 30;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(291, 142);
+            this.txtDescripcion.Size = new System.Drawing.Size(291, 141);
             this.txtDescripcion.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel5);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.OrangeRed;
             this.groupBox2.Location = new System.Drawing.Point(352, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(344, 252);
+            this.groupBox2.Size = new System.Drawing.Size(344, 251);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Descripción";
@@ -241,10 +249,10 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.tableLayoutPanel3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(705, 311);
+            this.tabPage2.Size = new System.Drawing.Size(705, 310);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento Cargas";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -263,7 +271,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.67742F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.32258F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(699, 305);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(699, 304);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -274,7 +282,7 @@
             this.tableLayoutPanel6.Controls.Add(this.btnActualizar, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.btnAgregar, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(352, 261);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(352, 260);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -283,20 +291,24 @@
             // 
             // btnActualizar
             // 
+            this.btnActualizar.BackColor = System.Drawing.Color.DarkOrange;
             this.btnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
             this.btnActualizar.Location = new System.Drawing.Point(3, 3);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(166, 35);
             this.btnActualizar.TabIndex = 3;
             this.btnActualizar.Text = "Actualizar Carga";
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Location = new System.Drawing.Point(343, 3);
             this.btnBuscar.Name = "btnBuscar";
@@ -314,7 +326,7 @@
             "Descripcion"});
             this.cbbCargas.Location = new System.Drawing.Point(3, 3);
             this.cbbCargas.Name = "cbbCargas";
-            this.cbbCargas.Size = new System.Drawing.Size(189, 21);
+            this.cbbCargas.Size = new System.Drawing.Size(189, 23);
             this.cbbCargas.Sorted = true;
             this.cbbCargas.TabIndex = 19;
             // 
@@ -322,7 +334,7 @@
             // 
             this.txtBuscar.Location = new System.Drawing.Point(198, 3);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(139, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(139, 21);
             this.txtBuscar.TabIndex = 17;
             // 
             // dgvCargas
@@ -331,6 +343,7 @@
             this.dgvCargas.AllowUserToDeleteRows = false;
             this.dgvCargas.AllowUserToOrderColumns = true;
             this.dgvCargas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCargas.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvCargas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCargas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCargas.Location = new System.Drawing.Point(3, 48);
@@ -338,7 +351,7 @@
             this.dgvCargas.Name = "dgvCargas";
             this.dgvCargas.ReadOnly = true;
             this.dgvCargas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCargas.Size = new System.Drawing.Size(693, 254);
+            this.dgvCargas.Size = new System.Drawing.Size(693, 253);
             this.dgvCargas.TabIndex = 18;
             // 
             // flowLayoutPanel1
@@ -359,21 +372,22 @@
             this.tableLayoutPanel2.Controls.Add(this.dgvCargas, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(699, 305);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(699, 304);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 23);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(705, 311);
+            this.tabPage1.Size = new System.Drawing.Size(705, 310);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -383,6 +397,7 @@
             this.tbC2.Controls.Add(this.tabPage1);
             this.tbC2.Controls.Add(this.tabPage2);
             this.tbC2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbC2.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbC2.Location = new System.Drawing.Point(23, 83);
             this.tbC2.Name = "tbC2";
             this.tbC2.SelectedIndex = 0;
@@ -417,6 +432,9 @@
             this.ClientSize = new System.Drawing.Size(759, 463);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmCargas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Soda Los Naranjitos";

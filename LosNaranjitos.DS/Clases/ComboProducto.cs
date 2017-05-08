@@ -33,7 +33,7 @@ namespace LosNaranjitos.DS.Clases
             return BuscarCodComb;
         }
 
-        public DATOS.ComboProducto BuscarCodigoConsecutivo(string Consecutivo)
+        public DATOS.ComboProducto BuscarCodigoConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -88,7 +88,7 @@ namespace LosNaranjitos.DS.Clases
             }
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();

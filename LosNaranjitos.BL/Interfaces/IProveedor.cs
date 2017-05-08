@@ -13,7 +13,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.Proveedor BuscarProveedor(string IdProveedor);
 
-        DATOS.Proveedor BuscarProveedorPorConsecutivo(string Consecutivo);
+        DATOS.Proveedor BuscarProveedorPorConsecutivo(int Consecutivo);
 
         DATOS.Proveedor BuscarProveedorPorNombre(string IdProveedor);
 
@@ -25,7 +25,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         bool ExisteProveedor(string Pro);
 
-        bool ExisteConsecutivo(string Consecutivo);
+        bool ExisteConsecutivo(int Consecutivo);
 
     }
 }

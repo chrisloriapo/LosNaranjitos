@@ -10,12 +10,12 @@ namespace LosNaranjitos.DS.Interfaces
     {
         List<DATOS.Caja> ListarCajas();
 
-        DATOS.Caja BuscarCaja(string IdCaja);
+        DATOS.Caja BuscarCaja(int IdCaja);
 
         void AgregarCaja(DATOS.Caja CAJA);
 
         void ActualizarCajas(DATOS.Caja CAJA);
 
-        bool ExisteConsecutivo(string Consecutivo);
+        //bool ExisteConsecutivo(string Consecutivo);
     }
 }

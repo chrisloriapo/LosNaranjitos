@@ -10,18 +10,14 @@ namespace LosNaranjitos.DATOS
 {
     public class ProductoInsumo
     {
+        [AutoIncrement]
+        public int Consecutivo { get; set; }
         [PrimaryKey]
-        
         public string CodigoProducto { get; set; }
         [PrimaryKey]
-        
         public string IdInsumo { get; set; }
-        
-        
-        public float CantidadRequerida { get; set; }
-        
 
-        public string Consecutivo { get; set; }
+        public float CantidadRequerida { get; set; }
 
     }
 

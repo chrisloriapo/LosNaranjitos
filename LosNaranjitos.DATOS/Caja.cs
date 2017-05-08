@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceStack.DataAnnotations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,9 @@ namespace LosNaranjitos.DATOS
 {
     public class Caja
     {
-        public string Consecutivo { get; set; }
+        [PrimaryKey]
+        [AutoIncrement]
+        public int Consecutivo { get; set; }
 
         public string OperadorActual { get; set; }
 

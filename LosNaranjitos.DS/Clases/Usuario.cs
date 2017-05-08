@@ -34,7 +34,7 @@ namespace LosNaranjitos.DS.Clases
             return Us;
         }
 
-        public DATOS.Usuario BuscarUsuarioPorConsecutivo(string Consecutv)
+        public DATOS.Usuario BuscarUsuarioPorConsecutivo(int Consecutv)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -50,7 +50,7 @@ namespace LosNaranjitos.DS.Clases
             return Us;
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();

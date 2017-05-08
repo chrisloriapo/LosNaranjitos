@@ -145,12 +145,6 @@
     <Compile Include="FrmCargas.Designer.cs">
       <DependentUpon>FrmCargas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCierre.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCierre.Designer.cs">
-      <DependentUpon>FrmCierre.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmCierreCajero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +307,12 @@
     <Compile Include="FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporteCierres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteCierres.Designer.cs">
+      <DependentUpon>FrmReporteCierres.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteCombos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,9 +395,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCargas.resx">
       <DependentUpon>FrmCargas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCierre.resx">
-      <DependentUpon>FrmCierre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCierreCajero.resx">
       <DependentUpon>FrmCierreCajero.cs</DependentUpon>
@@ -483,6 +480,9 @@
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteCierres.resx">
+      <DependentUpon>FrmReporteCierres.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteCombos.resx">
       <DependentUpon>FrmReporteCombos.cs</DependentUpon>
     </EmbeddedResource>
@@ -506,6 +506,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reporteria\rdlcCombos.rdlc" />
     <EmbeddedResource Include="Reporteria\rdlcProductos.rdlc" />
     <EmbeddedResource Include="Reporteria\rdlcReporteBitacora.rdlc" />
     <EmbeddedResource Include="Reporteria\rdlcReporteCierre.rdlc" />

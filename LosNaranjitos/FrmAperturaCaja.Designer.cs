@@ -42,7 +42,7 @@
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnApertura);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(3, 12);
             this.groupBox1.Name = "groupBox1";
@@ -50,12 +50,13 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccione la Caja a Abrir";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Location = new System.Drawing.Point(306, 48);
             this.btnCancelar.Name = "btnCancelar";
@@ -68,8 +69,8 @@
             // btnApertura
             // 
             this.btnApertura.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnApertura.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApertura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApertura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnApertura.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnApertura.ForeColor = System.Drawing.Color.White;
             this.btnApertura.Location = new System.Drawing.Point(306, 19);
             this.btnApertura.Name = "btnApertura";
@@ -96,14 +97,14 @@
             this.cbbCaja.FormattingEnabled = true;
             this.cbbCaja.Location = new System.Drawing.Point(6, 19);
             this.cbbCaja.Name = "cbbCaja";
-            this.cbbCaja.Size = new System.Drawing.Size(189, 21);
+            this.cbbCaja.Size = new System.Drawing.Size(189, 23);
             this.cbbCaja.TabIndex = 0;
             // 
             // FrmAperturaCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.LimeGreen;
             this.ClientSize = new System.Drawing.Size(437, 136);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

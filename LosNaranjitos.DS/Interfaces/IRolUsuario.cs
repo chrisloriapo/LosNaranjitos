@@ -10,7 +10,7 @@ namespace LosNaranjitos.DS.Interfaces
     {
         List<DATOS.RolUsuario> ListarRoles();
 
-        DATOS.RolUsuario BuscarRol(string IdRol);
+        DATOS.RolUsuario BuscarRol(int IdRol);
 
         DATOS.RolUsuario BuscarRolPorDescripcion(string Descripcion);
 
@@ -20,7 +20,7 @@ namespace LosNaranjitos.DS.Interfaces
 
         void Inactivar(DATOS.RolUsuario Rol);
 
-        bool ExisteRol(string Rol);
+        bool ExisteRol(int Rol);
 
 
     }

@@ -237,7 +237,6 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-
                 Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Caja al Buscar Cliente");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -245,10 +244,40 @@ namespace LosNaranjitos
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Caja");
-            FrmMenuPrincipal.GR.Visible = true;
-            OrdenDetalle.Clear();
-            this.Dispose();
+            try
+            {
+                if (FrmLogin.UsuarioGlobal.Rol!="ROL-3")
+                {
+                    if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Operador == FrmLogin.UsuarioGlobal.Username && x.CierreOperador == false).Count() == 0)
+                    {
+                        Caja  XCaja = Utilitarios.OpCaja.ListarCajas().Where(x => x.OperadorActual == FrmLogin.UsuarioGlobal.Username).FirstOrDefault();
+                        Caja CajaY = new Caja();
+                        CajaY.Consecutivo = XCaja.Consecutivo;
+                        CajaY.OperadorActual = "Libre";
+                        CajaY.Estado = false;
+                        CajaY.UltimaModificacion = DateTime.Now;
+                        CajaY.Disponible = XCaja.Disponible;
+                        Utilitarios.OpCaja.ActualizarCajas(CajaY);
+                        MessageBox.Show("Caja Cerrada debido a ausencia de Pedidos registrados", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Caja");
+                        FrmMenuPrincipal.GR.Visible = true;
+                        OrdenDetalle.Clear();
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Registraste Ventas, debes cerrar la caja en el modulo de cierre", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Caja al Buscar Cliente");
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
         }
 

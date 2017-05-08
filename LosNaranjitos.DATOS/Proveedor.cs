@@ -9,19 +9,19 @@ namespace LosNaranjitos.DATOS
 {
     public class Proveedor
     {
+        [AutoIncrement]
+        public int Consecutivo { get; set; }
         [PrimaryKey]
-        
         public string IdProveedor { get; set; }
-        
+
         public string Nombre { get; set; }
-        
+
         public string Telefono { get; set; }
-        
+
         public string Correo { get; set; }
-        
+
         public bool Activo { get; set; }
-        
-        public string Consecutivo { get; set; }
+
     }
 
 }

@@ -64,6 +64,7 @@ namespace LosNaranjitos
                 }
                 if (!Utilitarios.Cambio)
                 {
+                    txtIdCliente.ReadOnly = false;
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.Cliente UltimoCliente = new Cliente();
@@ -120,6 +121,7 @@ namespace LosNaranjitos
 
                 while (Utilitarios.Cambio)
                 {
+                    txtIdCliente.ReadOnly = true;
                     tabControl1.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
                     {
@@ -178,7 +180,10 @@ namespace LosNaranjitos
                             Telefono = txtTelefono.Text,
                             Correo = txtEmail.Text,
                             Apellido1 = txtApellido.Text,
-
+                            Apellido2 = "",
+                            Contrasena = "dsfuhglsdfjo",
+                            Operadora="No Definida",
+                            Puntaje=0
                         };
 
                         Utilitarios.OpClientes.AgregarCliente(ClientePrivate);
@@ -252,6 +257,7 @@ namespace LosNaranjitos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Clientes");
+            Utilitarios.Cambio = false;
             this.Dispose();
         }
 
@@ -307,6 +313,7 @@ namespace LosNaranjitos
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Clientes");
+            Utilitarios.Cambio = false;
             this.Dispose();
         }
     }

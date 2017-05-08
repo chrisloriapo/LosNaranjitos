@@ -10,11 +10,11 @@ namespace LosNaranjitos.BL.Interfaces
     {
         List<DATOS.Error> ListarErrores();
 
-        DATOS.Error BuscarError(string IdError);
+        DATOS.Error BuscarError(int IdError);
 
         void AgregarError(DATOS.Error ERROR);
 
-        bool ExisteConsecutivo(string Consecutivo);
+        bool ExisteConsecutivo(int Consecutivo);
 
 
     }

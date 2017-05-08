@@ -94,3 +94,26 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.OrmLite.SqlServer.pdb
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.DATOS.dll.config
 C:\Users\chris\Google Drive\Academico\Fidelitas\Análisis de Sistemas 2\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.DS.dll.config
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.BL.dll.config
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.BL.dll
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.BL.pdb
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.DATOS.dll
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.DS.dll
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Common.dll
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Interfaces.dll
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.OrmLite.dll
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.OrmLite.SqlServer.dll
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Text.dll
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.DATOS.pdb
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.DS.pdb
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Common.pdb
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Common.xml
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Interfaces.pdb
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Interfaces.xml
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.OrmLite.pdb
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.OrmLite.SqlServer.pdb
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Text.pdb
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Text.xml
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\obj\Debug\LosNaranjitos.BL.csprojResolveAssemblyReference.cache
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\obj\Debug\LosNaranjitos.BL.dll
+C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\obj\Debug\LosNaranjitos.BL.pdb

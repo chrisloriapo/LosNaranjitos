@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.rptVReporteLocal = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // rptVReporteLocal
             // 
-            reportDataSource2.Name = "DataSet1";
-            reportDataSource2.Value = null;
-            this.rptVReporteLocal.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = null;
+            this.rptVReporteLocal.LocalReport.DataSources.Add(reportDataSource1);
             this.rptVReporteLocal.LocalReport.ReportEmbeddedResource = "LosNaranjitos.Reporteria.rdlcProductos.rdlc";
             this.rptVReporteLocal.Location = new System.Drawing.Point(73, 58);
             this.rptVReporteLocal.Name = "rptVReporteLocal";
@@ -49,8 +49,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 449);
+            this.ControlBox = false;
             this.Controls.Add(this.rptVReporteLocal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmReporteVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmReporteVentas";
             this.Load += new System.EventHandler(this.FrmReporteVentas_Load);
             this.ResumeLayout(false);

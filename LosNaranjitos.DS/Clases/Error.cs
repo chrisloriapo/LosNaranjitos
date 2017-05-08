@@ -18,7 +18,7 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(ERROR);
         }
 
-        public DATOS.Error BuscarError(string IdError)
+        public DATOS.Error BuscarError(int IdError)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -26,7 +26,7 @@ namespace LosNaranjitos.DS.Clases
             return BuscErr;
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();

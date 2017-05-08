@@ -33,7 +33,7 @@ namespace LosNaranjitos.DS.Clases
             return Buscar;
         }
 
-        public DATOS.Cliente BuscarClientePorConsecutivo(string Consecutivo)
+        public DATOS.Cliente BuscarClientePorConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -81,7 +81,7 @@ namespace LosNaranjitos.DS.Clases
             }
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();

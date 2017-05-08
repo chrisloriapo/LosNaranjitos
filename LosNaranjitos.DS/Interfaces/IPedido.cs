@@ -10,11 +10,11 @@ namespace LosNaranjitos.DS.Interfaces
     {
         List<DATOS.Pedido> ListarPedido();
 
-        DATOS.Pedido BuscarPedido(string IdPedido);
+        DATOS.Pedido BuscarPedido(int IdPedido);
 
         DATOS.Pedido BuscarProductoCliente(string IdCliente);
 
-        DATOS.Pedido BuscarProductoConsecutivo(string Consec);
+        DATOS.Pedido BuscarProductoConsecutivo(int Consec);
 
         void AgregarPedido(DATOS.Pedido Orden);
 
@@ -22,9 +22,9 @@ namespace LosNaranjitos.DS.Interfaces
 
         void Inactivar(DATOS.Pedido Orden);
 
-        bool ExistePedido(string IdPedido);
+        bool ExistePedido(int IdPedido);
 
-        bool ExisteConsecutivo(string Consecutivo);
+        bool ExisteConsecutivo(int Consecutivo);
 
     }
 }

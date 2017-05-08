@@ -27,11 +27,12 @@ namespace LosNaranjitos
         {
             try
             {
-                if (Utilitarios.Cambio == false)
+                if (!Utilitarios.Cambio )
                 {
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.Medida UltimaMedida = new Medida();
+                    txtMedida.ReadOnly = false;
                     try
                     {
                         UltimaMedida = Utilitarios.OpMedidas.ListarMedidas().OrderByDescending(x => x.Consecutivo).First();
@@ -83,6 +84,7 @@ namespace LosNaranjitos
 
                 while (Utilitarios.Cambio)
                 {
+                    txtMedida.ReadOnly = true;
                     tabControl1.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
                     {

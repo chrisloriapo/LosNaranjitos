@@ -10,7 +10,7 @@ namespace LosNaranjitos.DS.Interfaces
     {
         List<DATOS.Cargas> ListarCargas();
 
-        DATOS.Cargas BuscarCarga(string IdCarga);
+        DATOS.Cargas BuscarCarga(int IdCarga);
 
         DATOS.Cargas BuscarCargaPorDescripcion(string Descripcion);
 
@@ -20,9 +20,9 @@ namespace LosNaranjitos.DS.Interfaces
 
         void Inactivar(DATOS.Cargas Carga);
 
-        bool ExisteCarga(string IdCarga);
+        bool ExisteCarga(int IdCarga);
 
-        bool ExisteConsecutivo(string Consecutivo);
+      //  bool ExisteConsecutivo(string Consecutivo);
 
     }
 }

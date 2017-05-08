@@ -25,7 +25,7 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(Rol);
         }
 
-        public DATOS.RolUsuario BuscarRol(string IdRol)
+        public DATOS.RolUsuario BuscarRol(int IdRol)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -41,7 +41,7 @@ namespace LosNaranjitos.DS.Clases
             return ROL;
         }
 
-        public bool ExisteRol(string Rol)
+        public bool ExisteRol(int Rol)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();

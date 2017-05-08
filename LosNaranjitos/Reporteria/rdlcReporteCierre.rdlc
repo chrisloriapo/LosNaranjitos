@@ -76,7 +76,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Tipo.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!Caja.Value, "DataSet1")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -124,7 +124,7 @@
                     <Style />
                   </TextRun>
                   <TextRun>
-                    <Value>=Sum(Fields!CantidadVentas.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!CantidadVentas.Value, "DataSet1")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -224,7 +224,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>=Sum(Fields!MontoTarjeta.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!MontoTarjeta.Value, "DataSet1")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -264,7 +264,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>=Sum(Fields!MontoEfectivo.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!MontoEfectivo.Value, "DataSet1")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -305,7 +305,7 @@
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>=Sum(Fields!MontroOtro.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!MontroOtro.Value, "DataSet1")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -339,7 +339,7 @@
                     <Style />
                   </TextRun>
                   <TextRun>
-                    <Value>=Sum(Fields!MontoTotal.Value, "DataSet1")</Value>
+                    <Value>=First(Fields!MontoTotal.Value, "DataSet1")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>

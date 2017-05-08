@@ -10,15 +10,16 @@ namespace LosNaranjitos.BL.Interfaces
     {
         List<DATOS.Cierre> ListarRegistros();
 
-        DATOS.Cierre BuscarCierre(string IdCierre);
+        DATOS.Cierre BuscarCierre(int IdCierre);
 
         void NuevoCierre(DATOS.Cierre CIERRE);
 
         void ActualizarCierre(DATOS.Cierre CIERRE);
 
-        bool ExisteConsecutivo(string Consecutivo);
+        bool ExisteConsecutivo(int Consecutivo);
 
         bool ExisteCierreDiario(DateTime Dia);
+
 
     }
 }

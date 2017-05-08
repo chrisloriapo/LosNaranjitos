@@ -19,7 +19,8 @@ namespace LosNaranjitos.DS.Interfaces
         void Inactivar(DATOS.FacturaCompra Factura_Compra);
 
         bool ExisteFactura(string IdFactura);
-        bool ExisteConsecutivo(string Consecutivo);
+
+        bool ExisteConsecutivo(int Consecutivo);
 
     }
 }

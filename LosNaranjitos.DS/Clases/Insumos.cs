@@ -25,7 +25,7 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(Insumo);
         }
 
-        public DATOS.Insumos BuscarInsumoPorConsecutivo(string Consecutivo)
+        public DATOS.Insumos BuscarInsumoPorConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -49,7 +49,7 @@ namespace LosNaranjitos.DS.Clases
             return BuscInsumo;
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();

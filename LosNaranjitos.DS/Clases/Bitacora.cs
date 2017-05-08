@@ -20,7 +20,7 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(BitacorA);
         }
 
-        public DATOS.Bitacora BuscarBitacora(string IdBitacora)
+        public DATOS.Bitacora BuscarBitacora(int IdBitacora)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -28,7 +28,7 @@ namespace LosNaranjitos.DS.Clases
             return Buscar;
         }
 
-        public bool ExisteConsecutivo(string consecutivo)
+      /*  public bool ExisteConsecutivo(string consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -59,14 +59,14 @@ namespace LosNaranjitos.DS.Clases
                 }
             }
         }
-
+*/
         public List<DATOS.Bitacora> ListarRegistros()
         {
 
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
-            List<DATOS.Bitacora> Lista = db.Select<DATOS.Bitacora>();
-            return Lista;
+            var Lista = db.Select<DATOS.Bitacora>().OrderBy(x=>x.Fecha).Take(100);
+            return Lista.ToList();
         }
     }
 }

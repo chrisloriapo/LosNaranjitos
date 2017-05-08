@@ -12,17 +12,17 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.DetallePedido BuscarPorProducto(string Producto);
 
-        DATOS.DetallePedido BuscarPorPedido(string Orden);
+        DATOS.DetallePedido BuscarPorPedido(int Orden);
 
-        DATOS.DetallePedido BuscarPorConsecutivo(string Conse);
+        DATOS.DetallePedido BuscarPorConsecutivo(int Conse);
 
         void AgregarDetalle(DATOS.DetallePedido DetalleOrden);
 
         void ActualizarDetalleOrden(DATOS.DetallePedido DetalleOrden);
 
-        bool ExisteDetalle(string IdProducto, string Orden);
+        bool ExisteDetalle(string IdProducto, int Orden);
 
-        bool ExisteConsecutivo(string Consecutivo);
+        bool ExisteConsecutivo(int Consecutivo);
 
         void EliminarDetalleDeOrden(DATOS.DetallePedido Detalle);
 

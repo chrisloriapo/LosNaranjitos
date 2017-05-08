@@ -19,18 +19,50 @@ namespace LosNaranjitos
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'OrangeDB1DataSet.Bitacora' Puede moverla o quitarla según sea necesario.
-            this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
-            foreach (var item in (this.OrangeDB1DataSet.Cierre))
-            {
-                if (item.Consecutivo != Utilitarios.Encriptar("Prueba", Utilitarios.Llave))
-                {
-                    item.Delete();
-                    this.OrangeDB1DataSet.Cierre.AcceptChanges();
-                }
-                item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
-            }
-            OrangeDB1DataSet.Cierre.OrderByDescending(x => x.Consecutivo);
+
+
+        //    this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
+
+        //    var xlist = this.OrangeDB1DataSet.Cierre;
+
+
+        //    for (int i = 0; i < xlist.Count; i++)
+        //    {
+        //        if (item.Consecutivo != Utilitarios.Encriptar("CLS-01", Utilitarios.Llave))
+        //        {
+        //            OrangeDB1DataSet.Cierre.RemoveCierreRow(item);
+        //            this.OrangeDB1DataSet.Cierre.AcceptChanges();
+        //        }
+        //        else
+        //        {
+        //            item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
+        //            item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
+        //            item.Tipo = Utilitarios.Decriptar(item.Tipo, Utilitarios.Llave);
+        //            //item.Caja = Utilitarios.Decriptar(item.Caja, Utilitarios.Llave);
+        //        }
+
+        //    }
+
+
+        //    foreach (var item in (xlist))
+        //    {
+        //              }
+        //    OrangeDB1DataSet.Cierre.Where(x => x.Consecutivo == "CLS-01");
+
+
+
+        //    //// TODO: esta línea de código carga datos en la tabla 'OrangeDB1DataSet.Bitacora' Puede moverla o quitarla según sea necesario.
+        //    //this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
+        //    //foreach (var item in (this.OrangeDB1DataSet.Cierre))
+        //    //{
+        //    //    if (item.Consecutivo != Utilitarios.Encriptar("Prueba", Utilitarios.Llave))
+        //    //    {
+        //    //        item.Delete();
+        //    //        this.OrangeDB1DataSet.Cierre.AcceptChanges();
+        //    //    }
+        //    //    item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
+            //}
+            //OrangeDB1DataSet.Cierre.OrderByDescending(x => x.Consecutivo);
 
             this.rpvBitacora.RefreshReport();
         }

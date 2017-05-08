@@ -10,12 +10,11 @@ namespace LosNaranjitos.DATOS
 {
     public class RolUsuario
     {
-        [PrimaryKey]
-        
-        public string IdRol { get; set; }
-        
+        [PrimaryKey][AutoIncrement]
+        public int IdRol { get; set; }
+
         public string Descripcion { get; set; }
-        
+
         public bool Activo { get; set; }
     }
 

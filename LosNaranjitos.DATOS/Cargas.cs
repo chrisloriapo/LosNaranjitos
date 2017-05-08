@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceStack.DataAnnotations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,16 @@ namespace LosNaranjitos.DATOS
 {
     public class Cargas
     {
-        public string Consecutivo { get; set; }
+        [PrimaryKey]
+        [AutoIncrement]
+        public int Consecutivo { get; set; }
 
         public string Descripcion { get; set; }
 
         public decimal Porcentaje { get; set; }
 
         public bool Activo { get; set; }
+
 
     }
 

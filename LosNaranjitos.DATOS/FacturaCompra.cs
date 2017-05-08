@@ -9,7 +9,8 @@ namespace LosNaranjitos.DATOS
 {
     public class FacturaCompra
     {
-        public string Consecutivo { get; set; }
+        [AutoIncrement]
+        public int Consecutivo { get; set; }
         [PrimaryKey]
         public string IdFactura { get; set; }
 
@@ -22,6 +23,7 @@ namespace LosNaranjitos.DATOS
         public DateTime Fecha { get; set; }
 
         public string Operador { get; set; }
+
 
     }
 

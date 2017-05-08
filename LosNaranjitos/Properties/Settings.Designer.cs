@@ -26,8 +26,8 @@ namespace LosNaranjitos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=BD14848535\\SQLEXPRESS;Initial Catalog=OrangeDB1;Integrated Security=T" +
-            "rue")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DAMSITW10\\SQLEXPRESS;Initial Catalog=OrangeDB1;Integrated Security=Tr" +
+            "ue")]
         public string ORANGEDBTST1 {
             get {
                 return ((string)(this["ORANGEDBTST1"]));
@@ -37,8 +37,8 @@ namespace LosNaranjitos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DAMSITW10\\SQLEXPRESS;Initial Catalog=OrangeDB1;Integrated Security=Tr" +
-            "ue")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JENNY-PC\\SQLEXPRESS;Initial Catalog=OrangeDB1;Integrated Security=Tru" +
+            "e")]
         public string DSString1 {
             get {
                 return ((string)(this["DSString1"]));

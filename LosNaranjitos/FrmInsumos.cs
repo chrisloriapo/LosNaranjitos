@@ -91,6 +91,7 @@ namespace LosNaranjitos
                 }
                 //Carga de Formulario Usual
 
+                txtIdInsumo.ReadOnly = false;
                 cbBuscar.SelectedIndex = 0;
                 var ListaLocal = Utilitarios.OpInsumos.ListarInsumos();
                 dgvListado.DataSource = ListaLocal;
@@ -116,7 +117,7 @@ namespace LosNaranjitos
                 {
                     DATOS.Proveedor Prov = new DATOS.Proveedor();
                     Prov = Utilitarios.OpProveedor.BuscarProveedor(EditInsumo.Proveedor);
-
+                    txtIdInsumo.ReadOnly = true;
                     tbcInsumos.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
                     {
@@ -218,7 +219,8 @@ namespace LosNaranjitos
             if (string.IsNullOrEmpty(txtIdInsumo.Text))
             {
                 FrmEdicionInsumos a = new FrmEdicionInsumos();
-                a.Show();
+                                a.Show();
+                this.Dispose();
             }
             else
             {
@@ -280,15 +282,31 @@ namespace LosNaranjitos
                 txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
                 txtBuscar.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
-                switch (cbBuscar.SelectedText.ToString())
+                switch (cbBuscar.SelectedItem.ToString())
                 {
                     case "Codigo":
-                        ListaLocal.Clear();
-                      var  ListaLocalx = ListaLocal.Select(x => x.IdInsumo).ToList();
+                        txtBuscar.Visible = true;
+                        btnBuscar.Visible = true;
+                        var  ListaLocalx = ListaLocal.Select(x => x.IdInsumo).ToList();
+                        foreach (var pos in ListaLocalx)
+                        {
+                            autosearch.Add(pos);
+                        }
                         break;
                     case "Proveedor":
-                        ListaLocal.Clear();
+                        txtBuscar.Visible = true;
+                        btnBuscar.Visible = true;
                         ListaLocalx = ListaLocal.Select(x => x.Proveedor).ToList();
+                        foreach (var pos in ListaLocalx)
+                        {
+                            autosearch.Add(pos);
+                        }
+                        break;
+                    case "Lista Completa":
+
+                        dgvListado.DataSource = ListaLocal.ToList();
+                        txtBuscar.Visible = false;
+                        btnBuscar.Visible = false;
                         break;
                 }
                 txtBuscar.AutoCompleteCustomSource = autosearch;
@@ -440,14 +458,14 @@ namespace LosNaranjitos
 
                 if (CBBool)
                 {
-                    if (string.IsNullOrEmpty(txtPrecioCompra.Text) || string.IsNullOrWhiteSpace(txtPrecioCompra.Text))
+                    if ((string.IsNullOrEmpty(txtPrecioCompra.Text) || string.IsNullOrWhiteSpace(txtPrecioCompra.Text))&&EditInsumo==null)
                     {
                         MessageBox.Show("Debes digitar el Precio del producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtPrecioCompra.Focus();
                         //cbbPorcentajeRendimiento.Text = "";
                         return;
                     }
-                    if (string.IsNullOrEmpty(txtRendimientoUM.Text) || string.IsNullOrWhiteSpace(txtRendimientoUM.Text))
+                    if ((string.IsNullOrEmpty(txtRendimientoUM.Text) || string.IsNullOrWhiteSpace(txtRendimientoUM.Text))&& EditInsumo == null)
                     {
                         MessageBox.Show("Debes digitar el Rendimiento del producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtRendimientoUM.Focus();

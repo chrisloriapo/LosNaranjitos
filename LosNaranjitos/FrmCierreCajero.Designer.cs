@@ -30,28 +30,39 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.CierreBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.OrangeDB1DataSet = new LosNaranjitos.OrangeDB1DataSet();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.rptVReporteLocal = new Microsoft.Reporting.WinForms.ReportViewer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnEjecutar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbbTipoCierre = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.cbbCaja = new System.Windows.Forms.ComboBox();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
-            this.rptVReporteLocal = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.OrangeDB1DataSet = new LosNaranjitos.OrangeDB1DataSet();
-            this.CierreBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEjecutar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
             this.CierreTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.CierreTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // CierreBindingSource
+            // 
+            this.CierreBindingSource.DataMember = "Cierre";
+            this.CierreBindingSource.DataSource = this.OrangeDB1DataSet;
+            // 
+            // OrangeDB1DataSet
+            // 
+            this.OrangeDB1DataSet.DataSetName = "OrangeDB1DataSet";
+            this.OrangeDB1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tableLayoutPanel1
             // 
@@ -68,127 +79,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(915, 479);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(909, 113);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Seleccione el tipo de cierre";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnCancelar, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnEjecutar, 3, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.76596F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.23404F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(903, 94);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(678, 61);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 14;
-            this.btnCancelar.Text = "&Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // btnEjecutar
-            // 
-            this.btnEjecutar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnEjecutar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEjecutar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEjecutar.ForeColor = System.Drawing.Color.White;
-            this.btnEjecutar.Location = new System.Drawing.Point(678, 3);
-            this.btnEjecutar.Name = "btnEjecutar";
-            this.btnEjecutar.Size = new System.Drawing.Size(75, 23);
-            this.btnEjecutar.TabIndex = 13;
-            this.btnEjecutar.Text = "Ejecutar";
-            this.btnEjecutar.UseVisualStyleBackColor = false;
-            this.btnEjecutar.Click += new System.EventHandler(this.btnEjecutar_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.cbbTipoCierre);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(219, 52);
-            this.groupBox2.TabIndex = 12;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Numero de Caja";
-            // 
-            // cbbTipoCierre
-            // 
-            this.cbbTipoCierre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbbTipoCierre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbTipoCierre.FormattingEnabled = true;
-            this.cbbTipoCierre.Items.AddRange(new object[] {
-            "Cierre de Caja",
-            "Cierre Diario"});
-            this.cbbTipoCierre.Location = new System.Drawing.Point(3, 16);
-            this.cbbTipoCierre.Name = "cbbTipoCierre";
-            this.cbbTipoCierre.Size = new System.Drawing.Size(213, 21);
-            this.cbbTipoCierre.TabIndex = 0;
-            this.cbbTipoCierre.SelectedIndexChanged += new System.EventHandler(this.cbbTipoCierre_SelectedIndexChanged);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.cbbCaja);
-            this.flowLayoutPanel1.Controls.Add(this.dtpFecha);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(228, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(219, 52);
-            this.flowLayoutPanel1.TabIndex = 15;
-            // 
-            // cbbCaja
-            // 
-            this.cbbCaja.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbbCaja.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCaja.FormattingEnabled = true;
-            this.cbbCaja.Items.AddRange(new object[] {
-            "Cierre de Caja",
-            "Cierre Diario"});
-            this.cbbCaja.Location = new System.Drawing.Point(3, 3);
-            this.cbbCaja.Name = "cbbCaja";
-            this.cbbCaja.Size = new System.Drawing.Size(168, 21);
-            this.cbbCaja.TabIndex = 1;
-            this.cbbCaja.Visible = false;
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpFecha.Location = new System.Drawing.Point(3, 9);
-            this.dtpFecha.MinDate = new System.DateTime(2017, 3, 1, 0, 0, 0, 0);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(168, 20);
-            this.dtpFecha.TabIndex = 21;
-            this.dtpFecha.Value = new System.DateTime(2017, 3, 25, 0, 0, 0, 0);
-            this.dtpFecha.Visible = false;
-            // 
             // rptVReporteLocal
             // 
             this.rptVReporteLocal.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -203,15 +93,143 @@
             this.rptVReporteLocal.TabIndex = 5;
             this.rptVReporteLocal.Visible = false;
             // 
-            // OrangeDB1DataSet
+            // groupBox1
             // 
-            this.OrangeDB1DataSet.DataSetName = "OrangeDB1DataSet";
-            this.OrangeDB1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.groupBox1.Controls.Add(this.tableLayoutPanel2);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(909, 113);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Seleccione el tipo de cierre";
             // 
-            // CierreBindingSource
+            // tableLayoutPanel2
             // 
-            this.CierreBindingSource.DataMember = "Cierre";
-            this.CierreBindingSource.DataSource = this.OrangeDB1DataSet;
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.96124F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.83942F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnCancelar, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btnEjecutar, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnNuevo, 2, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 18);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.76596F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.23404F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(903, 92);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cbbTipoCierre);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(174, 51);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Numero de Caja";
+            // 
+            // cbbTipoCierre
+            // 
+            this.cbbTipoCierre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbbTipoCierre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbTipoCierre.FormattingEnabled = true;
+            this.cbbTipoCierre.Items.AddRange(new object[] {
+            "Cierre de Caja",
+            "Cierre Diario"});
+            this.cbbTipoCierre.Location = new System.Drawing.Point(3, 18);
+            this.cbbTipoCierre.Name = "cbbTipoCierre";
+            this.cbbTipoCierre.Size = new System.Drawing.Size(168, 23);
+            this.cbbTipoCierre.TabIndex = 0;
+            this.cbbTipoCierre.SelectedIndexChanged += new System.EventHandler(this.cbbTipoCierre_SelectedIndexChanged);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.cbbCaja);
+            this.flowLayoutPanel1.Controls.Add(this.dtpFecha);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(183, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(400, 51);
+            this.flowLayoutPanel1.TabIndex = 15;
+            // 
+            // cbbCaja
+            // 
+            this.cbbCaja.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbbCaja.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCaja.FormattingEnabled = true;
+            this.cbbCaja.Items.AddRange(new object[] {
+            "Cierre de Caja",
+            "Cierre Diario"});
+            this.cbbCaja.Location = new System.Drawing.Point(3, 3);
+            this.cbbCaja.Name = "cbbCaja";
+            this.cbbCaja.Size = new System.Drawing.Size(168, 23);
+            this.cbbCaja.TabIndex = 1;
+            this.cbbCaja.Visible = false;
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtpFecha.Location = new System.Drawing.Point(3, 9);
+            this.dtpFecha.MinDate = new System.DateTime(2017, 3, 1, 0, 0, 0, 0);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(277, 22);
+            this.dtpFecha.TabIndex = 21;
+            this.dtpFecha.Value = new System.DateTime(2017, 3, 25, 0, 0, 0, 0);
+            this.dtpFecha.Visible = false;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(723, 60);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnEjecutar
+            // 
+            this.btnEjecutar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEjecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEjecutar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEjecutar.ForeColor = System.Drawing.Color.White;
+            this.btnEjecutar.Location = new System.Drawing.Point(723, 3);
+            this.btnEjecutar.Name = "btnEjecutar";
+            this.btnEjecutar.Size = new System.Drawing.Size(75, 23);
+            this.btnEjecutar.TabIndex = 13;
+            this.btnEjecutar.Text = "Ejecutar";
+            this.btnEjecutar.UseVisualStyleBackColor = false;
+            this.btnEjecutar.Click += new System.EventHandler(this.btnEjecutar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevo.Location = new System.Drawing.Point(589, 3);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(115, 23);
+            this.btnNuevo.TabIndex = 16;
+            this.btnNuevo.Text = "Nuevo Cierre";
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Visible = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // CierreTableAdapter
             // 
@@ -221,22 +239,26 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.LimeGreen;
             this.ClientSize = new System.Drawing.Size(915, 479);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmCierreCajero";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmCierreCajero";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "Soda Los Naranjitos";
             this.Load += new System.EventHandler(this.FrmCierreCajero_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,5 +279,6 @@
         private System.Windows.Forms.BindingSource CierreBindingSource;
         private OrangeDB1DataSet OrangeDB1DataSet;
         private OrangeDB1DataSetTableAdapters.CierreTableAdapter CierreTableAdapter;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }

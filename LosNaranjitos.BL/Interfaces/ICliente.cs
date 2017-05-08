@@ -12,7 +12,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.Cliente BuscarCliente(string IdPersonal);
 
-        DATOS.Cliente BuscarClientePorConsecutivo(string Consecutivo);
+        DATOS.Cliente BuscarClientePorConsecutivo(int Consecutivo);
 
         DATOS.Cliente BuscarClientePorCorreo(string Correo);
 
@@ -24,6 +24,6 @@ namespace LosNaranjitos.BL.Interfaces
 
         bool ExisteCLIENTE(string IDCLIENTE);
 
-        bool ExisteConsecutivo(string Consecutivo);
+        bool ExisteConsecutivo(int Consecutivo);
     }
 }

@@ -25,7 +25,7 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(Orden);
         }
 
-        public DATOS.Pedido BuscarPedido(string IdPedido)
+        public DATOS.Pedido BuscarPedido(int IdPedido)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -41,7 +41,7 @@ namespace LosNaranjitos.DS.Clases
             return BuscIdClient;
         }
 
-        public DATOS.Pedido BuscarProductoConsecutivo(string Consec)
+        public DATOS.Pedido BuscarProductoConsecutivo(int Consec)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -49,7 +49,7 @@ namespace LosNaranjitos.DS.Clases
             return BuscIdClient;
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -81,7 +81,7 @@ namespace LosNaranjitos.DS.Clases
             }
         }
 
-        public bool ExistePedido(string IdPedido)
+        public bool ExistePedido(int IdPedido)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();

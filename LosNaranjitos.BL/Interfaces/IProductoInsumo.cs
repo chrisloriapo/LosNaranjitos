@@ -14,7 +14,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         DATOS.ProductoInsumo BuscarPorInsumo(string Insumo);
 
-        DATOS.ProductoInsumo BuscarPorConsecutivo(string Consec);
+        DATOS.ProductoInsumo BuscarPorConsecutivo(int Consec);
 
         void AgregarProductoInsumo(DATOS.ProductoInsumo ProductoINSUMO);
 
@@ -22,7 +22,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         bool ExisteProductoINSUMO(string IdProducto, string IdInsumo);
 
-        bool ExisteConsecutivo(string Consecutivo);
+        bool ExisteConsecutivo(int Consecutivo);
 
         void EliminarInsumodeProducto(DATOS.ProductoInsumo ProductoINSUMO);
 

@@ -33,7 +33,7 @@ namespace LosNaranjitos.DS.Clases
             return Us;
         }
 
-        public DATOS.Producto BuscarProductoPorConsecutivo(string Consec)
+        public DATOS.Producto BuscarProductoPorConsecutivo(int Consec)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
@@ -49,7 +49,7 @@ namespace LosNaranjitos.DS.Clases
             return BuscProd;
         }
 
-        public bool ExisteConsecutivo(string Consecutivo)
+        public bool ExisteConsecutivo(int Consecutivo)
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
