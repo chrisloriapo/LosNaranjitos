@@ -40,7 +40,7 @@ namespace LosNaranjitos
                 if (Utilitarios.Cambio == false)
                 {
                     DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.Cargas UltimaCarga = new Cargas();
                     try
                     {
@@ -49,8 +49,15 @@ namespace LosNaranjitos
                         {
                             UltimaCarga = new Cargas()
                             {
-                                Consecutivo = "CHR-1"
+                                Consecutivo = 1
                             };
+                            lblConsecutivo.Text = UltimaCarga.Consecutivo.ToString();
+
+                        }
+                        else
+                        {
+                            lblConsecutivo.Text = (UltimaCarga.Consecutivo + 1).ToString();
+
                         }
                     }
                     catch (Exception x)
@@ -59,21 +66,22 @@ namespace LosNaranjitos
                         {
                             UltimaCarga = new Cargas()
                             {
-                                Consecutivo = "CHR-1"
+                                Consecutivo = 1
                             };
+                            lblConsecutivo.Text = UltimaCarga.Consecutivo.ToString();
+
                         }
                     }
 
-                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Cargas").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSCarga = Consecutivo.ConsecutivoActual + 1;
-                    UltimaCarga.Consecutivo = Prefijo + "-" + CSCarga;
-                    if (Utilitarios.OpCargas.ExisteConsecutivo(UltimaCarga.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimaCarga.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnAgregar.Enabled = false;
-                    }
-                    lblConsecutivo.Text = UltimaCarga.Consecutivo;
+                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Cargas").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSCarga = Consecutivo.ConsecutivoActual + 1;
+                    //UltimaCarga.Consecutivo = Prefijo + "-" + CSCarga;
+                    //if (Utilitarios.OpCargas.ExisteConsecutivo(UltimaCarga.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimaCarga.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnAgregar.Enabled = false;
+                    //}
                 }
                 //Carga de Formulario Usual
 
@@ -103,7 +111,7 @@ namespace LosNaranjitos
                     if (Utilitarios.Cambio)
                     {
                         txtDescripcion.Text = EditarCarga.Descripcion;
-                        lblConsecutivo.Text = EditarCarga.Consecutivo;
+                        lblConsecutivo.Text = EditarCarga.Consecutivo.ToString();
                         chkActivo.Checked = EditarCarga.Activo;
                         return;
                     }
@@ -162,12 +170,12 @@ namespace LosNaranjitos
                     NuevaCarga.Activo = chkActivo.Checked;
                     NuevaCarga.Descripcion = txtDescripcion.Text;
                     NuevaCarga.Porcentaje = Convert.ToDecimal(cbbPorcentajeCarga.SelectedItem.ToString());
-                    NuevaCarga.Consecutivo = lblConsecutivo.Text;
+                    //  NuevaCarga.Consecutivo = lblConsecutivo.Text;
                     Utilitarios.OpCargas.AgregarCargas(EditarCarga);
 
-                    DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cargas");
-                    Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                    Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                    //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cargas");
+                    //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                    //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Carga Nueva " + NuevaCarga.Descripcion);
 

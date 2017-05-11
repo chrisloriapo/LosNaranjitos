@@ -66,14 +66,14 @@ namespace LosNaranjitos
 
             try
             {
-                if (!Utilitarios.OpPedidos.ExisteConsecutivo(cbbOrden.SelectedValue.ToString()))
+                if (!Utilitarios.OpPedidos.ExisteConsecutivo(Int32.Parse( cbbOrden.SelectedValue.ToString())))
                 {
                     MessageBox.Show("Seleccione una orden de la lista o digite una orden existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    Pedido PedidoLocal = Utilitarios.OpPedidos.BuscarPedido(cbbOrden.SelectedValue.ToString());
-                    lblOrden.Text = PedidoLocal.Consecutivo;
+                    Pedido PedidoLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(cbbOrden.SelectedValue.ToString()));
+                    lblOrden.Text = PedidoLocal.Consecutivo.ToString();
                     lblTotal.Text = "₡ " + PedidoLocal.Subtotal;
                     chkEntregado.Checked = !PedidoLocal.Activo;
                     chkCancelado.Checked = PedidoLocal.Cancelado;
@@ -136,7 +136,7 @@ namespace LosNaranjitos
                     lbIdcliente.Text = ClienteLocal.IdPersonal;
 
                     Pedido PedidoLocal = Utilitarios.OpPedidos.ListarPedido().Where(x => x.IdCliente == ClienteLocal.IdPersonal).FirstOrDefault();
-                    lblOrden.Text = PedidoLocal.Consecutivo;
+                    lblOrden.Text = PedidoLocal.Consecutivo.ToString();
                     lblTotal.Text = "₡ " + PedidoLocal.Subtotal;
                     chkEntregado.Checked = !PedidoLocal.Activo;
                     chkCancelado.Checked = PedidoLocal.Cancelado;
@@ -198,7 +198,7 @@ namespace LosNaranjitos
                 var mensaje = MessageBox.Show("¿ Desea dar la orden " + lblOrden.Text + " por entregada?", "Advertencia",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(lblOrden.Text);
+                Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(lblOrden.Text));
 
                 if (mensaje == DialogResult.Yes)
                 {
@@ -272,7 +272,7 @@ namespace LosNaranjitos
                 var mensaje = MessageBox.Show("¿ Desea pagar la orden " + lblOrden.Text + " ?", "Advertencia",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(lblOrden.Text);
+                Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(lblOrden.Text));
 
                 if (mensaje == DialogResult.Yes)
                 {
@@ -386,7 +386,7 @@ namespace LosNaranjitos
                 var mensaje = MessageBox.Show("¿ Desea dar la orden " + lblOrden.Text + " por entregada?", "Advertencia",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(lblOrden.Text);
+                Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(lblOrden.Text));
 
                 if (mensaje == DialogResult.Yes)
                 {
@@ -430,7 +430,7 @@ namespace LosNaranjitos
                     OrdenLocal.MontoCambio = MontoDigitado - OrdenLocal.Subtotal;
                     OrdenLocal.Observaciones = OrdenLocal.Observaciones + " Orden Cancelada a las " + DateTime.Now + ";";
                     Utilitarios.OpPedidos.ActualizarPedido(OrdenLocal);
-                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + OrdenLocal.Consecutivo + " Cancelada");
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + OrdenLocal.Consecutivo.ToString() + " Cancelada");
                     FrmCambioCaja a = new FrmCambioCaja();
                     FrmCambioCaja.CambioShow = (MontoDigitado - OrdenLocal.Subtotal).ToString();
                     a.Show();

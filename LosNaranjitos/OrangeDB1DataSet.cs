@@ -4,6 +4,10 @@
 
     partial class OrangeDB1DataSet
     {
+        partial class CierreDataTable
+        {
+        }
+
         partial class BitacoraDataTable
         {
 

@@ -21,6 +21,7 @@ namespace LosNaranjitos
 
         private void FrmCambioCaja_Load(object sender, EventArgs e)
         {
+
             lblCambio.Text = "₡" + CambioShow;
         }
     }

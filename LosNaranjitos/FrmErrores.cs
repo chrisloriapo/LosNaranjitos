@@ -54,7 +54,7 @@ namespace LosNaranjitos
                 {
 
                     case "Consecutivo":
-                        Listax = Lista.Where(x => x.IdError == txtBuscar.Text).ToList();
+                        Listax = Lista.Where(x => x.IdError == Int32.Parse( txtBuscar.Text)).ToList();
                         dgvListado.DataSource = Listax.ToList();
                         break;
                     case "Descripción":

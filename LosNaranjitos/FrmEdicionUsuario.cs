@@ -61,11 +61,11 @@ namespace LosNaranjitos
             FrmUsuarios.EditUser = UsuarioEditar;
             Utilitarios.Cambio = true;
 
-            this.Dispose();
             FrmUsuarios a = new FrmUsuarios();
             a.MdiParent = FrmLogin.MN;
             a.WindowState= FormWindowState.Maximized;
             a.Show();
+            this.Dispose();
         }
     }
 }

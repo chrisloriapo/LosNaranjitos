@@ -57,57 +57,59 @@ namespace LosNaranjitos
                 if (!Utilitarios.Cambio)
                 {
                     //Validacion Consecutivos Producto
-                    Consecutivo Consecutivo = new Consecutivo();
-                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    //Consecutivo Consecutivo = new Consecutivo();
+                    //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     txtIdProducto.ReadOnly = false;
 
                     DATOS.Producto UltimoProducto = new Producto();
                     try
                     {
                         UltimoProducto = Utilitarios.OpProducto.ListarProductos().OrderByDescending(x => x.Consecutivo).First();
+                        lblConsecutivo.Text = UltimoProducto.Consecutivo.ToString();
                     }
                     catch (Exception x)
                     {
                         if (x.Message == "La secuencia no contiene elementos")
                         {
-                            UltimoProducto.Consecutivo = "PRD-1";
+                            UltimoProducto.Consecutivo = 1;
+                            lblConsecutivo.Text = UltimoProducto.Consecutivo.ToString();
                         }
                     }
 
-                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Producto").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSProdcuto = Consecutivo.ConsecutivoActual + 1;
-                    UltimoProducto.Consecutivo = Prefijo + "-" + CSProdcuto;
-                    if (Utilitarios.OpProducto.ExisteConsecutivo(UltimoProducto.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimoProducto.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnAgregar.Enabled = false;
-                    }
-                    lblConsecutivo.Text = UltimoProducto.Consecutivo;
+                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Producto").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSProdcuto = Consecutivo.ConsecutivoActual + 1;
+                    //UltimoProducto.Consecutivo = Prefijo + "-" + CSProdcuto;
+                    //if (Utilitarios.OpProducto.ExisteConsecutivo(UltimoProducto.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoProducto.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnAgregar.Enabled = false;
+                    //}
+                    
                     //Validacion Consecutivos Insumos
 
-                    DATOS.ProductoInsumo UltimoProductoInsumo = new ProductoInsumo();
-                    try
-                    {
-                        UltimoProductoInsumo = Utilitarios.OpProductoInsumo.ListarProductoInsumo().OrderByDescending(x => x.Consecutivo).First();
-                    }
-                    catch (Exception x)
-                    {
-                        if (x.Message == "La secuencia no contiene elementos")
-                        {
-                            UltimoProductoInsumo.Consecutivo = "PIN-1";
-                        }
-                    }
+                    //DATOS.ProductoInsumo UltimoProductoInsumo = new ProductoInsumo();
+                    //try
+                    //{
+                    //    UltimoProductoInsumo = Utilitarios.OpProductoInsumo.ListarProductoInsumo().OrderByDescending(x => x.Consecutivo).First();
+                    //}
+                    //catch (Exception x)
+                    //{
+                    //    if (x.Message == "La secuencia no contiene elementos")
+                    //    {
+                    //        UltimoProductoInsumo.Consecutivo = 1;
+                    //    }
+                    //}
 
-                    Prefijo = Consecutivos.Where(x => x.Tipo == "Producto-Insumo").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSProductoInsumo = Consecutivo.ConsecutivoActual + 1;
-                    UltimoProductoInsumo.Consecutivo = Prefijo + "-" + CSProductoInsumo;
-                    if (Utilitarios.OpProductoInsumo.ExisteConsecutivo(UltimoProductoInsumo.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimoProductoInsumo.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnAgregar.Enabled = false;
-                    }
+                    //Prefijo = Consecutivos.Where(x => x.Tipo == "Producto-Insumo").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSProductoInsumo = Consecutivo.ConsecutivoActual + 1;
+                    //UltimoProductoInsumo.Consecutivo = Prefijo + "-" + CSProductoInsumo;
+                    //if (Utilitarios.OpProductoInsumo.ExisteConsecutivo(UltimoProductoInsumo.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoProductoInsumo.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnAgregar.Enabled = false;
+                    //}
                 }
                 while (Utilitarios.Cambio)
                 {
@@ -118,7 +120,7 @@ namespace LosNaranjitos
                         tbOperacionesProductos.TabPages.Add(tbReceta);
                         tbOperacionesProductos.TabPages.Add(tbCostos);
                         txtIdProducto.Text = EditProducto.Codigo;
-                        lblConsecutivo.Text = EditProducto.Consecutivo;
+                        lblConsecutivo.Text = EditProducto.Consecutivo.ToString();
                         txtNombre.Text = EditProducto.Nombre;
                         txtIdProducto.ReadOnly = true;
                         //Carga de Categoria
@@ -365,7 +367,7 @@ namespace LosNaranjitos
                     NuevoProducto.Activo = true;
                     NuevoProducto.Categoria = CategoriaLocal.IdTipo;
                     NuevoProducto.Codigo = txtIdProducto.Text;
-                    NuevoProducto.Consecutivo = lblConsecutivo.Text;
+                  //  NuevoProducto.Consecutivo = lblConsecutivo.Text;
                     NuevoProducto.Descripcion = txtDescricpion.Text;
                     NuevoProducto.Nombre = txtNombre.Text;
 
@@ -399,7 +401,7 @@ namespace LosNaranjitos
                     {
                         Receta.Clear();
                         ListaInsumos.Clear();
-                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto-Insumo");
+                      //  DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto-Insumo");
 
 
                         foreach (var item in lstInsumosSelected.Items)
@@ -413,8 +415,8 @@ namespace LosNaranjitos
                             if (ListaInsumos.Contains(item))
                             {
 
-                                Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                                IngredienteNuevo.Consecutivo = "PIN-" + Consecutivo.ConsecutivoActual;
+                             //   Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                           //     IngredienteNuevo.Consecutivo = "PIN-" + Consecutivo.ConsecutivoActual;
                                 IngredienteNuevo.CodigoProducto = NuevoProducto.Codigo;
                                 IngredienteNuevo.IdInsumo = ListaInsumos.FirstOrDefault().IdInsumo;
                                 IngredienteNuevo.CantidadRequerida = float.Parse(ListaInsumos.Where(c => c.IdInsumo == IngredienteNuevo.IdInsumo).Count().ToString());
@@ -489,7 +491,7 @@ namespace LosNaranjitos
                 tbOperacionesProductos.TabPages.Add(tbResumen);
                 lblProductoR.Text = NuevoProducto.Nombre;
                 lblCodigo.Text = NuevoProducto.Codigo;
-                lblConsecutivoResumen.Text = NuevoProducto.Consecutivo;
+                lblConsecutivoResumen.Text = NuevoProducto.Consecutivo.ToString();
                 lblDescripcionResumen.Text = NuevoProducto.Descripcion;
                 lblPrecioVenta.Text = "₡ " + NuevoProducto.Precio.ToString();
 
@@ -563,9 +565,9 @@ namespace LosNaranjitos
 
                             Ingrediente.CodigoProducto = EditProducto.Codigo;
                             Utilitarios.OpProductoInsumo.AgregarProductoInsumo(Ingrediente);
-                            DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto-Insumo");
-                            Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                            Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                            //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto-Insumo");
+                            //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                           // Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
                             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Ingrediente a producto ya existente " + Ingrediente.Consecutivo);
 
                         }
@@ -590,16 +592,16 @@ namespace LosNaranjitos
                     {
                         NuevoProducto.Activo = true;
                         Utilitarios.OpProducto.AgregarProducto(NuevoProducto);
-                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                        //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto");
+                        //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                        //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         foreach (var Ingrediente in Receta)
                         {
                             Utilitarios.OpProductoInsumo.AgregarProductoInsumo(Ingrediente);
-                            Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto-Insumo");
-                            Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                            Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                            //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto-Insumo");
+                            //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                            //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
                             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Ingrediente nuevo " + Ingrediente.Consecutivo);
                         }
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Producto Nuevo " + NuevoProducto.Nombre);

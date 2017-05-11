@@ -54,8 +54,8 @@ namespace LosNaranjitos
                 //Verificacion de Consecutivo
                 if (!Utilitarios.Cambio)
                 {
-                    DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                    //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.Insumos UltimoInsumo = new Insumos();
                     try
                     {
@@ -64,8 +64,10 @@ namespace LosNaranjitos
                         {
                             UltimoInsumo = new Insumos()
                             {
-                                Consecutivo = "INS-1"
+                                Consecutivo = 1
                             };
+                            lblConsecutivo.Text = UltimoInsumo.Consecutivo.ToString();
+
                         }
                     }
                     catch (Exception x)
@@ -74,20 +76,21 @@ namespace LosNaranjitos
                         {
                             UltimoInsumo = new Insumos()
                             {
-                                Consecutivo = "INS-1"
+                                Consecutivo = 1
                             };
+                            lblConsecutivo.Text = UltimoInsumo.Consecutivo.ToString();
+
                         }
                     }
-                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Insumo").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSInsumo = Consecutivo.ConsecutivoActual + 1;
-                    UltimoInsumo.Consecutivo = Prefijo + "-" + CSInsumo;
-                    if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoInsumo.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimoInsumo.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnNuevo.Enabled = false;
-                    }
-                    lblConsecutivo.Text = UltimoInsumo.Consecutivo;
+                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Insumo").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSInsumo = Consecutivo.ConsecutivoActual + 1;
+                    //UltimoInsumo.Consecutivo = Prefijo + "-" + CSInsumo;
+                    //if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoInsumo.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoInsumo.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnNuevo.Enabled = false;
+                    //}
                 }
                 //Carga de Formulario Usual
 
@@ -125,7 +128,7 @@ namespace LosNaranjitos
                         txtNombre.Text = EditInsumo.Nombre;
                         txtPrecioCompra.Text = EditInsumo.PrecioCompra.ToString();
                         txtStock.Text = EditInsumo.CantInventario.ToString();
-                        lblConsecutivo.Text = EditInsumo.Consecutivo;
+                        lblConsecutivo.Text = EditInsumo.Consecutivo.ToString();
                         cbMedida.SelectedItem = EditInsumo.IdMedida;
 
                         cbProveedor.SelectedItem = Prov.Nombre;
@@ -176,7 +179,7 @@ namespace LosNaranjitos
                         Prov = Utilitarios.OpProveedor.BuscarProveedorPorNombre(cbProveedor.SelectedValue.ToString());
                         DATOS.Insumos InsumoPrivate = new DATOS.Insumos
                         {
-                            Consecutivo = lblConsecutivo.Text,
+                          //  Consecutivo = lblConsecutivo.Text,
                             IdInsumo = txtIdInsumo.Text,
                             Nombre = txtNombre.Text,
                             Activo = chkActivo.Checked,
@@ -191,9 +194,9 @@ namespace LosNaranjitos
 
                         Utilitarios.OpInsumos.AgregarInsumo(InsumoPrivate);
 
-                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Insumo");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                        //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Insumo");
+                        //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                        //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Insumos Nuevo " + InsumoPrivate.IdInsumo);
 
@@ -335,7 +338,7 @@ namespace LosNaranjitos
                     var ProveedorId = Utilitarios.OpProveedor.BuscarProveedorPorNombre(cbProveedor.SelectedValue.ToString());
                     DATOS.Insumos InsumoPrivate = new DATOS.Insumos
                     {
-                        Consecutivo = lblConsecutivo.Text,
+                        //Consecutivo = lblConsecutivo.Text,
                         IdInsumo = txtIdInsumo.Text,
                         Nombre = txtNombre.Text,
                         Activo = chkActivo.Checked,

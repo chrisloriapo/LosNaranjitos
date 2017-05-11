@@ -65,8 +65,8 @@ namespace LosNaranjitos
                 if (!Utilitarios.Cambio)
                 {
                     txtIdCliente.ReadOnly = false;
-                    DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                    //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.Cliente UltimoCliente = new Cliente();
                     try
                     {
@@ -75,8 +75,14 @@ namespace LosNaranjitos
                         {
                             UltimoCliente = new Cliente()
                             {
-                                Consecutivo = "CLI-1"
-                            };
+                                Consecutivo = 1
+                            }; lblConsecutivo.Text = UltimoCliente.Consecutivo.ToString();
+
+                        }
+                        else
+                        {
+                            lblConsecutivo.Text = UltimoCliente.Consecutivo.ToString();
+
                         }
                     }
                     catch (Exception x)
@@ -85,20 +91,20 @@ namespace LosNaranjitos
                         {
                             UltimoCliente = new Cliente()
                             {
-                                Consecutivo = "CLI-1"
-                            };
+                                Consecutivo = 1
+                            }; lblConsecutivo.Text = UltimoCliente.Consecutivo.ToString();
+
                         }
                     }
-                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Cliente").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSCliente = Consecutivo.ConsecutivoActual + 1;
-                    UltimoCliente.Consecutivo = Prefijo + "-" + CSCliente;
-                    if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoCliente.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimoCliente.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnNuevo.Enabled = false;
-                    }
-                    lblConsecutivo.Text = UltimoCliente.Consecutivo;
+                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Cliente").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSCliente = Consecutivo.ConsecutivoActual + 1;
+                    //UltimoCliente.Consecutivo = Prefijo + "-" + CSCliente;
+                    //if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoCliente.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoCliente.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnNuevo.Enabled = false;
+                    //}
                 }
 
 
@@ -125,7 +131,7 @@ namespace LosNaranjitos
                     tabControl1.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
                     {
-                        lblConsecutivo.Text = EditCLiente.Consecutivo;
+                        lblConsecutivo.Text = EditCLiente.Consecutivo.ToString();
                         txtIdCliente.Text = EditCLiente.IdPersonal;
                         txtNombre.Text = EditCLiente.Nombre;
                         txtTelefono.Text = EditCLiente.Telefono;
@@ -173,7 +179,7 @@ namespace LosNaranjitos
                     {
                         DATOS.Cliente ClientePrivate = new DATOS.Cliente
                         {
-                            Consecutivo = lblConsecutivo.Text,
+                        //    Consecutivo = lblConsecutivo.Text,
                             IdPersonal = txtIdCliente.Text,
                             Nombre = txtNombre.Text,
                             Activo = true,
@@ -182,15 +188,15 @@ namespace LosNaranjitos
                             Apellido1 = txtApellido.Text,
                             Apellido2 = "",
                             Contrasena = "dsfuhglsdfjo",
-                            Operadora="No Definida",
-                            Puntaje=0
+                            Operadora = "No Definida",
+                            Puntaje = 0
                         };
 
                         Utilitarios.OpClientes.AgregarCliente(ClientePrivate);
 
-                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cliente");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                        //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cliente");
+                        //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                        //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Cliente Nuevo " + ClientePrivate.IdPersonal);
 
@@ -284,7 +290,7 @@ namespace LosNaranjitos
                     }
                     DATOS.Cliente ClientePrivate = new DATOS.Cliente
                     {
-                        Consecutivo = lblConsecutivo.Text,
+                      //  Consecutivo = lblConsecutivo.Text,
                         IdPersonal = txtIdCliente.Text,
                         Nombre = txtNombre.Text,
                         Activo = true,

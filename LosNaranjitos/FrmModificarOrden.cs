@@ -39,14 +39,14 @@ namespace LosNaranjitos
             try
             {
                 ListaSoporte.Clear();
-                if (!Utilitarios.OpPedidos.ExisteConsecutivo(cbbOrden.SelectedValue.ToString()))
+                if (!Utilitarios.OpPedidos.ExisteConsecutivo(Int32.Parse( cbbOrden.SelectedValue.ToString())))
                 {
                     MessageBox.Show("Seleccione una orden de la lista o digite una orden existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    Pedido PedidoLocal = Utilitarios.OpPedidos.BuscarPedido(cbbOrden.SelectedValue.ToString());
-                    lblOrden.Text = PedidoLocal.Consecutivo;
+                    Pedido PedidoLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(cbbOrden.SelectedValue.ToString()));
+                    lblOrden.Text = PedidoLocal.Consecutivo.ToString() ;
                     lblTotal.Text = "₡ " + PedidoLocal.Subtotal;
                     chkEntregado.Checked = !PedidoLocal.Activo;
                     chkCancelado.Checked = PedidoLocal.Cancelado;
@@ -126,7 +126,7 @@ namespace LosNaranjitos
                 }
                 if (ValidarUsuario())
                 {
-                    Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(lblOrden.Text);
+                    Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(lblOrden.Text));
                     OrdenLocal.Observaciones = "Orden Descartada por: " + FrmLogin.UsuarioGlobal.Username + ", Autorizado por: " + txtUsuario.Text + ". Razón: " + txtComentario.Text + "Monto: ₡" + OrdenLocal.Subtotal;
                     OrdenLocal.Activo = false;
                     OrdenLocal.Cancelado = true;
@@ -163,7 +163,7 @@ namespace LosNaranjitos
                 }
                 if (ValidarUsuario())
                 {
-                    Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(lblOrden.Text);
+                    Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(lblOrden.Text));
                     OrdenLocal.Observaciones = "Producto: " + cmbProducto.SelectedValue.ToString() + " eliminado de la orden por " + FrmLogin.UsuarioGlobal.Username + ", Autorizado por: " + txtUsuario.Text + ". Razón: " + txtComentario.Text;
 
                     var detalle = ListaSoporte.Find(x => x.Producto == cmbProducto.SelectedValue.ToString());
@@ -243,7 +243,7 @@ namespace LosNaranjitos
                 else
                 {
                     Utilitarios.Autorizante = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(txtUsuario.Text.ToLower());
-                    if (Utilitarios.Autorizante.Rol == "ROL-1" || Utilitarios.Autorizante.Rol == "ROL-2")
+                    if (Utilitarios.Autorizante.Rol == 1 || Utilitarios.Autorizante.Rol == -2)
                     {
                         if (Utilitarios.Autorizante.Contrasena == txtPassword.Text)
                         {

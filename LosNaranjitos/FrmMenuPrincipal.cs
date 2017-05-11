@@ -293,21 +293,21 @@ namespace LosNaranjitos
 
         private void consecutivosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                FrmConsecutivo a = new FrmConsecutivo();
-                a.MdiParent = this;
-                a.ControlBox = false;
-                a.MinimizeBox = false;
-                a.MaximizeBox = false;
-                a.Dock = DockStyle.Fill;
-                a.Show();
-                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //try
+            //{
+            //    FrmConsecutivo a = new FrmConsecutivo();
+            //    a.MdiParent = this;
+            //    a.ControlBox = false;
+            //    a.MinimizeBox = false;
+            //    a.MaximizeBox = false;
+            //    a.Dock = DockStyle.Fill;
+            //    a.Show();
+            //    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 
 
         }
@@ -328,21 +328,21 @@ namespace LosNaranjitos
 
         private void consecutivosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            try
-            {
-                FrmErrores a = new FrmErrores();
-                a.MdiParent = this;
-                a.ControlBox = false;
-                a.MinimizeBox = false;
-                a.MaximizeBox = false;
-                a.Dock = DockStyle.Fill;
-                a.Show();
-                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //try
+            //{
+            //    FrmErrores a = new FrmErrores();
+            //    a.MdiParent = this;
+            //    a.ControlBox = false;
+            //    a.MinimizeBox = false;
+            //    a.MaximizeBox = false;
+            //    a.Dock = DockStyle.Fill;
+            //    a.Show();
+            //    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void tmerTiempo_Tick(object sender, EventArgs e)

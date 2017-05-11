@@ -58,11 +58,12 @@ namespace LosNaranjitos
             ComboEditar = Utilitarios.OpCombo.ListarCombo().FirstOrDefault(x => x.Nombre == cbbCombos.SelectedValue.ToString());
             FrmCombo.EditCombo = ComboEditar;
             Utilitarios.Cambio = true;
-            this.Dispose();
+         
             FrmCombo a = new FrmCombo();
             a.WindowState = FormWindowState.Maximized;
             a.MdiParent = FrmLogin.MN;
             a.Show();
+            this.Dispose();
         }
     }
 }

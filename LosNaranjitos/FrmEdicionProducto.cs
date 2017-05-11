@@ -58,11 +58,12 @@ namespace LosNaranjitos
             FrmProductosVenta.EditProducto = ProductoEditar;
             Utilitarios.Cambio = true;
 
-            this.Dispose();
+    
             FrmProductosVenta a = new FrmProductosVenta();
             a.MdiParent = FrmLogin.MN;
             a.WindowState = FormWindowState.Maximized;
             a.Show();
+            this.Dispose();
         }
     }
 }

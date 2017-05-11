@@ -46,35 +46,35 @@ namespace LosNaranjitos
         {
             try
             {
-                DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                List<Consecutivo> Consecutivos = OpConsecutivo.ListarConsecutivos();
+                //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                //List<Consecutivo> Consecutivos = OpConsecutivo.ListarConsecutivos();
                 DATOS.Bitacora BIT = new DATOS.Bitacora();
-                try
-                {
-                    BIT = OpBitacora.ListarRegistros().OrderByDescending(x => x.IdBitacora).First();
-                }
-                catch (Exception x)
-                {
-                    if (x.Message == "La secuencia no contiene elementos")
-                    {
-                        BIT.IdBitacora = "BIT-1";
-                    }
-                }
-                string Prefijo = Consecutivos.Where(x => x.Tipo == "Bitacora").Select(x => x.Prefijo).FirstOrDefault();
-                Consecutivo = OpConsecutivo.BuscarConsecutivo(Prefijo);
-                int CSBitacora = Consecutivo.ConsecutivoActual + 1;
-                BIT.IdBitacora = Prefijo + "-" + CSBitacora;
-                if (OpBitacora.ExisteConsecutivo(BIT.IdBitacora))
-                {
-                    MessageBox.Show("Existe otro Consecutivo" + BIT.IdBitacora + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //try
+                //{
+                //    BIT = OpBitacora.ListarRegistros().OrderByDescending(x => x.IdBitacora).First();
+                //}
+                //catch (Exception x)
+                //{
+                //    if (x.Message == "La secuencia no contiene elementos")
+                //    {
+                //        BIT.IdBitacora = "BIT-1";
+                //    }
+                //}
+                //string Prefijo = Consecutivos.Where(x => x.Tipo == "Bitacora").Select(x => x.Prefijo).FirstOrDefault();
+                //Consecutivo = OpConsecutivo.BuscarConsecutivo(Prefijo);
+                //int CSBitacora = Consecutivo.ConsecutivoActual + 1;
+                //BIT.IdBitacora = Prefijo + "-" + CSBitacora;
+                //if (OpBitacora.ExisteConsecutivo(BIT.IdBitacora))
+                //{
+                //    MessageBox.Show("Existe otro Consecutivo" + BIT.IdBitacora + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
                 BIT.Usuario = Usuario;
                 BIT.Accion = AccionBitacora;
                 BIT.Fecha = DateTime.Now;
                 OpBitacora.AgregarBitacora(BIT);
-                Consecutivo.ConsecutivoActual = CSBitacora;
-                OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                //Consecutivo.ConsecutivoActual = CSBitacora;
+                //OpConsecutivo.ActualizarConsecutivo(Consecutivo);
             }
             catch (Exception ex)
             {
@@ -89,47 +89,47 @@ namespace LosNaranjitos
         {
             try
             {
-                DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                List<Consecutivo> Consecutivos = OpConsecutivo.ListarConsecutivos();
+                //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                //List<Consecutivo> Consecutivos = OpConsecutivo.ListarConsecutivos();
                 DATOS.Error Error = new DATOS.Error();
-                try
-                {
-                    Error = OpError.ListarErrores().OrderByDescending(x => x.IdError).FirstOrDefault();
-                    if (Error == null)
-                    {
-                        Error = new Error()
-                        {
-                            IdError = "ERR-1"
-                        };
-                    }
-                }
-                catch (Exception x)
-                {
-                    if (x.Message == "La secuencia no contiene elementos" || x.Message == "Referencia a objeto no establecida como instancia de un objeto.")
-                    {
-                        Error = new Error()
-                        {
-                            IdError = "ERR-1"
-                        };
-                    }
-                }
+                //try
+                //{
+                //    Error = OpError.ListarErrores().OrderByDescending(x => x.IdError).FirstOrDefault();
+                //    if (Error == null)
+                //    {
+                //        Error = new Error()
+                //        {
+                //            IdError = "ERR-1"
+                //        };
+                //    }
+                //}
+                //catch (Exception x)
+                //{
+                //    if (x.Message == "La secuencia no contiene elementos" || x.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                //    {
+                //        Error = new Error()
+                //        {
+                //            IdError = "ERR-1"
+                //        };
+                //    }
+                //}
 
-                string Prefijo = Consecutivos.Where(x => x.Tipo == "Error").Select(x => x.Prefijo).FirstOrDefault();
-                Consecutivo = OpConsecutivo.BuscarConsecutivo(Prefijo);
-                int CSError = Consecutivo.ConsecutivoActual + 1;
-                Error.IdError = Prefijo + "-" + CSError;
-                if (OpError.ExisteConsecutivo(Error.IdError))
-                {
-                    MessageBox.Show("Existe otro Consecutivo" + Error.IdError + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //string Prefijo = Consecutivos.Where(x => x.Tipo == "Error").Select(x => x.Prefijo).FirstOrDefault();
+                //Consecutivo = OpConsecutivo.BuscarConsecutivo(Prefijo);
+                //int CSError = Consecutivo.ConsecutivoActual + 1;
+                //Error.IdError = Prefijo + "-" + CSError;
+                //if (OpError.ExisteConsecutivo(Error.IdError))
+                //{
+                //    MessageBox.Show("Existe otro Consecutivo" + Error.IdError + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
 
                 Error.Descripcion = ErrorMessage;
                 Error.Tipo = ErrorType;
                 Error.Hora = DateTime.Now;
                 OpError.AgregarError(Error);
-                Consecutivo.ConsecutivoActual = CSError;
-                OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                //Consecutivo.ConsecutivoActual = CSError;
+                //OpConsecutivo.ActualizarConsecutivo(Consecutivo);
                 GeneralBitacora(Usuario, AccionBitacora);
             }
             catch (Exception ex)

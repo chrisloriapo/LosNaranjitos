@@ -31,7 +31,7 @@ namespace LosNaranjitos
             bool Ingreso = ValidarUser();
             if (Ingreso)
             {
-                if (UsuarioGlobal.Rol == "ROL-3")
+                if (UsuarioGlobal.Rol == 3)
                 {
                     MC.Show();
                     this.Hide();
@@ -70,32 +70,7 @@ namespace LosNaranjitos
             {
                 try
                 {
-                    if (Utilitarios.OpUsuarios.ListarUsuarios().Count == 0)
-                    {
-                        DATOS.Usuario Userprivate = new DATOS.Usuario
-                        {
-                            Consecutivo = "USR-1",
-                            Username = "admin",
-                            Nombre = "Administrador",
-                            Apellido1 = "SuperUsuario",
-                            Apellido2 = " ",
-                            Contrasena = "admin1",
-                            Activo = true,
-                            IdPersonal = "admin1",
-                            Telefono = "0",
-                            Correo = "nomail",
-                            Rol = "ROL-1",
-                            Direccion = "NoWhere",
-                        };
-                        Utilitarios.OpUsuarios.AgregarUsuario(Userprivate);
-                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Usuario");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
-
-                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "No existen Usuarios previamente creados, ingreso de usuario default  admin");
-                        MessageBox.Show("Es primer vez que el sistema se utiliza, debes utilizar los siguientes credenciales para ingresar: usuario: admin \n contraseña: admin1",
-    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                   
                     bool ExisteUser = Utilitarios.OpUsuarios.ExisteUsuario(txtUsuario.Text.ToLower());
                     UsuarioGlobal = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(txtUsuario.Text);
                     if (((txtUsuario.Text == UsuarioGlobal.Username) &&
@@ -133,7 +108,7 @@ namespace LosNaranjitos
                     }
                     else
                     {
-                        
+
                         Utilitarios.GeneralError(ex.Message, "Error Desconocido", "No User logged", "Error durante la validaciòn del usuario ");
                         MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
@@ -146,6 +121,41 @@ namespace LosNaranjitos
         private void FrmLogin_Load(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString();
+            try
+            {
+                if (Utilitarios.OpUsuarios.ListarUsuarios().Count == 0)
+                {
+                    DATOS.Usuario Userprivate = new DATOS.Usuario
+                    {
+                        Username = "admin",
+                        Nombre = "Administrador",
+                        Apellido1 = "SuperUsuario",
+                        Apellido2 = " ",
+                        Contrasena = "admin1",
+                        Activo = true,
+                        IdPersonal = "admin1",
+                        Telefono = "0",
+                        Correo = "nomail",
+                        Rol = 1,
+                        Direccion = "NoWhere",
+                    };
+                    Utilitarios.OpUsuarios.AgregarUsuario(Userprivate);
+                    //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Usuario");
+                    //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                    //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+
+                    Utilitarios.GeneralBitacora("admin", "No existen Usuarios previamente creados, ingreso de usuario default  admin");
+                    MessageBox.Show("Es primer vez que el sistema se utiliza, debes utilizar los siguientes credenciales para ingresar: usuario: admin \n contraseña: admin1",
+"Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Utilitarios.GeneralError(ex.Message, "Error al Popular Datos", "No User logged", "Error durante la Salida del Sistema ");
+                MessageBox.Show(ex.Message, "ERROR",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 

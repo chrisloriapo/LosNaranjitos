@@ -36,7 +36,7 @@ namespace LosNaranjitos
         {
             try
             {
-                CargasEditar = Utilitarios.OpCargas.ListarCargas().FirstOrDefault(x => x.Consecutivo == cbbCargas.SelectedValue.ToString());
+                CargasEditar = Utilitarios.OpCargas.ListarCargas().FirstOrDefault(x => x.Consecutivo == Int32.Parse (cbbCargas.SelectedValue.ToString()));
                 lblNombre.Text = "Descripción: " + CargasEditar.Descripcion ;
                 lblIdPersonal.Text = "Porcentaje de Carga: " + CargasEditar.Porcentaje;
             }
@@ -56,7 +56,7 @@ namespace LosNaranjitos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            CargasEditar = Utilitarios.OpCargas.ListarCargas().FirstOrDefault(x => x.Consecutivo == cbbCargas.SelectedValue.ToString());
+            CargasEditar = Utilitarios.OpCargas.ListarCargas().FirstOrDefault(x => x.Consecutivo ==Int32.Parse( cbbCargas.SelectedValue.ToString()));
             FrmCargas.EditarCarga = CargasEditar;
             Utilitarios.Cambio = true;
 

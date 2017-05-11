@@ -41,16 +41,24 @@ namespace LosNaranjitos
                 if (!Utilitarios.Cambio)
                 {
                     txtIdFactura.ReadOnly = false;
-                    DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                    //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.FacturaCompra UltimaFactura = new FacturaCompra();
                     try
                     {
                         UltimaFactura = Utilitarios.OpFacturaCompra.ListarFacturas().OrderByDescending(x => x.Consecutivo).FirstOrDefault();
                         if (UltimaFactura == null)
                         {
-                            UltimaFactura.Consecutivo = "FCP-1";
+                            UltimaFactura.Consecutivo = 1;
+                            lblConsecutivo.Text = UltimaFactura.Consecutivo.ToString();
+
                         }
+                        else
+                        {
+                            lblConsecutivo.Text = UltimaFactura.Consecutivo.ToString();
+
+                        }
+
                     }
                     catch (Exception x)
                     {
@@ -58,20 +66,21 @@ namespace LosNaranjitos
                         {
                             UltimaFactura = new FacturaCompra()
                             {
-                                Consecutivo = "FCP-1"
+                                Consecutivo = 1
                             };
+                            lblConsecutivo.Text = UltimaFactura.Consecutivo.ToString();
+
                         }
                     }
-                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Factura-Compras").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSFactura = Consecutivo.ConsecutivoActual + 1;
-                    UltimaFactura.Consecutivo = Prefijo + "-" + CSFactura;
-                    if (Utilitarios.OpFacturaCompra.ExisteConsecutivo(UltimaFactura.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimaFactura.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnNuevo.Enabled = false;
-                    }
-                    lblConsecutivo.Text = UltimaFactura.Consecutivo;
+                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Factura-Compras").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSFactura = Consecutivo.ConsecutivoActual + 1;
+                    //UltimaFactura.Consecutivo = Prefijo + "-" + CSFactura;
+                    //if (Utilitarios.OpFacturaCompra.ExisteConsecutivo(UltimaFactura.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimaFactura.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnNuevo.Enabled = false;
+                    //}
                 }
                 ListaFacturas = Utilitarios.OpFacturaCompra.ListarFacturas();
                 var ListaLocal = ListaFacturas.ToList();
@@ -102,7 +111,7 @@ namespace LosNaranjitos
                     {
                         txtIdFactura.Text = EditFacturaCompra.IdFactura;
                         txtObservaciones.Text = EditFacturaCompra.Observaciones;
-                        lblConsecutivo.Text = EditFacturaCompra.Consecutivo;
+                        lblConsecutivo.Text = EditFacturaCompra.Consecutivo.ToString(); ;
                         DATOS.Proveedor ProvLocal = Utilitarios.OpProveedor.BuscarProveedor(EditFacturaCompra.IdProveedor);
                         cbbProveedor.SelectedItem = ProvLocal.Nombre;
                         btnNuevo.Enabled = false;
@@ -153,7 +162,7 @@ namespace LosNaranjitos
                         DATOS.Proveedor ProvLocal = Utilitarios.OpProveedor.BuscarProveedorPorNombre(cbbProveedor.SelectedItem.ToString());
                         DATOS.FacturaCompra FacturaCompraPrivate = new DATOS.FacturaCompra
                         {
-                            Consecutivo = lblConsecutivo.Text,
+                         //   Consecutivo = lblConsecutivo.Text,
                             IdProveedor = ProvLocal.IdProveedor,
                             Monto = Convert.ToDecimal(txtMonto.Text),
                             Fecha = dtpFechaFactura.Value,
@@ -163,9 +172,9 @@ namespace LosNaranjitos
                         };
                         Utilitarios.OpFacturaCompra.AgregarFacturaCompra(FacturaCompraPrivate);
 
-                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Factura-Compras");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                        //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Factura-Compras");
+                        //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                        //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Factura-Compras Nuevo " + EditFacturaCompra.IdFactura);
 
@@ -251,7 +260,7 @@ namespace LosNaranjitos
                     DATOS.Proveedor ProvLocal = Utilitarios.OpProveedor.BuscarProveedorPorNombre(cbbProveedor.SelectedItem.ToString());
                     DATOS.FacturaCompra FacturaCompraPrivate = new DATOS.FacturaCompra
                     {
-                        Consecutivo = lblConsecutivo.Text,
+                      //  Consecutivo = lblConsecutivo.Text,
                         IdProveedor = ProvLocal.IdProveedor,
                         Monto = Convert.ToDecimal(txtMonto.Text),
                         Fecha = dtpFechaFactura.Value,

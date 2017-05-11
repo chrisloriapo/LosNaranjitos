@@ -46,7 +46,7 @@ namespace LosNaranjitos
                 }
                 else
                 {
-                    if (Utilitarios.OpPedidos.ListarPedido().Where(x=>x.Cerrado==false).Count() == 0)
+                    if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false).Count() == 0)
                     {
                         MessageBox.Show("No Existen Ventas Disponibles para un cierre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -79,7 +79,7 @@ namespace LosNaranjitos
                     switch (cbbTipoCierre.SelectedItem.ToString())
                     {
                         case "Cierre de Caja":
-                            var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Where(x => x.Operador == FrmLogin.UsuarioGlobal.Username && x.CierreOperador == false && x.Cancelado==true);
+                            var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Where(x => x.Operador == FrmLogin.UsuarioGlobal.Username && x.CierreOperador == false && x.Cancelado == true);
                             decimal MontoTarjeta, MontoOtro, MontoEfectivo, MontoCambio, Total = 0;
                             MontoCambio = ListaLocal.Sum(x => x.MontoCambio);
                             MontoTarjeta = ListaLocal.Sum(x => x.MontoTarjeta);
@@ -88,12 +88,12 @@ namespace LosNaranjitos
                             Total = ListaLocal.Sum(x => x.Subtotal);
 
                             Cierre CierreCaja = new Cierre();
-                            Consecutivo Consec = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cierre");
-                            if (Consec.ConsecutivoActual == 0)
-                            {
-                                CierreCaja.Consecutivo = "" + Consec.Prefijo + "-1";
-                            }
-                            CierreCaja.Consecutivo = "" + Consec.Prefijo + "-" + Consec.ConsecutivoActual + 1;
+                            // Consecutivo Consec = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cierre");
+                            //if (Consec.ConsecutivoActual == 0)
+                            //{
+                            //    CierreCaja.Consecutivo = "" + Consec.Prefijo + "-1";
+                            //}
+                            //CierreCaja.Consecutivo = "" + Consec.Prefijo + "-" + Consec.ConsecutivoActual + 1;
                             CierreCaja.Usuario = FrmLogin.UsuarioGlobal.Username;
                             CierreCaja.Tipo = cbbTipoCierre.SelectedIndex.ToString();
                             CierreCaja.MontroOtro = MontoOtro;
@@ -104,40 +104,40 @@ namespace LosNaranjitos
                             CierreCaja.CantidadVentas = ListaLocal.Count();
                             CierreCaja.Caja = cbbCaja.SelectedItem.ToString();
                             CierreCaja.Fecha = DateTime.Now;
-                            Consec.ConsecutivoActual = Consec.ConsecutivoActual + 1;
+                            //    Consec.ConsecutivoActual = Consec.ConsecutivoActual + 1;
                             foreach (var item in ListaLocal)
                             {
                                 item.CierreOperador = true;
                                 Utilitarios.OpPedidos.ActualizarPedido(item);
                             }
                             Caja CAJA = new Caja();
-                            CAJA = Utilitarios.OpCaja.BuscarCaja(cbbCaja.SelectedItem.ToString());
+                            CAJA = Utilitarios.OpCaja.BuscarCaja(Int32.Parse(cbbCaja.SelectedItem.ToString()));
                             CAJA.Estado = false;
                             CAJA.OperadorActual = "Libre";
                             CAJA.UltimaModificacion = DateTime.Now;
                             Utilitarios.OpCaja.ActualizarCajas(CAJA);
                             Utilitarios.OpCierres.NuevoCierre(CierreCaja);
-                            Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
+                            //     Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
                             Utilitarios.GeneralBitacora(CierreCaja.Usuario, "Cierre de Caja (Arqueo) ejecutado");
                             MessageBox.Show("Cierre Registrado Exitosamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
 
-                            foreach (var item in (this.OrangeDB1DataSet.Cierre))
-                            {
-                                //if (item.Consecutivo != Utilitarios.Encriptar(CierreCaja.Consecutivo, Utilitarios.Llave))
-                                //{
-                                //    item.Delete();
-                                //    this.OrangeDB1DataSet.Cierre.AcceptChanges();
-                                //}
-                                //else
-                                //{
-                                    item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
-                                    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
-                                    item.Tipo = Utilitarios.Decriptar(item.Tipo, Utilitarios.Llave);
-                                //item.Caja = Utilitarios.Decriptar(item.Caja, Utilitarios.Llave);
-                           // }
-                    }
-                            OrangeDB1DataSet.Cierre.Where(x => x.Consecutivo==CierreCaja.Consecutivo);
+                            //        foreach (var item in (this.OrangeDB1DataSet.Cierre))
+                            //        {
+                            //            //if (item.Consecutivo != Utilitarios.Encriptar(CierreCaja.Consecutivo, Utilitarios.Llave))
+                            //            //{
+                            //            //    item.Delete();
+                            //            //    this.OrangeDB1DataSet.Cierre.AcceptChanges();
+                            //            //}
+                            //            //else
+                            //            //{
+                            //                item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
+                            //                item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
+                            //                item.Tipo = Utilitarios.Decriptar(item.Tipo, Utilitarios.Llave);
+                            //            //item.Caja = Utilitarios.Decriptar(item.Caja, Utilitarios.Llave);
+                            //       // }
+                            //}
+                            OrangeDB1DataSet.Cierre.Where(x => x.Consecutivo == CierreCaja.Consecutivo.ToString());
 
                             this.rptVReporteLocal.RefreshReport();
                             rptVReporteLocal.Visible = true;
@@ -179,12 +179,12 @@ namespace LosNaranjitos
                             Total2 = ListaLocal2.Sum(x => x.Subtotal);
 
                             Cierre CierreDiario = new Cierre();
-                            Consecutivo Consec2 = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cierre");
-                            if (Consec2.ConsecutivoActual == 0)
-                            {
-                                CierreDiario.Consecutivo = "" + Consec2.Prefijo + "-1";
-                            }
-                            CierreDiario.Consecutivo = "" + Consec2.Prefijo + "-" + Consec2.ConsecutivoActual + 1;
+                            //  Consecutivo Consec2 = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cierre");
+                            //if (Consec2.ConsecutivoActual == 0)
+                            //{
+                            //    CierreDiario.Consecutivo = "" + Consec2.Prefijo + "-1";
+                            //}
+                            //CierreDiario.Consecutivo = "" + Consec2.Prefijo + "-" + Consec2.ConsecutivoActual + 1;
                             CierreDiario.Usuario = FrmLogin.UsuarioGlobal.Username;
                             CierreDiario.Tipo = cbbTipoCierre.SelectedIndex.ToString();
                             CierreDiario.MontroOtro = MontoOtro2;
@@ -195,35 +195,35 @@ namespace LosNaranjitos
                             CierreDiario.CantidadVentas = ListaLocal2.Count();
                             CierreDiario.Caja = "Cierre Diario General";
                             CierreDiario.Fecha = dtpFecha.Value;
-                            Consec2.ConsecutivoActual = Consec2.ConsecutivoActual + 1;
+                            //Consec2.ConsecutivoActual = Consec2.ConsecutivoActual + 1;
                             foreach (var item in ListaLocal2)
                             {
                                 item.Cerrado = true;
                                 Utilitarios.OpPedidos.ActualizarPedido(item);
                             }
                             Utilitarios.OpCierres.NuevoCierre(CierreDiario);
-                            Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec2);
+                            //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec2);
                             Utilitarios.GeneralBitacora(CierreDiario.Usuario, "Cierre diario ejecutado");
                             MessageBox.Show("Cierre Registrado Exitosamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
 
-                            foreach (var item in (this.OrangeDB1DataSet.Cierre))
-                            {
-                                //if (item.Consecutivo != Utilitarios.Encriptar(CierreDiario.Consecutivo, Utilitarios.Llave))
-                                //{
-                                //    item.Delete();
-                                //    this.OrangeDB1DataSet.Cierre.AcceptChanges();
-                                //}
-                                //else
-                                //{
-                                //    item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
-                                    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
-                                    item.Tipo = Utilitarios.Decriptar(item.Tipo, Utilitarios.Llave);
-                                    //item.Caja = Utilitarios.Decriptar(item.Caja, Utilitarios.Llave);
-                                    this.OrangeDB1DataSet.Cierre.AcceptChanges();
-                              //  }
-                            }
-                            OrangeDB1DataSet.Cierre.Where(x => x.Consecutivo==CierreDiario.Consecutivo);
+                            //foreach (var item in (this.OrangeDB1DataSet.Cierre))
+                            //{
+                            //    //if (item.Consecutivo != Utilitarios.Encriptar(CierreDiario.Consecutivo, Utilitarios.Llave))
+                            //    //{
+                            //    //    item.Delete();
+                            //    //    this.OrangeDB1DataSet.Cierre.AcceptChanges();
+                            //    //}
+                            //    //else
+                            //    //{
+                            //    //    item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
+                            //        item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
+                            //        item.Tipo = Utilitarios.Decriptar(item.Tipo, Utilitarios.Llave);
+                            //        //item.Caja = Utilitarios.Decriptar(item.Caja, Utilitarios.Llave);
+                            //        this.OrangeDB1DataSet.Cierre.AcceptChanges();
+                            //  //  }
+                            //}
+                            OrangeDB1DataSet.Cierre.Where(x => x.Consecutivo == CierreDiario.Consecutivo.ToString());
 
                             this.rptVReporteLocal.RefreshReport();
                             rptVReporteLocal.Visible = true;
@@ -248,7 +248,7 @@ namespace LosNaranjitos
         {
             try
             {
-                
+
                 Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de  Cierres ");
                 this.Dispose();
             }

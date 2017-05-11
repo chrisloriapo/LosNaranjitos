@@ -52,8 +52,8 @@ namespace LosNaranjitos
                 {
                     //Validacion Consecutivos Producto
                     txtIdCombo.ReadOnly = false;
-                    DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                    //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.Combo UltimoCombo = new Combo();
                     try
                     {
@@ -62,8 +62,14 @@ namespace LosNaranjitos
                         {
                             UltimoCombo = new Combo()
                             {
-                                Consecutivo = "CMB-1"
+                                Consecutivo = 1
                             };
+                            lblConsecutivo.Text = UltimoCombo.Consecutivo.ToString();
+
+                        }
+                        else
+                        {
+                            lblConsecutivo.Text = UltimoCombo.Consecutivo.ToString();
                         }
                     }
                     catch (Exception x)
@@ -73,20 +79,21 @@ namespace LosNaranjitos
                         {
                             UltimoCombo = new Combo()
                             {
-                                Consecutivo = "CMB-1"
+                                Consecutivo = 1
                             };
+                            lblConsecutivo.Text = UltimoCombo.Consecutivo.ToString();
                         }
                     }
-                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Combo").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSCombo = Consecutivo.ConsecutivoActual + 1;
-                    UltimoCombo.Consecutivo = Prefijo + "-" + CSCombo;
-                    if (Utilitarios.OpCombo.ExisteConsecutivo(UltimoCombo.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimoCombo.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnAgregar.Enabled = false;
-                    }
-                    lblConsecutivo.Text = UltimoCombo.Consecutivo;
+                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Combo").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSCombo = Consecutivo.ConsecutivoActual + 1;
+                    //UltimoCombo.Consecutivo = Prefijo + "-" + CSCombo;
+                    //if (Utilitarios.OpCombo.ExisteConsecutivo(UltimoCombo.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoCombo.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnAgregar.Enabled = false;
+                    //}
+
                     //Validacion Consecutivos Productos
 
                     DATOS.ComboProducto UltimoComboProducto = new ComboProducto();
@@ -97,30 +104,29 @@ namespace LosNaranjitos
                         {
                             UltimoComboProducto = new ComboProducto()
                             {
-                                Consecutivo = "CPD-1"
+                                Consecutivo = 1
                             };
                         }
                     }
                     catch (Exception x)
                     {
-
                         if (x.Message == "La secuencia no contiene elementos" || x.Message == "Referencia a objeto no establecida como instancia de un objeto.")
                         {
                             UltimoComboProducto = new ComboProducto()
                             {
-                                Consecutivo = "CPD-1"
+                                Consecutivo = 1
                             };
                         }
                     }
-                    Prefijo = Consecutivos.Where(x => x.Tipo == "Combo-Producto").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSComboProducto = Consecutivo.ConsecutivoActual + 1;
-                    UltimoComboProducto.Consecutivo = Prefijo + "-" + CSComboProducto;
-                    if (Utilitarios.OpProductoInsumo.ExisteConsecutivo(UltimoComboProducto.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimoComboProducto.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnAgregar.Enabled = false;
-                    }
+                    //Prefijo = Consecutivos.Where(x => x.Tipo == "Combo-Producto").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSComboProducto = Consecutivo.ConsecutivoActual + 1;
+                    //UltimoComboProducto.Consecutivo = Prefijo + "-" + CSComboProducto;
+                    //if (Utilitarios.OpProductoInsumo.ExisteConsecutivo(UltimoComboProducto.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoComboProducto.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnAgregar.Enabled = false;
+                    //}
                 }
                 while (Utilitarios.Cambio)
                 {
@@ -132,7 +138,7 @@ namespace LosNaranjitos
                         tbOperacionesProductos.TabPages.Add(tbProductos);
                         tbOperacionesProductos.TabPages.Add(tbCostos);
                         txtIdCombo.Text = EditCombo.Codigo;
-                        lblConsecutivo.Text = EditCombo.Consecutivo;
+                        lblConsecutivo.Text = EditCombo.Consecutivo.ToString();
                         txtNombre.Text = EditCombo.Nombre;
 
                         txtDescricpion.Text = EditCombo.Descripcion;
@@ -167,7 +173,6 @@ namespace LosNaranjitos
                             for (int i = 0; i < item.CantidadProducto; i++)
                             {
                                 lstProductosSelected.Items.Add(Product.Nombre);
-
                             }
                         }
                         Receta.Clear();
@@ -178,13 +183,11 @@ namespace LosNaranjitos
                         return;
                     }
                 }
-
             }
             catch (Exception ex)
             {
                 Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Combos al Cargar Formulario");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
 
@@ -271,7 +274,7 @@ namespace LosNaranjitos
                 {
                     NuevoCombo.Activo = true;
                     NuevoCombo.Codigo = txtIdCombo.Text;
-                    NuevoCombo.Consecutivo = lblConsecutivo.Text;
+                    //       NuevoCombo.Consecutivo = lblConsecutivo.Text;
                     NuevoCombo.Descripcion = txtDescricpion.Text;
                     NuevoCombo.Nombre = txtNombre.Text;
 
@@ -322,7 +325,7 @@ namespace LosNaranjitos
                             {
 
                                 Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                                IngredienteNuevo.Consecutivo = "CDP-" + Consecutivo.ConsecutivoActual;
+                                //  IngredienteNuevo.Consecutivo = "CDP-" + Consecutivo.ConsecutivoActual;
                                 IngredienteNuevo.CodCombo = NuevoCombo.Codigo;
                                 IngredienteNuevo.CodProducto = ListaProductos.FirstOrDefault().Codigo;
                                 IngredienteNuevo.CantidadProducto = float.Parse(ListaProductos.Where(c => c.Codigo == IngredienteNuevo.CodProducto).Count().ToString());
@@ -393,7 +396,7 @@ namespace LosNaranjitos
                 tbOperacionesProductos.TabPages.Add(tbResumen);
                 lblComboResumen.Text = NuevoCombo.Nombre;
                 lblCodigo.Text = NuevoCombo.Codigo;
-                lblConsecutivoResumen.Text = NuevoCombo.Consecutivo;
+                lblConsecutivoResumen.Text = NuevoCombo.Consecutivo.ToString();
                 lblDescripcionResumen.Text = NuevoCombo.Descripcion;
                 lblPrecioVenta.Text = "₡ " + NuevoCombo.Precio.ToString();
 
@@ -444,9 +447,9 @@ namespace LosNaranjitos
 
                             Ingrediente.CodCombo = EditCombo.Codigo;
                             Utilitarios.OpComboProducto.AgregarComboProducto(Ingrediente);
-                            DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto-Insumo");
-                            Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                            Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                            //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto-Insumo");
+                            //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                            //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
                             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Producto a Combo ya existente " + Ingrediente.Consecutivo);
 
                         }
@@ -470,16 +473,16 @@ namespace LosNaranjitos
                     {
                         NuevoCombo.Activo = true;
                         Utilitarios.OpCombo.AgregarCombo(NuevoCombo);
-                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Combo");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                        //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Combo");
+                        //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                        //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         foreach (var Ingrediente in Receta)
                         {
                             Utilitarios.OpComboProducto.AgregarComboProducto(Ingrediente);
-                            Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Combo-Producto");
-                            Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                            Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                            //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Combo-Producto");
+                            //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                            //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
                             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Producto a Combo nuevo " + Ingrediente.Consecutivo);
                         }
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Oferta Nueva " + NuevoCombo.Nombre);

@@ -117,3 +117,28 @@ C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceSta
 C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\obj\Debug\LosNaranjitos.BL.csprojResolveAssemblyReference.cache
 C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\obj\Debug\LosNaranjitos.BL.dll
 C:\Users\Jenny\Desktop\NUEVO\LosNaranjitos\LosNaranjitos.BL\obj\Debug\LosNaranjitos.BL.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.BL.dll.config
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.BL.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.BL.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.DATOS.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.DS.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Common.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Interfaces.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.OrmLite.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.OrmLite.SqlServer.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Text.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.DATOS.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.DATOS.dll.config
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.DS.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\LosNaranjitos.DS.dll.config
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Common.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Common.xml
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Interfaces.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Interfaces.xml
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.OrmLite.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.OrmLite.SqlServer.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Text.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\bin\Debug\ServiceStack.Text.xml
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\obj\Debug\LosNaranjitos.BL.csprojResolveAssemblyReference.cache
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\obj\Debug\LosNaranjitos.BL.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.BL\obj\Debug\LosNaranjitos.BL.pdb

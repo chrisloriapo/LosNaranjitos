@@ -32,8 +32,8 @@ namespace LosNaranjitos
                 //Verificacion de Consecutivo
                 if (Utilitarios.Cambio == false)
                 {
-                    Consecutivo Consecutivo = new Consecutivo();
-                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    //  Consecutivo Consecutivo = new Consecutivo();
+                    // List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     Caja UltimaCaja = new Caja();
                     try
                     {
@@ -42,8 +42,15 @@ namespace LosNaranjitos
                         {
                             UltimaCaja = new Caja()
                             {
-                                Consecutivo = "CAJ-1"
+                                Consecutivo = 1
                             };
+                            lblConsecutivo.Text = UltimaCaja.Consecutivo.ToString();
+
+                        }
+                        else
+                        {
+                            lblConsecutivo.Text = (UltimaCaja.Consecutivo + 1).ToString();
+
                         }
                     }
                     catch (Exception x)
@@ -52,21 +59,20 @@ namespace LosNaranjitos
                         {
                             UltimaCaja = new Caja()
                             {
-                                Consecutivo = "CAJ-1"
+                                Consecutivo = 1
                             };
                         }
                     }
 
-                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Caja").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSCaja = Consecutivo.ConsecutivoActual + 1;
-                    UltimaCaja.Consecutivo = Prefijo + "-" + CSCaja;
-                    if (Utilitarios.OpCargas.ExisteConsecutivo(UltimaCaja.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimaCaja.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnAgregar.Enabled = false;
-                    }
-                    lblConsecutivo.Text = UltimaCaja.Consecutivo;
+                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Caja").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSCaja = Consecutivo.ConsecutivoActual + 1;
+                    //UltimaCaja.Consecutivo = Prefijo + "-" + CSCaja;
+                    //if (Utilitarios.OpCargas.ExisteConsecutivo(UltimaCaja.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimaCaja.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnAgregar.Enabled = false;
+                    //}
                 }
                 //Carga de Formulario Usual
 
@@ -105,16 +111,17 @@ namespace LosNaranjitos
                 if (mensaje == DialogResult.Yes)
                 {
                     Caja CajaNueva = new Caja();
-                    CajaNueva.Consecutivo = lblConsecutivo.Text;
+                //    CajaNueva.Consecutivo = lblConsecutivo.Text;
                     CajaNueva.Disponible = true;
                     CajaNueva.Estado = false;
                     CajaNueva.OperadorActual = FrmLogin.UsuarioGlobal.Username;
                     CajaNueva.UltimaModificacion = DateTime.Now;
                     Utilitarios.OpCaja.AgregarCaja(CajaNueva);
-                    Consecutivo Consecutivox = new Consecutivo();
-                    Consecutivox = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Caja");
-                    Consecutivox.ConsecutivoActual = Consecutivox.ConsecutivoActual + 1;
-                    Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivox);
+
+                    //Consecutivo Consecutivox = new Consecutivo();
+                    //Consecutivox = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Caja");
+                    //Consecutivox.ConsecutivoActual = Consecutivox.ConsecutivoActual + 1;
+                    //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivox);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Caja Nueva Agregada");
                     MessageBox.Show("Caja Nueva Agregada y Disponible", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     tbMain.SelectedIndex = 0;
@@ -136,7 +143,7 @@ namespace LosNaranjitos
         {
             try
             {
-                Caja Cajalocal = Utilitarios.OpCaja.ListarCajas().FirstOrDefault(x => x.Consecutivo == cbbCajasId.SelectedItem.ToString());
+                Caja Cajalocal = Utilitarios.OpCaja.ListarCajas().FirstOrDefault(x => x.Consecutivo == Int32.Parse(cbbCajasId.SelectedItem.ToString()));
                 chkActivo.Checked = Cajalocal.Disponible;
             }
             catch (Exception ex)
@@ -161,7 +168,7 @@ namespace LosNaranjitos
 
                 if (mensaje == DialogResult.Yes)
                 {
-                    Caja CajaDB = Utilitarios.OpCaja.BuscarCaja(cbbCajasId.SelectedItem.ToString());
+                    Caja CajaDB = Utilitarios.OpCaja.BuscarCaja(Int32.Parse( cbbCajasId.SelectedItem.ToString()));
                     if (CajaDB.Disponible == chkActivo.Checked)
                     {
                         if (chkActivo.Checked)

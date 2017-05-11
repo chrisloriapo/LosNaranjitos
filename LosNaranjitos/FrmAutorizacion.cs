@@ -53,7 +53,7 @@ namespace LosNaranjitos
                 else
                 {
                     Utilitarios.Autorizante = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(txtUsuario.Text.ToLower());
-                    if (Utilitarios.Autorizante.Rol=="ROL-1" || Utilitarios.Autorizante.Rol == "ROL-2")
+                    if (Utilitarios.Autorizante.Rol==1 || Utilitarios.Autorizante.Rol == 2)
                     {
                         if (Utilitarios.Autorizante.Contrasena == txtPassword.Text)
                         {

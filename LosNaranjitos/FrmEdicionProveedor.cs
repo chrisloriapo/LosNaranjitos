@@ -30,11 +30,12 @@ namespace LosNaranjitos
             ProveedorEditar = Utilitarios.OpProveedor.ListarProveedores().FirstOrDefault(x => x.Nombre == cbbProveedores.SelectedValue.ToString());
             FrmProveedor.EditProveedor = ProveedorEditar;
             Utilitarios.Cambio = true;
-            this.Dispose();
+
             FrmProveedor a = new FrmProveedor();
             a.WindowState= FormWindowState.Maximized;
             a.MdiParent = FrmLogin.MN;
             a.Show();
+            this.Dispose();
         }
 
         private void FrmEdicionProveedor_Load(object sender, EventArgs e)

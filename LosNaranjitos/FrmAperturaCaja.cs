@@ -41,7 +41,7 @@ namespace LosNaranjitos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (FrmLogin.UsuarioGlobal.Rol != "ROL-3")
+            if (FrmLogin.UsuarioGlobal.Rol != 3)
             {
                 FrmMenuPrincipal.GR.Visible = true;
                 this.Dispose();
@@ -64,7 +64,7 @@ namespace LosNaranjitos
 
                 if (mensaje == DialogResult.Yes)
                 {
-                    Caja CajaDB = Utilitarios.OpCaja.BuscarCaja(cbbCaja.SelectedItem.ToString());
+                    Caja CajaDB = Utilitarios.OpCaja.BuscarCaja(Int32.Parse( cbbCaja.SelectedItem.ToString()));
                     Caja CajaAperturar = new Caja();
                     CajaAperturar.Consecutivo = CajaDB.Consecutivo;
                     CajaAperturar.Disponible = CajaDB.Disponible;
@@ -76,7 +76,7 @@ namespace LosNaranjitos
                     
                     MessageBox.Show("Caja Seleccionada Correctamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     FrmPedido a = new FrmPedido();
-                    if (FrmLogin.UsuarioGlobal.Rol!="ROL-3")
+                    if (FrmLogin.UsuarioGlobal.Rol!=3)
                     {
                         a.MdiParent = FrmLogin.MN;
                         a.ControlBox = false;

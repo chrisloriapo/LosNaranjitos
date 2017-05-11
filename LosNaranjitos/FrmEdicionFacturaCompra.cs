@@ -44,12 +44,12 @@ namespace LosNaranjitos
             FacturaEditar = Utilitarios.OpFacturaCompra.BuscarFactura(cbbFactura.SelectedValue.ToString());
             FrmCompras.EditFacturaCompra = FacturaEditar;
             Utilitarios.Cambio = true;
-            this.Dispose();
+          
             FrmCompras a = new FrmCompras();
             a.MdiParent = FrmLogin.MN;
             a.Dock = DockStyle.Fill;
             a.Show();
-
+            this.Dispose();
         }
 
         private void FrmEdicionFacturaCompra_Load(object sender, EventArgs e)

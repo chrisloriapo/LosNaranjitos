@@ -28,8 +28,8 @@ namespace LosNaranjitos
             {
                 if (!Utilitarios.Cambio)
                 {
-                    DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                    //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.Proveedor UltimoProveedor = new DATOS.Proveedor();
                     txtIdProveedor.ReadOnly = false;
                     try
@@ -39,8 +39,9 @@ namespace LosNaranjitos
                         {
                             UltimoProveedor = new Proveedor()
                             {
-                                Consecutivo = "PRV-1"
+                                Consecutivo = 1
                             };
+                            lblConsecutivo.Text = UltimoProveedor.Consecutivo.ToString();
                         }
                     }
                     catch (Exception x)
@@ -49,21 +50,22 @@ namespace LosNaranjitos
                         {
                             UltimoProveedor = new Proveedor()
                             {
-                                Consecutivo = "PRV-1"
+                                Consecutivo = 1
                             };
+                            lblConsecutivo.Text = UltimoProveedor.Consecutivo.ToString() ;
+
                         }
                     }
 
-                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Proveedor").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSProveedor = Consecutivo.ConsecutivoActual + 1;
-                    UltimoProveedor.Consecutivo = Prefijo + "-" + CSProveedor;
-                    if (Utilitarios.OpProveedor.ExisteConsecutivo(UltimoProveedor.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimoProveedor.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnNuevo.Enabled = false;
-                    }
-                    lblConsecutivo.Text = UltimoProveedor.Consecutivo;
+                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Proveedor").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSProveedor = Consecutivo.ConsecutivoActual + 1;
+                    //UltimoProveedor.Consecutivo = Prefijo + "-" + CSProveedor;
+                    //if (Utilitarios.OpProveedor.ExisteConsecutivo(UltimoProveedor.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoProveedor.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnNuevo.Enabled = false;
+                    //}
                 }
                 ListaProveedores = Utilitarios.OpProveedor.ListarProveedores();
                 var ListaLocal = ListaProveedores.ToList();
@@ -87,7 +89,7 @@ namespace LosNaranjitos
                     tabControl1.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
                     {
-                        lblConsecutivo.Text = EditProveedor.Consecutivo;
+                        lblConsecutivo.Text = EditProveedor.Consecutivo.ToString();
                         txtIdProveedor.Text = EditProveedor.IdProveedor;
                         txtEmpresa.Text = EditProveedor.Nombre;
                         txtTelefono.Text = EditProveedor.Telefono;
@@ -197,7 +199,7 @@ namespace LosNaranjitos
                     {
                         DATOS.Proveedor ProvedorPrivate = new DATOS.Proveedor
                         {
-                            Consecutivo = lblConsecutivo.Text,
+                       //     Consecutivo = lblConsecutivo.Text,
                             IdProveedor = txtIdProveedor.Text,
                             Nombre = txtEmpresa.Text,
                             Activo = chkEstado.Checked,
@@ -206,9 +208,9 @@ namespace LosNaranjitos
                         };
                         Utilitarios.OpProveedor.AgregarProveedor(ProvedorPrivate);
 
-                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Proveedor");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                        //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Proveedor");
+                        //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                        //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Proveedor Nuevo " + ProvedorPrivate.IdProveedor);
 
@@ -245,7 +247,7 @@ namespace LosNaranjitos
                 {
                     DATOS.Proveedor ProvedorPrivate = new DATOS.Proveedor
                     {
-                        Consecutivo = lblConsecutivo.Text,
+                    //    Consecutivo = lblConsecutivo.Text,
                         IdProveedor = txtIdProveedor.Text,
                         Nombre = txtEmpresa.Text,
                         Activo = chkEstado.Checked,

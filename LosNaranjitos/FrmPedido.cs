@@ -60,9 +60,9 @@ namespace LosNaranjitos
             {
                 //Carga de datos  ListBoxes y datagrids
 
-                lstProductosPrincipales.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == "CTP-1" && x.Activo).Select(x => x.Nombre).ToList();
-                lstAdicionales.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == "CTP-2" || x.Categoria == "CTP-4" && x.Activo).Select(x => x.Nombre).ToList();
-                lstBebidas.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == "CTP-3" && x.Activo).Select(x => x.Nombre).ToList();
+                lstProductosPrincipales.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == 1 && x.Activo).Select(x => x.Nombre).ToList();
+                lstAdicionales.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == 2 || x.Categoria == 4 && x.Activo).Select(x => x.Nombre).ToList();
+                lstBebidas.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == 3 && x.Activo).Select(x => x.Nombre).ToList();
                 lstCombos.DataSource = Utilitarios.OpCombo.ListarCombo().Where(x => x.Activo).Select(x => x.Nombre).ToList();
 
                 lblOperador.Text = FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1 + " " + FrmLogin.UsuarioGlobal.Apellido2;
@@ -72,64 +72,66 @@ namespace LosNaranjitos
                 if (!Utilitarios.CambioEnCajas)
                 {
                     //Validacion Consecutivos Pedidos
-                    DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                    //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     try
                     {
                         UltimoPedido = Utilitarios.OpPedidos.ListarPedido().OrderByDescending(x => x.Consecutivo).First();
+                        lblConsecutivo.Text = UltimoPedido.Consecutivo.ToString();
+
                     }
                     catch (Exception x)
                     {
                         if (x.Message == "La secuencia no contiene elementos")
                         {
-                            UltimoPedido.Consecutivo = "PDD-1";
+                            UltimoPedido.Consecutivo = 1;
+                            lblConsecutivo.Text = UltimoPedido.Consecutivo.ToString();
                         }
                     }
 
-                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Pedido").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSPedido = Consecutivo.ConsecutivoActual + 1;
-                    UltimoPedido.Consecutivo = Prefijo + "-" + CSPedido;
-                    if (Utilitarios.OpProducto.ExisteConsecutivo(UltimoPedido.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimoPedido.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnPagar.Enabled = false;
-                        btnDescartar.Enabled = false;
-                        btnBuscarOrden.Enabled = false;
-                        btnSometerOrden.Enabled = false;
-                        tbProductosVenta.Enabled = false;
-                    }
+                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Pedido").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSPedido = Consecutivo.ConsecutivoActual + 1;
+                    //UltimoPedido.Consecutivo = Prefijo + "-" + CSPedido;
+                    //if (Utilitarios.OpProducto.ExisteConsecutivo(UltimoPedido.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoPedido.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnPagar.Enabled = false;
+                    //    btnDescartar.Enabled = false;
+                    //    btnBuscarOrden.Enabled = false;
+                    //    btnSometerOrden.Enabled = false;
+                    //    tbProductosVenta.Enabled = false;
+                    //}
                     cbbCliente.DataSource = Utilitarios.OpClientes.ListarClientes().OrderBy(x => x.IdPersonal).Select(x => x.IdPersonal).ToList();
-                    lblConsecutivo.Text = UltimoPedido.Consecutivo;
 
                     //Validacion Consecutivos Detalles de Ordenes
-                    DATOS.DetallePedido UltimoDetallePedido = new DetallePedido();
-                    try
-                    {
-                        UltimoDetallePedido = Utilitarios.OpDetallePedido.ListarDetallesPedido().OrderByDescending(x => x.Consecutivo).First();
-                    }
-                    catch (Exception x)
-                    {
-                        if (x.Message == "La secuencia no contiene elementos")
-                        {
-                            UltimoPedido.Consecutivo = "DPD-1";
-                        }
-                    }
+                    //DATOS.DetallePedido UltimoDetallePedido = new DetallePedido();
+                    //try
+                    //{
+                    //    UltimoDetallePedido = Utilitarios.OpDetallePedido.ListarDetallesPedido().OrderByDescending(x => x.Consecutivo).First();
+                    //}
+                    //catch (Exception x)
+                    //{
+                    //    if (x.Message == "La secuencia no contiene elementos")
+                    //    {
+                    //        UltimoPedido.Consecutivo = 1;
+                    //    }
+                    //}
 
-                    Prefijo = Consecutivos.Where(x => x.Tipo == "Detalle-Pedido").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSDetallePedido = Consecutivo.ConsecutivoActual + 1;
-                    UltimoDetallePedido.Consecutivo = Prefijo + "-" + CSDetallePedido;
-                    if (Utilitarios.OpDetallePedido.ExisteConsecutivo(UltimoDetallePedido.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimoDetallePedido.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnPagar.Enabled = false;
-                        btnDescartar.Enabled = false;
-                        btnBuscarOrden.Enabled = false;
-                        btnSometerOrden.Enabled = false;
-                        tbProductosVenta.Enabled = false;
-                    }
-                    NuevaOrden.Consecutivo = lblConsecutivo.Text;
+                    //Prefijo = Consecutivos.Where(x => x.Tipo == "Detalle-Pedido").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSDetallePedido = Consecutivo.ConsecutivoActual + 1;
+                    //UltimoDetallePedido.Consecutivo = Prefijo + "-" + CSDetallePedido;
+                    //if (Utilitarios.OpDetallePedido.ExisteConsecutivo(UltimoDetallePedido.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoDetallePedido.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnPagar.Enabled = false;
+                    //    btnDescartar.Enabled = false;
+                    //    btnBuscarOrden.Enabled = false;
+                    //    btnSometerOrden.Enabled = false;
+                    //    tbProductosVenta.Enabled = false;
+                    //}
+                    //NuevaOrden.Consecutivo = lblConsecutivo.Text;
                     NuevaOrden.Activo = true;
                     NuevaOrden.Cancelado = false;
                     NuevaOrden.Fecha = DateTime.Today;
@@ -246,11 +248,11 @@ namespace LosNaranjitos
         {
             try
             {
-                if (FrmLogin.UsuarioGlobal.Rol!="ROL-3")
+                if (FrmLogin.UsuarioGlobal.Rol != 3)
                 {
                     if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Operador == FrmLogin.UsuarioGlobal.Username && x.CierreOperador == false).Count() == 0)
                     {
-                        Caja  XCaja = Utilitarios.OpCaja.ListarCajas().Where(x => x.OperadorActual == FrmLogin.UsuarioGlobal.Username).FirstOrDefault();
+                        Caja XCaja = Utilitarios.OpCaja.ListarCajas().Where(x => x.OperadorActual == FrmLogin.UsuarioGlobal.Username).FirstOrDefault();
                         Caja CajaY = new Caja();
                         CajaY.Consecutivo = XCaja.Consecutivo;
                         CajaY.OperadorActual = "Libre";
@@ -378,8 +380,8 @@ namespace LosNaranjitos
                     else
                     {
                         DetailPP.Producto = lstProductosPrincipales.SelectedValue.ToString();
-                        DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
-                        DetailPP.IdOrden = lblConsecutivo.Text;
+                        //DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
+                        DetailPP.IdOrden = Int32.Parse( lblConsecutivo.Text);
                         if (string.IsNullOrEmpty(txtObservacionesPP.Text) || string.IsNullOrWhiteSpace(txtObservacionesPP.Text))
                         {
                             DetailPP.ObservacionesDT = " ";
@@ -424,42 +426,42 @@ namespace LosNaranjitos
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public int NxtConsecutivoDetallePedido()
-        {
+        //public int NxtConsecutivoDetallePedido()
+        //{
 
 
-            Consecutivo Consecutivo = new Consecutivo();
-            List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
-            DetallePedido UltimoDetallePedido = new DetallePedido();
-            try
-            {
+        //    Consecutivo Consecutivo = new Consecutivo();
+        //    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+        //    DetallePedido UltimoDetallePedido = new DetallePedido();
+        //    try
+        //    {
 
-                UltimoDetallePedido = Utilitarios.OpDetallePedido.ListarDetallesPedido().OrderByDescending(x => x.Consecutivo).FirstOrDefault();
-            }
-            catch (Exception x)
-            {
-                if (x.Message == "La secuencia no contiene elementos")
-                {
-                    UltimoDetallePedido.Consecutivo = "DTP-1";
-                }
-            }
+        //        UltimoDetallePedido = Utilitarios.OpDetallePedido.ListarDetallesPedido().OrderByDescending(x => x.Consecutivo).FirstOrDefault();
+        //    }
+        //    catch (Exception x)
+        //    {
+        //        if (x.Message == "La secuencia no contiene elementos")
+        //        {
+        //            UltimoDetallePedido.Consecutivo = "DTP-1";
+        //        }
+        //    }
 
-            string Prefijo = Consecutivos.Where(x => x.Tipo == "Detalle-Pedido").Select(x => x.Prefijo).FirstOrDefault();
-            Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-            int CSDetallePedido = 0;
-            if (OrdenDetalle.Count > 0)
-            {
-                CSDetallePedido = Consecutivo.ConsecutivoActual + (OrdenDetalle.Count + 1);
+        //    string Prefijo = Consecutivos.Where(x => x.Tipo == "Detalle-Pedido").Select(x => x.Prefijo).FirstOrDefault();
+        //    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+        //    int CSDetallePedido = 0;
+        //    if (OrdenDetalle.Count > 0)
+        //    {
+        //        CSDetallePedido = Consecutivo.ConsecutivoActual + (OrdenDetalle.Count + 1);
 
-            }
-            else
-            {
-                CSDetallePedido = Consecutivo.ConsecutivoActual + 1;
+        //    }
+        //    else
+        //    {
+        //        CSDetallePedido = Consecutivo.ConsecutivoActual + 1;
 
-            }
-            return CSDetallePedido;
+        //    }
+        //    return CSDetallePedido;
 
-        }
+        //}
 
         private void btnAgregarAdicionales_Click(object sender, EventArgs e)
         {
@@ -508,8 +510,8 @@ namespace LosNaranjitos
                     else
                     {
                         DetailPP.Producto = lstAdicionales.SelectedValue.ToString();
-                        DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
-                        DetailPP.IdOrden = lblConsecutivo.Text;
+                      //  DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
+                        DetailPP.IdOrden = Int32.Parse( lblConsecutivo.Text);
                         if (string.IsNullOrEmpty(txtObAdicionales.Text) || string.IsNullOrWhiteSpace(txtObAdicionales.Text))
                         {
                             DetailPP.ObservacionesDT = " ";
@@ -602,8 +604,8 @@ namespace LosNaranjitos
                     else
                     {
                         DetailPP.Producto = lstBebidas.SelectedValue.ToString();
-                        DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
-                        DetailPP.IdOrden = lblConsecutivo.Text;
+                     //   DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
+                        DetailPP.IdOrden =Int32.Parse( lblConsecutivo.Text);
                         if (string.IsNullOrEmpty(txtObBebidas.Text) || string.IsNullOrWhiteSpace(txtObBebidas.Text))
                         {
                             DetailPP.ObservacionesDT = " ";
@@ -696,8 +698,8 @@ namespace LosNaranjitos
                     else
                     {
                         DetailPP.Producto = lstCombos.SelectedValue.ToString();
-                        DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
-                        DetailPP.IdOrden = lblConsecutivo.Text;
+                     //   DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
+                        DetailPP.IdOrden =Int32.Parse( lblConsecutivo.Text);
                         if (string.IsNullOrEmpty(txtObCombos.Text) || string.IsNullOrWhiteSpace(txtObCombos.Text))
                         {
                             DetailPP.ObservacionesDT = " ";
@@ -758,12 +760,12 @@ namespace LosNaranjitos
 
                 if (mensaje == DialogResult.Yes)
                 {
-                    Consecutivo Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("PDD");
+                  //  Consecutivo Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("PDD");
                     NuevaOrden.Activo = true;
                     NuevaOrden.Cancelado = false;
                     Utilitarios.OpPedidos.AgregarPedido(NuevaOrden);
-                    Consec.ConsecutivoActual = Consec.ConsecutivoActual + 1;
-                    Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
+                   // Consec.ConsecutivoActual = Consec.ConsecutivoActual + 1;
+                    //tilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblConsecutivo.Text + " Agregada a pendientes, Orden Aun NO cancelada");
                     List<DetallePedido> ListaSoporte = new List<DetallePedido>();
                     foreach (var item in OrdenDetalle)
@@ -794,9 +796,9 @@ namespace LosNaranjitos
                         Utilitarios.OpDetallePedido.AgregarDetalle(ListaSoporte[i]);
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Producto perteneciente a la orden  " + lblConsecutivo.Text + " Agregado a pendientes, Orden Aun NO cancelada");
                     }
-                    Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("DPD");
-                    Consec.ConsecutivoActual = Consec.ConsecutivoActual + OrdenDetalle.Count();
-                    Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
+                    //Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("DPD");
+                    //Consec.ConsecutivoActual = Consec.ConsecutivoActual + OrdenDetalle.Count();
+                    //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
                     OrdenDetalle.Clear();
                     lblImpuesto.Text = "";
                     lblTotal.Text = "";
@@ -930,8 +932,8 @@ namespace LosNaranjitos
                 DetallePedido DetailPP = new DetallePedido();
 
                 DetailPP.Producto = "Servicio Express";
-                DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
-                DetailPP.IdOrden = lblConsecutivo.Text;
+                //DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
+                DetailPP.IdOrden = Int32.Parse( lblConsecutivo.Text);
                 DetailPP.ObservacionesDT = "Telefono: " + txtTelefono.Text + " Direccion: " + txtDireccion.Text;
                 DetailPP.Cantidad = 1;
                 DetailPP.SubTotal = Convert.ToDecimal(txtPrecioExpress.Text);
@@ -1034,7 +1036,7 @@ namespace LosNaranjitos
                         MessageBox.Show("Digita el monto a Pagar correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    Consecutivo Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("PDD");
+                   // Consecutivo Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("PDD");
                     NuevaOrden.MontoEfectivo = Efectivo;
                     NuevaOrden.MontoOtro = Otro;
                     NuevaOrden.MontoTarjeta = Tarjeta;
@@ -1042,8 +1044,8 @@ namespace LosNaranjitos
                     NuevaOrden.Activo = true;
                     NuevaOrden.Cancelado = true;
                     Utilitarios.OpPedidos.AgregarPedido(NuevaOrden);
-                    Consec.ConsecutivoActual = Consec.ConsecutivoActual + 1;
-                    Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
+                  //  Consec.ConsecutivoActual = Consec.ConsecutivoActual + 1;
+                   // Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblConsecutivo.Text + " Agregada a pendientes, Orden cancelada");
                     List<DetallePedido> ListaSoporte = new List<DetallePedido>();
                     foreach (var item in OrdenDetalle)
@@ -1074,9 +1076,9 @@ namespace LosNaranjitos
                         Utilitarios.OpDetallePedido.AgregarDetalle(ListaSoporte[i]);
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Producto perteneciente a la orden  " + lblConsecutivo.Text + " Agregado a pendientes, Orden cancelada");
                     }
-                    Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("DPD");
-                    Consec.ConsecutivoActual = Consec.ConsecutivoActual + OrdenDetalle.Count();
-                    Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
+                  //  Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("DPD");
+                   // Consec.ConsecutivoActual = Consec.ConsecutivoActual + OrdenDetalle.Count();
+                  //  Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
                     OrdenDetalle.Clear();
                     lblImpuesto.Text = "";
                     lblTotal.Text = "";
@@ -1087,7 +1089,7 @@ namespace LosNaranjitos
                     txtEfectivo.Clear();
                     chkTarjeta.Checked = false;
                     FrmCambioCaja a = new FrmCambioCaja();
-                    FrmCambioCaja.CambioShow =NuevaOrden.MontoCambio.ToString();
+                    FrmCambioCaja.CambioShow = NuevaOrden.MontoCambio.ToString();
                     a.Show();
                     this.FrmPedido_Load(sender, e);
 

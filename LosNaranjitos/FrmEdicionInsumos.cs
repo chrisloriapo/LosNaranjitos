@@ -60,12 +60,12 @@ namespace LosNaranjitos
             InsumosEditar = Utilitarios.OpInsumos.ListarInsumos().FirstOrDefault(x => x.IdInsumo == cbbInsumos.SelectedValue.ToString());
             FrmInsumos.EditInsumo = InsumosEditar;
             Utilitarios.Cambio = true;
-            this.Dispose();
+          
             FrmInsumos a = new FrmInsumos();
             a.MdiParent = FrmLogin.MN;
             a.WindowState = FormWindowState.Maximized;
             a.Show();
-
+            this.Dispose();
         }
     }
 }

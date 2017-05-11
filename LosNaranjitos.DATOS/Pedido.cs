@@ -35,7 +35,7 @@ namespace LosNaranjitos.DATOS
 
         public bool Activo { get; set; }
 
-        public bool? CierreOperador { get; set; }
+        public bool CierreOperador { get; set; }
 
         public bool Cerrado { get; set; }
 

@@ -63,10 +63,11 @@ namespace LosNaranjitos
             FrmMedidas.EditMedida = MedidaEditar;
             Utilitarios.Cambio = true;
 
-            this.Dispose();
+     
             FrmMedidas a = new FrmMedidas();
             a.MdiParent = FrmLogin.MN;
             a.Show();
+            this.Dispose();
         }
     }
 }

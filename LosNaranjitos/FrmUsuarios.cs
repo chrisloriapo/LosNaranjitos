@@ -49,7 +49,7 @@ namespace LosNaranjitos
 
                     DATOS.Usuario Userprivate = new DATOS.Usuario
                     {
-                        Consecutivo = lblConsecutivo.Text,
+                    //    Consecutivo = lblConsecutivo.Text,
                         Username = txtUsername.Text,
                         Nombre = txtNombre.Text,
                         Apellido1 = txtApellido.Text,
@@ -65,9 +65,9 @@ namespace LosNaranjitos
 
                     Utilitarios.OpUsuarios.AgregarUsuario(Userprivate);
 
-                    DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Usuario");
-                    Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                    Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                    //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Usuario");
+                    //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                    //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Usuario Nuevo " + Userprivate.Username);
                     MessageBox.Show("Los datos del Usuario se ingresaron correctamente",
@@ -100,8 +100,8 @@ namespace LosNaranjitos
             {
                 if (!Utilitarios.Cambio)
                 {
-                    DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                    //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.Usuario UltimoUsuario = new Usuario();
 
                     try
@@ -112,19 +112,19 @@ namespace LosNaranjitos
                     {
                         if (x.Message == "La secuencia no contiene elementos")
                         {
-                            UltimoUsuario.Consecutivo = "USR-1";
+                            UltimoUsuario.Consecutivo =1;
                         }
                     }
-                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Usuario").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSUsuario = Consecutivo.ConsecutivoActual + 1;
-                    UltimoUsuario.Consecutivo = Prefijo + "-" + CSUsuario;
-                    if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoUsuario.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimoUsuario.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnNuevo.Enabled = false;
-                    }
-                    lblConsecutivo.Text = UltimoUsuario.Consecutivo;
+                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Usuario").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSUsuario = Consecutivo.ConsecutivoActual + 1;
+                    //UltimoUsuario.Consecutivo = Prefijo + "-" + CSUsuario;
+                    //if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoUsuario.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoUsuario.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnNuevo.Enabled = false;
+                    //}
+                    lblConsecutivo.Text = UltimoUsuario.Consecutivo.ToString();
                 }
 
                 cbbRol.DataSource = Utilitarios.OpRol.ListarRoles().Select(p =>
@@ -165,7 +165,7 @@ namespace LosNaranjitos
                     tbControl1.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
                     {
-                        lblConsecutivo.Text = EditUser.Consecutivo;
+                        lblConsecutivo.Text = EditUser.Consecutivo.ToString();
                         txtUsername.Text = EditUser.Username;
                         txtNombre.Text = EditUser.Nombre;
                         txtApellido.Text = EditUser.Apellido1;
@@ -255,7 +255,7 @@ namespace LosNaranjitos
                     DATOS.RolUsuario RolLocal = Utilitarios.OpRol.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
                     DATOS.Usuario Userprivate = new DATOS.Usuario
                     {
-                        Consecutivo = lblConsecutivo.Text,
+                     //   Consecutivo = lblConsecutivo.Text,
                         Username = txtUsername.Text,
                         Nombre = txtNombre.Text,
                         Apellido1 = txtApellido.Text,
@@ -397,7 +397,7 @@ namespace LosNaranjitos
                         break;
                     case "Consecutivo":
 
-                        ListaLocal = ListaLocal.Where(x => x.Consecutivo == txtBuscar.Text).ToList();
+                        ListaLocal = ListaLocal.Where(x => x.Consecutivo.ToString() == txtBuscar.Text).ToList();
                         break;
                 }
                 dgvListado.DataSource = ListaLocal;

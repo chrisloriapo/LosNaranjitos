@@ -29,8 +29,8 @@ namespace LosNaranjitos
             {
                 if (!Utilitarios.Cambio )
                 {
-                    DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+                    //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
+                    //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     DATOS.Medida UltimaMedida = new Medida();
                     txtMedida.ReadOnly = false;
                     try
@@ -40,8 +40,15 @@ namespace LosNaranjitos
                         {
                             UltimaMedida = new Medida()
                             {
-                                IdMedida = "UMD-1"
+                                Consecutivo = 1
                             };
+                            lblConsecutivo.Text = UltimaMedida.Consecutivo.ToString();
+
+                        }
+                        else
+                        {
+                            lblConsecutivo.Text = UltimaMedida.Consecutivo.ToString();
+
                         }
                     }
                     catch (Exception x)
@@ -50,20 +57,21 @@ namespace LosNaranjitos
                         {
                             UltimaMedida = new Medida()
                             {
-                                IdMedida = "UMD-1"
+                                Consecutivo = 1
                             };
+                            lblConsecutivo.Text = UltimaMedida.Consecutivo.ToString();
+
                         }
                     }
-                    string Prefijo = Consecutivos.Where(x => x.Tipo == "Medida").Select(x => x.Prefijo).FirstOrDefault();
-                    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    int CSMedida = Consecutivo.ConsecutivoActual + 1;
-                    UltimaMedida.Consecutivo = Prefijo + "-" + CSMedida;
-                    if (Utilitarios.OpMedidas.ExisteConsecutivo(UltimaMedida.Consecutivo))
-                    {
-                        MessageBox.Show("Existe otro Consecutivo " + UltimaMedida.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        btnNuevo.Enabled = false;
-                    }
-                    lblConsecutivo.Text = UltimaMedida.Consecutivo;
+                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Medida").Select(x => x.Prefijo).FirstOrDefault();
+                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
+                    //int CSMedida = Consecutivo.ConsecutivoActual + 1;
+                    //UltimaMedida.Consecutivo = Prefijo + "-" + CSMedida;
+                    //if (Utilitarios.OpMedidas.ExisteConsecutivo(UltimaMedida.Consecutivo))
+                    //{
+                    //    MessageBox.Show("Existe otro Consecutivo " + UltimaMedida.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //    btnNuevo.Enabled = false;
+                    //}
                 }
                 ListaMedidas = Utilitarios.OpMedidas.ListarMedidas();
                 var ListaLocal = ListaMedidas.ToList();
@@ -133,16 +141,16 @@ namespace LosNaranjitos
                     {
                         DATOS.Medida MedidaPrivate = new DATOS.Medida
                         {
-                            Consecutivo = lblConsecutivo.Text,
+                            //Consecutivo = lblConsecutivo.Text,
                             IdMedida = txtMedida.Text,
                             Descripcion = txtDescripcion.Text,
                         };
 
                         Utilitarios.OpMedidas.AgregarMedida(MedidaPrivate);
 
-                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Medida");
-                        Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
-                        Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                        //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Medida");
+                        //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual++;
+                        //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Unidad de Medida Nueva");
 
@@ -194,9 +202,10 @@ namespace LosNaranjitos
                         MessageBox.Show("Los datos de la Unidad de Medida se Actualizaron correctamente",
                        "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Unidades de Medida");
-                        this.Dispose();
                         txtMedida.Clear();
                         txtDescripcion.Clear();
+                        this.Dispose();
+
                     }
                     catch (Exception ex)
                     {
@@ -251,8 +260,9 @@ namespace LosNaranjitos
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
         {
-            this.Dispose();
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Unidades de Medida");
+            this.Dispose();
+
         }
 
         private void btnEditar_Click_1(object sender, EventArgs e)
