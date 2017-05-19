@@ -35,6 +35,10 @@ namespace LosNaranjitos.DATOS
 
         public bool Activo { get; set; }
 
+        public bool CambioContrasena { get; set; }
+
+        public DateTime UltimoContrasena { get; set; }
+
     }
 
 }

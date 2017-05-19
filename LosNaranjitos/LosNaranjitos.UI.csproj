@@ -97,256 +97,264 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Test\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Test\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAbout.cs">
+    <Compile Include="Tools\Email.cs" />
+    <Compile Include="Tools\PasswordPolicy.cs" />
+    <Compile Include="User Interface\FrmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAbout.Designer.cs">
+    <Compile Include="User Interface\FrmAbout.Designer.cs">
       <DependentUpon>FrmAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAperturaCaja.cs">
+    <Compile Include="User Interface\FrmAperturaCaja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAperturaCaja.Designer.cs">
+    <Compile Include="User Interface\FrmAperturaCaja.Designer.cs">
       <DependentUpon>FrmAperturaCaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAutorizacion.cs">
+    <Compile Include="User Interface\FrmAutorizacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAutorizacion.Designer.cs">
+    <Compile Include="User Interface\FrmAutorizacion.Designer.cs">
       <DependentUpon>FrmAutorizacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBitacora.cs">
+    <Compile Include="User Interface\FrmBitacora.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBitacora.Designer.cs">
+    <Compile Include="User Interface\FrmBitacora.Designer.cs">
       <DependentUpon>FrmBitacora.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCajaMantenimiento.cs">
+    <Compile Include="User Interface\FrmCajaMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCajaMantenimiento.Designer.cs">
+    <Compile Include="User Interface\FrmCajaMantenimiento.Designer.cs">
       <DependentUpon>FrmCajaMantenimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCambioCaja.cs">
+    <Compile Include="User Interface\FrmCambioCaja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCambioCaja.Designer.cs">
+    <Compile Include="User Interface\FrmCambioCaja.Designer.cs">
       <DependentUpon>FrmCambioCaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCargas.cs">
+    <Compile Include="User Interface\FrmCargas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCargas.Designer.cs">
+    <Compile Include="User Interface\FrmCargas.Designer.cs">
       <DependentUpon>FrmCargas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCierreCajero.cs">
+    <Compile Include="User Interface\FrmCierreCajero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCierreCajero.Designer.cs">
+    <Compile Include="User Interface\FrmCierreCajero.Designer.cs">
       <DependentUpon>FrmCierreCajero.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCliente.cs">
+    <Compile Include="User Interface\FrmCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCliente.Designer.cs">
+    <Compile Include="User Interface\FrmCliente.Designer.cs">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCompras.cs">
+    <Compile Include="User Interface\FrmCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCompras.Designer.cs">
+    <Compile Include="User Interface\FrmCompras.Designer.cs">
       <DependentUpon>FrmCompras.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConfirmarCombo.cs">
+    <Compile Include="User Interface\FrmConfirmarCombo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConfirmarCombo.Designer.cs">
+    <Compile Include="User Interface\FrmConfirmarCombo.Designer.cs">
       <DependentUpon>FrmConfirmarCombo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConfirmarProducto.cs">
+    <Compile Include="User Interface\FrmConfirmarProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConfirmarProducto.Designer.cs">
+    <Compile Include="User Interface\FrmConfirmarProducto.Designer.cs">
       <DependentUpon>FrmConfirmarProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConsecutivo.cs">
+    <Compile Include="User Interface\FrmConsecutivo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConsecutivo.Designer.cs">
+    <Compile Include="User Interface\FrmConsecutivo.Designer.cs">
       <DependentUpon>FrmConsecutivo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEdicionCargas.cs">
+    <Compile Include="User Interface\FrmEdicionCargas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEdicionCargas.Designer.cs">
+    <Compile Include="User Interface\FrmEdicionCargas.Designer.cs">
       <DependentUpon>FrmEdicionCargas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEdicionCombo.cs">
+    <Compile Include="User Interface\FrmEdicionCombo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEdicionCombo.Designer.cs">
+    <Compile Include="User Interface\FrmEdicionCombo.Designer.cs">
       <DependentUpon>FrmEdicionCombo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEdicionFacturaCompra.cs">
+    <Compile Include="User Interface\FrmEdicionFacturaCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEdicionFacturaCompra.Designer.cs">
+    <Compile Include="User Interface\FrmEdicionFacturaCompra.Designer.cs">
       <DependentUpon>FrmEdicionFacturaCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEdicionProducto.cs">
+    <Compile Include="User Interface\FrmEdicionProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEdicionProducto.Designer.cs">
+    <Compile Include="User Interface\FrmEdicionProducto.Designer.cs">
       <DependentUpon>FrmEdicionProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEdicionInsumos.cs">
+    <Compile Include="User Interface\FrmEdicionInsumos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEdicionInsumos.Designer.cs">
+    <Compile Include="User Interface\FrmEdicionInsumos.Designer.cs">
       <DependentUpon>FrmEdicionInsumos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEdicionProveedor.cs">
+    <Compile Include="User Interface\FrmEdicionProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEdicionProveedor.Designer.cs">
+    <Compile Include="User Interface\FrmEdicionProveedor.Designer.cs">
       <DependentUpon>FrmEdicionProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEdicionMedida.cs">
+    <Compile Include="User Interface\FrmEdicionMedida.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEdicionMedida.Designer.cs">
+    <Compile Include="User Interface\FrmEdicionMedida.Designer.cs">
       <DependentUpon>FrmEdicionMedida.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEdicionCliente.cs">
+    <Compile Include="User Interface\FrmEdicionCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEdicionCliente.Designer.cs">
+    <Compile Include="User Interface\FrmEdicionCliente.Designer.cs">
       <DependentUpon>FrmEdicionCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEdicionUsuario.cs">
+    <Compile Include="User Interface\FrmEdicionUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEdicionUsuario.Designer.cs">
+    <Compile Include="User Interface\FrmEdicionUsuario.Designer.cs">
       <DependentUpon>FrmEdicionUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmErrores.cs">
+    <Compile Include="User Interface\FrmErrores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmErrores.Designer.cs">
+    <Compile Include="User Interface\FrmErrores.Designer.cs">
       <DependentUpon>FrmErrores.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmGestionOrden.cs">
+    <Compile Include="User Interface\FrmGestionOrden.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmGestionOrden.Designer.cs">
+    <Compile Include="User Interface\FrmGestionOrden.Designer.cs">
       <DependentUpon>FrmGestionOrden.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLogin.cs">
+    <Compile Include="User Interface\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
+    <Compile Include="User Interface\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMedidas.cs">
+    <Compile Include="User Interface\FrmMedidas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMedidas.Designer.cs">
+    <Compile Include="User Interface\FrmMedidas.Designer.cs">
       <DependentUpon>FrmMedidas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMenuCaja.cs">
+    <Compile Include="User Interface\FrmMenuCaja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMenuCaja.Designer.cs">
+    <Compile Include="User Interface\FrmMenuCaja.Designer.cs">
       <DependentUpon>FrmMenuCaja.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMenuPrincipal.cs">
+    <Compile Include="User Interface\FrmMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMenuPrincipal.Designer.cs">
+    <Compile Include="User Interface\FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmModificarOrden.cs">
+    <Compile Include="User Interface\FrmModificarOrden.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmModificarOrden.Designer.cs">
+    <Compile Include="User Interface\FrmModificarOrden.Designer.cs">
       <DependentUpon>FrmModificarOrden.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPedido.cs">
+    <Compile Include="User Interface\FrmPasswordChange.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPedido.Designer.cs">
+    <Compile Include="User Interface\FrmPasswordChange.Designer.cs">
+      <DependentUpon>FrmPasswordChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\FrmPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Interface\FrmPedido.Designer.cs">
       <DependentUpon>FrmPedido.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInsumos.cs">
+    <Compile Include="User Interface\FrmInsumos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInsumos.Designer.cs">
+    <Compile Include="User Interface\FrmInsumos.Designer.cs">
       <DependentUpon>FrmInsumos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCombo.cs">
+    <Compile Include="User Interface\FrmCombo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCombo.Designer.cs">
+    <Compile Include="User Interface\FrmCombo.Designer.cs">
       <DependentUpon>FrmCombo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProductosVenta.cs">
+    <Compile Include="User Interface\FrmProductosVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProductosVenta.Designer.cs">
+    <Compile Include="User Interface\FrmProductosVenta.Designer.cs">
       <DependentUpon>FrmProductosVenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProveedor.cs">
+    <Compile Include="User Interface\FrmProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmProveedor.Designer.cs">
+    <Compile Include="User Interface\FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReporteCierres.cs">
+    <Compile Include="User Interface\FrmReporteCierres.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReporteCierres.Designer.cs">
+    <Compile Include="User Interface\FrmReporteCierres.Designer.cs">
       <DependentUpon>FrmReporteCierres.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReporteCombos.cs">
+    <Compile Include="User Interface\FrmReporteCombos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReporteCombos.Designer.cs">
+    <Compile Include="User Interface\FrmReporteCombos.Designer.cs">
       <DependentUpon>FrmReporteCombos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReporteInsumos.cs">
+    <Compile Include="User Interface\FrmReporteInsumos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReporteInsumos.Designer.cs">
+    <Compile Include="User Interface\FrmReporteInsumos.Designer.cs">
       <DependentUpon>FrmReporteInsumos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReporteProductos.cs">
+    <Compile Include="User Interface\FrmReporteProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReporteProductos.Designer.cs">
+    <Compile Include="User Interface\FrmReporteProductos.Designer.cs">
       <DependentUpon>FrmReporteProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReporteVentas.cs">
+    <Compile Include="User Interface\FrmReporteVentas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReporteVentas.Designer.cs">
+    <Compile Include="User Interface\FrmReporteVentas.Designer.cs">
       <DependentUpon>FrmReporteVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTecladoNumerico.cs">
+    <Compile Include="User Interface\FrmTecladoNumerico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTecladoNumerico.Designer.cs">
+    <Compile Include="User Interface\FrmTecladoNumerico.Designer.cs">
       <DependentUpon>FrmTecladoNumerico.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUsuarios.cs">
+    <Compile Include="User Interface\FrmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUsuarios.Designer.cs">
+    <Compile Include="User Interface\FrmUsuarios.Designer.cs">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="OrangeDB1DataSet.cs">
@@ -370,135 +378,138 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Utilitarios.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <Compile Include="Tools\Utilitarios.cs" />
+    <EmbeddedResource Include="Test\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAbout.resx">
+    <EmbeddedResource Include="User Interface\FrmAbout.resx">
       <DependentUpon>FrmAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAperturaCaja.resx">
+    <EmbeddedResource Include="User Interface\FrmAperturaCaja.resx">
       <DependentUpon>FrmAperturaCaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAutorizacion.resx">
+    <EmbeddedResource Include="User Interface\FrmAutorizacion.resx">
       <DependentUpon>FrmAutorizacion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmBitacora.resx">
+    <EmbeddedResource Include="User Interface\FrmBitacora.resx">
       <DependentUpon>FrmBitacora.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCajaMantenimiento.resx">
+    <EmbeddedResource Include="User Interface\FrmCajaMantenimiento.resx">
       <DependentUpon>FrmCajaMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCambioCaja.resx">
+    <EmbeddedResource Include="User Interface\FrmCambioCaja.resx">
       <DependentUpon>FrmCambioCaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCargas.resx">
+    <EmbeddedResource Include="User Interface\FrmCargas.resx">
       <DependentUpon>FrmCargas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCierreCajero.resx">
+    <EmbeddedResource Include="User Interface\FrmCierreCajero.resx">
       <DependentUpon>FrmCierreCajero.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCliente.resx">
+    <EmbeddedResource Include="User Interface\FrmCliente.resx">
       <DependentUpon>FrmCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCompras.resx">
+    <EmbeddedResource Include="User Interface\FrmCompras.resx">
       <DependentUpon>FrmCompras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConfirmarCombo.resx">
+    <EmbeddedResource Include="User Interface\FrmConfirmarCombo.resx">
       <DependentUpon>FrmConfirmarCombo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConfirmarProducto.resx">
+    <EmbeddedResource Include="User Interface\FrmConfirmarProducto.resx">
       <DependentUpon>FrmConfirmarProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConsecutivo.resx">
+    <EmbeddedResource Include="User Interface\FrmConsecutivo.resx">
       <DependentUpon>FrmConsecutivo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEdicionCargas.resx">
+    <EmbeddedResource Include="User Interface\FrmEdicionCargas.resx">
       <DependentUpon>FrmEdicionCargas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEdicionCombo.resx">
+    <EmbeddedResource Include="User Interface\FrmEdicionCombo.resx">
       <DependentUpon>FrmEdicionCombo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEdicionFacturaCompra.resx">
+    <EmbeddedResource Include="User Interface\FrmEdicionFacturaCompra.resx">
       <DependentUpon>FrmEdicionFacturaCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEdicionProducto.resx">
+    <EmbeddedResource Include="User Interface\FrmEdicionProducto.resx">
       <DependentUpon>FrmEdicionProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEdicionInsumos.resx">
+    <EmbeddedResource Include="User Interface\FrmEdicionInsumos.resx">
       <DependentUpon>FrmEdicionInsumos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEdicionProveedor.resx">
+    <EmbeddedResource Include="User Interface\FrmEdicionProveedor.resx">
       <DependentUpon>FrmEdicionProveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEdicionMedida.resx">
+    <EmbeddedResource Include="User Interface\FrmEdicionMedida.resx">
       <DependentUpon>FrmEdicionMedida.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEdicionCliente.resx">
+    <EmbeddedResource Include="User Interface\FrmEdicionCliente.resx">
       <DependentUpon>FrmEdicionCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEdicionUsuario.resx">
+    <EmbeddedResource Include="User Interface\FrmEdicionUsuario.resx">
       <DependentUpon>FrmEdicionUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmErrores.resx">
+    <EmbeddedResource Include="User Interface\FrmErrores.resx">
       <DependentUpon>FrmErrores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmGestionOrden.resx">
+    <EmbeddedResource Include="User Interface\FrmGestionOrden.resx">
       <DependentUpon>FrmGestionOrden.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
+    <EmbeddedResource Include="User Interface\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMedidas.resx">
+    <EmbeddedResource Include="User Interface\FrmMedidas.resx">
       <DependentUpon>FrmMedidas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMenuCaja.resx">
+    <EmbeddedResource Include="User Interface\FrmMenuCaja.resx">
       <DependentUpon>FrmMenuCaja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMenuPrincipal.es-419.resx">
+    <EmbeddedResource Include="User Interface\FrmMenuPrincipal.es-419.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMenuPrincipal.resx">
+    <EmbeddedResource Include="User Interface\FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmInsumos.resx">
+    <EmbeddedResource Include="User Interface\FrmInsumos.resx">
       <DependentUpon>FrmInsumos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCombo.resx">
+    <EmbeddedResource Include="User Interface\FrmCombo.resx">
       <DependentUpon>FrmCombo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmModificarOrden.resx">
+    <EmbeddedResource Include="User Interface\FrmModificarOrden.resx">
       <DependentUpon>FrmModificarOrden.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPedido.resx">
+    <EmbeddedResource Include="User Interface\FrmPasswordChange.resx">
+      <DependentUpon>FrmPasswordChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\FrmPedido.resx">
       <DependentUpon>FrmPedido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProductosVenta.resx">
+    <EmbeddedResource Include="User Interface\FrmProductosVenta.resx">
       <DependentUpon>FrmProductosVenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProveedor.resx">
+    <EmbeddedResource Include="User Interface\FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReporteCierres.resx">
+    <EmbeddedResource Include="User Interface\FrmReporteCierres.resx">
       <DependentUpon>FrmReporteCierres.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReporteCombos.resx">
+    <EmbeddedResource Include="User Interface\FrmReporteCombos.resx">
       <DependentUpon>FrmReporteCombos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReporteInsumos.resx">
+    <EmbeddedResource Include="User Interface\FrmReporteInsumos.resx">
       <DependentUpon>FrmReporteInsumos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReporteProductos.resx">
+    <EmbeddedResource Include="User Interface\FrmReporteProductos.resx">
       <DependentUpon>FrmReporteProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReporteVentas.resx">
+    <EmbeddedResource Include="User Interface\FrmReporteVentas.resx">
       <DependentUpon>FrmReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTecladoNumerico.resx">
+    <EmbeddedResource Include="User Interface\FrmTecladoNumerico.resx">
       <DependentUpon>FrmTecladoNumerico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUsuarios.resx">
+    <EmbeddedResource Include="User Interface\FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -637,6 +648,7 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="XMLFile1.xml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

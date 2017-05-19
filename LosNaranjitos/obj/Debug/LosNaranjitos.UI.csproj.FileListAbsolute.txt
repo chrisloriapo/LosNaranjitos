@@ -756,3 +756,4 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\es\Microsoft.VisualStudio.Data.Core.resources.dll
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\es\Microsoft.VisualStudio.GraphModel.resources.dll
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\es-419\LosNaranjitos.resources.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.User_Interface.FrmPasswordChange.resources
