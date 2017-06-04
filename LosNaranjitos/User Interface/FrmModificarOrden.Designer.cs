@@ -55,7 +55,7 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lbIdcliente = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.btnEliminarProducto = new System.Windows.Forms.Button();
             this.btnDescartarOrden = new System.Windows.Forms.Button();
             this.dgvOrdenesVista = new System.Windows.Forms.DataGridView();
@@ -436,7 +436,7 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.button1, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.btnBack, 1, 1);
             this.tableLayoutPanel4.Controls.Add(this.btnEliminarProducto, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnDescartarOrden, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -449,19 +449,19 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(389, 111);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
-            // button1
+            // btnBack
             // 
-            this.button1.BackColor = System.Drawing.Color.DarkOrange;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(197, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Regresar";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBack.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(197, 58);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(189, 50);
+            this.btnBack.TabIndex = 0;
+            this.btnBack.Text = "Regresar";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnEliminarProducto
             // 
@@ -651,7 +651,7 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lbIdcliente;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnEliminarProducto;
         private System.Windows.Forms.Button btnDescartarOrden;
         private System.Windows.Forms.GroupBox groupBox4;

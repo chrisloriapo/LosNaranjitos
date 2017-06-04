@@ -15,7 +15,7 @@ namespace LosNaranjitos.BL.Clases
         {
             //CIERRE.Consecutivo = Utilitario.Encriptar(CIERRE.Consecutivo, Utilitario.Llave);
             //CIERRE.Tipo = Utilitario.Encriptar(CIERRE.Tipo, Utilitario.Llave);
-            //CIERRE.Usuario = Utilitario.Encriptar(CIERRE.Usuario, Utilitario.Llave);
+            CIERRE.Usuario = Utilitario.Encriptar(CIERRE.Usuario, Utilitario.Llave);
             CierreOp.ActualizarCierre(CIERRE);
         }
 
@@ -25,7 +25,7 @@ namespace LosNaranjitos.BL.Clases
             DATOS.Cierre CierresRetorno = CierreOp.BuscarCierre(IdCierre);
             //CierresRetorno.Consecutivo = Utilitario.Decriptar(CierresRetorno.Consecutivo, Utilitario.Llave);
             //CierresRetorno.Tipo = Utilitario.Decriptar(CierresRetorno.Tipo, Utilitario.Llave);
-            //CierresRetorno.Usuario = Utilitario.Decriptar(CierresRetorno.Usuario, Utilitario.Llave);
+            CierresRetorno.Usuario = Utilitario.Decriptar(CierresRetorno.Usuario, Utilitario.Llave);
             return CierresRetorno;
         }
 
@@ -43,12 +43,12 @@ namespace LosNaranjitos.BL.Clases
         public List<DATOS.Cierre> ListarRegistros()
         {
             List<DATOS.Cierre> ListaRetorno = CierreOp.ListarRegistros();
-            //foreach (var item in ListaRetorno)
-            //{
+            foreach (var item in ListaRetorno)
+            {
             //    item.Consecutivo = Utilitario.Decriptar(item.Consecutivo, Utilitario.Llave);
             //    item.Tipo = Utilitario.Decriptar(item.Tipo, Utilitario.Llave);
-            //    item.Usuario = Utilitario.Decriptar(item.Usuario, Utilitario.Llave);
-            //}
+               item.Usuario = Utilitario.Decriptar(item.Usuario, Utilitario.Llave);
+            }
             return ListaRetorno;
         }
 
@@ -56,7 +56,7 @@ namespace LosNaranjitos.BL.Clases
         {
             //CIERRE.Consecutivo = Utilitario.Encriptar(CIERRE.Consecutivo, Utilitario.Llave);
             //CIERRE.Tipo = Utilitario.Encriptar(CIERRE.Tipo, Utilitario.Llave);
-            //CIERRE.Usuario = Utilitario.Encriptar(CIERRE.Usuario, Utilitario.Llave);
+            CIERRE.Usuario = Utilitario.Encriptar(CIERRE.Usuario, Utilitario.Llave);
             CierreOp.NuevoCierre(CIERRE);
         }
     }

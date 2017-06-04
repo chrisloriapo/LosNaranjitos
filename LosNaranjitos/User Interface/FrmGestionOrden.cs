@@ -471,9 +471,11 @@ namespace LosNaranjitos
                 if (frm.GetType() == typeof(FrmMenuPrincipal))
                 {
                     a.MdiParent = FrmLogin.MN;
+                    a.WindowState = FormWindowState.Maximized;
                 }
             }
             a.Show();
+            a.WindowState = FormWindowState.Maximized;
             this.Dispose();
         }
 

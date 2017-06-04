@@ -172,7 +172,7 @@ namespace LosNaranjitos
                     a.Show();
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Pedidos ");
                 }
-              
+
             }
             catch (Exception ex)
             {
@@ -337,7 +337,7 @@ namespace LosNaranjitos
                     a.MinimizeBox = false;
                     a.MaximizeBox = false;
                     a.StartPosition = FormStartPosition.CenterScreen;
-                     a.Show();
+                    a.Show();
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Usuario debe Cambiar Contraseña ");
                 }
                 catch (Exception ex)
@@ -399,7 +399,7 @@ namespace LosNaranjitos
                 a.ControlBox = false;
                 a.MinimizeBox = false;
                 a.MaximizeBox = false;
-                a.Dock = DockStyle.Fill; 
+                a.Dock = DockStyle.Fill;
                 a.Show();
                 Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Productos ");
             }
@@ -439,7 +439,7 @@ namespace LosNaranjitos
                 a.ControlBox = false;
                 a.MinimizeBox = false;
                 a.MaximizeBox = false;
-                a.Dock = DockStyle.Fill; 
+                a.Dock = DockStyle.Fill;
                 a.Show();
                 Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Compras ");
             }
@@ -589,7 +589,41 @@ namespace LosNaranjitos
 
         private void tsiPasswordChange_Click(object sender, EventArgs e)
         {
+            try
+            {
+                FrmPasswordChange a = new FrmPasswordChange();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.StartPosition = FormStartPosition.CenterScreen;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Usuario debe Cambiar Contraseña ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        private void parametrosDeImpresiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmParametros_de_Impresion a = new FrmParametros_de_Impresion();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+
+                a.Show();
+                a.StartPosition = FormStartPosition.CenterParent;
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Cambio de Parametros de Impresión");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -26,6 +26,14 @@ namespace LosNaranjitos.DS.Clases
             db.Insert(Categoria);
         }
 
+        public DATOS.CategoriaProductos BuscarCategoriaPorDescripcion(string CategoriaName)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.CategoriaProductos Buscar = db.Select<DATOS.CategoriaProductos>(x => x.Descripcion == CategoriaName).FirstOrDefault();
+            return Buscar;
+        }
+
         public DATOS.CategoriaProductos BuscarCategoriaProductos(int IDCategoria)
         {
             var conexion = _Conexion.CrearConexion();

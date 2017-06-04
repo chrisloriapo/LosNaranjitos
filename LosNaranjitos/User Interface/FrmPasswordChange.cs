@@ -44,8 +44,13 @@ namespace LosNaranjitos.User_Interface
                     MessageBox.Show("Debes Digitar una contraseña Nueva ", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
-                else if (PanGood.BackColor == Color.Green && (txtConfirmacion.Text == txtContraseña.Text))
+                else if (PanGood.BackColor == Color.Green && (txtConfirmacion.Text == txtContraseña.Text) && (FrmLogin.UsuarioGlobal.Contrasena == txtContrasenaAntigua.Text))
                 {
+                    if (FrmLogin.UsuarioGlobal.Contrasena==txtContraseña.Text)
+                    {
+                        MessageBox.Show("Debes Digitar una contraseña Nueva, no puede ser igual a la anterior ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     FrmLogin.UsuarioGlobal.Contrasena = txtContraseña.Text;
                     FrmLogin.UsuarioGlobal.CambioContrasena = false;
                     FrmLogin.UsuarioGlobal.UltimoContrasena = DateTime.Now;
@@ -59,10 +64,12 @@ namespace LosNaranjitos.User_Interface
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Sesion");
                     this.Dispose();
                 }
+                else
+                {
 
-
-
-
+                    MessageBox.Show("Tu contraseña actual es incorrecta ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
             catch (Exception ex)
             {
@@ -96,6 +103,8 @@ namespace LosNaranjitos.User_Interface
                     PanAverage.BackColor = Color.Green;
                     PanWeek.BackColor = Color.Green;
                     PanGood.BackColor = Color.Green;
+                    btnCambiar.Enabled = true;
+
                 }
 
             }

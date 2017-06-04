@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace LosNaranjitos
 {
@@ -25,13 +26,8 @@ namespace LosNaranjitos
 
         public void AgregarUsuario()
         {
-            if (txtConfirmarContrasena.Text != txtContraseña.Text)
-            {
-                MessageBox.Show("Error", "Contraseñas No Coinciden", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (string.IsNullOrEmpty(txtContraseña.Text) || string.IsNullOrWhiteSpace(txtContraseña.Text) ||
-              string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrWhiteSpace(txtApellido.Text) ||
+
+            if (string.IsNullOrEmpty(txtApellido.Text) || string.IsNullOrWhiteSpace(txtApellido.Text) ||
               string.IsNullOrEmpty(txtEmail.Text) || string.IsNullOrWhiteSpace(txtEmail.Text) ||
               string.IsNullOrEmpty(txtIdPersonal.Text) || string.IsNullOrWhiteSpace(txtIdPersonal.Text) ||
               string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrWhiteSpace(txtNombre.Text))
@@ -44,7 +40,13 @@ namespace LosNaranjitos
             {
                 try
                 {
-
+                    if (!emailValido(txtEmail.Text))
+                    {
+                        MessageBox.Show("Email No Valido",
+                            "Error al ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        
+                        return;
+                    }
                     DATOS.RolUsuario RolLocal = Utilitarios.OpRol.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
 
                     DATOS.Usuario Userprivate = new DATOS.Usuario
@@ -54,16 +56,28 @@ namespace LosNaranjitos
                         Nombre = txtNombre.Text,
                         Apellido1 = txtApellido.Text,
                         Apellido2 = txtApellido2.Text,
-                        Contrasena = txtContraseña.Text,
+                        Contrasena = RandomString(6),
                         Activo = true,
                         IdPersonal = txtIdPersonal.Text,
                         Telefono = txtTelefono.Text,
                         Correo = txtEmail.Text,
                         Rol = RolLocal.IdRol,
                         Direccion = txtDireccion.Text,
+                        CambioContrasena = true,
+                        UltimoContrasena = DateTime.Now
+
                     };
 
                     Utilitarios.OpUsuarios.AgregarUsuario(Userprivate);
+
+
+                    List<string> Destinatario = new List<string>();
+                    Destinatario.Add(Utilitarios.Decriptar( Userprivate.Correo, Utilitarios.Llave));
+                    Utilitarios.EnviarEmail(Destinatario, "***CONFIDENCIAL**** - Credenciales de Acceso - Soda Los Naranjitos", "Su Contraseña de acceso es:" + Userprivate.Contrasena);
+
+                    MessageBox.Show("Se ha enviado la contraseña al correo correspondiente al usuario " + Userprivate.Username, "Advertencia",
+   MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
                     //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Usuario");
                     //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
@@ -72,9 +86,7 @@ namespace LosNaranjitos
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Usuario Nuevo " + Userprivate.Username);
                     MessageBox.Show("Los datos del Usuario se ingresaron correctamente",
 "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Dispose();
-                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Usuarios");
-                    clearall();
+
                 }
                 catch (Exception ex)
                 {
@@ -90,7 +102,9 @@ namespace LosNaranjitos
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             AgregarUsuario();
-
+            tbControl1.SelectedIndex = 0;
+            this.FrmUsuarios_Load(sender, e);
+            clearall();
         }
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
@@ -194,10 +208,7 @@ namespace LosNaranjitos
                         txtIdPersonal.ReadOnly = true;
 
                         btnNuevo.Visible = false;
-                        lblConfirmarContraseña.Visible = false;
-                        lblContrasena.Visible = false;
-                        txtConfirmarContrasena.Visible = false;
-                        txtContraseña.Visible = false;
+                       
                         if (EditUser.Activo)
                         {
                             chkEstado.Checked = true;
@@ -238,8 +249,7 @@ namespace LosNaranjitos
             txtNombre.Clear();
             txtTelefono.Clear();
             txtEmail.Clear();
-            txtContraseña.Clear();
-            txtConfirmarContrasena.Clear();
+           
             txtApellido2.Clear();
             txtApellido.Clear();
             txtDireccion.Clear();
@@ -489,8 +499,7 @@ namespace LosNaranjitos
                         txtDireccion.ReadOnly = false;
                         txtEmail.ReadOnly = false;
                         txtTelefono.ReadOnly = false;
-                        txtConfirmarContrasena.ReadOnly = false;
-                        txtContraseña.ReadOnly = false;
+                       
                         txtIdPersonal.ReadOnly = false;
 
                     }
@@ -522,18 +531,59 @@ namespace LosNaranjitos
             txtDireccion.Clear();
             txtEmail.Clear();
             txtTelefono.Clear();
-            txtConfirmarContrasena.Clear();
-            txtContraseña.Clear();
+           
             txtIdPersonal.Clear();
             EditUser = null;
             Utilitarios.Cambio = false;
         }
 
+        private static Random random = new Random();
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        private Boolean emailValido(String email)
+        {
+            String expresion;
+            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(email, expresion))
+            {
+                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Usuario");
             this.Dispose();
+        }
+
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (emailValido( txtEmail.Text))
+            {
+                lblValidEmail.Text = "Email Válido";
+                lblValidEmail.ForeColor = Color.Green;
+            }
+            else
+            {
+                lblValidEmail.Text = "Email NO Válido";
+                lblValidEmail.ForeColor = Color.Red;
+            }
         }
     }
 }

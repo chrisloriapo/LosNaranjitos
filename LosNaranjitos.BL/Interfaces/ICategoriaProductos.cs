@@ -21,5 +21,7 @@ namespace LosNaranjitos.BL.Interfaces
 
         bool ExisteCategoriaProductos(int IDCategoria);
 
+        DATOS.CategoriaProductos BuscarCategoriaPorDescripcion(string CategoriaName);
+
     }
 }

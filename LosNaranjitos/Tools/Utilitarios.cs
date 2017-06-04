@@ -1,4 +1,5 @@
 ﻿using LosNaranjitos.DATOS;
+using LosNaranjitos.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace LosNaranjitos
     {
         public static BL.Interfaces.IBitacora OpBitacora = new BL.Clases.Bitacora();
         public static BL.Interfaces.IFacturaCompra OpFacturaCompra = new BL.Clases.FacturaCompra();
-
+        public static BL.Interfaces.IParametros OpParametros = new BL.Clases.Parametros();
         public static BL.Interfaces.ICategoriaProductos OpCategorias = new BL.Clases.CategoriaProductos();
         public static BL.Interfaces.ICliente OpClientes = new BL.Clases.Cliente();
         public static BL.Interfaces.ICombo OpCombo = new BL.Clases.Combo();
@@ -47,39 +48,15 @@ namespace LosNaranjitos
         {
             try
             {
-                //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                //List<Consecutivo> Consecutivos = OpConsecutivo.ListarConsecutivos();
                 DATOS.Bitacora BIT = new DATOS.Bitacora();
-                //try
-                //{
-                //    BIT = OpBitacora.ListarRegistros().OrderByDescending(x => x.IdBitacora).First();
-                //}
-                //catch (Exception x)
-                //{
-                //    if (x.Message == "La secuencia no contiene elementos")
-                //    {
-                //        BIT.IdBitacora = "BIT-1";
-                //    }
-                //}
-                //string Prefijo = Consecutivos.Where(x => x.Tipo == "Bitacora").Select(x => x.Prefijo).FirstOrDefault();
-                //Consecutivo = OpConsecutivo.BuscarConsecutivo(Prefijo);
-                //int CSBitacora = Consecutivo.ConsecutivoActual + 1;
-                //BIT.IdBitacora = Prefijo + "-" + CSBitacora;
-                //if (OpBitacora.ExisteConsecutivo(BIT.IdBitacora))
-                //{
-                //    MessageBox.Show("Existe otro Consecutivo" + BIT.IdBitacora + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                //    return;
-                //}
                 BIT.Usuario = Usuario;
                 BIT.Accion = AccionBitacora;
                 BIT.Fecha = DateTime.Now;
                 OpBitacora.AgregarBitacora(BIT);
-                //Consecutivo.ConsecutivoActual = CSBitacora;
-                //OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Error en el sistema al Agregar a la Bitacora", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -90,47 +67,11 @@ namespace LosNaranjitos
         {
             try
             {
-                //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                //List<Consecutivo> Consecutivos = OpConsecutivo.ListarConsecutivos();
                 DATOS.Error Error = new DATOS.Error();
-                //try
-                //{
-                //    Error = OpError.ListarErrores().OrderByDescending(x => x.IdError).FirstOrDefault();
-                //    if (Error == null)
-                //    {
-                //        Error = new Error()
-                //        {
-                //            IdError = "ERR-1"
-                //        };
-                //    }
-                //}
-                //catch (Exception x)
-                //{
-                //    if (x.Message == "La secuencia no contiene elementos" || x.Message == "Referencia a objeto no establecida como instancia de un objeto.")
-                //    {
-                //        Error = new Error()
-                //        {
-                //            IdError = "ERR-1"
-                //        };
-                //    }
-                //}
-
-                //string Prefijo = Consecutivos.Where(x => x.Tipo == "Error").Select(x => x.Prefijo).FirstOrDefault();
-                //Consecutivo = OpConsecutivo.BuscarConsecutivo(Prefijo);
-                //int CSError = Consecutivo.ConsecutivoActual + 1;
-                //Error.IdError = Prefijo + "-" + CSError;
-                //if (OpError.ExisteConsecutivo(Error.IdError))
-                //{
-                //    MessageBox.Show("Existe otro Consecutivo" + Error.IdError + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
-
                 Error.Descripcion = ErrorMessage;
                 Error.Tipo = ErrorType;
                 Error.Hora = DateTime.Now;
                 OpError.AgregarError(Error);
-                //Consecutivo.ConsecutivoActual = CSError;
-                //OpConsecutivo.ActualizarConsecutivo(Consecutivo);
                 GeneralBitacora(Usuario, AccionBitacora);
             }
             catch (Exception ex)
@@ -219,12 +160,62 @@ namespace LosNaranjitos
                     client.Send(mail);
                 }
             }
-
-
-
-
         }
 
+        public static void TicketeGeneral(string NumerodeCaja, string NombreCajero, string ClienteOrden, List<DetallePedido> Detalles, DATOS.Pedido OrdenEnCurso)
+        {
+            Ticket ticket = new Ticket();
+            ticket.AbreCajon();
+
+            ticket.TextoCentro("SODA LOS NARANJITOS");
+            ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
+            ticket.TextoIzquierda("DIREC: 25 SUR Y 75 OESTE DE LA MEGASUPER TEJAR");
+            ticket.TextoIzquierda("TELEF: 25910412");
+            ticket.TextoIzquierda("C.J.: 302860224");
+            ticket.TextoIzquierda("EMAIL: orangesrestaurants@gmail.com");//Es el mio por si me quieren contactar ...
+            ticket.TextoIzquierda("");
+            ticket.TextoExtremos("Caja # " + NumerodeCaja, "Ticket # " + OrdenEnCurso.Consecutivo.ToString());
+            ticket.lineasAsteriscos();
+
+            //Sub cabecera.
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("ATENDIO: " + NombreCajero);
+            ticket.TextoIzquierda("CLIENTE: " + ClienteOrden);
+            ticket.TextoIzquierda("");
+            ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
+            ticket.lineasAsteriscos();
+
+            //Articulos a vender.
+            ticket.EncabezadoVenta();
+            ticket.lineasAsteriscos();
+
+            foreach (var item in Detalles)
+            {
+                ticket.AgregaArticulo(item.Producto + " " + item.ObservacionesDT, item.Cantidad, item.SubTotal, "IVI");
+            }
+            ticket.lineasIgual();
+
+            ticket.AgregarTotales("         SUBTOTAL......C", Convert.ToDouble(OrdenEnCurso.Subtotal) - (Convert.ToDouble(OrdenEnCurso.Subtotal) * 0.13));
+            ticket.AgregarTotales("         IVA...........C", (Convert.ToDouble(OrdenEnCurso.Subtotal) * 0.13));
+            ticket.AgregarTotales("         TOTAL.........C", Convert.ToDouble(OrdenEnCurso.Subtotal));
+            ticket.TextoIzquierda("");
+            ticket.AgregarTotales("         EFECTIVO......C",Convert.ToDouble( OrdenEnCurso.MontoCambio));
+            ticket.AgregarTotales("         CAMBIO........C", Convert.ToDouble(OrdenEnCurso.MontoTarjeta + OrdenEnCurso.MontoEfectivo + OrdenEnCurso.MontoOtro) - Convert.ToDouble(OrdenEnCurso.Subtotal));
+
+            //Texto final del Ticket.
+            ticket.TextoIzquierda("IMPUESTO DE VENTA INCLUIDO");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("PRODUCTOS VENDIDOS: " + Detalles.Sum(x=>x.Cantidad));
+            ticket.TextoIzquierda("");
+            ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+            ticket.TextoCentro("FACEBOOK: /Los Naranjitos!");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.CortaTicket();
+            ticket.ImprimirTicket(Utilitarios.OpParametros.BuscarParametro(1).Valor);//Nombre de la impresora ticketera
+        }
 
     }
 }

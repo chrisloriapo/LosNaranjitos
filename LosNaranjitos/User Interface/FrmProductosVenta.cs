@@ -35,6 +35,9 @@ namespace LosNaranjitos
         {
             try
             {
+                ClearForm();
+                tbcProductos.SelectedIndex = 0;
+
                 if (Utilitarios.OpInsumos.ListarInsumos().Count == 0)
                 {
                     MessageBox.Show("No existe ningun Insumo Registrado, debes registrar Insumos para ingresar productos nuevos, pureba Ingresando un nuevo registro en el modulo de Insumos", "No hay datos a modificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -51,8 +54,17 @@ namespace LosNaranjitos
                 tbOperacionesProductos.TabPages.Remove(tbReceta);
                 tbOperacionesProductos.TabPages.Remove(tbCostos);
                 tbOperacionesProductos.TabPages.Remove(tbResumen);
-                cbCategoriaProducto.SelectedIndex = 1;
-                dgvCargas.DataSource = Utilitarios.OpCargas.ListarCargas().Where(x => x.Activo = true).ToList();
+                cbCategoriaProducto.DataSource = Utilitarios.OpCategorias.ListarCategorias().Select(x => x.Descripcion).ToList();
+                cbCategoriaProducto.SelectedIndex = 0;
+
+                var ListaLocal = Utilitarios.OpCargas.ListarCargas().Where(x => x.Activo = true).Select(a => new
+                {
+                    a.Descripcion,
+                    a.Porcentaje,
+                    
+                }).ToList();
+
+                dgvCargas.DataSource = ListaLocal.ToList();
 
                 if (!Utilitarios.Cambio)
                 {
@@ -65,7 +77,7 @@ namespace LosNaranjitos
                     try
                     {
                         UltimoProducto = Utilitarios.OpProducto.ListarProductos().OrderByDescending(x => x.Consecutivo).First();
-                        lblConsecutivo.Text = UltimoProducto.Consecutivo.ToString();
+                        lblConsecutivo.Text = (UltimoProducto.Consecutivo + 1).ToString();
                     }
                     catch (Exception x)
                     {
@@ -85,7 +97,7 @@ namespace LosNaranjitos
                     //    MessageBox.Show("Existe otro Consecutivo " + UltimoProducto.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     //    btnAgregar.Enabled = false;
                     //}
-                    
+
                     //Validacion Consecutivos Insumos
 
                     //DATOS.ProductoInsumo UltimoProductoInsumo = new ProductoInsumo();
@@ -190,7 +202,7 @@ namespace LosNaranjitos
 
 
                 Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Productos al Cargar Formulario");
-               MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
@@ -199,6 +211,8 @@ namespace LosNaranjitos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Productos");
+            ClearForm();
+
             this.Dispose();
         }
 
@@ -362,12 +376,12 @@ namespace LosNaranjitos
                 }
                 else
                 {
-                    DATOS.CategoriaProductos CategoriaLocal = Utilitarios.OpCategorias.ListarCategorias().Where(x => x.Descripcion == cbCategoriaProducto.SelectedItem.ToString()).FirstOrDefault();
+                    DATOS.CategoriaProductos CategoriaLocal = Utilitarios.OpCategorias.BuscarCategoriaPorDescripcion(cbCategoriaProducto.SelectedItem.ToString());
 
                     NuevoProducto.Activo = true;
                     NuevoProducto.Categoria = CategoriaLocal.IdTipo;
                     NuevoProducto.Codigo = txtIdProducto.Text;
-                  //  NuevoProducto.Consecutivo = lblConsecutivo.Text;
+                    //  NuevoProducto.Consecutivo = lblConsecutivo.Text;
                     NuevoProducto.Descripcion = txtDescricpion.Text;
                     NuevoProducto.Nombre = txtNombre.Text;
 
@@ -401,7 +415,7 @@ namespace LosNaranjitos
                     {
                         Receta.Clear();
                         ListaInsumos.Clear();
-                      //  DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto-Insumo");
+                        //  DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto-Insumo");
 
 
                         foreach (var item in lstInsumosSelected.Items)
@@ -410,13 +424,14 @@ namespace LosNaranjitos
                         }
                         ListaInsumos = ListaInsumos.OrderBy(x => x.IdInsumo).ToList();
                         var ListaInsumos2 = ListaInsumos.OrderBy(x => x.IdInsumo).ToList();
+                        NuevoProducto.Precio = 0;
                         foreach (var item in ListaInsumos2)
                         {
                             if (ListaInsumos.Contains(item))
                             {
 
-                             //   Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                           //     IngredienteNuevo.Consecutivo = "PIN-" + Consecutivo.ConsecutivoActual;
+                                //   Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                                //     IngredienteNuevo.Consecutivo = "PIN-" + Consecutivo.ConsecutivoActual;
                                 IngredienteNuevo.CodigoProducto = NuevoProducto.Codigo;
                                 IngredienteNuevo.IdInsumo = ListaInsumos.FirstOrDefault().IdInsumo;
                                 IngredienteNuevo.CantidadRequerida = float.Parse(ListaInsumos.Where(c => c.IdInsumo == IngredienteNuevo.IdInsumo).Count().ToString());
@@ -499,7 +514,7 @@ namespace LosNaranjitos
                     Utilitarios.OpInsumos.ListarInsumos(),
                 a => a.IdInsumo,
                 b => b.IdInsumo,
-                (a, b) => new { a.Consecutivo, b.IdInsumo, b.Nombre, a.CantidadRequerida });
+                (a, b) => new { b.IdInsumo, b.Nombre, a.CantidadRequerida });
 
                 dgvResumen.DataSource = result.ToList();
                 dgvResumen.RowHeadersVisible = false;
@@ -567,11 +582,12 @@ namespace LosNaranjitos
                             Utilitarios.OpProductoInsumo.AgregarProductoInsumo(Ingrediente);
                             //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Producto-Insumo");
                             //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                           // Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
+                            // Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
                             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Ingrediente a producto ya existente " + Ingrediente.Consecutivo);
 
                         }
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Producto Nuevo " + NuevoProducto.Nombre);
+                        ClearForm();
 
                         MessageBox.Show("Los datos del Producto se Modificaron correctamente",
     "Modificacion de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -605,16 +621,20 @@ namespace LosNaranjitos
                             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Ingrediente nuevo " + Ingrediente.Consecutivo);
                         }
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Producto Nuevo " + NuevoProducto.Nombre);
+                        ClearForm();
 
                         MessageBox.Show("Los datos del Producto Nuevo se ingresaron correctamente",
     "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
+                        ClearForm();
+
                         return;
                     }
 
                 }
+                ClearForm();
                 this.FrmProductosVenta_Load(sender, e);
             }
             catch (Exception ex)
@@ -649,5 +669,20 @@ namespace LosNaranjitos
                 MessageBox.Show("Digita unicamente numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-    }
+
+        private void ClearForm()
+        {
+            lstInsumosSelected.Items.Clear();
+            Receta.Clear();
+            txtIdProducto.Clear();
+            txtNombre.Clear();
+            txtPrecioBase.Clear();
+            txtPrecioSugerido.Clear();
+            txtPrecioTotal.Clear();
+            txtBuscar.Clear();
+            txtDescricpion.Clear();
+            txtPrecioCargas.Clear();
+
+        }
+}
 }

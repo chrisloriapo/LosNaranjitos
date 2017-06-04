@@ -21,21 +21,22 @@ namespace LosNaranjitos
         {
             try
             {
-                if (Utilitarios.OpCaja.ListarCajas().Where(x=>x.Estado==true && x.OperadorActual == FrmLogin.UsuarioGlobal.Username).Count()>0)
+                if (Utilitarios.OpCaja.ListarCajas().Where(x => x.Estado == true && x.OperadorActual == FrmLogin.UsuarioGlobal.Username).Count() > 0)
                 {
                     FrmPedido a = new FrmPedido();
                     a.Show();
+                    a.WindowState = FormWindowState.Maximized;
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Caja desde menu de Caja ");
-                    this.Dispose();
+                    this.Visible = false;
                 }
                 else
                 {
                     FrmAperturaCaja a = new FrmAperturaCaja();
                     a.Show();
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Caja desde menu de Caja ");
-                    this.Dispose();
+                    this.Visible = false;
                 }
-              
+
             }
             catch (Exception ex)
             {
@@ -55,7 +56,7 @@ namespace LosNaranjitos
 
                 if (mensaje == DialogResult.Yes)
                 {
-                    if (Utilitarios.OpPedidos.ListarPedido().Where(x=>x.Cerrado==false && x.Operador==FrmLogin.UsuarioGlobal.Username).Count()>0)
+                    if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false && x.Operador == FrmLogin.UsuarioGlobal.Username).Count() > 0)
                     {
                         MessageBox.Show("Debes Generar el Cierre de Caja (Arqueo)", "Debes Cerrar tus Cuentas", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -85,8 +86,9 @@ namespace LosNaranjitos
             {
                 FrmCierreCajero a = new FrmCierreCajero();
                 a.Show();
+                a.WindowState = FormWindowState.Maximized;
                 Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Cierre desde menu de Caja ");
-                this.Dispose();
+                this.Visible = false;
             }
             catch (Exception ex)
             {
@@ -125,6 +127,38 @@ namespace LosNaranjitos
                 MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
+            }
+        }
+
+        private void FrmMenuCaja_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (FrmLogin.UsuarioGlobal.CambioContrasena)
+                {
+
+                    try
+                    {
+                        User_Interface.FrmPasswordChange a = new User_Interface.FrmPasswordChange();
+                        a.TopMost = true;
+                        a.ControlBox = false;
+                        a.MinimizeBox = false;
+                        a.MaximizeBox = false;
+                        a.StartPosition = FormStartPosition.CenterScreen;
+                        a.Show();
+                        Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Usuario debe Cambiar Contraseña ");
+                        this.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

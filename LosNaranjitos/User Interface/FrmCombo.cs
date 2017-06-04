@@ -310,7 +310,7 @@ namespace LosNaranjitos
                     {
                         Receta.Clear();
                         ListaProductos.Clear();
-                        DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Combo-Producto");
+                    //    DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Combo-Producto");
 
 
                         foreach (var item in lstProductosSelected.Items)
@@ -324,7 +324,7 @@ namespace LosNaranjitos
                             if (ListaProductos.Contains(item))
                             {
 
-                                Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                            //    Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
                                 //  IngredienteNuevo.Consecutivo = "CDP-" + Consecutivo.ConsecutivoActual;
                                 IngredienteNuevo.CodCombo = NuevoCombo.Codigo;
                                 IngredienteNuevo.CodProducto = ListaProductos.FirstOrDefault().Codigo;

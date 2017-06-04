@@ -13,6 +13,8 @@ namespace LosNaranjitos.DS.Interfaces
 
         DATOS.CategoriaProductos BuscarCategoriaProductos(int IDCategoria);
 
+        DATOS.CategoriaProductos BuscarCategoriaPorDescripcion(string CategoriaName);
+
         void AgregarCategoriaProductos(DATOS.CategoriaProductos Categoria);
 
         void ActualizarCategoriaProductosE(DATOS.CategoriaProductos Categoria);

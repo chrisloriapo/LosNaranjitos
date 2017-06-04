@@ -34,7 +34,6 @@
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -70,10 +69,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.chkEstado = new System.Windows.Forms.CheckBox();
-            this.lblContrasena = new System.Windows.Forms.Label();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.lblConfirmarContraseña = new System.Windows.Forms.Label();
-            this.txtConfirmarContrasena = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdPersonal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -82,10 +77,9 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.lblValidEmail = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tbControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -132,7 +126,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.pictureBox1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Britannic Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -142,15 +135,6 @@
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Usuarios";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(635, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(67, 65);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
             // 
             // tbControl1
             // 
@@ -592,17 +576,14 @@
             // 
             this.tableLayoutPanel6.ColumnCount = 1;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.lblValidEmail, 0, 6);
             this.tableLayoutPanel6.Controls.Add(this.chkEstado, 0, 10);
-            this.tableLayoutPanel6.Controls.Add(this.lblContrasena, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.txtContraseña, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.lblConfirmarContraseña, 0, 2);
-            this.tableLayoutPanel6.Controls.Add(this.txtConfirmarContrasena, 0, 3);
-            this.tableLayoutPanel6.Controls.Add(this.label2, 0, 4);
-            this.tableLayoutPanel6.Controls.Add(this.txtIdPersonal, 0, 5);
-            this.tableLayoutPanel6.Controls.Add(this.label8, 0, 6);
-            this.tableLayoutPanel6.Controls.Add(this.cbbRol, 0, 7);
-            this.tableLayoutPanel6.Controls.Add(this.label10, 0, 8);
-            this.tableLayoutPanel6.Controls.Add(this.txtEmail, 0, 9);
+            this.tableLayoutPanel6.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.txtIdPersonal, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label8, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.cbbRol, 0, 3);
+            this.tableLayoutPanel6.Controls.Add(this.label10, 0, 4);
+            this.tableLayoutPanel6.Controls.Add(this.txtEmail, 0, 5);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(353, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -636,57 +617,13 @@
             this.chkEstado.Text = "Activo";
             this.chkEstado.UseVisualStyleBackColor = true;
             // 
-            // lblContrasena
-            // 
-            this.lblContrasena.AutoSize = true;
-            this.lblContrasena.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblContrasena.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblContrasena.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContrasena.Location = new System.Drawing.Point(3, 0);
-            this.lblContrasena.Name = "lblContrasena";
-            this.lblContrasena.Size = new System.Drawing.Size(338, 28);
-            this.lblContrasena.TabIndex = 376;
-            this.lblContrasena.Text = "Contraseña";
-            // 
-            // txtContraseña
-            // 
-            this.txtContraseña.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtContraseña.Location = new System.Drawing.Point(3, 31);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.PasswordChar = '*';
-            this.txtContraseña.ReadOnly = true;
-            this.txtContraseña.Size = new System.Drawing.Size(338, 22);
-            this.txtContraseña.TabIndex = 377;
-            // 
-            // lblConfirmarContraseña
-            // 
-            this.lblConfirmarContraseña.AutoSize = true;
-            this.lblConfirmarContraseña.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblConfirmarContraseña.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblConfirmarContraseña.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConfirmarContraseña.Location = new System.Drawing.Point(3, 56);
-            this.lblConfirmarContraseña.Name = "lblConfirmarContraseña";
-            this.lblConfirmarContraseña.Size = new System.Drawing.Size(338, 28);
-            this.lblConfirmarContraseña.TabIndex = 378;
-            this.lblConfirmarContraseña.Text = "Confirmación";
-            // 
-            // txtConfirmarContrasena
-            // 
-            this.txtConfirmarContrasena.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtConfirmarContrasena.Location = new System.Drawing.Point(3, 87);
-            this.txtConfirmarContrasena.Name = "txtConfirmarContrasena";
-            this.txtConfirmarContrasena.PasswordChar = '*';
-            this.txtConfirmarContrasena.ReadOnly = true;
-            this.txtConfirmarContrasena.Size = new System.Drawing.Size(338, 22);
-            this.txtConfirmarContrasena.TabIndex = 379;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 112);
+            this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(338, 28);
             this.label2.TabIndex = 380;
@@ -695,7 +632,7 @@
             // txtIdPersonal
             // 
             this.txtIdPersonal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtIdPersonal.Location = new System.Drawing.Point(3, 143);
+            this.txtIdPersonal.Location = new System.Drawing.Point(3, 31);
             this.txtIdPersonal.Name = "txtIdPersonal";
             this.txtIdPersonal.ReadOnly = true;
             this.txtIdPersonal.Size = new System.Drawing.Size(338, 22);
@@ -707,7 +644,7 @@
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label8.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 168);
+            this.label8.Location = new System.Drawing.Point(3, 56);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(338, 28);
             this.label8.TabIndex = 382;
@@ -720,7 +657,7 @@
             this.cbbRol.FormattingEnabled = true;
             this.cbbRol.Items.AddRange(new object[] {
             "1"});
-            this.cbbRol.Location = new System.Drawing.Point(3, 199);
+            this.cbbRol.Location = new System.Drawing.Point(3, 87);
             this.cbbRol.Name = "cbbRol";
             this.cbbRol.Size = new System.Drawing.Size(338, 23);
             this.cbbRol.TabIndex = 383;
@@ -731,7 +668,7 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label10.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 224);
+            this.label10.Location = new System.Drawing.Point(3, 112);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(338, 28);
             this.label10.TabIndex = 384;
@@ -740,11 +677,12 @@
             // txtEmail
             // 
             this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEmail.Location = new System.Drawing.Point(3, 255);
+            this.txtEmail.Location = new System.Drawing.Point(3, 143);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(338, 22);
             this.txtEmail.TabIndex = 385;
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // flowLayoutPanel3
             // 
@@ -770,6 +708,21 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // lblValidEmail
+            // 
+            this.lblValidEmail.AutoSize = true;
+            this.lblValidEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblValidEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblValidEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblValidEmail.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValidEmail.ForeColor = System.Drawing.Color.Red;
+            this.lblValidEmail.Location = new System.Drawing.Point(3, 168);
+            this.lblValidEmail.Name = "lblValidEmail";
+            this.lblValidEmail.Size = new System.Drawing.Size(338, 28);
+            this.lblValidEmail.TabIndex = 387;
+            this.lblValidEmail.Text = "Email No Válido";
+            this.lblValidEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -790,8 +743,6 @@
             this.Load += new System.EventHandler(this.FrmUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tbControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -821,7 +772,6 @@
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabControl tbControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -851,10 +801,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.MaskedTextBox txtTelefono;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Label lblContrasena;
-        private System.Windows.Forms.TextBox txtContraseña;
-        private System.Windows.Forms.Label lblConfirmarContraseña;
-        private System.Windows.Forms.TextBox txtConfirmarContrasena;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIdPersonal;
         private System.Windows.Forms.Label label8;
@@ -869,5 +815,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Label lblValidEmail;
     }
 }

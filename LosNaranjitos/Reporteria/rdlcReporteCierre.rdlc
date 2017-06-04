@@ -125,7 +125,9 @@
                   </TextRun>
                   <TextRun>
                     <Value>=First(Fields!CantidadVentas.Value, "DataSet1")</Value>
-                    <Style />
+                    <Style>
+                      <Format>#,0;(#,0)</Format>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -225,7 +227,9 @@
                   </TextRun>
                   <TextRun>
                     <Value>=First(Fields!MontoTarjeta.Value, "DataSet1")</Value>
-                    <Style />
+                    <Style>
+                      <Format>#,0.00;(#,0.00)</Format>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -265,7 +269,9 @@
                   </TextRun>
                   <TextRun>
                     <Value>=First(Fields!MontoEfectivo.Value, "DataSet1")</Value>
-                    <Style />
+                    <Style>
+                      <Format>#,0.00;(#,0.00)</Format>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -306,7 +312,9 @@
                   </TextRun>
                   <TextRun>
                     <Value>=First(Fields!MontroOtro.Value, "DataSet1")</Value>
-                    <Style />
+                    <Style>
+                      <Format>#,0.00;(#,0.00)</Format>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -340,7 +348,9 @@
                   </TextRun>
                   <TextRun>
                     <Value>=First(Fields!MontoTotal.Value, "DataSet1")</Value>
-                    <Style />
+                    <Style>
+                      <Format>#,0.00;(#,0.00)</Format>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />

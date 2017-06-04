@@ -28,14 +28,16 @@ namespace LosNaranjitos
                 {
                     btnActualizar.Enabled = false;
                 }
-
+               
                 for (int i = 0; i < 101; i++)
                 {
                     cbbPorcentajeCarga.Items.Add(i);
                 }
+                
                 cbbCargas.SelectedIndex = 0;
+
+
                 cbbPorcentajeCarga.SelectedIndex = 0;
-                cbbPorcentajeCarga.Sorted = true;
                 //Verificacion de Consecutivo
                 if (Utilitarios.Cambio == false)
                 {
@@ -107,7 +109,7 @@ namespace LosNaranjitos
                     DATOS.Cargas Carg = new DATOS.Cargas();
                     Carg = Utilitarios.OpCargas.BuscarCarga(EditarCarga.Consecutivo);
 
-                    tbC2.SelectedIndex = 1;
+                    tbC2.SelectedIndex = 0;
                     if (Utilitarios.Cambio)
                     {
                         txtDescripcion.Text = EditarCarga.Descripcion;
@@ -143,6 +145,8 @@ namespace LosNaranjitos
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Actualización de Carga " + EditarCarga.Consecutivo);
 
                         MessageBox.Show("Registro Actualizado", "Actualizacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtBuscar.Clear(); txtDescripcion.Clear();
+                        this.FrmCargas_Load(sender, e);
 
                     }
                 }
@@ -171,7 +175,7 @@ namespace LosNaranjitos
                     NuevaCarga.Descripcion = txtDescripcion.Text;
                     NuevaCarga.Porcentaje = Convert.ToDecimal(cbbPorcentajeCarga.SelectedItem.ToString());
                     //  NuevaCarga.Consecutivo = lblConsecutivo.Text;
-                    Utilitarios.OpCargas.AgregarCargas(EditarCarga);
+                    Utilitarios.OpCargas.AgregarCargas(NuevaCarga);
 
                     //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cargas");
                     //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
@@ -182,7 +186,8 @@ namespace LosNaranjitos
                     MessageBox.Show("Los datos de la Carga  se ingresaron correctamente",
 "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre Modulo de Cargas");
-                    this.Dispose();
+                    txtBuscar.Clear();txtDescripcion.Clear();
+                    this.FrmCargas_Load(sender,e);
 
                 }
             }

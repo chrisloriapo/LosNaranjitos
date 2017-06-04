@@ -39,21 +39,21 @@ namespace LosNaranjitos
                         MessageBox.Show("No Existen Cajas en modo de Apertura", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    dtpFecha.Visible = false;
-                    cbbCaja.DataSource = ListaLocal.ToList();
-                    cbbCaja.Visible = true;
+
+                    cbbItemTipodeCierre.DataSource = ListaLocal.ToList();
+                    cbbItemTipodeCierre.Visible = true;
                     rptVReporteLocal.Visible = false;
                 }
                 else
                 {
+                    var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false).Select(x=>x.Fecha);
                     if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false).Count() == 0)
                     {
                         MessageBox.Show("No Existen Ventas Disponibles para un cierre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    dtpFecha.Value = DateTime.Today.AddDays(0);
-                    dtpFecha.Visible = true;
-                    cbbCaja.Visible = false;
+                    cbbItemTipodeCierre.DataSource = ListaLocal.ToList();
+                    cbbItemTipodeCierre.Visible = true;
                     rptVReporteLocal.Visible = false;
                 }
 
@@ -102,7 +102,7 @@ namespace LosNaranjitos
                             CierreCaja.MontoTarjeta = MontoTarjeta;
                             CierreCaja.MontoTotal = Total;
                             CierreCaja.CantidadVentas = ListaLocal.Count();
-                            CierreCaja.Caja = cbbCaja.SelectedItem.ToString();
+                            CierreCaja.Caja = cbbItemTipodeCierre.SelectedItem.ToString();
                             CierreCaja.Fecha = DateTime.Now;
                             //    Consec.ConsecutivoActual = Consec.ConsecutivoActual + 1;
                             foreach (var item in ListaLocal)
@@ -111,7 +111,7 @@ namespace LosNaranjitos
                                 Utilitarios.OpPedidos.ActualizarPedido(item);
                             }
                             Caja CAJA = new Caja();
-                            CAJA = Utilitarios.OpCaja.BuscarCaja(Int32.Parse(cbbCaja.SelectedItem.ToString()));
+                            CAJA = Utilitarios.OpCaja.BuscarCaja(Int32.Parse(cbbItemTipodeCierre.SelectedItem.ToString()));
                             CAJA.Estado = false;
                             CAJA.OperadorActual = "Libre";
                             CAJA.UltimaModificacion = DateTime.Now;
@@ -122,23 +122,19 @@ namespace LosNaranjitos
                             MessageBox.Show("Cierre Registrado Exitosamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
 
-                            //        foreach (var item in (this.OrangeDB1DataSet.Cierre))
-                            //        {
-                            //            //if (item.Consecutivo != Utilitarios.Encriptar(CierreCaja.Consecutivo, Utilitarios.Llave))
-                            //            //{
-                            //            //    item.Delete();
-                            //            //    this.OrangeDB1DataSet.Cierre.AcceptChanges();
-                            //            //}
-                            //            //else
-                            //            //{
-                            //                item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
-                            //                item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
-                            //                item.Tipo = Utilitarios.Decriptar(item.Tipo, Utilitarios.Llave);
-                            //            //item.Caja = Utilitarios.Decriptar(item.Caja, Utilitarios.Llave);
-                            //       // }
-                            //}
-                            OrangeDB1DataSet.Cierre.Where(x => x.Consecutivo == CierreCaja.Consecutivo.ToString());
+                            foreach (DataRow dr in OrangeDB1DataSet.Cierre.Rows)
+                            {
+                                if (dr["Consecutivo"].ToString() != CierreCaja.Consecutivo.ToString())
+                                {
+                                    dr.Delete();
+                                }
+                            }
+                            this.OrangeDB1DataSet.Cierre.AcceptChanges();
 
+                            foreach (var item in (this.OrangeDB1DataSet.Cierre))
+                            {
+                                item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
+                            }
                             this.rptVReporteLocal.RefreshReport();
                             rptVReporteLocal.Visible = true;
                             btnEjecutar.Visible = false;
@@ -147,15 +143,15 @@ namespace LosNaranjitos
                             break;
                         case "Cierre Diario":
 
-                            if (Utilitarios.OpCierres.ExisteCierreDiario(dtpFecha.Value))
+                            if (Utilitarios.OpCierres.ExisteCierreDiario(DateTime.Parse( cbbItemTipodeCierre.SelectedValue.ToString())))
                             {
                                 MessageBox.Show("Ya Existe un Registro de Cierre para el dia Seleccionado", "Cierre ya ejecutado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
 
                             DateTime D1, D2;
-                            D1 = Utilitarios.GetDateZeroTime(dtpFecha.Value);
-                            D2 = Utilitarios.GetDateEndTime(dtpFecha.Value);
+                            D1 = Utilitarios.GetDateZeroTime(DateTime.Parse(cbbItemTipodeCierre.SelectedValue.ToString()));
+                            D2 = Utilitarios.GetDateEndTime(DateTime.Parse(cbbItemTipodeCierre.SelectedValue.ToString()));
                             var ListaLocal2 = Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false && (x.Fecha >= D1 && x.Fecha <= D2));
 
                             foreach (var item in ListaLocal2)
@@ -194,7 +190,7 @@ namespace LosNaranjitos
                             CierreDiario.MontoTotal = Total2;
                             CierreDiario.CantidadVentas = ListaLocal2.Count();
                             CierreDiario.Caja = "Cierre Diario General";
-                            CierreDiario.Fecha = dtpFecha.Value;
+                            CierreDiario.Fecha = DateTime.Parse(cbbItemTipodeCierre.SelectedValue.ToString());
                             //Consec2.ConsecutivoActual = Consec2.ConsecutivoActual + 1;
                             foreach (var item in ListaLocal2)
                             {
@@ -248,9 +244,20 @@ namespace LosNaranjitos
         {
             try
             {
+                if (FrmLogin.UsuarioGlobal.Rol == 3)
+                {
+                    FrmMenuCaja a = new FrmMenuCaja();
+                    a.Show();
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de  Cierres ");
+                    this.Dispose();
+                }
+                else
+                {
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de  Cierres ");
+                    this.Dispose();
+                }
 
-                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de  Cierres ");
-                this.Dispose();
+
             }
             catch (Exception ex)
             {

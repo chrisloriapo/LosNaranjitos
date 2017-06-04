@@ -14,7 +14,7 @@ namespace LosNaranjitos.DATOS
         public int Consecutivo { get; set; }
         [PrimaryKey]
         public string Username { get; set; }
-
+        
         public string Contrasena { get; set; }
 
         public int Rol { get; set; }

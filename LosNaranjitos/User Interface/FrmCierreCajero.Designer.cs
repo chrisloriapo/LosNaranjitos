@@ -38,20 +38,19 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbbTipoCierre = new System.Windows.Forms.ComboBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.cbbCaja = new System.Windows.Forms.ComboBox();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.cbbItemTipodeCierre = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEjecutar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.CierreTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.CierreTableAdapter();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // CierreBindingSource
@@ -108,40 +107,36 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.96124F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.83942F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.43743F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.69214F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.75969F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnCancelar, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.btnEjecutar, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.btnNuevo, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 62.76596F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.23404F));
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(903, 92);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.cbbTipoCierre);
+            this.groupBox2.Controls.Add(this.cbbItemTipodeCierre);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(174, 51);
+            this.groupBox2.Size = new System.Drawing.Size(314, 86);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Numero de Caja";
+            this.groupBox2.Text = "Tipo de Cierre";
             // 
             // cbbTipoCierre
             // 
-            this.cbbTipoCierre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbbTipoCierre.Dock = System.Windows.Forms.DockStyle.Top;
             this.cbbTipoCierre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbTipoCierre.FormattingEnabled = true;
             this.cbbTipoCierre.Items.AddRange(new object[] {
@@ -149,54 +144,34 @@
             "Cierre Diario"});
             this.cbbTipoCierre.Location = new System.Drawing.Point(3, 18);
             this.cbbTipoCierre.Name = "cbbTipoCierre";
-            this.cbbTipoCierre.Size = new System.Drawing.Size(168, 23);
+            this.cbbTipoCierre.Size = new System.Drawing.Size(308, 23);
             this.cbbTipoCierre.TabIndex = 0;
             this.cbbTipoCierre.SelectedIndexChanged += new System.EventHandler(this.cbbTipoCierre_SelectedIndexChanged);
             // 
-            // flowLayoutPanel1
+            // cbbItemTipodeCierre
             // 
-            this.flowLayoutPanel1.Controls.Add(this.cbbCaja);
-            this.flowLayoutPanel1.Controls.Add(this.dtpFecha);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(183, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(400, 51);
-            this.flowLayoutPanel1.TabIndex = 15;
-            // 
-            // cbbCaja
-            // 
-            this.cbbCaja.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbbCaja.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCaja.FormattingEnabled = true;
-            this.cbbCaja.Items.AddRange(new object[] {
+            this.cbbItemTipodeCierre.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.cbbItemTipodeCierre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbItemTipodeCierre.FormattingEnabled = true;
+            this.cbbItemTipodeCierre.Items.AddRange(new object[] {
             "Cierre de Caja",
             "Cierre Diario"});
-            this.cbbCaja.Location = new System.Drawing.Point(3, 3);
-            this.cbbCaja.Name = "cbbCaja";
-            this.cbbCaja.Size = new System.Drawing.Size(168, 23);
-            this.cbbCaja.TabIndex = 1;
-            this.cbbCaja.Visible = false;
-            // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpFecha.Location = new System.Drawing.Point(3, 9);
-            this.dtpFecha.MinDate = new System.DateTime(2017, 3, 1, 0, 0, 0, 0);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(277, 22);
-            this.dtpFecha.TabIndex = 21;
-            this.dtpFecha.Value = new System.DateTime(2017, 3, 25, 0, 0, 0, 0);
-            this.dtpFecha.Visible = false;
+            this.cbbItemTipodeCierre.Location = new System.Drawing.Point(3, 60);
+            this.cbbItemTipodeCierre.Name = "cbbItemTipodeCierre";
+            this.cbbItemTipodeCierre.Size = new System.Drawing.Size(308, 23);
+            this.cbbItemTipodeCierre.TabIndex = 1;
+            this.cbbItemTipodeCierre.Visible = false;
             // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(723, 60);
+            this.btnCancelar.Location = new System.Drawing.Point(3, 59);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(220, 24);
             this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -205,12 +180,13 @@
             // btnEjecutar
             // 
             this.btnEjecutar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEjecutar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnEjecutar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEjecutar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEjecutar.ForeColor = System.Drawing.Color.White;
-            this.btnEjecutar.Location = new System.Drawing.Point(723, 3);
+            this.btnEjecutar.Location = new System.Drawing.Point(3, 3);
             this.btnEjecutar.Name = "btnEjecutar";
-            this.btnEjecutar.Size = new System.Drawing.Size(75, 23);
+            this.btnEjecutar.Size = new System.Drawing.Size(220, 22);
             this.btnEjecutar.TabIndex = 13;
             this.btnEjecutar.Text = "Ejecutar";
             this.btnEjecutar.UseVisualStyleBackColor = false;
@@ -219,12 +195,13 @@
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(589, 3);
+            this.btnNuevo.Location = new System.Drawing.Point(3, 31);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(115, 23);
+            this.btnNuevo.Size = new System.Drawing.Size(220, 22);
             this.btnNuevo.TabIndex = 16;
             this.btnNuevo.Text = "Nuevo Cierre";
             this.btnNuevo.UseVisualStyleBackColor = false;
@@ -234,6 +211,23 @@
             // CierreTableAdapter
             // 
             this.CierreTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.btnCancelar, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.btnEjecutar, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnNuevo, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(323, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(226, 86);
+            this.tableLayoutPanel3.TabIndex = 17;
             // 
             // FrmCierreCajero
             // 
@@ -249,8 +243,9 @@
             this.Name = "FrmCierreCajero";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Soda Los Naranjitos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmCierreCajero_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).EndInit();
@@ -258,7 +253,7 @@
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -272,13 +267,12 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cbbTipoCierre;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.ComboBox cbbCaja;
-        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.ComboBox cbbItemTipodeCierre;
         private Microsoft.Reporting.WinForms.ReportViewer rptVReporteLocal;
         private System.Windows.Forms.BindingSource CierreBindingSource;
         private OrangeDB1DataSet OrangeDB1DataSet;
         private OrangeDB1DataSetTableAdapters.CierreTableAdapter CierreTableAdapter;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }
 }

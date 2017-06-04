@@ -18,7 +18,7 @@ namespace LosNaranjitos.BL.Clases
             //Factura_Compra.IdProveedor = Utilitario.Encriptar(Factura_Compra.IdProveedor, Utilitario.Llave);
             //Factura_Compra.IdFactura = Utilitario.Encriptar(Factura_Compra.IdFactura, Utilitario.Llave);
             //Factura_Compra.Observaciones = Utilitario.Encriptar(Factura_Compra.Observaciones, Utilitario.Llave);
-            //Factura_Compra.Operador = Utilitario.Encriptar(Factura_Compra.Operador, Utilitario.Llave);
+            Factura_Compra.Operador = Utilitario.Encriptar(Factura_Compra.Operador, Utilitario.Llave);
             FacturasOP.ActualizarFacturaCompra(Factura_Compra);
         }
 
@@ -28,7 +28,7 @@ namespace LosNaranjitos.BL.Clases
         //    Factura_Compra.IdProveedor = Utilitario.Encriptar(Factura_Compra.IdProveedor, Utilitario.Llave);
         //    Factura_Compra.IdFactura = Utilitario.Encriptar(Factura_Compra.IdFactura, Utilitario.Llave);
         //    Factura_Compra.Observaciones = Utilitario.Encriptar(Factura_Compra.Observaciones, Utilitario.Llave);
-        //    Factura_Compra.Operador = Utilitario.Encriptar(Factura_Compra.Operador, Utilitario.Llave);
+            Factura_Compra.Operador = Utilitario.Encriptar(Factura_Compra.Operador, Utilitario.Llave);
             FacturasOP.AgregarFacturaCompra(Factura_Compra);
 
         }
@@ -41,7 +41,7 @@ namespace LosNaranjitos.BL.Clases
             //FacturaCompraRetorno.IdProveedor = Utilitario.Decriptar(FacturaCompraRetorno.IdProveedor, Utilitario.Llave);
             //FacturaCompraRetorno.IdFactura = Utilitario.Decriptar(FacturaCompraRetorno.IdFactura, Utilitario.Llave);
             //FacturaCompraRetorno.Observaciones = Utilitario.Decriptar(FacturaCompraRetorno.Observaciones, Utilitario.Llave);
-            //FacturaCompraRetorno.Operador = Utilitario.Decriptar(FacturaCompraRetorno.Operador, Utilitario.Llave);
+            FacturaCompraRetorno.Operador = Utilitario.Decriptar(FacturaCompraRetorno.Operador, Utilitario.Llave);
             return FacturaCompraRetorno;
         }
 
@@ -63,21 +63,21 @@ namespace LosNaranjitos.BL.Clases
             //Factura_Compra.IdProveedor = Utilitario.Encriptar(Factura_Compra.IdProveedor, Utilitario.Llave);
             //Factura_Compra.IdFactura = Utilitario.Encriptar(Factura_Compra.IdFactura, Utilitario.Llave);
             //Factura_Compra.Observaciones = Utilitario.Encriptar(Factura_Compra.Observaciones, Utilitario.Llave);
-            //Factura_Compra.Operador = Utilitario.Encriptar(Factura_Compra.Operador, Utilitario.Llave);
+            Factura_Compra.Operador = Utilitario.Encriptar(Factura_Compra.Operador, Utilitario.Llave);
             FacturasOP.Inactivar(Factura_Compra);
         }
 
         public List<DATOS.FacturaCompra> ListarFacturas()
         {
             List<DATOS.FacturaCompra> ListaRetorno = FacturasOP.ListarFacturas();
-            //foreach (var item in ListaRetorno)
-            //{
+            foreach (var item in ListaRetorno)
+            {
             //    item.Consecutivo = Utilitario.Decriptar(item.Consecutivo, Utilitario.Llave);
             //    item.IdProveedor = Utilitario.Decriptar(item.IdProveedor, Utilitario.Llave);
             //    item.IdFactura = Utilitario.Decriptar(item.IdFactura, Utilitario.Llave);
             //    item.Observaciones = Utilitario.Decriptar(item.Observaciones, Utilitario.Llave);
-            //    item.Operador = Utilitario.Decriptar(item.Operador, Utilitario.Llave);
-            //}
+                item.Operador = Utilitario.Decriptar(item.Operador, Utilitario.Llave);
+            }
             return ListaRetorno;
         }
     }

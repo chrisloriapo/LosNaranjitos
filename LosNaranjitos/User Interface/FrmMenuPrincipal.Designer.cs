@@ -77,6 +77,7 @@
             this.tsmVentanas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.tmerTiempo = new System.Windows.Forms.Timer(this.components);
+            this.parametrosDeImpresiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.grbMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -177,6 +178,7 @@
             this.tsmSistema.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiCerrarSesion,
             this.tsiPasswordChange,
+            this.parametrosDeImpresiónToolStripMenuItem,
             this.tsiAbout,
             this.tsiSalir});
             resources.ApplyResources(this.tsmSistema, "tsmSistema");
@@ -405,6 +407,12 @@
             // 
             this.tmerTiempo.Tick += new System.EventHandler(this.tmerTiempo_Tick);
             // 
+            // parametrosDeImpresiónToolStripMenuItem
+            // 
+            this.parametrosDeImpresiónToolStripMenuItem.Name = "parametrosDeImpresiónToolStripMenuItem";
+            resources.ApplyResources(this.parametrosDeImpresiónToolStripMenuItem, "parametrosDeImpresiónToolStripMenuItem");
+            this.parametrosDeImpresiónToolStripMenuItem.Click += new System.EventHandler(this.parametrosDeImpresiónToolStripMenuItem_Click);
+            // 
             // FrmMenuPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -483,6 +491,7 @@
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.ToolStripMenuItem tsiPasswordChange;
+        private System.Windows.Forms.ToolStripMenuItem parametrosDeImpresiónToolStripMenuItem;
     }
 }
 

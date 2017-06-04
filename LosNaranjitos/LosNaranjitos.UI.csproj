@@ -50,6 +50,15 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\itextsharp-dll-core\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\packages\itextsharp-dll-pdfa\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\packages\itextsharp-dll-xtra\itextsharp.xtra.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -105,6 +114,7 @@
     </Compile>
     <Compile Include="Tools\Email.cs" />
     <Compile Include="Tools\PasswordPolicy.cs" />
+    <Compile Include="Tools\Ticket.cs" />
     <Compile Include="User Interface\FrmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -278,6 +288,12 @@
     </Compile>
     <Compile Include="User Interface\FrmModificarOrden.Designer.cs">
       <DependentUpon>FrmModificarOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\FrmParametros de Impresion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Interface\FrmParametros de Impresion.Designer.cs">
+      <DependentUpon>FrmParametros de Impresion.cs</DependentUpon>
     </Compile>
     <Compile Include="User Interface\FrmPasswordChange.cs">
       <SubType>Form</SubType>
@@ -478,6 +494,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User Interface\FrmModificarOrden.resx">
       <DependentUpon>FrmModificarOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\FrmParametros de Impresion.resx">
+      <DependentUpon>FrmParametros de Impresion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Interface\FrmPasswordChange.resx">
       <DependentUpon>FrmPasswordChange.cs</DependentUpon>

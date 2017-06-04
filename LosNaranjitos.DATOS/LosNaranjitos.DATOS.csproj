@@ -53,6 +53,7 @@
     <Compile Include="FacturaCompra.cs" />
     <Compile Include="Insumos.cs" />
     <Compile Include="Medida.cs" />
+    <Compile Include="Parametros.cs" />
     <Compile Include="Pedido.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="ProductoInsumo.cs" />

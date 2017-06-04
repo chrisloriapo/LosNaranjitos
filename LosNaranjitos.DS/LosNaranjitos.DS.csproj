@@ -87,6 +87,7 @@
     <Compile Include="Clases\FacturaCompra.cs" />
     <Compile Include="Clases\Insumos.cs" />
     <Compile Include="Clases\Medida.cs" />
+    <Compile Include="Clases\Parametros.cs" />
     <Compile Include="Clases\Pedido.cs" />
     <Compile Include="Clases\Producto.cs" />
     <Compile Include="Clases\ProductoInsumo.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Interfaces\IFacturaCompra.cs" />
     <Compile Include="Interfaces\IInsumos.cs" />
     <Compile Include="Interfaces\IMedida.cs" />
+    <Compile Include="Interfaces\IParametros.cs" />
     <Compile Include="Interfaces\IPedido.cs" />
     <Compile Include="Interfaces\IProducto.cs" />
     <Compile Include="Interfaces\IProductoInsumo.cs" />

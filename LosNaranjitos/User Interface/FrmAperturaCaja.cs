@@ -83,8 +83,10 @@ namespace LosNaranjitos
                         a.MinimizeBox = false;
                         a.MaximizeBox = false;
                         a.Dock = DockStyle.Fill;
+                        a.WindowState = FormWindowState.Maximized;
                     }
                     a.Show();
+                    a.WindowState = FormWindowState.Maximized;
                     this.Dispose();
                 }
                 else

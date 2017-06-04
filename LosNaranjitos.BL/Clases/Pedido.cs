@@ -20,7 +20,7 @@ namespace LosNaranjitos.BL.Clases
         {
             //Orden.Consecutivo = Utilitario.Encriptar(Orden.Consecutivo, Utilitario.Llave);
             //Orden.IdCliente = Utilitario.Encriptar(Orden.IdCliente, Utilitario.Llave);
-            //Orden.Operador = Utilitario.Encriptar(Orden.Operador, Utilitario.Llave);
+            Orden.Operador = Utilitario.Encriptar(Orden.Operador, Utilitario.Llave);
             //if (Orden.Observaciones != null)
             //{
             //    Orden.Observaciones = Utilitario.Encriptar(Orden.Observaciones, Utilitario.Llave);
@@ -32,7 +32,7 @@ namespace LosNaranjitos.BL.Clases
         {
             //Orden.Consecutivo = Utilitario.Encriptar(Orden.Consecutivo, Utilitario.Llave);
             //Orden.IdCliente = Utilitario.Encriptar(Orden.IdCliente, Utilitario.Llave);
-            //Orden.Operador = Utilitario.Encriptar(Orden.Operador, Utilitario.Llave);
+            Orden.Operador = Utilitario.Encriptar(Orden.Operador, Utilitario.Llave);
             //if (Orden.Observaciones != null)
             //{
             //    Orden.Observaciones = Utilitario.Encriptar(Orden.Observaciones, Utilitario.Llave);
@@ -46,7 +46,7 @@ namespace LosNaranjitos.BL.Clases
             DATOS.Pedido PedidoRetorno = PedidProdc.BuscarPedido(IdPedido);
             //PedidoRetorno.Consecutivo = Utilitario.Decriptar(PedidoRetorno.Consecutivo, Utilitario.Llave);
             //PedidoRetorno.IdCliente = Utilitario.Decriptar(PedidoRetorno.IdCliente, Utilitario.Llave);
-            //PedidoRetorno.Operador = Utilitario.Decriptar(PedidoRetorno.Operador, Utilitario.Llave);
+            PedidoRetorno.Operador = Utilitario.Decriptar(PedidoRetorno.Operador, Utilitario.Llave);
             //if (PedidoRetorno.Observaciones != null)
             //{
             //    PedidoRetorno.Observaciones = Utilitario.Decriptar(PedidoRetorno.Observaciones, Utilitario.Llave);
@@ -60,7 +60,7 @@ namespace LosNaranjitos.BL.Clases
             DATOS.Pedido PedidoRetorno = PedidProdc.BuscarProductoCliente(IdCliente);
             //PedidoRetorno.Consecutivo = Utilitario.Decriptar(PedidoRetorno.Consecutivo, Utilitario.Llave);
             //PedidoRetorno.IdCliente = Utilitario.Decriptar(PedidoRetorno.IdCliente, Utilitario.Llave);
-            //PedidoRetorno.Operador = Utilitario.Decriptar(PedidoRetorno.Operador, Utilitario.Llave);
+            PedidoRetorno.Operador = Utilitario.Decriptar(PedidoRetorno.Operador, Utilitario.Llave);
             //if (PedidoRetorno.Observaciones != null)
             //{
             //    PedidoRetorno.Observaciones = Utilitario.Decriptar(PedidoRetorno.Observaciones, Utilitario.Llave);
@@ -74,7 +74,7 @@ namespace LosNaranjitos.BL.Clases
             DATOS.Pedido PedidoRetorno = PedidProdc.BuscarProductoConsecutivo(Consec);
             //PedidoRetorno.Consecutivo = Utilitario.Decriptar(PedidoRetorno.Consecutivo, Utilitario.Llave);
             //PedidoRetorno.IdCliente = Utilitario.Decriptar(PedidoRetorno.IdCliente, Utilitario.Llave);
-            //PedidoRetorno.Operador = Utilitario.Decriptar(PedidoRetorno.Operador, Utilitario.Llave);
+            PedidoRetorno.Operador = Utilitario.Decriptar(PedidoRetorno.Operador, Utilitario.Llave);
             //if (PedidoRetorno.Observaciones != null)
             //{
             //    PedidoRetorno.Observaciones = Utilitario.Decriptar(PedidoRetorno.Observaciones, Utilitario.Llave);
@@ -92,7 +92,7 @@ namespace LosNaranjitos.BL.Clases
         {
             //Orden.Consecutivo = Utilitario.Encriptar(Orden.Consecutivo, Utilitario.Llave);
             //Orden.IdCliente = Utilitario.Encriptar(Orden.IdCliente, Utilitario.Llave);
-            //Orden.Operador = Utilitario.Encriptar(Orden.Operador, Utilitario.Llave);
+            Orden.Operador = Utilitario.Encriptar(Orden.Operador, Utilitario.Llave);
             //if (Orden.Observaciones != null)
             //{
             //    Orden.Observaciones = Utilitario.Encriptar(Orden.Observaciones, Utilitario.Llave);
@@ -104,16 +104,16 @@ namespace LosNaranjitos.BL.Clases
         public List<DATOS.Pedido> ListarPedido()
         {
             List<DATOS.Pedido> ListaRetorno = PedidProdc.ListarPedido();
-            //foreach (var item in ListaRetorno)
-            //{
+            foreach (var item in ListaRetorno)
+            {
             //    item.Consecutivo = Utilitario.Decriptar(item.Consecutivo, Utilitario.Llave);
             //    item.IdCliente = Utilitario.Decriptar(item.IdCliente, Utilitario.Llave);
-            //    item.Operador = Utilitario.Decriptar(item.Operador, Utilitario.Llave);
+                item.Operador = Utilitario.Decriptar(item.Operador, Utilitario.Llave);
             //    if (item.Observaciones != null)
             //    {
             //        item.Observaciones = Utilitario.Decriptar(item.Observaciones, Utilitario.Llave);
             //    }
-            //}
+            }
             return ListaRetorno;
         }
     }

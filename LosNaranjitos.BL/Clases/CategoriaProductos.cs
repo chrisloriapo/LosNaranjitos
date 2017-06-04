@@ -26,16 +26,24 @@ namespace LosNaranjitos.BL.Clases
             CPProcedimiento.AgregarCategoriaProductos(Categoria);
         }
 
+        public DATOS.CategoriaProductos BuscarCategoriaPorDescripcion(string CategoriaName)
+        {
+            DATOS.CategoriaProductos CategoriaProductosLocal = new DATOS.CategoriaProductos();
+            CategoriaProductosLocal = CPProcedimiento.BuscarCategoriaPorDescripcion(CategoriaName);
+            return CategoriaProductosLocal;
+
+        }
+
         public DATOS.CategoriaProductos BuscarCategoriaProductos(int IDCategoria)
         {
             //IDCategoria = Utilitario.Encriptar(IDCategoria, Utilitario.Llave);
             DATOS.CategoriaProductos CategoriaProductosLocal = new DATOS.CategoriaProductos();
             CategoriaProductosLocal = CPProcedimiento.BuscarCategoriaProductos(IDCategoria);
-            DATOS.CategoriaProductos CategoriaProductosRetorno = new DATOS.CategoriaProductos();
+           // DATOS.CategoriaProductos CategoriaProductosRetorno = new DATOS.CategoriaProductos();
             //CategoriaProductosRetorno.IdTipo = Utilitario.Decriptar(CategoriaProductosLocal.IdTipo, Utilitario.Llave);
             //CategoriaProductosRetorno.Descripcion = Utilitario.Decriptar(CategoriaProductosLocal.Descripcion, Utilitario.Llave);
-            CategoriaProductosRetorno.Activo = CategoriaProductosLocal.Activo;
-            return CategoriaProductosRetorno;
+         //   CategoriaProductosRetorno.Activo = CategoriaProductosLocal.Activo;
+            return CategoriaProductosLocal;
         }
 
         public bool ExisteCategoriaProductos(int IDCategoria)

@@ -27,7 +27,7 @@ namespace LosNaranjitos
         {
             try
             {
-                if (!Utilitarios.Cambio )
+                if (!Utilitarios.Cambio)
                 {
                     //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
@@ -47,7 +47,7 @@ namespace LosNaranjitos
                         }
                         else
                         {
-                            lblConsecutivo.Text = UltimaMedida.Consecutivo.ToString();
+                            lblConsecutivo.Text = (UltimaMedida.Consecutivo + 1).ToString();
 
                         }
                     }
@@ -74,8 +74,15 @@ namespace LosNaranjitos
                     //}
                 }
                 ListaMedidas = Utilitarios.OpMedidas.ListarMedidas();
-                var ListaLocal = ListaMedidas.ToList();
+                var ListaLocal = ListaMedidas.Select(a => new
+                {
+                    a.IdMedida,
+                    a.Descripcion,
+
+                }).ToList();
                 dgvListado.DataSource = ListaLocal;
+                dgvListado.Columns[0].HeaderText = "Unidad de Medida";
+                dgvListado.Columns[1].HeaderText = "Descripción";
 
                 var autosearch = new AutoCompleteStringCollection();
                 txtBuscar.AutoCompleteCustomSource = autosearch;
@@ -93,7 +100,7 @@ namespace LosNaranjitos
                 while (Utilitarios.Cambio)
                 {
                     txtMedida.ReadOnly = true;
-                    tabControl1.SelectedIndex = 1;
+                    tabControl1.SelectedIndex = 0;
                     if (Utilitarios.Cambio)
                     {
                         txtMedida.Text = EditMedida.IdMedida;
@@ -156,7 +163,8 @@ namespace LosNaranjitos
 
                         MessageBox.Show("Las medidas se ingresaron de manera correcta",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Dispose();
+                        txtBuscar.Clear(); txtDescripcion.Clear(); txtMedida.Clear();
+                        this.FrmMedidas_Load(sender, e);
                     }
                 }
                 catch (Exception ex)
@@ -247,7 +255,15 @@ namespace LosNaranjitos
             try
             {
                 ListaMedidas = Utilitarios.OpMedidas.ListarMedidas();
-                var ListaLocal = ListaMedidas.ToList();
+                var ListaLocal = ListaMedidas.Select(a => new
+                {
+                    a.IdMedida,
+                    a.Descripcion,
+
+                }).ToList();
+                dgvListado.DataSource = ListaLocal;
+                dgvListado.Columns[0].HeaderText = "Unidad de Medida";
+                dgvListado.Columns[1].HeaderText = "Descripción";
                 ListaLocal = ListaLocal.Where(x => x.Descripcion == txtBuscar.Text).ToList();
                 dgvListado.DataSource = ListaLocal;
             }

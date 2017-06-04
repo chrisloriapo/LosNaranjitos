@@ -484,25 +484,31 @@
     <value>Britannic Bold, 9pt</value>
   </data>
   <data name="tsiCerrarSesion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
+    <value>209, 22</value>
   </data>
   <data name="tsiCerrarSesion.Text" xml:space="preserve">
     <value>Cerrar Sesion</value>
   </data>
   <data name="tsiPasswordChange.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
+    <value>209, 22</value>
   </data>
   <data name="tsiPasswordChange.Text" xml:space="preserve">
     <value>Cambiar Contraseña</value>
   </data>
+  <data name="parametrosDeImpresiónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 22</value>
+  </data>
+  <data name="parametrosDeImpresiónToolStripMenuItem.Text" xml:space="preserve">
+    <value>Parametros de Impresión</value>
+  </data>
   <data name="tsiAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
+    <value>209, 22</value>
   </data>
   <data name="tsiAbout.Text" xml:space="preserve">
     <value>Acerca de...</value>
   </data>
   <data name="tsiSalir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 22</value>
+    <value>209, 22</value>
   </data>
   <data name="tsiSalir.Text" xml:space="preserve">
     <value>Salir</value>
@@ -643,13 +649,13 @@
     <value>Ventas</value>
   </data>
   <data name="tsiUsuarios.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="tsiUsuarios.Text" xml:space="preserve">
     <value>Usuarios</value>
   </data>
   <data name="tsiConsecutivos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="tsiConsecutivos.Text" xml:space="preserve">
     <value>Consecutivos</value>
@@ -667,7 +673,7 @@
     <value>Errores Registrados</value>
   </data>
   <data name="tsiBitacora.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="tsiBitacora.Text" xml:space="preserve">
     <value>Bitacora</value>
@@ -3702,6 +3708,12 @@
   </data>
   <data name="&gt;&gt;tmerTiempo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;parametrosDeImpresiónToolStripMenuItem.Name" xml:space="preserve">
+    <value>parametrosDeImpresiónToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;parametrosDeImpresiónToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMenuPrincipal</value>

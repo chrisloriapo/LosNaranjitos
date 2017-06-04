@@ -43,7 +43,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.lblPasswordReset = new System.Windows.Forms.Label();
+            this.lblPasswordReset = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -201,12 +201,11 @@
             // lblPasswordReset
             // 
             this.lblPasswordReset.AutoSize = true;
-            this.lblPasswordReset.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPasswordReset.ForeColor = System.Drawing.Color.Black;
-            this.lblPasswordReset.Location = new System.Drawing.Point(119, 121);
+            this.lblPasswordReset.Location = new System.Drawing.Point(112, 121);
             this.lblPasswordReset.Name = "lblPasswordReset";
-            this.lblPasswordReset.Size = new System.Drawing.Size(223, 14);
-            this.lblPasswordReset.TabIndex = 10;
+            this.lblPasswordReset.Size = new System.Drawing.Size(273, 16);
+            this.lblPasswordReset.TabIndex = 11;
+            this.lblPasswordReset.TabStop = true;
             this.lblPasswordReset.Text = "¿Ólvidaste tu Contraseña? Presiona Aquí";
             this.lblPasswordReset.Click += new System.EventHandler(this.lblPasswordReset_Click);
             // 
@@ -252,6 +251,6 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label lblPasswordReset;
+        private System.Windows.Forms.LinkLabel lblPasswordReset;
     }
 }

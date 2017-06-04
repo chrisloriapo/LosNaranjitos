@@ -16,6 +16,8 @@ namespace LosNaranjitos
         public DATOS.Bitacora BIT = new DATOS.Bitacora();
         public static DATOS.Usuario UsuarioGlobal = new DATOS.Usuario();
         public static FrmMenuPrincipal MN = new FrmMenuPrincipal();
+        public static FrmMenuCaja MC = new FrmMenuCaja();
+
 
         public FrmLogin()
         {
@@ -26,7 +28,6 @@ namespace LosNaranjitos
         {
             //try
             //{
-            FrmMenuCaja MC = new FrmMenuCaja();
 
             bool Ingreso = ValidarUser();
             if (Ingreso)
