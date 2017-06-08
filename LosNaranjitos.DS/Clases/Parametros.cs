@@ -33,6 +33,14 @@ namespace LosNaranjitos.DS.Clases
             return Buscar;
         }
 
+        public DATOS.Parametros BuscarParametrosPorNombre(string ParameterName)
+        {
+            var conexion = _Conexion.CrearConexion();
+            var db = conexion.Open();
+            DATOS.Parametros Buscar = db.Select<DATOS.Parametros>(x => x.Nombre == ParameterName).FirstOrDefault();
+            return Buscar;
+        }
+
         public List<DATOS.Parametros> ListarRegistros()
         {
             var conexion = _Conexion.CrearConexion();

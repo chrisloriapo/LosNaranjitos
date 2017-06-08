@@ -33,6 +33,8 @@ namespace LosNaranjitos.DATOS
 
         public bool Cancelado { get; set; }
 
+        public bool CompletoCocina { get; set; }
+
         public bool Activo { get; set; }
 
         public bool CierreOperador { get; set; }

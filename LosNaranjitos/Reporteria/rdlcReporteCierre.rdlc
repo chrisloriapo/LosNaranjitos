@@ -347,6 +347,17 @@
                     <Style />
                   </TextRun>
                   <TextRun>
+                    <Value>₡</Value>
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                      <Color>#333333</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
                     <Value>=First(Fields!MontoTotal.Value, "DataSet1")</Value>
                     <Style>
                       <Format>#,0.00;(#,0.00)</Format>
@@ -386,13 +397,13 @@
         </Style>
       </Rectangle>
     </ReportItems>
-    <Height>3.47259in</Height>
+    <Height>3.98301in</Height>
     <Style />
   </Body>
   <Width>10.82677in</Width>
   <Page>
     <PageHeader>
-      <Height>2.68859cm</Height>
+      <Height>3.05669cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -400,10 +411,10 @@
           <Source>Embedded</Source>
           <Value>Naranjitos1</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.54894cm</Top>
-          <Left>20.93623cm</Left>
-          <Height>1.81983cm</Height>
-          <Width>2.60485cm</Width>
+          <Top>0.37255cm</Top>
+          <Left>20.72456cm</Left>
+          <Height>2.50775cm</Height>
+          <Width>4.58922cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -417,16 +428,6 @@
         </Border>
       </Style>
     </PageHeader>
-    <PageFooter>
-      <Height>5.76792cm</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.CierreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.OrangeDB1DataSet = new LosNaranjitos.OrangeDB1DataSet();
             this.BitacoraBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -69,14 +69,14 @@
             // 
             // rpvBitacora
             // 
-            reportDataSource3.Name = "DataSet1";
-            reportDataSource3.Value = this.CierreBindingSource;
-            this.rpvBitacora.LocalReport.DataSources.Add(reportDataSource3);
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.CierreBindingSource;
+            this.rpvBitacora.LocalReport.DataSources.Add(reportDataSource1);
             this.rpvBitacora.LocalReport.ReportEmbeddedResource = "LosNaranjitos.Reporteria.rdlcReporteCierre.rdlc";
             this.rpvBitacora.Location = new System.Drawing.Point(0, 0);
             this.rpvBitacora.Name = "rpvBitacora";
             this.rpvBitacora.ServerReport.BearerToken = null;
-            this.rpvBitacora.Size = new System.Drawing.Size(294, 150);
+            this.rpvBitacora.Size = new System.Drawing.Size(464, 211);
             this.rpvBitacora.TabIndex = 0;
             // 
             // DTReporteBitacoraBindingSource
@@ -110,7 +110,7 @@
             this.chkLechuga.AutoSize = true;
             this.chkLechuga.Checked = true;
             this.chkLechuga.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLechuga.Location = new System.Drawing.Point(428, 200);
+            this.chkLechuga.Location = new System.Drawing.Point(550, 351);
             this.chkLechuga.Name = "chkLechuga";
             this.chkLechuga.Size = new System.Drawing.Size(50, 17);
             this.chkLechuga.TabIndex = 5;
@@ -122,7 +122,7 @@
             // 
             this.txtObservacionesPP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtObservacionesPP.Font = new System.Drawing.Font("Exo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservacionesPP.Location = new System.Drawing.Point(55, 177);
+            this.txtObservacionesPP.Location = new System.Drawing.Point(48, 230);
             this.txtObservacionesPP.Multiline = true;
             this.txtObservacionesPP.Name = "txtObservacionesPP";
             this.txtObservacionesPP.Size = new System.Drawing.Size(300, 138);
@@ -130,7 +130,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(300, 12);
+            this.button1.Location = new System.Drawing.Point(550, 55);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;

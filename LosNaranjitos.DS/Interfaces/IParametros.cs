@@ -15,5 +15,8 @@ namespace LosNaranjitos.DS.Interfaces
         void AgregarParametro(DATOS.Parametros Parametro);
 
         void ActualizarParametro(DATOS.Parametros Parametro);
+
+        DATOS.Parametros BuscarParametrosPorNombre(string ParameterName);
+
     }
 }

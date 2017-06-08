@@ -33,15 +33,12 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.chkCancelado = new System.Windows.Forms.CheckBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblOrden = new System.Windows.Forms.Label();
             this.chkEntregado = new System.Windows.Forms.CheckBox();
-            this.chkCancelado = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnPagar = new System.Windows.Forms.Button();
-            this.btnEntregarPagar = new System.Windows.Forms.Button();
-            this.btnEntregar = new System.Windows.Forms.Button();
+            this.chkCocinado = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.cbbCliente = new System.Windows.Forms.ComboBox();
@@ -67,13 +64,19 @@
             this.chkOtro = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnCompletarOrden = new System.Windows.Forms.Button();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnPagar = new System.Windows.Forms.Button();
+            this.btnEntregarPagar = new System.Windows.Forms.Button();
+            this.btnEntregar = new System.Windows.Forms.Button();
             this.dgvOrdenesVista = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -82,6 +85,8 @@
             this.tableLayoutPanel29.SuspendLayout();
             this.tableLayoutPanel30.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesVista)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,11 +126,11 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.Controls.Add(this.groupBox4, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox3, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox5, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel7, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel2.ForeColor = System.Drawing.Color.White;
@@ -152,13 +157,16 @@
             // 
             // tableLayoutPanel6
             // 
-            this.tableLayoutPanel6.ColumnCount = 2;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.Controls.Add(this.chkCancelado, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.lblTotal, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.lblOrden, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.chkEntregado, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.chkCancelado, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.chkCocinado, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label1, 2, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 21);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -168,14 +176,29 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(336, 100);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
+            // chkCancelado
+            // 
+            this.chkCancelado.AutoSize = true;
+            this.chkCancelado.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkCancelado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkCancelado.Enabled = false;
+            this.chkCancelado.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCancelado.Location = new System.Drawing.Point(3, 53);
+            this.chkCancelado.Name = "chkCancelado";
+            this.chkCancelado.Size = new System.Drawing.Size(106, 44);
+            this.chkCancelado.TabIndex = 6;
+            this.chkCancelado.Text = "Cancelado";
+            this.chkCancelado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkCancelado.UseVisualStyleBackColor = true;
+            // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTotal.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(171, 0);
+            this.lblTotal.Location = new System.Drawing.Point(115, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(162, 50);
+            this.lblTotal.Size = new System.Drawing.Size(106, 50);
             this.lblTotal.TabIndex = 3;
             this.lblTotal.Text = "Total: ";
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -187,7 +210,7 @@
             this.lblOrden.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrden.Location = new System.Drawing.Point(3, 0);
             this.lblOrden.Name = "lblOrden";
-            this.lblOrden.Size = new System.Drawing.Size(162, 50);
+            this.lblOrden.Size = new System.Drawing.Size(106, 50);
             this.lblOrden.TabIndex = 2;
             this.lblOrden.Text = "#Orden: ";
             this.lblOrden.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -199,102 +222,40 @@
             this.chkEntregado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkEntregado.Enabled = false;
             this.chkEntregado.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEntregado.Location = new System.Drawing.Point(3, 53);
+            this.chkEntregado.Location = new System.Drawing.Point(115, 53);
             this.chkEntregado.Name = "chkEntregado";
-            this.chkEntregado.Size = new System.Drawing.Size(162, 44);
+            this.chkEntregado.Size = new System.Drawing.Size(106, 44);
             this.chkEntregado.TabIndex = 1;
             this.chkEntregado.Text = "Entregado";
             this.chkEntregado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkEntregado.UseVisualStyleBackColor = true;
             // 
-            // chkCancelado
+            // chkCocinado
             // 
-            this.chkCancelado.AutoSize = true;
-            this.chkCancelado.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkCancelado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkCancelado.Enabled = false;
-            this.chkCancelado.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkCancelado.Location = new System.Drawing.Point(171, 53);
-            this.chkCancelado.Name = "chkCancelado";
-            this.chkCancelado.Size = new System.Drawing.Size(162, 44);
-            this.chkCancelado.TabIndex = 0;
-            this.chkCancelado.Text = "Cancelado";
-            this.chkCancelado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.chkCancelado.UseVisualStyleBackColor = true;
+            this.chkCocinado.AutoSize = true;
+            this.chkCocinado.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkCocinado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chkCocinado.Enabled = false;
+            this.chkCocinado.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCocinado.Location = new System.Drawing.Point(227, 53);
+            this.chkCocinado.Name = "chkCocinado";
+            this.chkCocinado.Size = new System.Drawing.Size(106, 44);
+            this.chkCocinado.TabIndex = 0;
+            this.chkCocinado.Text = "Preparado";
+            this.chkCocinado.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chkCocinado.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel4
+            // label1
             // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.btnModificar, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.btnPagar, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.btnEntregarPagar, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnEntregar, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel4.ForeColor = System.Drawing.Color.White;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(699, 3);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(344, 123);
-            this.tableLayoutPanel4.TabIndex = 1;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnModificar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Location = new System.Drawing.Point(175, 64);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(166, 56);
-            this.btnModificar.TabIndex = 3;
-            this.btnModificar.Text = "Modificar Orden";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnPagar
-            // 
-            this.btnPagar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnPagar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagar.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagar.Location = new System.Drawing.Point(3, 64);
-            this.btnPagar.Name = "btnPagar";
-            this.btnPagar.Size = new System.Drawing.Size(166, 56);
-            this.btnPagar.TabIndex = 2;
-            this.btnPagar.Text = "Pagar Orden";
-            this.btnPagar.UseVisualStyleBackColor = false;
-            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
-            // 
-            // btnEntregarPagar
-            // 
-            this.btnEntregarPagar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnEntregarPagar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEntregarPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEntregarPagar.Location = new System.Drawing.Point(175, 3);
-            this.btnEntregarPagar.Name = "btnEntregarPagar";
-            this.btnEntregarPagar.Size = new System.Drawing.Size(166, 55);
-            this.btnEntregarPagar.TabIndex = 1;
-            this.btnEntregarPagar.Text = "Entregar y Pagar";
-            this.btnEntregarPagar.UseVisualStyleBackColor = false;
-            this.btnEntregarPagar.Click += new System.EventHandler(this.btnEntregarPagar_Click);
-            // 
-            // btnEntregar
-            // 
-            this.btnEntregar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnEntregar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEntregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEntregar.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEntregar.Location = new System.Drawing.Point(3, 3);
-            this.btnEntregar.Name = "btnEntregar";
-            this.btnEntregar.Size = new System.Drawing.Size(166, 55);
-            this.btnEntregar.TabIndex = 0;
-            this.btnEntregar.Text = "Entregar Orden";
-            this.btnEntregar.UseVisualStyleBackColor = false;
-            this.btnEntregar.Click += new System.EventHandler(this.btnEntregar_Click);
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(227, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 50);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Orden Preparada";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox2
             // 
@@ -467,7 +428,7 @@
             this.tableLayoutPanel29.Name = "tableLayoutPanel29";
             this.tableLayoutPanel29.RowCount = 1;
             this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel29.Size = new System.Drawing.Size(338, 100);
             this.tableLayoutPanel29.TabIndex = 3;
             // 
@@ -635,6 +596,109 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.btnCompletarOrden, 0, 1);
+            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(699, 3);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 2;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.98374F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26.01626F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(344, 123);
+            this.tableLayoutPanel7.TabIndex = 6;
+            // 
+            // btnCompletarOrden
+            // 
+            this.btnCompletarOrden.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCompletarOrden.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCompletarOrden.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompletarOrden.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompletarOrden.Location = new System.Drawing.Point(3, 94);
+            this.btnCompletarOrden.Name = "btnCompletarOrden";
+            this.btnCompletarOrden.Size = new System.Drawing.Size(338, 26);
+            this.btnCompletarOrden.TabIndex = 2;
+            this.btnCompletarOrden.Text = "Completar Orden en Cocina";
+            this.btnCompletarOrden.UseVisualStyleBackColor = false;
+            this.btnCompletarOrden.Click += new System.EventHandler(this.btnCompletarOrden_Click);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.btnModificar, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.btnPagar, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.btnEntregarPagar, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnEntregar, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tableLayoutPanel4.ForeColor = System.Drawing.Color.White;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(338, 85);
+            this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnModificar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Location = new System.Drawing.Point(172, 45);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(163, 37);
+            this.btnModificar.TabIndex = 3;
+            this.btnModificar.Text = "Modificar Orden";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnPagar
+            // 
+            this.btnPagar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnPagar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagar.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagar.Location = new System.Drawing.Point(3, 45);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.Size = new System.Drawing.Size(163, 37);
+            this.btnPagar.TabIndex = 2;
+            this.btnPagar.Text = "Pagar Orden";
+            this.btnPagar.UseVisualStyleBackColor = false;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
+            // 
+            // btnEntregarPagar
+            // 
+            this.btnEntregarPagar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEntregarPagar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEntregarPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntregarPagar.Location = new System.Drawing.Point(172, 3);
+            this.btnEntregarPagar.Name = "btnEntregarPagar";
+            this.btnEntregarPagar.Size = new System.Drawing.Size(163, 36);
+            this.btnEntregarPagar.TabIndex = 1;
+            this.btnEntregarPagar.Text = "Entregar y Pagar";
+            this.btnEntregarPagar.UseVisualStyleBackColor = false;
+            this.btnEntregarPagar.Click += new System.EventHandler(this.btnEntregarPagar_Click);
+            // 
+            // btnEntregar
+            // 
+            this.btnEntregar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEntregar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEntregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntregar.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntregar.Location = new System.Drawing.Point(3, 3);
+            this.btnEntregar.Name = "btnEntregar";
+            this.btnEntregar.Size = new System.Drawing.Size(163, 36);
+            this.btnEntregar.TabIndex = 0;
+            this.btnEntregar.Text = "Entregar Orden";
+            this.btnEntregar.UseVisualStyleBackColor = false;
+            this.btnEntregar.Click += new System.EventHandler(this.btnEntregar_Click);
+            // 
             // dgvOrdenesVista
             // 
             this.dgvOrdenesVista.AllowUserToAddRows = false;
@@ -674,7 +738,6 @@
             this.groupBox4.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
@@ -686,6 +749,8 @@
             this.tableLayoutPanel30.ResumeLayout(false);
             this.tableLayoutPanel30.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesVista)).EndInit();
             this.ResumeLayout(false);
 
@@ -707,7 +772,7 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblOrden;
         private System.Windows.Forms.CheckBox chkEntregado;
-        private System.Windows.Forms.CheckBox chkCancelado;
+        private System.Windows.Forms.CheckBox chkCocinado;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnPagar;
@@ -733,5 +798,9 @@
         private System.Windows.Forms.CheckBox chkOtro;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Button btnCompletarOrden;
+        private System.Windows.Forms.CheckBox chkCancelado;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -24,10 +24,26 @@ namespace LosNaranjitos
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
+
+
+            var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Select(x => x.Fecha);
+
+            List<DateTime> Listasss = new List<DateTime>();
+
+            foreach (var item in ListaLocal)
             {
-                comboBox1.Items.Add(printer);
+                if (!Listasss.Contains(item.Date))
+                {
+                    Listasss.Add(item.Date);
+                }
             }
+
+            comboBox1.DataSource = Listasss.ToList();
+
+            //foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
+            //{
+            //    comboBox1.Items.Add(printer);
+            //}
 
 
 
@@ -37,7 +53,7 @@ namespace LosNaranjitos
             {
                 foreach (DataRow dr in OrangeDB1DataSet.Cierre.Rows)
                 {
-                    if (dr["Consecutivo"].ToString() != "4")
+                    if (dr["Consecutivo"].ToString() != "7")
                     {
                         dr.Delete();
                     }

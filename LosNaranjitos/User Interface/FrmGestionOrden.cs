@@ -77,6 +77,7 @@ namespace LosNaranjitos
                     lblTotal.Text = "₡ " + PedidoLocal.Subtotal;
                     chkEntregado.Checked = !PedidoLocal.Activo;
                     chkCancelado.Checked = PedidoLocal.Cancelado;
+                    chkCocinado.Checked = PedidoLocal.CompletoCocina;
 
                     Cliente ClienteLocal = Utilitarios.OpClientes.BuscarCliente(PedidoLocal.IdCliente);
                     lblNombre.Text = "Nombre: " + ClienteLocal.Nombre;
@@ -139,8 +140,8 @@ namespace LosNaranjitos
                     lblOrden.Text = PedidoLocal.Consecutivo.ToString();
                     lblTotal.Text = "₡ " + PedidoLocal.Subtotal;
                     chkEntregado.Checked = !PedidoLocal.Activo;
-                    chkCancelado.Checked = PedidoLocal.Cancelado;
-
+                    chkCancelado.Checked = PedidoLocal.CompletoCocina;
+                    chkCocinado.Checked = PedidoLocal.Cancelado;
 
                     List<DetallePedido> ListaSoporte = new List<DetallePedido>();
                     List<DetallePedido> OrdenDetalle = Utilitarios.OpDetallePedido.ListarDetallesPedido().Where(x => x.Consecutivo == PedidoLocal.Consecutivo).ToList();
@@ -186,7 +187,7 @@ namespace LosNaranjitos
                 MessageBox.Show("La Orden ya fue entregada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!chkCancelado.Checked)
+            if (!chkCocinado.Checked)
             {
                 MessageBox.Show("La Orden debe ser cancelada antes de entregar", "Orden No Cancelada", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -203,6 +204,7 @@ namespace LosNaranjitos
                 if (mensaje == DialogResult.Yes)
                 {
                     OrdenLocal.Activo = false;
+                    OrdenLocal.CompletoCocina = true;
                     OrdenLocal.Observaciones = OrdenLocal.Observaciones + " Orden Entregada a las " + DateTime.Now + ";";
                     Utilitarios.OpPedidos.ActualizarPedido(OrdenLocal);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + OrdenLocal.Consecutivo + " Entregada");
@@ -237,7 +239,7 @@ namespace LosNaranjitos
         private void btnPagar_Click(object sender, EventArgs e)
         {
 
-            if (chkCancelado.Checked)
+            if (chkCocinado.Checked)
             {
                 MessageBox.Show("La Orden ya ha sido cancelada", "Orden ya  Cancelada", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -311,6 +313,7 @@ namespace LosNaranjitos
                     OrdenLocal.Cancelado = true;
                     OrdenLocal.MontoEfectivo = Efectivo;
                     OrdenLocal.MontoOtro = Otro;
+                    OrdenLocal.CompletoCocina = false;
                     OrdenLocal.MontoTarjeta = Tarjeta;
                     OrdenLocal.MontoCambio = MontoDigitado - OrdenLocal.Subtotal;
                     OrdenLocal.Observaciones = OrdenLocal.Observaciones + " Orden Cancelada a las " + DateTime.Now + ";";
@@ -330,28 +333,24 @@ namespace LosNaranjitos
                     chkTarjeta.Checked = false;
                     chkEfectivo.Checked = false;
                     chkOtro.Checked = false;
-
                     this.FrmGestionOrden_Load(sender, e);
-
                 }
                 else
                 {
                     return;
                 }
             }
-
             catch (Exception ex)
             {
                 Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Caja al Someter y pagar la Orden");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void btnEntregarPagar_Click(object sender, EventArgs e)
         {
 
-            if (chkCancelado.Checked)
+            if (chkCocinado.Checked)
             {
                 MessageBox.Show("La Orden ya ha sido cancelada", "Orden ya  Cancelada", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -424,6 +423,7 @@ namespace LosNaranjitos
                     }
                     OrdenLocal.Cancelado = true;
                     OrdenLocal.Activo = false;
+                    OrdenLocal.CompletoCocina = true;
                     OrdenLocal.MontoEfectivo = Efectivo;
                     OrdenLocal.MontoOtro = Otro;
                     OrdenLocal.MontoTarjeta = Tarjeta;
@@ -548,6 +548,61 @@ namespace LosNaranjitos
         private void button1_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnCompletarOrden_Click(object sender, EventArgs e)
+        {
+            if (chkCocinado.Checked)
+            {
+                MessageBox.Show("La Orden ya Esta lista para entrega y Cobro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+           
+            try
+            {
+
+                var mensaje = MessageBox.Show("¿ Desea dar la orden " + lblOrden.Text + " por Completada?", "Advertencia",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(lblOrden.Text));
+
+                if (mensaje == DialogResult.Yes)
+                {
+                    OrdenLocal.Activo = false;
+                    OrdenLocal.CompletoCocina = true;
+                    OrdenLocal.Observaciones = OrdenLocal.Observaciones + " Orden Entregada a las " + DateTime.Now + ";";
+                    Utilitarios.OpPedidos.ActualizarPedido(OrdenLocal);
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + OrdenLocal.Consecutivo + " Entregada");
+                //Bandera para desplegar orden en pantalla adicional
+                    DATOS.Parametros Flag = new Parametros();
+                    Flag = Utilitarios.OpParametros.BuscarParametrosPorNombre("BanderaMonitor");
+                    Flag.Valor = "1";
+                    Utilitarios.OpParametros.ActualizarParametro(Flag);
+
+                    lblOrden.Text = "";
+                    lblTotal.Text = "";
+                    lblNombre.Text = "";
+                    lblApellidos.Text = "";
+                    txtTarjeta.Clear();
+                    txtOtro.Clear();
+                    txtEfectivo.Clear();
+                    chkTarjeta.Checked = false;
+                    chkEfectivo.Checked = false;
+                    chkOtro.Checked = false;
+                    this.FrmGestionOrden_Load(sender, e);
+
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Caja al Someter y pagar la Orden");
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

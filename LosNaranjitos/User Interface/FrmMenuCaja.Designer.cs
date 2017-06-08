@@ -70,7 +70,7 @@
             this.btnAperturaCaja.FlatAppearance.BorderSize = 0;
             this.btnAperturaCaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAperturaCaja.Font = new System.Drawing.Font("Britannic Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAperturaCaja.ForeColor = System.Drawing.Color.White;
+            this.btnAperturaCaja.ForeColor = System.Drawing.Color.Black;
             this.btnAperturaCaja.Location = new System.Drawing.Point(7, 6);
             this.btnAperturaCaja.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnAperturaCaja.Name = "btnAperturaCaja";
@@ -90,7 +90,7 @@
             this.btnCierre.FlatAppearance.BorderSize = 0;
             this.btnCierre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCierre.Font = new System.Drawing.Font("Britannic Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCierre.ForeColor = System.Drawing.Color.White;
+            this.btnCierre.ForeColor = System.Drawing.Color.Black;
             this.btnCierre.Location = new System.Drawing.Point(288, 241);
             this.btnCierre.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnCierre.Name = "btnCierre";
@@ -139,7 +139,7 @@
             this.btnSalir.FlatAppearance.BorderSize = 0;
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Britannic Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.ForeColor = System.Drawing.Color.Black;
             this.btnSalir.Location = new System.Drawing.Point(10, 9);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnSalir.Name = "btnSalir";
@@ -159,7 +159,7 @@
             this.btnCerrarSesion.FlatAppearance.BorderSize = 0;
             this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrarSesion.Font = new System.Drawing.Font("Britannic Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.Black;
             this.btnCerrarSesion.Location = new System.Drawing.Point(146, 122);
             this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.btnCerrarSesion.Name = "btnCerrarSesion";

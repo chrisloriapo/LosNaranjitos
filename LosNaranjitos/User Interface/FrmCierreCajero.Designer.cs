@@ -39,11 +39,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbbTipoCierre = new System.Windows.Forms.ComboBox();
             this.cbbItemTipodeCierre = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEjecutar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.CierreTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.CierreTableAdapter();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -161,6 +161,24 @@
             this.cbbItemTipodeCierre.Size = new System.Drawing.Size(308, 23);
             this.cbbItemTipodeCierre.TabIndex = 1;
             this.cbbItemTipodeCierre.Visible = false;
+            this.cbbItemTipodeCierre.SelectedIndexChanged += new System.EventHandler(this.cbbItemTipodeCierre_SelectedIndexChanged);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.btnCancelar, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.btnEjecutar, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.btnNuevo, 0, 1);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(323, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(226, 86);
+            this.tableLayoutPanel3.TabIndex = 17;
             // 
             // btnCancelar
             // 
@@ -211,23 +229,6 @@
             // CierreTableAdapter
             // 
             this.CierreTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.btnCancelar, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.btnEjecutar, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnNuevo, 0, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(323, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(226, 86);
-            this.tableLayoutPanel3.TabIndex = 17;
             // 
             // FrmCierreCajero
             // 

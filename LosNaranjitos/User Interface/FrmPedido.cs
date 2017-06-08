@@ -386,9 +386,9 @@ namespace LosNaranjitos
 
                         NuevaOrden.Subtotal = NuevaOrden.Subtotal + (CNT * PLocal.Precio);
                         decimal impuesto = (NuevaOrden.Subtotal * Convert.ToDecimal(0.13));
-                        lblImpuesto.Text = impuesto.ToString();
-                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString();
-                        lblTotal.Text = NuevaOrden.Subtotal.ToString();
+                        lblImpuesto.Text = impuesto.ToString("N");
+                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString("N");
+                        lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
                         txtCantidadPPrincipales.Clear();
                         txtObservacionesPP.Clear();
                     }
@@ -456,9 +456,9 @@ namespace LosNaranjitos
                         OrdenDetalle.Add(DetailPP);
                         NuevaOrden.Subtotal = NuevaOrden.Subtotal + DetailPP.SubTotal;
                         decimal impuesto = (NuevaOrden.Subtotal * Convert.ToDecimal(0.13));
-                        lblImpuesto.Text = impuesto.ToString();
-                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString();
-                        lblTotal.Text = NuevaOrden.Subtotal.ToString();
+                        lblImpuesto.Text = impuesto.ToString("N");
+                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString("N");
+                        lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
                         txtCantidadPPrincipales.Clear();
                         txtObservacionesPP.Clear();
 
@@ -554,9 +554,9 @@ namespace LosNaranjitos
 
                         NuevaOrden.Subtotal = NuevaOrden.Subtotal + (CNT * PLocal.Precio);
                         decimal impuesto = (NuevaOrden.Subtotal * Convert.ToDecimal(0.13));
-                        lblImpuesto.Text = impuesto.ToString();
-                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString();
-                        lblTotal.Text = NuevaOrden.Subtotal.ToString();
+                        lblImpuesto.Text = impuesto.ToString("N");
+                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString("N");
+                        lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
                         txtCantidadAdicionales.Clear();
                         txtObAdicionales.Clear();
                     }
@@ -586,9 +586,9 @@ namespace LosNaranjitos
                         OrdenDetalle.Add(DetailPP);
                         NuevaOrden.Subtotal = NuevaOrden.Subtotal + DetailPP.SubTotal;
                         decimal impuesto = (NuevaOrden.Subtotal * Convert.ToDecimal(0.13));
-                        lblImpuesto.Text = impuesto.ToString();
-                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString();
-                        lblTotal.Text = NuevaOrden.Subtotal.ToString();
+                        lblImpuesto.Text = impuesto.ToString("N");
+                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString("N");
+                        lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
                         txtCantidadPPrincipales.Clear();
                         txtObservacionesPP.Clear();
 
@@ -648,9 +648,9 @@ namespace LosNaranjitos
 
                         NuevaOrden.Subtotal = NuevaOrden.Subtotal + (CNT * PLocal.Precio);
                         decimal impuesto = (NuevaOrden.Subtotal * Convert.ToDecimal(0.13));
-                        lblImpuesto.Text = impuesto.ToString();
-                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString();
-                        lblTotal.Text = NuevaOrden.Subtotal.ToString();
+                        lblImpuesto.Text = impuesto.ToString("N");
+                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString("N");
+                        lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
                         txtCantBebidas.Clear();
                         txtObBebidas.Clear();
                     }
@@ -680,9 +680,9 @@ namespace LosNaranjitos
                         OrdenDetalle.Add(DetailPP);
                         NuevaOrden.Subtotal = NuevaOrden.Subtotal + DetailPP.SubTotal;
                         decimal impuesto = (NuevaOrden.Subtotal * Convert.ToDecimal(0.13));
-                        lblImpuesto.Text = impuesto.ToString();
-                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString();
-                        lblTotal.Text = NuevaOrden.Subtotal.ToString();
+                        lblImpuesto.Text = impuesto.ToString("N");
+                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString("N");
+                        lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
                         txtCantBebidas.Clear();
                         txtObBebidas.Clear();
 
@@ -727,7 +727,15 @@ namespace LosNaranjitos
                             DetailPP.Cantidad = DetailPP.Cantidad + Convert.ToInt32(txtCantCombos.Text);
                         }
 
+                        var ComboEnProceso = Utilitarios.OpComboProducto.ListarComboProductos().Where(C => C.CodCombo == PLocal.Codigo);
                         DetailPP.SubTotal = PLocal.Precio * DetailPP.Cantidad;
+
+                        foreach (var item in ComboEnProceso)
+                        {
+                            item.CodProducto = Utilitarios.OpProducto.BuscarProducto(item.CodProducto).Nombre;
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + " \n " + item.CodProducto + " "+item.CantidadProducto;
+                        }
+                        
                         OrdenDetalle.Remove(DetailPP);
                         OrdenDetalle.Add(DetailPP);
                         int CNT = 0;
@@ -742,9 +750,9 @@ namespace LosNaranjitos
 
                         NuevaOrden.Subtotal = NuevaOrden.Subtotal + (CNT * PLocal.Precio);
                         decimal impuesto = (NuevaOrden.Subtotal * Convert.ToDecimal(0.13));
-                        lblImpuesto.Text = impuesto.ToString();
-                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString();
-                        lblTotal.Text = NuevaOrden.Subtotal.ToString();
+                        lblImpuesto.Text = impuesto.ToString("N");
+                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString("N");
+                        lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
                         txtCantCombos.Clear();
                         txtObCombos.Clear();
                     }
@@ -769,14 +777,21 @@ namespace LosNaranjitos
                         {
                             DetailPP.Cantidad = DetailPP.Cantidad + Convert.ToInt32(txtCantCombos.Text);
                         }
+                        var ComboEnProceso = Utilitarios.OpComboProducto.ListarComboProductos().Where(C => C.CodCombo == PLocal.Codigo);
+                        DetailPP.SubTotal = PLocal.Precio * DetailPP.Cantidad;
 
+                        foreach (var item in ComboEnProceso)
+                        {
+                            item.CodProducto = Utilitarios.OpProducto.BuscarProducto(item.CodProducto).Nombre;
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + " \n " + item.CodProducto + " " + item.CantidadProducto;
+                        }
                         DetailPP.SubTotal = PLocal.Precio * DetailPP.Cantidad;
                         OrdenDetalle.Add(DetailPP);
                         NuevaOrden.Subtotal = NuevaOrden.Subtotal + DetailPP.SubTotal;
                         decimal impuesto = (NuevaOrden.Subtotal * Convert.ToDecimal(0.13));
-                        lblImpuesto.Text = impuesto.ToString();
-                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString();
-                        lblTotal.Text = NuevaOrden.Subtotal.ToString();
+                        lblImpuesto.Text = impuesto.ToString("N");
+                        lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString("N");
+                        lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
                         txtCantCombos.Clear();
                         txtObCombos.Clear();
 
@@ -815,6 +830,7 @@ namespace LosNaranjitos
                 {
                     //  Consecutivo Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("PDD");
                     NuevaOrden.Activo = true;
+                    NuevaOrden.CompletoCocina = false;
                     NuevaOrden.Cancelado = false;
                     Utilitarios.OpPedidos.AgregarPedido(NuevaOrden);
                     // Consec.ConsecutivoActual = Consec.ConsecutivoActual + 1;
@@ -994,10 +1010,10 @@ namespace LosNaranjitos
                 OrdenDetalle.Add(DetailPP);
                 NuevaOrden.Subtotal = NuevaOrden.Subtotal + DetailPP.SubTotal;
                 decimal impuesto = (NuevaOrden.Subtotal * Convert.ToDecimal(0.13));
-                lblImpuesto.Text = impuesto.ToString();
-                lblServiciosAd.Text = DetailPP.SubTotal.ToString();
-                lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString();
-                lblTotal.Text = NuevaOrden.Subtotal.ToString();
+                lblImpuesto.Text = impuesto.ToString("N");
+                lblServiciosAd.Text = DetailPP.SubTotal.ToString("N");
+                lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString("N");
+                lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
                 txtTelefono.Clear();
                 txtPrecioExpress.Clear();
                 txtDireccion.Clear();
@@ -1097,6 +1113,7 @@ namespace LosNaranjitos
                     NuevaOrden.MontoCambio = MontoDigitado - NuevaOrden.Subtotal;
                     NuevaOrden.Activo = true;
                     NuevaOrden.Cancelado = true;
+                    NuevaOrden.CompletoCocina = false;
 
                     Utilitarios.OpPedidos.AgregarPedido(NuevaOrden);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblConsecutivo.Text + " Agregada a pendientes, Orden cancelada");

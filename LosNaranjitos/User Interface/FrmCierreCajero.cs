@@ -46,13 +46,24 @@ namespace LosNaranjitos
                 }
                 else
                 {
-                    var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false).Select(x=>x.Fecha);
+                    var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false).Select(x => x.Fecha);
                     if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false).Count() == 0)
                     {
                         MessageBox.Show("No Existen Ventas Disponibles para un cierre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    cbbItemTipodeCierre.DataSource = ListaLocal.ToList();
+
+                    List<DateTime> ListaFechas = new List<DateTime>();
+
+                    foreach (var item in ListaLocal)
+                    {
+                        if (!ListaFechas.Contains(item.Date))
+                        {
+                            ListaFechas.Add(item.Date);
+                        }
+                    }
+
+                    cbbItemTipodeCierre.DataSource = ListaFechas.ToList();
                     cbbItemTipodeCierre.Visible = true;
                     rptVReporteLocal.Visible = false;
                 }
@@ -120,6 +131,7 @@ namespace LosNaranjitos
                             //     Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
                             Utilitarios.GeneralBitacora(CierreCaja.Usuario, "Cierre de Caja (Arqueo) ejecutado");
                             MessageBox.Show("Cierre Registrado Exitosamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            CierreCaja = Utilitarios.OpCierres.BuscarCierre(Utilitarios.OpCierres.ListarRegistros().Max(x => x.Consecutivo));
                             this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
 
                             foreach (DataRow dr in OrangeDB1DataSet.Cierre.Rows)
@@ -143,7 +155,7 @@ namespace LosNaranjitos
                             break;
                         case "Cierre Diario":
 
-                            if (Utilitarios.OpCierres.ExisteCierreDiario(DateTime.Parse( cbbItemTipodeCierre.SelectedValue.ToString())))
+                            if (Utilitarios.OpCierres.ExisteCierreDiario(DateTime.Parse(cbbItemTipodeCierre.SelectedValue.ToString())))
                             {
                                 MessageBox.Show("Ya Existe un Registro de Cierre para el dia Seleccionado", "Cierre ya ejecutado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
@@ -201,26 +213,23 @@ namespace LosNaranjitos
                             //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec2);
                             Utilitarios.GeneralBitacora(CierreDiario.Usuario, "Cierre diario ejecutado");
                             MessageBox.Show("Cierre Registrado Exitosamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            CierreDiario = Utilitarios.OpCierres.BuscarCierre(Utilitarios.OpCierres.ListarRegistros().Max(x => x.Consecutivo));
                             this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
 
-                            //foreach (var item in (this.OrangeDB1DataSet.Cierre))
-                            //{
-                            //    //if (item.Consecutivo != Utilitarios.Encriptar(CierreDiario.Consecutivo, Utilitarios.Llave))
-                            //    //{
-                            //    //    item.Delete();
-                            //    //    this.OrangeDB1DataSet.Cierre.AcceptChanges();
-                            //    //}
-                            //    //else
-                            //    //{
-                            //    //    item.Consecutivo = Utilitarios.Decriptar(item.Consecutivo, Utilitarios.Llave);
-                            //        item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
-                            //        item.Tipo = Utilitarios.Decriptar(item.Tipo, Utilitarios.Llave);
-                            //        //item.Caja = Utilitarios.Decriptar(item.Caja, Utilitarios.Llave);
-                            //        this.OrangeDB1DataSet.Cierre.AcceptChanges();
-                            //  //  }
-                            //}
-                            OrangeDB1DataSet.Cierre.Where(x => x.Consecutivo == CierreDiario.Consecutivo.ToString());
+                            foreach (DataRow dr in OrangeDB1DataSet.Cierre.Rows)
+                            {
+                                if (dr["Consecutivo"].ToString() != CierreDiario.Consecutivo.ToString())
+                                {
+                                    dr.Delete();
+                                }
+                            }
+                            this.OrangeDB1DataSet.Cierre.AcceptChanges();
 
+                            foreach (var item in (this.OrangeDB1DataSet.Cierre))
+                            {
+                                item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
+                            }
                             this.rptVReporteLocal.RefreshReport();
                             rptVReporteLocal.Visible = true;
                             btnEjecutar.Visible = false;
@@ -268,6 +277,12 @@ namespace LosNaranjitos
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             this.FrmCierreCajero_Load(sender, e);
+            cbbTipoCierre.SelectedIndex = 0;
+        }
+
+        private void cbbItemTipodeCierre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

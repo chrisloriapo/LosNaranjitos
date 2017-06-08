@@ -31,6 +31,13 @@ namespace LosNaranjitos.BL.Clases
             return ParametroRetorno;
         }
 
+        public DATOS.Parametros BuscarParametrosPorNombre(string ParameterName)
+        {
+            DATOS.Parametros ParametroRetorno = ParametrosProcedure.BuscarParametrosPorNombre(ParameterName);
+            ParametroRetorno.Operador = Utilitario.Decriptar(ParametroRetorno.Operador, Utilitario.Llave);
+            return ParametroRetorno;
+        }
+
         public List<DATOS.Parametros> ListarRegistros()
         {
             List<DATOS.Parametros> ListaRetorno = ParametrosProcedure.ListarRegistros();
