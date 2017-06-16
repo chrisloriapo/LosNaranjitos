@@ -28,13 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.rptVReporteLocal = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
+            // 
+            // rptVReporteLocal
+            // 
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = null;
+            this.rptVReporteLocal.LocalReport.DataSources.Add(reportDataSource1);
+            this.rptVReporteLocal.LocalReport.ReportEmbeddedResource = "LosNaranjitos.Reporteria.rdlcProductos.rdlc";
+            this.rptVReporteLocal.Location = new System.Drawing.Point(78, 71);
+            this.rptVReporteLocal.Name = "rptVReporteLocal";
+            this.rptVReporteLocal.ServerReport.BearerToken = null;
+            this.rptVReporteLocal.Size = new System.Drawing.Size(723, 333);
+            this.rptVReporteLocal.TabIndex = 2;
             // 
             // FrmReporteCierres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(878, 475);
+            this.Controls.Add(this.rptVReporteLocal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmReporteCierres";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -44,5 +59,7 @@
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer rptVReporteLocal;
     }
 }

@@ -189,23 +189,93 @@ namespace LosNaranjitos
             ticket.EncabezadoVenta();
             ticket.lineasAsteriscos();
 
-            foreach (var item in Detalles)
+
+            //   ticket.AgregaArticulo(item.Producto + " " + item.ObservacionesDT, item.Cantidad, item.SubTotal, "");
+
+            foreach (var PRODUCTO in Detalles)
             {
-                ticket.AgregaArticulo(item.Producto + " " + item.ObservacionesDT, item.Cantidad, item.SubTotal, "IVI");
+                if (String.IsNullOrWhiteSpace(PRODUCTO.ObservacionesDT))
+                {
+                    if (PRODUCTO.Producto.ToString().Contains("Combo"))
+                    {
+                        ticket.AgregaArticulo(PRODUCTO.Producto, PRODUCTO.Cantidad, PRODUCTO.SubTotal, "");
+
+                        DATOS.Combo ComboAuxiliar = new Combo();
+                        ComboAuxiliar = Utilitarios.OpCombo.BuscarComboPorNombre(PRODUCTO.Producto);
+
+
+                        List<ComboProducto> ProductosEnCombo = Utilitarios.OpComboProducto.ListarComboProductos().Where(x => x.CodCombo == ComboAuxiliar.Codigo).ToList();
+
+                        foreach (var COMBO in ProductosEnCombo)
+                        {
+                            ticket.AgregaArticulo(Utilitarios.OpProducto.BuscarProducto(COMBO.CodProducto).Descripcion, 0, 0, "");
+                        }
+                    }
+                    else
+                    {
+                        ticket.AgregaArticulo(PRODUCTO.Producto, PRODUCTO.Cantidad, PRODUCTO.SubTotal, "");
+                    }
+
+                }
+                else if (PRODUCTO.Producto == "Servicio Express")
+                {
+                    ticket.AgregaArticulo(PRODUCTO.Producto, PRODUCTO.Cantidad, PRODUCTO.SubTotal, "");
+
+                }
+
+                else
+                {
+                    if (PRODUCTO.Producto.ToString().Contains("Combo"))
+                    {
+                        if (PRODUCTO.Producto.ToString().Contains("Combo"))
+                        {
+                            ticket.AgregaArticulo(PRODUCTO.Producto, PRODUCTO.Cantidad, PRODUCTO.SubTotal, "");
+
+                            DATOS.Combo ComboAuxiliar = new Combo();
+                            ComboAuxiliar = Utilitarios.OpCombo.BuscarComboPorNombre(PRODUCTO.Producto);
+
+
+                            List<ComboProducto> ProductosEnCombo = Utilitarios.OpComboProducto.ListarComboProductos().Where(x => x.CodCombo == ComboAuxiliar.Codigo).ToList();
+
+                            foreach (var COMBO in ProductosEnCombo)
+                            {
+                                ticket.AgregaArticulo(Utilitarios.OpProducto.BuscarProducto(COMBO.CodProducto).Descripcion, null, null, "");
+                            }
+                        }
+                        else
+                        {
+                            ticket.AgregaArticulo(PRODUCTO.Producto, PRODUCTO.Cantidad, PRODUCTO.SubTotal, "");
+                        }
+                    }
+                    else
+                    {
+                        ticket.AgregaArticulo(PRODUCTO.Producto, PRODUCTO.Cantidad, PRODUCTO.SubTotal, "");
+
+                        List<string> stringList = PRODUCTO.ObservacionesDT.Split(',').ToList();
+                        foreach (var CADENA in stringList)
+                        {
+                            ticket.AgregaArticulo(CADENA, null, null, "");
+
+                        }
+                    }
+
+
+
+                }
             }
             ticket.lineasIgual();
 
             ticket.AgregarTotales("         SUBTOTAL......C", Convert.ToDouble(OrdenEnCurso.Subtotal) - (Convert.ToDouble(OrdenEnCurso.Subtotal) * 0.13));
-            ticket.AgregarTotales("         IVA...........C", (Convert.ToDouble(OrdenEnCurso.Subtotal) * 0.13));
+            ticket.AgregarTotales("         IV...........C", (Convert.ToDouble(OrdenEnCurso.Subtotal) * 0.13));
             ticket.AgregarTotales("         TOTAL.........C", Convert.ToDouble(OrdenEnCurso.Subtotal));
             ticket.TextoIzquierda("");
-            ticket.AgregarTotales("         EFECTIVO......C",Convert.ToDouble( OrdenEnCurso.MontoCambio));
+            ticket.AgregarTotales("         EFECTIVO......C", Convert.ToDouble(OrdenEnCurso.MontoCambio));
             ticket.AgregarTotales("         CAMBIO........C", Convert.ToDouble(OrdenEnCurso.MontoTarjeta + OrdenEnCurso.MontoEfectivo + OrdenEnCurso.MontoOtro) - Convert.ToDouble(OrdenEnCurso.Subtotal));
 
             //Texto final del Ticket.
             ticket.TextoIzquierda("IMPUESTO DE VENTA INCLUIDO");
             ticket.TextoIzquierda("");
-            ticket.TextoIzquierda("PRODUCTOS VENDIDOS: " + Detalles.Sum(x=>x.Cantidad));
+            ticket.TextoIzquierda("PRODUCTOS VENDIDOS: " + Detalles.Sum(x => x.Cantidad));
             ticket.TextoIzquierda("");
             ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
             ticket.TextoCentro("FACEBOOK: /Los Naranjitos!");
@@ -215,8 +285,9 @@ namespace LosNaranjitos
             ticket.TextoIzquierda("");
             ticket.CortaTicket();
             ticket.ImprimirTicket(Utilitarios.OpParametros.BuscarParametro(1).Valor);//Nombre de la impresora ticketera
-        }
 
+
+        }
     }
 }
 

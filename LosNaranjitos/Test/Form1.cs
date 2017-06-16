@@ -152,6 +152,12 @@ namespace LosNaranjitos
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+
+
+
+            Utilitarios.TicketeGeneral("1", "Test", "Cliente General", Utilitarios.OpDetallePedido.ListarDetallesPedido().Where(x => x.IdOrden == 6).ToList(), Utilitarios.OpPedidos.BuscarPedido(6));
+
             ////Creamos una instancia d ela clase CrearTicket
             //Ticket ticket = new Ticket();
             ////Ya podemos usar todos sus metodos

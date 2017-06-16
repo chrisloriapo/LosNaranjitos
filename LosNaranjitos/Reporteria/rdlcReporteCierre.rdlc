@@ -368,7 +368,7 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>MontoTotal</rd:DefaultName>
-            <Top>3.54716cm</Top>
+            <Top>4.4732cm</Top>
             <Left>0.34248cm</Left>
             <Height>0.6cm</Height>
             <Width>10.65537cm</Width>
@@ -383,11 +383,58 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="MontoTotal2">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Monto total Cambio: </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>₡</Value>
+                    <Style>
+                      <FontWeight>Normal</FontWeight>
+                      <Color>#333333</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value xml:space="preserve"> </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>=First(Fields!MontoCambio.Value, "DataSet1")</Value>
+                    <Style>
+                      <Format>#,0.00;(#,0.00)</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>MontoTotal</rd:DefaultName>
+            <Top>3.54852cm</Top>
+            <Left>0.34248cm</Left>
+            <Height>0.6cm</Height>
+            <Width>10.65537cm</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>3.15523cm</Top>
         <Left>0.81703cm</Left>
-        <Height>4.97184cm</Height>
+        <Height>5.79205cm</Height>
         <Width>16.9217cm</Width>
         <ZIndex>3</ZIndex>
         <Style>

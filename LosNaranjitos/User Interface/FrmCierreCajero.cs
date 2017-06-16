@@ -99,13 +99,8 @@ namespace LosNaranjitos
                             Total = ListaLocal.Sum(x => x.Subtotal);
 
                             Cierre CierreCaja = new Cierre();
-                            // Consecutivo Consec = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cierre");
-                            //if (Consec.ConsecutivoActual == 0)
-                            //{
-                            //    CierreCaja.Consecutivo = "" + Consec.Prefijo + "-1";
-                            //}
-                            //CierreCaja.Consecutivo = "" + Consec.Prefijo + "-" + Consec.ConsecutivoActual + 1;
-                            CierreCaja.Usuario = FrmLogin.UsuarioGlobal.Username;
+                          
+                                                        CierreCaja.Usuario = FrmLogin.UsuarioGlobal.Username;
                             CierreCaja.Tipo = cbbTipoCierre.SelectedIndex.ToString();
                             CierreCaja.MontroOtro = MontoOtro;
                             CierreCaja.MontoCambio = MontoCambio;
@@ -115,7 +110,7 @@ namespace LosNaranjitos
                             CierreCaja.CantidadVentas = ListaLocal.Count();
                             CierreCaja.Caja = cbbItemTipodeCierre.SelectedItem.ToString();
                             CierreCaja.Fecha = DateTime.Now;
-                            //    Consec.ConsecutivoActual = Consec.ConsecutivoActual + 1;
+                          
                             foreach (var item in ListaLocal)
                             {
                                 item.CierreOperador = true;

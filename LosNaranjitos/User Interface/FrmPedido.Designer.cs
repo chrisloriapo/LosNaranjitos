@@ -729,6 +729,7 @@
             this.chkLechuga.TabIndex = 0;
             this.chkLechuga.Text = "Lech";
             this.chkLechuga.UseVisualStyleBackColor = true;
+            this.chkLechuga.CheckedChanged += new System.EventHandler(this.chkLechuga_CheckedChanged);
             // 
             // chkPepinillo
             // 

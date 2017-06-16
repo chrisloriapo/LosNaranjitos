@@ -305,13 +305,13 @@ namespace LosNaranjitos
                 if ((int)e.KeyChar == (int)Keys.Enter)
                 {
 
-                    if (!Utilitarios.OpClientes.ExisteCLIENTE(cbbCliente.SelectedText.ToString()))
+                    if (!Utilitarios.OpClientes.ExisteCLIENTE(cbbCliente.Text.ToString()))
                     {
                         MessageBox.Show("Seleccione un cliente de la lista o digite un cliente existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        DATOS.Cliente ClieNteLocal = Utilitarios.OpClientes.BuscarCliente(cbbCliente.SelectedValue.ToString());
+                        DATOS.Cliente ClieNteLocal = Utilitarios.OpClientes.BuscarCliente(cbbCliente.Text.ToString());
                         lblCliente.Text = ClieNteLocal.Nombre + " " + ClieNteLocal.Apellido1 + " " + ClieNteLocal.Apellido2;
                     }
                 }
@@ -399,48 +399,48 @@ namespace LosNaranjitos
                         DetailPP.IdOrden = Int32.Parse(lblConsecutivo.Text);
                         if (string.IsNullOrEmpty(txtObservacionesPP.Text) || string.IsNullOrWhiteSpace(txtObservacionesPP.Text))
                         {
-                            DetailPP.ObservacionesDT = " ";
+                            DetailPP.ObservacionesDT = "";
                         }
                         else
                         {
-                            DetailPP.ObservacionesDT = " " + txtObservacionesPP.Text;
+                            DetailPP.ObservacionesDT = txtObservacionesPP.Text;
                         }
 
                         if (!chkLechuga.Checked)
                         {
-                            DetailPP.ObservacionesDT = " " + DetailPP.ObservacionesDT + " SIN LECHUGA ";
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + "SIN LECHUGA,";
                         }
                         if (!chkMayonesa.Checked)
                         {
-                            DetailPP.ObservacionesDT = " " + DetailPP.ObservacionesDT + " SIN MAYONESA ";
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + "SIN MAYONESA,";
                         }
                         if (!chkPepino.Checked)
                         {
-                            DetailPP.ObservacionesDT = " " + DetailPP.ObservacionesDT + " SIN PEPINILLO ";
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + "SIN PEPINILLO,";
                         }
                         if (!chkPepino.Checked)
                         {
-                            DetailPP.ObservacionesDT = " " + DetailPP.ObservacionesDT + " SIN PEPINO ";
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + "SIN PEPINO,";
                         }
                         if (!chkSalsaTomate.Checked)
                         {
-                            DetailPP.ObservacionesDT = " " + DetailPP.ObservacionesDT + " SIN S.TOMATE ";
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + "SIN S.TOMATE,";
                         }
                         if (!chkTomate.Checked)
                         {
-                            DetailPP.ObservacionesDT = " " + DetailPP.ObservacionesDT + " SIN TOMATE ";
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + "SIN TOMATE,";
                         }
                         if (!chkCebolla.Checked)
                         {
-                            DetailPP.ObservacionesDT = " " + DetailPP.ObservacionesDT + " SIN CEBOLLA ";
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + "SIN CEBOLLA,";
                         }
                         if (chkCebollaFrita.Checked)
                         {
-                            DetailPP.ObservacionesDT = " " + DetailPP.ObservacionesDT + " CEBOLLA FRITA ";
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + "CEBOLLA FRITA,";
                         }
                         if (chkRepollo.Checked)
                         {
-                            DetailPP.ObservacionesDT = " " + DetailPP.ObservacionesDT + " CON REPOLLO ";
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + "CON REPOLLO,";
                         }
 
                         if (string.IsNullOrEmpty(txtCantidadPPrincipales.Text) || string.IsNullOrWhiteSpace(txtCantidadPPrincipales.Text) || txtCantidadPPrincipales.Text == "1")
@@ -479,42 +479,7 @@ namespace LosNaranjitos
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //public int NxtConsecutivoDetallePedido()
-        //{
 
-
-        //    Consecutivo Consecutivo = new Consecutivo();
-        //    List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
-        //    DetallePedido UltimoDetallePedido = new DetallePedido();
-        //    try
-        //    {
-
-        //        UltimoDetallePedido = Utilitarios.OpDetallePedido.ListarDetallesPedido().OrderByDescending(x => x.Consecutivo).FirstOrDefault();
-        //    }
-        //    catch (Exception x)
-        //    {
-        //        if (x.Message == "La secuencia no contiene elementos")
-        //        {
-        //            UltimoDetallePedido.Consecutivo = "DTP-1";
-        //        }
-        //    }
-
-        //    string Prefijo = Consecutivos.Where(x => x.Tipo == "Detalle-Pedido").Select(x => x.Prefijo).FirstOrDefault();
-        //    Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-        //    int CSDetallePedido = 0;
-        //    if (OrdenDetalle.Count > 0)
-        //    {
-        //        CSDetallePedido = Consecutivo.ConsecutivoActual + (OrdenDetalle.Count + 1);
-
-        //    }
-        //    else
-        //    {
-        //        CSDetallePedido = Consecutivo.ConsecutivoActual + 1;
-
-        //    }
-        //    return CSDetallePedido;
-
-        //}
 
         private void btnAgregarAdicionales_Click(object sender, EventArgs e)
         {
@@ -563,7 +528,7 @@ namespace LosNaranjitos
                     else
                     {
                         DetailPP.Producto = lstAdicionales.SelectedValue.ToString();
-                        //  DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
+
                         DetailPP.IdOrden = Int32.Parse(lblConsecutivo.Text);
                         if (string.IsNullOrEmpty(txtObAdicionales.Text) || string.IsNullOrWhiteSpace(txtObAdicionales.Text))
                         {
@@ -591,12 +556,10 @@ namespace LosNaranjitos
                         lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
                         txtCantidadPPrincipales.Clear();
                         txtObservacionesPP.Clear();
-
                     }
                 }
                 else
                 {
-
                     MessageBox.Show("Seleccione un Producto de la lista ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     lstProductosPrincipales.Focus();
                     return;
@@ -657,7 +620,7 @@ namespace LosNaranjitos
                     else
                     {
                         DetailPP.Producto = lstBebidas.SelectedValue.ToString();
-                        //   DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
+
                         DetailPP.IdOrden = Int32.Parse(lblConsecutivo.Text);
                         if (string.IsNullOrEmpty(txtObBebidas.Text) || string.IsNullOrWhiteSpace(txtObBebidas.Text))
                         {
@@ -685,12 +648,10 @@ namespace LosNaranjitos
                         lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
                         txtCantBebidas.Clear();
                         txtObBebidas.Clear();
-
                     }
                 }
                 else
                 {
-
                     MessageBox.Show("Seleccione un Producto de la lista ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     lstProductosPrincipales.Focus();
                     return;
@@ -733,9 +694,9 @@ namespace LosNaranjitos
                         foreach (var item in ComboEnProceso)
                         {
                             item.CodProducto = Utilitarios.OpProducto.BuscarProducto(item.CodProducto).Nombre;
-                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + " \n " + item.CodProducto + " "+item.CantidadProducto;
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + " \n " + item.CodProducto + " " + item.CantidadProducto;
                         }
-                        
+
                         OrdenDetalle.Remove(DetailPP);
                         OrdenDetalle.Add(DetailPP);
                         int CNT = 0;
@@ -866,9 +827,7 @@ namespace LosNaranjitos
                     DATOS.Cliente CLIENTE = Utilitarios.OpClientes.BuscarCliente(cbbCliente.Text);
                     CLIENTE.UltimaVisita = DateTime.Now;
                     Utilitarios.OpClientes.ActualizarCLIENTE(CLIENTE);
-                    //Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("DPD");
-                    //Consec.ConsecutivoActual = Consec.ConsecutivoActual + OrdenDetalle.Count();
-                    //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
+
                     OrdenDetalle.Clear();
                     lblImpuesto.Text = "";
                     lblTotal.Text = "";
@@ -1118,7 +1077,7 @@ namespace LosNaranjitos
                     Utilitarios.OpPedidos.AgregarPedido(NuevaOrden);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblConsecutivo.Text + " Agregada a pendientes, Orden cancelada");
 
-                    Utilitarios.TicketeGeneral(Utilitarios.OpCaja.ListarCajas().Where(X => X.OperadorActual == FrmLogin.UsuarioGlobal.Username).Select(x => x.Consecutivo).FirstOrDefault().ToString(),  FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1, lblCliente.Text, OrdenDetalle, NuevaOrden);
+                    Utilitarios.TicketeGeneral(Utilitarios.OpCaja.ListarCajas().Where(X => X.OperadorActual == FrmLogin.UsuarioGlobal.Username).Select(x => x.Consecutivo).FirstOrDefault().ToString(), FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1, lblCliente.Text, OrdenDetalle, NuevaOrden);
 
                     List<DetallePedido> ListaSoporte = new List<DetallePedido>();
                     foreach (var item in OrdenDetalle)
@@ -1149,8 +1108,8 @@ namespace LosNaranjitos
                         Utilitarios.OpDetallePedido.AgregarDetalle(ListaSoporte[i]);
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Producto perteneciente a la orden  " + lblConsecutivo.Text + " Agregado a pendientes, Orden cancelada");
                     }
-                    
-                    
+
+
                     OrdenDetalle.Clear();
                     lblImpuesto.Text = "";
                     lblTotal.Text = "";
@@ -1213,6 +1172,11 @@ namespace LosNaranjitos
         }
 
         private void txtObservacionesPP_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkLechuga_CheckedChanged(object sender, EventArgs e)
         {
 
         }

@@ -187,7 +187,7 @@ namespace LosNaranjitos
                 MessageBox.Show("La Orden ya fue entregada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!chkCocinado.Checked)
+            if (!chkCancelado.Checked)
             {
                 MessageBox.Show("La Orden debe ser cancelada antes de entregar", "Orden No Cancelada", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

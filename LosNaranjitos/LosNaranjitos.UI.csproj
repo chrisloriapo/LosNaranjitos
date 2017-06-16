@@ -106,15 +106,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Reporteria\FrmReporteDeVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporteria\FrmReporteDeVentas.Designer.cs">
+      <DependentUpon>FrmReporteDeVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Test\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test\Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tools\Email.cs" />
     <Compile Include="Tools\PasswordPolicy.cs" />
     <Compile Include="Tools\Ticket.cs" />
+    <Compile Include="User Interface\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="User Interface\FrmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -361,6 +378,12 @@
     <Compile Include="User Interface\FrmReporteVentas.Designer.cs">
       <DependentUpon>FrmReporteVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Interface\FrmReporteVentasRango.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Interface\FrmReporteVentasRango.Designer.cs">
+      <DependentUpon>FrmReporteVentasRango.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Interface\FrmTecladoNumerico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -395,8 +418,15 @@
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Tools\Utilitarios.cs" />
+    <EmbeddedResource Include="Reporteria\FrmReporteDeVentas.resx">
+      <DependentUpon>FrmReporteDeVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporteria\rdlcVentasDetalle.rdlc" />
     <EmbeddedResource Include="Test\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Interface\FrmAbout.resx">
       <DependentUpon>FrmAbout.cs</DependentUpon>
@@ -525,6 +555,9 @@
     <EmbeddedResource Include="User Interface\FrmReporteVentas.resx">
       <DependentUpon>FrmReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\FrmReporteVentasRango.resx">
+      <DependentUpon>FrmReporteVentasRango.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User Interface\FrmTecladoNumerico.resx">
       <DependentUpon>FrmTecladoNumerico.cs</DependentUpon>
     </EmbeddedResource>
@@ -541,10 +574,20 @@
     <EmbeddedResource Include="Reporteria\rdlcReporteBitacora.rdlc" />
     <EmbeddedResource Include="Reporteria\rdlcReporteCierre.rdlc" />
     <EmbeddedResource Include="Reporteria\rdlcReporteInsumos.rdlc" />
-    <EmbeddedResource Include="Reporteria\rdlcVentas.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="User Interface\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="User Interface\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="User Interface\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

@@ -51,7 +51,7 @@ namespace LosNaranjitos.Tools
         public void EncabezadoVenta()
         {
             //Escribimos los espacios para mostrar el articulo. En total tienen que ser 40 caracteres
-            linea.AppendLine("ARTICULO            |CANT|PRECIO|IMPORTE");
+            linea.AppendLine("ARTICULO            |CANT|PRECIO|");
         }
 
         //Creamos un metodo para poner el texto a la izquierda
@@ -220,7 +220,7 @@ namespace LosNaranjitos.Tools
         }
 
         //Metodo para agreagar articulos al ticket de venta
-        public void AgregaArticulo(string articulo, int cant, decimal precio, string importe)
+        public void AgregaArticulo(string articulo, int? cant, decimal? precio, string importe)
         {
             //Valida que cant precio e importe esten dentro del rango.
             if (cant.ToString().Length <= 5 && precio.ToString().Length <= 7 && importe.ToString().Length <= 8)
@@ -230,7 +230,7 @@ namespace LosNaranjitos.Tools
                 int nroEspacios = 0;
 
                 //Si el nombre o descripcion del articulo es mayor a 20, bajar a la siguiente linea
-                if (articulo.Length > 20)
+                if (articulo.Length > 28)
                 {
                     //Colocar la cantidad a la derecha.
                     nroEspacios = (5 - cant.ToString().Length);
@@ -252,18 +252,18 @@ namespace LosNaranjitos.Tools
                     elemento += espacios + precio.ToString();//Agregamos el precio a la variable elemento
 
                     //Colocar el importe a la derecha.
-                    nroEspacios = (8 - importe.ToString().Length);
-                    espacios = "";
-                    for (int i = 0; i < nroEspacios; i++)
-                    {
-                        espacios += " ";
-                    }
-                    elemento += espacios + importe.ToString();//Agregamos el importe alineado a la derecha
+                    //nroEspacios = (8 - importe.ToString().Length);
+                    //espacios = "";
+                    //for (int i = 0; i < nroEspacios; i++)
+                    //{
+                    //    espacios += " ";
+                    //}
+                    //elemento += espacios + importe.ToString();//Agregamos el importe alineado a la derecha
 
                     int caracterActual = 0;//Indicara en que caracter se quedo al bajae a la siguiente linea
 
                     //Por cada 20 caracteres se agregara una linea siguiente
-                    for (int longitudTexto = articulo.Length; longitudTexto > 20; longitudTexto -= 20)
+                    for (int longitudTexto = articulo.Length; longitudTexto > 28; longitudTexto -= 28)
                     {
                         if (bandera == false)//si es false o la primera linea en recorrerer, continuar...
                         {
@@ -274,7 +274,7 @@ namespace LosNaranjitos.Tools
                         else
                             linea.AppendLine(articulo.Substring(caracterActual, 20));//Solo agrega el nombre del articulo
 
-                        caracterActual += 20;//incrementa en 20 el valor de la variable caracterActual
+                        caracterActual += 28;//incrementa en 20 el valor de la variable caracterActual
                     }
                     //Agrega el resto del fragmento del  nombre del articulo
                     linea.AppendLine(articulo.Substring(caracterActual, articulo.Length - caracterActual));
@@ -282,7 +282,7 @@ namespace LosNaranjitos.Tools
                 }
                 else //Si no es mayor solo agregarlo, sin dar saltos de lineas
                 {
-                    for (int i = 0; i < (20 - articulo.Length); i++)
+                    for (int i = 0; i < (28 - articulo.Length); i++)
                     {
                         espacios += " "; //Agrega espacios para completar los 20 caracteres
                     }
@@ -307,13 +307,13 @@ namespace LosNaranjitos.Tools
                     elemento += espacios + precio.ToString();
 
                     //Colocar el importe a la derecha.
-                    nroEspacios = (8 - importe.ToString().Length);
-                    espacios = "";
-                    for (int i = 0; i < nroEspacios; i++)
-                    {
-                        espacios += " ";
-                    }
-                    elemento += espacios + importe.ToString();
+                    //nroEspacios = (8 - importe.ToString().Length);
+                    //espacios = "";
+                    //for (int i = 0; i < nroEspacios; i++)
+                    //{
+                    //    espacios += " ";
+                    //}
+                    //elemento += espacios + importe.ToString();
 
                     linea.AppendLine(elemento);//Agregamos todo el elemento: nombre del articulo, cant, precio, importe.
                 }

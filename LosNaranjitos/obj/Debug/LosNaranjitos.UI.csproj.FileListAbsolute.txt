@@ -762,3 +762,6 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\itextsharp.xtra.dll
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\itextsharp.xml
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.User_Interface.FrmParametros_de_Impresion.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.Test.Form2.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.User_Interface.FrmReporteVentasRango.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.Reporteria.FrmReporteDeVentas.resources
