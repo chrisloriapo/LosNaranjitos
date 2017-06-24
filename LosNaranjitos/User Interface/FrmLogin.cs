@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+
 
 namespace LosNaranjitos
 {
@@ -130,7 +132,8 @@ namespace LosNaranjitos
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            lblHora.Text = DateTime.Now.ToString();
+
+
             try
             {
                 if (Utilitarios.OpUsuarios.ListarUsuarios().Count == 0)

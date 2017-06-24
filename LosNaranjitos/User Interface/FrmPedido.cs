@@ -555,6 +555,7 @@ namespace LosNaranjitos
                         lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString("N");
                         lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
                         txtCantidadPPrincipales.Clear();
+                        txtCantidadAdicionales.Clear();
                         txtObservacionesPP.Clear();
                     }
                 }

@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.LastCierreBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DSCierre = new LosNaranjitos.DSCierre();
             this.CierreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.OrangeDB1DataSet = new LosNaranjitos.OrangeDB1DataSet();
             this.BitacoraBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -45,12 +47,30 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtxtxt = new System.Windows.Forms.TextBox();
+            this.LastCierreTableAdapter = new LosNaranjitos.DSCierreTableAdapters.LastCierreTableAdapter();
+            this.dsCierre1 = new LosNaranjitos.DSCierre();
+            this.dtReporteBitacoraTableAdapter1 = new LosNaranjitos.OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter();
+            this.dtReporteBitacoraTableAdapter2 = new LosNaranjitos.OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.LastCierreBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSCierre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BitacoraBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTReporteBitacoraBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InsumosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCierre1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // LastCierreBindingSource
+            // 
+            this.LastCierreBindingSource.DataMember = "LastCierre";
+            this.LastCierreBindingSource.DataSource = this.DSCierre;
+            // 
+            // DSCierre
+            // 
+            this.DSCierre.DataSetName = "DSCierre";
+            this.DSCierre.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // CierreBindingSource
             // 
@@ -69,10 +89,10 @@
             // 
             // rpvBitacora
             // 
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.CierreBindingSource;
+            reportDataSource1.Name = "DS1";
+            reportDataSource1.Value = this.LastCierreBindingSource;
             this.rpvBitacora.LocalReport.DataSources.Add(reportDataSource1);
-            this.rpvBitacora.LocalReport.ReportEmbeddedResource = "LosNaranjitos.Reporteria.rdlcReporteCierre.rdlc";
+            this.rpvBitacora.LocalReport.ReportEmbeddedResource = "LosNaranjitos.Reporteria.RDLCTEST.rdlc";
             this.rpvBitacora.Location = new System.Drawing.Point(0, 0);
             this.rpvBitacora.Name = "rpvBitacora";
             this.rpvBitacora.ServerReport.BearerToken = null;
@@ -121,7 +141,7 @@
             // txtObservacionesPP
             // 
             this.txtObservacionesPP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtObservacionesPP.Font = new System.Drawing.Font("Exo", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObservacionesPP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtObservacionesPP.Location = new System.Drawing.Point(48, 230);
             this.txtObservacionesPP.Multiline = true;
             this.txtObservacionesPP.Name = "txtObservacionesPP";
@@ -156,11 +176,36 @@
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 9;
             // 
+            // txtxtxt
+            // 
+            this.txtxtxt.Location = new System.Drawing.Point(423, 218);
+            this.txtxtxt.Name = "txtxtxt";
+            this.txtxtxt.Size = new System.Drawing.Size(215, 20);
+            this.txtxtxt.TabIndex = 10;
+            // 
+            // LastCierreTableAdapter
+            // 
+            this.LastCierreTableAdapter.ClearBeforeFill = true;
+            // 
+            // dsCierre1
+            // 
+            this.dsCierre1.DataSetName = "DSCierre";
+            this.dsCierre1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dtReporteBitacoraTableAdapter1
+            // 
+            this.dtReporteBitacoraTableAdapter1.ClearBeforeFill = true;
+            // 
+            // dtReporteBitacoraTableAdapter2
+            // 
+            this.dtReporteBitacoraTableAdapter2.ClearBeforeFill = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 390);
+            this.Controls.Add(this.txtxtxt);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -171,11 +216,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.LastCierreBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSCierre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BitacoraBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTReporteBitacoraBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InsumosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsCierre1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,5 +246,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtxtxt;
+        private System.Windows.Forms.BindingSource LastCierreBindingSource;
+        private DSCierre DSCierre;
+        private DSCierreTableAdapters.LastCierreTableAdapter LastCierreTableAdapter;
+        private DSCierre dsCierre1;
+        private OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter dtReporteBitacoraTableAdapter1;
+        private OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter dtReporteBitacoraTableAdapter2;
     }
 }

@@ -25,6 +25,7 @@ namespace LosNaranjitos
         private void Form1_Load(object sender, EventArgs e)
         {
 
+         
 
             var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Select(x => x.Fecha);
 
@@ -38,7 +39,7 @@ namespace LosNaranjitos
                 }
             }
 
-            comboBox1.DataSource = Listasss.ToList();
+            // comboBox1.DataSource = Listasss.ToList();
 
             //foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
             //{
@@ -48,29 +49,29 @@ namespace LosNaranjitos
 
 
             // TODO: esta línea de código carga datos en la tabla 'OrangeDB1DataSet.Cierre' Puede moverla o quitarla según sea necesario.
-            this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
-            try
-            {
-                foreach (DataRow dr in OrangeDB1DataSet.Cierre.Rows)
-                {
-                    if (dr["Consecutivo"].ToString() != "7")
-                    {
-                        dr.Delete();
-                    }
-                }
-                this.OrangeDB1DataSet.Cierre.AcceptChanges();
+            //this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
+            //try
+            //{
+            //    foreach (DataRow dr in OrangeDB1DataSet.Cierre.Rows)
+            //    {
+            //        if (dr["Consecutivo"].ToString() != "7")
+            //        {
+            //            dr.Delete();
+            //        }
+            //    }
+         //   this.OrangeDB1DataSet.Cierre.AcceptChanges();
 
-                foreach (var item in (this.OrangeDB1DataSet.Cierre))
-                {
-                    item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
-                }
-                this.rpvBitacora.RefreshReport();
-            }
-            catch (Exception)
+            foreach (var item in (this.DSCierre.LastCierre))
             {
-
-                throw;
+                item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
             }
+            this.rpvBitacora.RefreshReport();
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
 
 
 
