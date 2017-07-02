@@ -136,6 +136,7 @@ namespace LosNaranjitos
 
             try
             {
+                timer1.Start();
                 if (Utilitarios.OpUsuarios.ListarUsuarios().Count == 0)
                 {
                     DATOS.Usuario Userprivate = new DATOS.Usuario
@@ -257,6 +258,11 @@ namespace LosNaranjitos
                 MessageBox.Show(ex.Message, "ERROR",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToString();
         }
     }
 }

@@ -47,6 +47,7 @@ namespace LosNaranjitos
             dgvOrden.GridColor = Color.White;
 
 
+
             try
             {
                 //Carga de datos  ListBoxes y datagrids
@@ -58,13 +59,13 @@ namespace LosNaranjitos
 
                 lblOperador.Text = FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1 + " " + FrmLogin.UsuarioGlobal.Apellido2;
                 dgvOrden.DataSource = OrdenDetalle.ToList();
+
+
                 DATOS.Pedido UltimoPedido = new Pedido();
 
                 if (!Utilitarios.CambioEnCajas)
                 {
-                    //Validacion Consecutivos Pedidos
-                    //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                    //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
+
                     try
                     {
                         UltimoPedido = Utilitarios.OpPedidos.ListarPedido().OrderByDescending(x => x.Consecutivo).First();
@@ -80,49 +81,10 @@ namespace LosNaranjitos
                         }
                     }
 
-                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Pedido").Select(x => x.Prefijo).FirstOrDefault();
-                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    //int CSPedido = Consecutivo.ConsecutivoActual + 1;
-                    //UltimoPedido.Consecutivo = Prefijo + "-" + CSPedido;
-                    //if (Utilitarios.OpProducto.ExisteConsecutivo(UltimoPedido.Consecutivo))
-                    //{
-                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoPedido.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //    btnPagar.Enabled = false;
-                    //    btnDescartar.Enabled = false;
-                    //    btnBuscarOrden.Enabled = false;
-                    //    btnSometerOrden.Enabled = false;
-                    //    tbProductosVenta.Enabled = false;
-                    //}
+
                     cbbCliente.DataSource = Utilitarios.OpClientes.ListarClientes().OrderBy(x => x.IdPersonal).Select(x => x.IdPersonal).ToList();
 
-                    //Validacion Consecutivos Detalles de Ordenes
-                    //DATOS.DetallePedido UltimoDetallePedido = new DetallePedido();
-                    //try
-                    //{
-                    //    UltimoDetallePedido = Utilitarios.OpDetallePedido.ListarDetallesPedido().OrderByDescending(x => x.Consecutivo).First();
-                    //}
-                    //catch (Exception x)
-                    //{
-                    //    if (x.Message == "La secuencia no contiene elementos")
-                    //    {
-                    //        UltimoPedido.Consecutivo = 1;
-                    //    }
-                    //}
 
-                    //Prefijo = Consecutivos.Where(x => x.Tipo == "Detalle-Pedido").Select(x => x.Prefijo).FirstOrDefault();
-                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    //int CSDetallePedido = Consecutivo.ConsecutivoActual + 1;
-                    //UltimoDetallePedido.Consecutivo = Prefijo + "-" + CSDetallePedido;
-                    //if (Utilitarios.OpDetallePedido.ExisteConsecutivo(UltimoDetallePedido.Consecutivo))
-                    //{
-                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoDetallePedido.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //    btnPagar.Enabled = false;
-                    //    btnDescartar.Enabled = false;
-                    //    btnBuscarOrden.Enabled = false;
-                    //    btnSometerOrden.Enabled = false;
-                    //    tbProductosVenta.Enabled = false;
-                    //}
-                    //NuevaOrden.Consecutivo = lblConsecutivo.Text;
                     NuevaOrden.Activo = true;
                     NuevaOrden.Cancelado = false;
                     NuevaOrden.Fecha = DateTime.Today;
@@ -134,60 +96,7 @@ namespace LosNaranjitos
                 {
                     if (Utilitarios.CambioEnCajas)
                     {
-                        //    tbOperacionesProductos.TabPages.Add(tbReceta);
-                        //    tbOperacionesProductos.TabPages.Add(tbCostos);
-                        //    txtIdProducto.Text = EditProducto.Codigo;
-                        //    lblConsecutivo.Text = EditProducto.Consecutivo;
-                        //    txtNombre.Text = EditProducto.Nombre;
-                        //    //Carga de Categoria
 
-                        //    DATOS.CategoriaProductos TCat = Utilitarios.OpCategorias.BuscarCategoriaProductos(EditProducto.Categoria);
-
-                        //    cbCategoriaProducto.SelectedText = TCat.Descripcion;
-                        //    txtDescricpion.Text = EditProducto.Descripcion;
-                        //    chkActivo.Visible = true;
-
-                        //    if (EditProducto.Activo)
-                        //    {
-                        //        chkActivo.Checked = true;
-                        //    }
-                        //    else
-                        //    {
-                        //        chkActivo.Checked = false;
-                        //    }
-
-                        //    txtPrecioTotal.Text = EditProducto.Precio.ToString();
-                        //    Receta = Utilitarios.OpProductoInsumo.ListarProductoInsumo().Where(x => x.CodigoProducto == EditProducto.Codigo).ToList();
-                        //    foreach (var item in Receta)
-                        //    {
-                        //        DATOS.Insumos Ins = Utilitarios.OpInsumos.BuscarInsumos(item.IdInsumo);
-                        //        ListaInsumos.Add(new Insumos()
-                        //        {
-                        //            IdInsumo = Ins.IdInsumo,
-                        //            Consecutivo = Ins.Consecutivo,
-                        //            Activo = Ins.Activo,
-                        //            CantInventario = Ins.CantInventario,
-                        //            IdMedida = Ins.IdMedida,
-                        //            Nombre = Ins.Nombre,
-                        //            PrecioCompra = Ins.PrecioCompra,
-                        //            PrecioMermado = Ins.PrecioMermado,
-                        //            Proveedor = Ins.Proveedor,
-                        //            RendimientoPorcion = Ins.RendimientoPorcion,
-                        //            RendimientoUM = Ins.RendimientoUM
-                        //        });
-
-                        //        for (int i = 0; i < item.CantidadRequerida; i++)
-                        //        {
-                        //            lstInsumosSelected.Items.Add(Ins.Nombre);
-
-                        //        }
-                        //    }
-                        //    Receta.Clear();
-                        //    return;
-                        //}
-                        //else
-                        //{
-                        //    return;
                     }
                 }
 
@@ -338,6 +247,9 @@ namespace LosNaranjitos
                 txtPrecioExpress.Visible = true;
                 txtTelefono.Visible = true;
                 btnExpress.Visible = true;
+                lblDireccionExpress.Visible = true;
+                lblPrecioServicios.Visible = true;
+                lblTelefonoExpress.Visible = true;
             }
             else
             {
@@ -345,6 +257,9 @@ namespace LosNaranjitos
                 txtPrecioExpress.Visible = false;
                 txtTelefono.Visible = false;
                 btnExpress.Visible = false;
+                lblDireccionExpress.Visible = false;
+                lblPrecioServicios.Visible = false;
+                lblTelefonoExpress.Visible = false;
             }
         }
 
@@ -414,7 +329,7 @@ namespace LosNaranjitos
                         {
                             DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + "SIN MAYONESA,";
                         }
-                        if (!chkPepino.Checked)
+                        if (!chkPepinillo.Checked)
                         {
                             DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + "SIN PEPINILLO,";
                         }
@@ -790,13 +705,11 @@ namespace LosNaranjitos
 
                 if (mensaje == DialogResult.Yes)
                 {
-                    //  Consecutivo Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("PDD");
                     NuevaOrden.Activo = true;
                     NuevaOrden.CompletoCocina = false;
                     NuevaOrden.Cancelado = false;
                     Utilitarios.OpPedidos.AgregarPedido(NuevaOrden);
-                    // Consec.ConsecutivoActual = Consec.ConsecutivoActual + 1;
-                    //tilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
+                   
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblConsecutivo.Text + " Agregada a pendientes, Orden Aun NO cancelada");
                     List<DetallePedido> ListaSoporte = new List<DetallePedido>();
                     foreach (var item in OrdenDetalle)
@@ -829,6 +742,16 @@ namespace LosNaranjitos
                     CLIENTE.UltimaVisita = DateTime.Now;
                     Utilitarios.OpClientes.ActualizarCLIENTE(CLIENTE);
 
+                    NuevaOrden = new Pedido();
+                    chkLechuga.Checked = true;
+                    chkMayonesa.Checked = true;
+                    chkPepinillo.Checked = true;
+                    chkPepino.Checked = true;
+                    chkSalsaTomate.Checked = true;
+                    chkTomate.Checked = true;
+                    chkCebolla.Checked = true;
+                    chkCebollaFrita.Checked = false;
+                    chkRepollo.Checked = false;
                     OrdenDetalle.Clear();
                     lblImpuesto.Text = "";
                     lblTotal.Text = "";
@@ -856,11 +779,30 @@ namespace LosNaranjitos
 
             if (mensaje == DialogResult.Yes)
             {
+                NuevaOrden = new Pedido();
+                chkLechuga.Checked = true;
+                chkMayonesa.Checked = true;
+                chkPepinillo.Checked = true;
+                chkPepino.Checked = true;
+                chkSalsaTomate.Checked = true;
+                chkTomate.Checked = true;
+                chkCebolla.Checked = true;
+                chkCebollaFrita.Checked = false;
+                chkRepollo.Checked = false;
                 OrdenDetalle.Clear();
                 lblImpuesto.Text = "";
                 lblTotal.Text = "";
                 lblServiciosAd.Text = "";
                 lblSubtotal.Text = "";
+                tbProductosVenta.SelectedIndex = 0;
+                txtCantBebidas.Clear();
+                txtCantCombos.Clear();
+                txtCantidadAdicionales.Clear();
+                txtObBebidas.Clear();
+                txtObCombos.Clear();
+                txtObservacionesPP.Clear();
+                txtObAdicionales.Clear();
+                
                 this.FrmPedido_Load(sender, e);
             }
             else
@@ -1066,7 +1008,6 @@ namespace LosNaranjitos
                         MessageBox.Show("Digita el monto a Pagar correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    // Consecutivo Consec = Utilitarios.OpConsecutivo.BuscarConsecutivo("PDD");
                     NuevaOrden.MontoEfectivo = Efectivo;
                     NuevaOrden.MontoOtro = Otro;
                     NuevaOrden.MontoTarjeta = Tarjeta;
@@ -1110,16 +1051,22 @@ namespace LosNaranjitos
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Producto perteneciente a la orden  " + lblConsecutivo.Text + " Agregado a pendientes, Orden cancelada");
                     }
 
-
+                    NuevaOrden = new Pedido();
+                    chkLechuga.Checked = true;
+                    chkMayonesa.Checked = true;
+                    chkPepinillo.Checked = true;
+                    chkPepino.Checked = true;
+                    chkSalsaTomate.Checked = true;
+                    chkTomate.Checked = true;
+                    chkCebolla.Checked = true;
+                    chkCebollaFrita.Checked = false;
+                    chkRepollo.Checked = false;
                     OrdenDetalle.Clear();
                     lblImpuesto.Text = "";
                     lblTotal.Text = "";
                     lblServiciosAd.Text = "";
                     lblSubtotal.Text = "";
-                    txtTarjeta.Clear();
-                    txtOtro.Clear();
-                    txtEfectivo.Clear();
-                    chkTarjeta.Checked = false;
+
                     FrmCambioCaja a = new FrmCambioCaja();
                     FrmCambioCaja.CambioShow = NuevaOrden.MontoCambio.ToString();
                     a.Show();

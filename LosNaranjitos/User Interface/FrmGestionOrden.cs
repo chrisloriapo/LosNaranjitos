@@ -66,7 +66,7 @@ namespace LosNaranjitos
 
             try
             {
-                if (!Utilitarios.OpPedidos.ExisteConsecutivo(Int32.Parse( cbbOrden.SelectedValue.ToString())))
+                if (!Utilitarios.OpPedidos.ExisteConsecutivo(Int32.Parse(cbbOrden.SelectedValue.ToString())))
                 {
                     MessageBox.Show("Seleccione una orden de la lista o digite una orden existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -198,8 +198,8 @@ namespace LosNaranjitos
 
                 var mensaje = MessageBox.Show("¿ Desea dar la orden " + lblOrden.Text + " por entregada?", "Advertencia",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-                Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(lblOrden.Text));
+                Pedido OrdenLocal = new Pedido();
+                OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(lblOrden.Text));
 
                 if (mensaje == DialogResult.Yes)
                 {
@@ -274,7 +274,8 @@ namespace LosNaranjitos
                 var mensaje = MessageBox.Show("¿ Desea pagar la orden " + lblOrden.Text + " ?", "Advertencia",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(lblOrden.Text));
+                Pedido OrdenLocal = new Pedido();
+                OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(lblOrden.Text));
 
                 if (mensaje == DialogResult.Yes)
                 {
@@ -385,7 +386,8 @@ namespace LosNaranjitos
                 var mensaje = MessageBox.Show("¿ Desea dar la orden " + lblOrden.Text + " por entregada?", "Advertencia",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                Pedido OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(lblOrden.Text));
+                Pedido OrdenLocal = new Pedido();
+                OrdenLocal = Utilitarios.OpPedidos.BuscarPedido(Int32.Parse(lblOrden.Text));
 
                 if (mensaje == DialogResult.Yes)
                 {
@@ -557,7 +559,7 @@ namespace LosNaranjitos
                 MessageBox.Show("La Orden ya Esta lista para entrega y Cobro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-           
+
             try
             {
 
@@ -573,7 +575,8 @@ namespace LosNaranjitos
                     OrdenLocal.Observaciones = OrdenLocal.Observaciones + " Orden Entregada a las " + DateTime.Now + ";";
                     Utilitarios.OpPedidos.ActualizarPedido(OrdenLocal);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + OrdenLocal.Consecutivo + " Entregada");
-                //Bandera para desplegar orden en pantalla adicional
+                    //Bandera para desplegar orden en pantalla adicional
+
                     DATOS.Parametros Flag = new Parametros();
                     Flag = Utilitarios.OpParametros.BuscarParametrosPorNombre("BanderaMonitor");
                     Flag.Valor = "1";
@@ -589,6 +592,7 @@ namespace LosNaranjitos
                     chkTarjeta.Checked = false;
                     chkEfectivo.Checked = false;
                     chkOtro.Checked = false;
+                    OrdenLocal = new Pedido();
                     this.FrmGestionOrden_Load(sender, e);
 
                 }

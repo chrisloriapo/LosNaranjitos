@@ -115,7 +115,6 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.OrmLite.SqlServer.dll
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.Text.dll
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DS\bin\Debug\LosNaranjitos.DATOS.pdb
-C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DS\bin\Debug\LosNaranjitos.DATOS.dll.config
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.Common.pdb
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.Common.xml
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DS\bin\Debug\ServiceStack.Interfaces.pdb
@@ -127,3 +126,4 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DS\obj\Debug\LosNaranjitos.DS.csprojResolveAssemblyReference.cache
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DS\obj\Debug\LosNaranjitos.DS.dll
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DS\obj\Debug\LosNaranjitos.DS.pdb
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DS\bin\Debug\LosNaranjitos.DATOS.dll.config

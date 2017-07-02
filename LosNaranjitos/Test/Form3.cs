@@ -19,8 +19,7 @@ namespace LosNaranjitos.Test
 
         private void Form3_Load(object sender, EventArgs e)
         {
-
-
+           
         }
     }
 }

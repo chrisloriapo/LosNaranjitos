@@ -36,6 +36,7 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPasswordReset = new System.Windows.Forms.LinkLabel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.lblPasswordReset = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -88,9 +88,8 @@
             this.lblHora.ForeColor = System.Drawing.Color.DarkOrange;
             this.lblHora.Location = new System.Drawing.Point(199, 18);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(40, 16);
+            this.lblHora.Size = new System.Drawing.Size(0, 16);
             this.lblHora.TabIndex = 5;
-            this.lblHora.Text = "Hora";
             this.lblHora.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label3
@@ -123,6 +122,17 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Acceso al Sistema";
+            // 
+            // lblPasswordReset
+            // 
+            this.lblPasswordReset.AutoSize = true;
+            this.lblPasswordReset.Location = new System.Drawing.Point(112, 121);
+            this.lblPasswordReset.Name = "lblPasswordReset";
+            this.lblPasswordReset.Size = new System.Drawing.Size(273, 16);
+            this.lblPasswordReset.TabIndex = 11;
+            this.lblPasswordReset.TabStop = true;
+            this.lblPasswordReset.Text = "¿Ólvidaste tu Contraseña? Presiona Aquí";
+            this.lblPasswordReset.Click += new System.EventHandler(this.lblPasswordReset_Click);
             // 
             // btnSalir
             // 
@@ -166,6 +176,7 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // pictureBox2
             // 
@@ -197,17 +208,6 @@
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 12;
             this.pictureBox3.TabStop = false;
-            // 
-            // lblPasswordReset
-            // 
-            this.lblPasswordReset.AutoSize = true;
-            this.lblPasswordReset.Location = new System.Drawing.Point(112, 121);
-            this.lblPasswordReset.Name = "lblPasswordReset";
-            this.lblPasswordReset.Size = new System.Drawing.Size(273, 16);
-            this.lblPasswordReset.TabIndex = 11;
-            this.lblPasswordReset.TabStop = true;
-            this.lblPasswordReset.Text = "¿Ólvidaste tu Contraseña? Presiona Aquí";
-            this.lblPasswordReset.Click += new System.EventHandler(this.lblPasswordReset_Click);
             // 
             // FrmLogin
             // 

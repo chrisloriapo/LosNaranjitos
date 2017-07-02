@@ -188,7 +188,7 @@ namespace LosNaranjitos
                             Apellido1 = txtApellido.Text,
                             Apellido2 = "",
                             Contrasena = "dsfuhglsdfjo",
-                            Operadora = "No Definida",
+                            Direccion = "No Definida",
                             Puntaje = 0
                         };
 

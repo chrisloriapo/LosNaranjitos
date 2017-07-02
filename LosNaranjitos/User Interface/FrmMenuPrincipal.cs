@@ -515,14 +515,14 @@ namespace LosNaranjitos
         {
             try
             {
-                FrmReporteVentas a = new FrmReporteVentas();
-                a.MdiParent = this;
-                a.ControlBox = false;
-                a.MinimizeBox = false;
-                a.MaximizeBox = false;
-                a.Dock = DockStyle.Fill;
-                a.Show();
-                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
+                //FrmReporteVentas a = new FrmReporteVentas();
+                //a.MdiParent = this;
+                //a.ControlBox = false;
+                //a.MinimizeBox = false;
+                //a.MaximizeBox = false;
+                //a.Dock = DockStyle.Fill;
+                //a.Show();
+                //Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
             }
             catch (Exception ex)
             {
@@ -534,14 +534,14 @@ namespace LosNaranjitos
         {
             try
             {
-                FrmReporteCierres a = new FrmReporteCierres();
-                a.MdiParent = this;
-                a.ControlBox = false;
-                a.MinimizeBox = false;
-                a.MaximizeBox = false;
-                a.Dock = DockStyle.Fill;
-                a.Show();
-                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
+                //FrmReporteCierres a = new FrmReporteCierres();
+                //a.MdiParent = this;
+                //a.ControlBox = false;
+                //a.MinimizeBox = false;
+                //a.MaximizeBox = false;
+                //a.Dock = DockStyle.Fill;
+                //a.Show();
+                //Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
             }
             catch (Exception ex)
             {
@@ -553,14 +553,14 @@ namespace LosNaranjitos
         {
             try
             {
-                FrmReporteInsumos a = new FrmReporteInsumos();
-                a.MdiParent = this;
-                a.ControlBox = false;
-                a.MinimizeBox = false;
-                a.MaximizeBox = false;
-                a.Dock = DockStyle.Fill;
-                a.Show();
-                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
+                //FrmReporteInsumos a = new FrmReporteInsumos();
+                //a.MdiParent = this;
+                //a.ControlBox = false;
+                //a.MinimizeBox = false;
+                //a.MaximizeBox = false;
+                //a.Dock = DockStyle.Fill;
+                //a.Show();
+                //Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
             }
             catch (Exception ex)
             {
@@ -568,24 +568,7 @@ namespace LosNaranjitos
             }
         }
 
-        private void reporteDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                FrmReporteProductos a = new FrmReporteProductos();
-                a.MdiParent = this;
-                a.ControlBox = false;
-                a.MinimizeBox = false;
-                a.MaximizeBox = false;
-                a.Dock = DockStyle.Fill;
-                a.Show();
-                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+   
 
         private void tsiPasswordChange_Click(object sender, EventArgs e)
         {
@@ -619,6 +602,26 @@ namespace LosNaranjitos
                 a.Show();
                 a.StartPosition = FormStartPosition.CenterParent;
                 Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Cambio de Parametros de Impresión");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmReportes a = new FrmReportes();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.None;
+                a.StartPosition = FormStartPosition.CenterScreen;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Registro de Cierres ");
             }
             catch (Exception ex)
             {

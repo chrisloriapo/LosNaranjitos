@@ -34,37 +34,37 @@
             this.cbbPorcentajeCarga = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.lblConsecutivo = new System.Windows.Forms.Label();
             this.chkActivo = new System.Windows.Forms.CheckBox();
             this.grbBuscar = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvCargas = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.cbbCargas = new System.Windows.Forms.ComboBox();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.dgvCargas = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tbC2 = new System.Windows.Forms.TabControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.cbbCargas = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel4.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.grbBuscar.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCargas)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCargas)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             this.tbC2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSalir
@@ -153,6 +153,44 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(337, 231);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txtDescripcion);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.OrangeRed;
+            this.groupBox2.Location = new System.Drawing.Point(23, 155);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(290, 73);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Descripción";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDescripcion.Location = new System.Drawing.Point(3, 17);
+            this.txtDescripcion.MaxLength = 30;
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(284, 53);
+            this.txtDescripcion.TabIndex = 0;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.Consecutivo, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.lblConsecutivo, 1, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(23, 3);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(290, 32);
+            this.tableLayoutPanel7.TabIndex = 26;
+            // 
             // lblConsecutivo
             // 
             this.lblConsecutivo.AutoSize = true;
@@ -222,28 +260,64 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(344, 251);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
-            // txtDescripcion
+            // dgvCargas
             // 
-            this.txtDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDescripcion.Location = new System.Drawing.Point(3, 17);
-            this.txtDescripcion.MaxLength = 30;
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(284, 53);
-            this.txtDescripcion.TabIndex = 0;
+            this.dgvCargas.AllowUserToAddRows = false;
+            this.dgvCargas.AllowUserToDeleteRows = false;
+            this.dgvCargas.AllowUserToOrderColumns = true;
+            this.dgvCargas.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvCargas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCargas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCargas.Location = new System.Drawing.Point(3, 45);
+            this.dgvCargas.MultiSelect = false;
+            this.dgvCargas.Name = "dgvCargas";
+            this.dgvCargas.ReadOnly = true;
+            this.dgvCargas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCargas.Size = new System.Drawing.Size(338, 187);
+            this.dgvCargas.TabIndex = 18;
             // 
-            // groupBox2
+            // flowLayoutPanel1
             // 
-            this.groupBox2.Controls.Add(this.txtDescripcion);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.OrangeRed;
-            this.groupBox2.Location = new System.Drawing.Point(23, 155);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(290, 73);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Descripción";
+            this.flowLayoutPanel1.Controls.Add(this.cbbCargas);
+            this.flowLayoutPanel1.Controls.Add(this.txtBuscar);
+            this.flowLayoutPanel1.Controls.Add(this.btnBuscar);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(338, 36);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // cbbCargas
+            // 
+            this.cbbCargas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbCargas.FormattingEnabled = true;
+            this.cbbCargas.Items.AddRange(new object[] {
+            "Consecutivo",
+            "Descripcion"});
+            this.cbbCargas.Location = new System.Drawing.Point(3, 3);
+            this.cbbCargas.Name = "cbbCargas";
+            this.cbbCargas.Size = new System.Drawing.Size(100, 22);
+            this.cbbCargas.Sorted = true;
+            this.cbbCargas.TabIndex = 19;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Location = new System.Drawing.Point(109, 3);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(139, 21);
+            this.txtBuscar.TabIndex = 17;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Location = new System.Drawing.Point(254, 3);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 18;
+            this.btnBuscar.Text = "&Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
             // 
             // tabPage2
             // 
@@ -303,32 +377,6 @@
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // dgvCargas
-            // 
-            this.dgvCargas.AllowUserToAddRows = false;
-            this.dgvCargas.AllowUserToDeleteRows = false;
-            this.dgvCargas.AllowUserToOrderColumns = true;
-            this.dgvCargas.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dgvCargas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCargas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCargas.Location = new System.Drawing.Point(3, 45);
-            this.dgvCargas.MultiSelect = false;
-            this.dgvCargas.Name = "dgvCargas";
-            this.dgvCargas.ReadOnly = true;
-            this.dgvCargas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCargas.Size = new System.Drawing.Size(338, 187);
-            this.dgvCargas.TabIndex = 18;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.cbbCargas);
-            this.flowLayoutPanel1.Controls.Add(this.txtBuscar);
-            this.flowLayoutPanel1.Controls.Add(this.btnBuscar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(338, 36);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
             // tbC2
             // 
             this.tbC2.Controls.Add(this.tabPage2);
@@ -360,54 +408,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(759, 463);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.ColumnCount = 2;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.Consecutivo, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.lblConsecutivo, 1, 0);
-            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(23, 3);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(290, 32);
-            this.tableLayoutPanel7.TabIndex = 26;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(254, 3);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 18;
-            this.btnBuscar.Text = "&Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(109, 3);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(139, 21);
-            this.txtBuscar.TabIndex = 17;
-            // 
-            // cbbCargas
-            // 
-            this.cbbCargas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbCargas.FormattingEnabled = true;
-            this.cbbCargas.Items.AddRange(new object[] {
-            "Consecutivo",
-            "Descripcion"});
-            this.cbbCargas.Location = new System.Drawing.Point(3, 3);
-            this.cbbCargas.Name = "cbbCargas";
-            this.cbbCargas.Size = new System.Drawing.Size(100, 22);
-            this.cbbCargas.Sorted = true;
-            this.cbbCargas.TabIndex = 19;
-            // 
             // FrmCargas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,20 +425,20 @@
             this.Load += new System.EventHandler(this.FrmCargas_Load);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            this.grbBuscar.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
+            this.grbBuscar.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCargas)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
             this.tbC2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -63,7 +63,7 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(803, 430);
@@ -73,20 +73,20 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Britannic Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(23, 83);
+            this.tabControl1.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(23, 63);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(757, 304);
+            this.tabControl1.Size = new System.Drawing.Size(757, 324);
             this.tabControl1.TabIndex = 19;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 21);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(749, 279);
+            this.tabPage1.Size = new System.Drawing.Size(749, 294);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -103,7 +103,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(743, 273);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(743, 288);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dgvListado
@@ -112,14 +112,15 @@
             this.dgvListado.AllowUserToDeleteRows = false;
             this.dgvListado.AllowUserToOrderColumns = true;
             this.dgvListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListado.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvListado.Location = new System.Drawing.Point(3, 43);
+            this.dgvListado.Location = new System.Drawing.Point(3, 46);
             this.dgvListado.MultiSelect = false;
             this.dgvListado.Name = "dgvListado";
             this.dgvListado.ReadOnly = true;
             this.dgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListado.Size = new System.Drawing.Size(737, 227);
+            this.dgvListado.Size = new System.Drawing.Size(737, 239);
             this.dgvListado.TabIndex = 18;
             // 
             // flowLayoutPanel1
@@ -132,15 +133,16 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(737, 34);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(737, 37);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 12);
+            this.label1.Size = new System.Drawing.Size(135, 17);
             this.label1.TabIndex = 21;
             this.label1.Text = "Tipo de Búsqueda";
             // 
@@ -152,27 +154,27 @@
             "Fecha",
             "General",
             "Usuario"});
-            this.cmbBusqueda.Location = new System.Drawing.Point(99, 3);
+            this.cmbBusqueda.Location = new System.Drawing.Point(144, 3);
             this.cmbBusqueda.Name = "cmbBusqueda";
-            this.cmbBusqueda.Size = new System.Drawing.Size(121, 20);
+            this.cmbBusqueda.Size = new System.Drawing.Size(121, 25);
             this.cmbBusqueda.Sorted = true;
             this.cmbBusqueda.TabIndex = 19;
             this.cmbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbBusqueda_SelectedIndexChanged);
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(226, 3);
+            this.txtBuscar.Location = new System.Drawing.Point(271, 3);
             this.txtBuscar.MaxLength = 15;
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(139, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(139, 25);
             this.txtBuscar.TabIndex = 17;
             this.txtBuscar.Visible = false;
             // 
             // dtpFechaBusqueda
             // 
-            this.dtpFechaBusqueda.Location = new System.Drawing.Point(371, 3);
+            this.dtpFechaBusqueda.Location = new System.Drawing.Point(416, 3);
             this.dtpFechaBusqueda.Name = "dtpFechaBusqueda";
-            this.dtpFechaBusqueda.Size = new System.Drawing.Size(231, 20);
+            this.dtpFechaBusqueda.Size = new System.Drawing.Size(231, 25);
             this.dtpFechaBusqueda.TabIndex = 20;
             this.dtpFechaBusqueda.Value = new System.DateTime(2017, 2, 22, 13, 53, 53, 0);
             this.dtpFechaBusqueda.Visible = false;
@@ -183,7 +185,7 @@
             this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(608, 3);
+            this.btnBuscar.Location = new System.Drawing.Point(653, 3);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 18;
@@ -199,7 +201,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(23, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(757, 74);
+            this.groupBox1.Size = new System.Drawing.Size(757, 54);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bitácora";

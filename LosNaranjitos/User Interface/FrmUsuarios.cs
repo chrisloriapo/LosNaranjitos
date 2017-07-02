@@ -44,7 +44,7 @@ namespace LosNaranjitos
                     {
                         MessageBox.Show("Email No Valido",
                             "Error al ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        
+
                         return;
                     }
                     DATOS.RolUsuario RolLocal = Utilitarios.OpRol.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
@@ -72,8 +72,8 @@ namespace LosNaranjitos
 
 
                     List<string> Destinatario = new List<string>();
-                    Destinatario.Add(Utilitarios.Decriptar( Userprivate.Correo, Utilitarios.Llave));
-                    Utilitarios.EnviarEmail(Destinatario, "***CONFIDENCIAL**** - Credenciales de Acceso - Soda Los Naranjitos", "Su Contraseña de acceso es:" + Userprivate.Contrasena);
+                    Destinatario.Add(Utilitarios.Decriptar(Userprivate.Correo, Utilitarios.Llave));
+                   Utilitarios.EnviarEmail(Destinatario, "***CONFIDENCIAL**** - Credenciales de Acceso - Soda Los Naranjitos", "Su Contraseña de acceso es:" + Userprivate.Contrasena);
 
                     MessageBox.Show("Se ha enviado la contraseña al correo correspondiente al usuario " + Userprivate.Username, "Advertencia",
    MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -114,9 +114,8 @@ namespace LosNaranjitos
             {
                 if (!Utilitarios.Cambio)
                 {
-                    //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
-                    //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
-                    DATOS.Usuario UltimoUsuario = new Usuario();
+
+                    Usuario UltimoUsuario = new Usuario();
 
                     try
                     {
@@ -133,19 +132,10 @@ namespace LosNaranjitos
                         lblConsecutivo.Text = UltimoUsuario.Consecutivo.ToString();
 
                     }
-                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Usuario").Select(x => x.Prefijo).FirstOrDefault();
-                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    //int CSUsuario = Consecutivo.ConsecutivoActual + 1;
-                    //UltimoUsuario.Consecutivo = Prefijo + "-" + CSUsuario;
-                    //if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoUsuario.Consecutivo))
-                    //{
-                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoUsuario.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //    btnNuevo.Enabled = false;
-                    //}
+
                 }
 
-                cbbRol.DataSource = Utilitarios.OpRol.ListarRoles().Select(p =>
-                    p.Descripcion).ToList();
+                cbbRol.DataSource = Utilitarios.OpRol.ListarRoles().Select(p => p.Descripcion).ToList();
                 cbbRol.SelectedIndex = 0;
                 cbBuscar.SelectedIndex = 0;
                 ListaUsuarios = Utilitarios.OpUsuarios.ListarUsuarios();
@@ -161,6 +151,7 @@ namespace LosNaranjitos
                     a.Telefono,
                     a.Rol
                 }).ToList();
+
                 dgvListado.DataSource = ListaLocal;
                 dgvListado.Columns[0].HeaderText = "Usuario";
                 dgvListado.Columns[1].HeaderText = "Cédula";
@@ -171,6 +162,7 @@ namespace LosNaranjitos
                 dgvListado.Columns[6].HeaderText = "Dirección";
                 dgvListado.Columns[7].HeaderText = "Teléfono";
                 dgvListado.Columns[8].HeaderText = "Rol de Usuario";
+
                 var autosearch = new AutoCompleteStringCollection();
                 txtBuscar.AutoCompleteCustomSource = autosearch;
                 txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -208,7 +200,7 @@ namespace LosNaranjitos
                         txtIdPersonal.ReadOnly = true;
 
                         btnNuevo.Visible = false;
-                       
+
                         if (EditUser.Activo)
                         {
                             chkEstado.Checked = true;
@@ -249,7 +241,7 @@ namespace LosNaranjitos
             txtNombre.Clear();
             txtTelefono.Clear();
             txtEmail.Clear();
-           
+
             txtApellido2.Clear();
             txtApellido.Clear();
             txtDireccion.Clear();
@@ -285,24 +277,30 @@ namespace LosNaranjitos
             {
                 try
                 {
-                    DATOS.RolUsuario RolLocal = Utilitarios.OpRol.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
-                    DATOS.Usuario Userprivate = new DATOS.Usuario
+                    RolUsuario RolLocal = Utilitarios.OpRol.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
+                    Usuario Userprivate = new Usuario();
+                    Userprivate = EditUser;
                     {
                         //   Consecutivo = lblConsecutivo.Text,
-                        Username = txtUsername.Text,
-                        Nombre = txtNombre.Text,
-                        Apellido1 = txtApellido.Text,
-                        Apellido2 = txtApellido2.Text,
+                        Userprivate.Username = txtUsername.Text;
+                        Userprivate.Nombre = txtNombre.Text;
+                        Userprivate.Apellido1 = txtApellido.Text;
+                        Userprivate.Apellido2 = txtApellido2.Text;
                         //      Contrasena = txtContraseña.Text,
-                        Activo = chkEstado.Checked,
-                        IdPersonal = txtIdPersonal.Text,
-                        Telefono = txtTelefono.Text,
-                        Correo = txtEmail.Text,
-                        Rol = RolLocal.IdRol,
-                        Direccion = txtDireccion.Text,
+                        Userprivate.Activo = chkEstado.Checked;
+                        Userprivate.IdPersonal = txtIdPersonal.Text;
+                        Userprivate.Telefono = txtTelefono.Text;
+                        Userprivate.Correo = txtEmail.Text;
+                        Userprivate.Rol = RolLocal.IdRol;
+                        Userprivate.Direccion = txtDireccion.Text;
+                        Userprivate.CambioContrasena = true;
                     };
                     Utilitarios.OpUsuarios.ActualizarUsuario(Userprivate);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Edicion de Usuario " + Userprivate.Username);
+
+                    List<string> Destinatario = new List<string>();
+                    Destinatario.Add(Utilitarios.Decriptar(Userprivate.Correo, Utilitarios.Llave));
+                    Utilitarios.EnviarEmail(Destinatario, "***CONFIDENCIAL**** - Credenciales de Acceso - Soda Los Naranjitos", "Su Contraseña de acceso es:" +Utilitarios.Decriptar(Userprivate.Contrasena,Utilitarios.Llave));
 
                     MessageBox.Show("Los datos del Usuario se Actualizaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -499,7 +497,7 @@ namespace LosNaranjitos
                         txtDireccion.ReadOnly = false;
                         txtEmail.ReadOnly = false;
                         txtTelefono.ReadOnly = false;
-                       
+
                         txtIdPersonal.ReadOnly = false;
 
                     }
@@ -531,7 +529,7 @@ namespace LosNaranjitos
             txtDireccion.Clear();
             txtEmail.Clear();
             txtTelefono.Clear();
-           
+
             txtIdPersonal.Clear();
             EditUser = null;
             Utilitarios.Cambio = false;
@@ -574,7 +572,7 @@ namespace LosNaranjitos
 
         private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (emailValido( txtEmail.Text))
+            if (emailValido(txtEmail.Text))
             {
                 lblValidEmail.Text = "Email Válido";
                 lblValidEmail.ForeColor = Color.Green;

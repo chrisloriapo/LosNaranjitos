@@ -46,6 +46,7 @@
             this.tsmSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiPasswordChange = new System.Windows.Forms.ToolStripMenuItem();
+            this.parametrosDeImpresiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAdministracion = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,21 +64,15 @@
             this.tsmVentas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiPedido = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCierreCaja = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsiReportes = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteDeCierresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteDeInsumosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reporteDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmSeguridad = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiUsuarios = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsiConsecutivos = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiBitacora = new System.Windows.Forms.ToolStripMenuItem();
             this.bitacoraDeCambiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consecutivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVentanas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.tmerTiempo = new System.Windows.Forms.Timer(this.components);
-            this.parametrosDeImpresiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.grbMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -170,7 +165,8 @@
             this.tsmVentas,
             this.tsmSeguridad,
             this.tsmVentanas,
-            this.tsmAyuda});
+            this.tsmAyuda,
+            this.reportesToolStripMenuItem});
             this.menumain.Name = "menumain";
             // 
             // tsmSistema
@@ -196,6 +192,12 @@
             this.tsiPasswordChange.Name = "tsiPasswordChange";
             resources.ApplyResources(this.tsiPasswordChange, "tsiPasswordChange");
             this.tsiPasswordChange.Click += new System.EventHandler(this.tsiPasswordChange_Click);
+            // 
+            // parametrosDeImpresiónToolStripMenuItem
+            // 
+            this.parametrosDeImpresiónToolStripMenuItem.Name = "parametrosDeImpresiónToolStripMenuItem";
+            resources.ApplyResources(this.parametrosDeImpresiónToolStripMenuItem, "parametrosDeImpresiónToolStripMenuItem");
+            this.parametrosDeImpresiónToolStripMenuItem.Click += new System.EventHandler(this.parametrosDeImpresiónToolStripMenuItem_Click);
             // 
             // tsiAbout
             // 
@@ -297,8 +299,7 @@
             // 
             this.tsmVentas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiPedido,
-            this.tsiCierreCaja,
-            this.tsiReportes});
+            this.tsiCierreCaja});
             resources.ApplyResources(this.tsmVentas, "tsmVentas");
             this.tsmVentas.ForeColor = System.Drawing.Color.White;
             this.tsmVentas.Name = "tsmVentas";
@@ -315,45 +316,10 @@
             resources.ApplyResources(this.tsiCierreCaja, "tsiCierreCaja");
             this.tsiCierreCaja.Click += new System.EventHandler(this.tsiCierreCaja_Click);
             // 
-            // tsiReportes
-            // 
-            this.tsiReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reporteDeVentasToolStripMenuItem,
-            this.reporteDeCierresToolStripMenuItem,
-            this.reporteDeInsumosToolStripMenuItem,
-            this.reporteDeProductosToolStripMenuItem});
-            this.tsiReportes.Name = "tsiReportes";
-            resources.ApplyResources(this.tsiReportes, "tsiReportes");
-            // 
-            // reporteDeVentasToolStripMenuItem
-            // 
-            this.reporteDeVentasToolStripMenuItem.Name = "reporteDeVentasToolStripMenuItem";
-            resources.ApplyResources(this.reporteDeVentasToolStripMenuItem, "reporteDeVentasToolStripMenuItem");
-            this.reporteDeVentasToolStripMenuItem.Click += new System.EventHandler(this.reporteDeVentasToolStripMenuItem_Click);
-            // 
-            // reporteDeCierresToolStripMenuItem
-            // 
-            this.reporteDeCierresToolStripMenuItem.Name = "reporteDeCierresToolStripMenuItem";
-            resources.ApplyResources(this.reporteDeCierresToolStripMenuItem, "reporteDeCierresToolStripMenuItem");
-            this.reporteDeCierresToolStripMenuItem.Click += new System.EventHandler(this.reporteDeCierresToolStripMenuItem_Click);
-            // 
-            // reporteDeInsumosToolStripMenuItem
-            // 
-            this.reporteDeInsumosToolStripMenuItem.Name = "reporteDeInsumosToolStripMenuItem";
-            resources.ApplyResources(this.reporteDeInsumosToolStripMenuItem, "reporteDeInsumosToolStripMenuItem");
-            this.reporteDeInsumosToolStripMenuItem.Click += new System.EventHandler(this.reporteDeInsumosToolStripMenuItem_Click);
-            // 
-            // reporteDeProductosToolStripMenuItem
-            // 
-            this.reporteDeProductosToolStripMenuItem.Name = "reporteDeProductosToolStripMenuItem";
-            resources.ApplyResources(this.reporteDeProductosToolStripMenuItem, "reporteDeProductosToolStripMenuItem");
-            this.reporteDeProductosToolStripMenuItem.Click += new System.EventHandler(this.reporteDeProductosToolStripMenuItem_Click);
-            // 
             // tsmSeguridad
             // 
             this.tsmSeguridad.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiUsuarios,
-            this.tsiConsecutivos,
             this.tsiBitacora});
             resources.ApplyResources(this.tsmSeguridad, "tsmSeguridad");
             this.tsmSeguridad.ForeColor = System.Drawing.Color.White;
@@ -364,12 +330,6 @@
             this.tsiUsuarios.Name = "tsiUsuarios";
             resources.ApplyResources(this.tsiUsuarios, "tsiUsuarios");
             this.tsiUsuarios.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
-            // 
-            // tsiConsecutivos
-            // 
-            this.tsiConsecutivos.Name = "tsiConsecutivos";
-            resources.ApplyResources(this.tsiConsecutivos, "tsiConsecutivos");
-            this.tsiConsecutivos.Click += new System.EventHandler(this.consecutivosToolStripMenuItem_Click);
             // 
             // tsiBitacora
             // 
@@ -407,11 +367,11 @@
             // 
             this.tmerTiempo.Tick += new System.EventHandler(this.tmerTiempo_Tick);
             // 
-            // parametrosDeImpresiónToolStripMenuItem
+            // reportesToolStripMenuItem
             // 
-            this.parametrosDeImpresiónToolStripMenuItem.Name = "parametrosDeImpresiónToolStripMenuItem";
-            resources.ApplyResources(this.parametrosDeImpresiónToolStripMenuItem, "parametrosDeImpresiónToolStripMenuItem");
-            this.parametrosDeImpresiónToolStripMenuItem.Click += new System.EventHandler(this.parametrosDeImpresiónToolStripMenuItem_Click);
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
+            this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
             // 
             // FrmMenuPrincipal
             // 
@@ -463,10 +423,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsiClientes;
         private System.Windows.Forms.ToolStripMenuItem tsmVentas;
         private System.Windows.Forms.ToolStripMenuItem tsiPedido;
-        private System.Windows.Forms.ToolStripMenuItem tsiReportes;
         private System.Windows.Forms.ToolStripMenuItem tsmSeguridad;
         private System.Windows.Forms.ToolStripMenuItem tsiUsuarios;
-        private System.Windows.Forms.ToolStripMenuItem tsiConsecutivos;
         private System.Windows.Forms.ToolStripMenuItem tsiBitacora;
         private System.Windows.Forms.ToolStripMenuItem bitacoraDeCambiosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consecutivosToolStripMenuItem;
@@ -484,14 +442,11 @@
         private System.Windows.Forms.ToolStripMenuItem tsMiCargas;
         private System.Windows.Forms.ToolStripMenuItem tsiCierreCaja;
         private System.Windows.Forms.ToolStripMenuItem cajasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporteDeVentasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporteDeCierresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporteDeInsumosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reporteDeProductosToolStripMenuItem;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.ToolStripMenuItem tsiPasswordChange;
         private System.Windows.Forms.ToolStripMenuItem parametrosDeImpresiónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
     }
 }
 

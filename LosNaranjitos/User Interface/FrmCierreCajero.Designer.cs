@@ -28,12 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.CierreBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.OrangeDB1DataSet = new LosNaranjitos.OrangeDB1DataSet();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.rptVReporteLocal = new Microsoft.Reporting.WinForms.ReportViewer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -43,9 +38,6 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEjecutar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.CierreTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.CierreTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -53,44 +45,19 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // CierreBindingSource
-            // 
-            this.CierreBindingSource.DataMember = "Cierre";
-            this.CierreBindingSource.DataSource = this.OrangeDB1DataSet;
-            // 
-            // OrangeDB1DataSet
-            // 
-            this.OrangeDB1DataSet.DataSetName = "OrangeDB1DataSet";
-            this.OrangeDB1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.rptVReporteLocal, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(915, 479);
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(915, 80);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // rptVReporteLocal
-            // 
-            this.rptVReporteLocal.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.CierreBindingSource;
-            this.rptVReporteLocal.LocalReport.DataSources.Add(reportDataSource1);
-            this.rptVReporteLocal.LocalReport.ReportEmbeddedResource = "LosNaranjitos.Reporteria.rdlcReporteCierre.rdlc";
-            this.rptVReporteLocal.Location = new System.Drawing.Point(3, 122);
-            this.rptVReporteLocal.Name = "rptVReporteLocal";
-            this.rptVReporteLocal.ServerReport.BearerToken = null;
-            this.rptVReporteLocal.Size = new System.Drawing.Size(909, 354);
-            this.rptVReporteLocal.TabIndex = 5;
-            this.rptVReporteLocal.Visible = false;
             // 
             // groupBox1
             // 
@@ -100,25 +67,28 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(909, 113);
+            this.groupBox1.Size = new System.Drawing.Size(909, 74);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seleccione el tipo de cierre";
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.43743F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.69214F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.75969F));
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.60752F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.7021F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.79956F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.13178F));
+            this.tableLayoutPanel2.Controls.Add(this.btnCancelar, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.groupBox2, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnNuevo, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(903, 92);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(903, 53);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // groupBox2
@@ -129,7 +99,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(314, 86);
+            this.groupBox2.Size = new System.Drawing.Size(206, 47);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tipo de Cierre";
@@ -144,7 +114,7 @@
             "Cierre Diario"});
             this.cbbTipoCierre.Location = new System.Drawing.Point(3, 18);
             this.cbbTipoCierre.Name = "cbbTipoCierre";
-            this.cbbTipoCierre.Size = new System.Drawing.Size(308, 23);
+            this.cbbTipoCierre.Size = new System.Drawing.Size(200, 23);
             this.cbbTipoCierre.TabIndex = 0;
             this.cbbTipoCierre.SelectedIndexChanged += new System.EventHandler(this.cbbTipoCierre_SelectedIndexChanged);
             // 
@@ -156,9 +126,9 @@
             this.cbbItemTipodeCierre.Items.AddRange(new object[] {
             "Cierre de Caja",
             "Cierre Diario"});
-            this.cbbItemTipodeCierre.Location = new System.Drawing.Point(3, 60);
+            this.cbbItemTipodeCierre.Location = new System.Drawing.Point(3, 21);
             this.cbbItemTipodeCierre.Name = "cbbItemTipodeCierre";
-            this.cbbItemTipodeCierre.Size = new System.Drawing.Size(308, 23);
+            this.cbbItemTipodeCierre.Size = new System.Drawing.Size(200, 23);
             this.cbbItemTipodeCierre.TabIndex = 1;
             this.cbbItemTipodeCierre.Visible = false;
             this.cbbItemTipodeCierre.SelectedIndexChanged += new System.EventHandler(this.cbbItemTipodeCierre_SelectedIndexChanged);
@@ -167,17 +137,13 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.btnCancelar, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.btnEjecutar, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.btnNuevo, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(323, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(215, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(226, 86);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(198, 47);
             this.tableLayoutPanel3.TabIndex = 17;
             // 
             // btnCancelar
@@ -187,9 +153,9 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(3, 59);
+            this.btnCancelar.Location = new System.Drawing.Point(660, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(220, 24);
+            this.btnCancelar.Size = new System.Drawing.Size(240, 47);
             this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -204,7 +170,7 @@
             this.btnEjecutar.ForeColor = System.Drawing.Color.White;
             this.btnEjecutar.Location = new System.Drawing.Point(3, 3);
             this.btnEjecutar.Name = "btnEjecutar";
-            this.btnEjecutar.Size = new System.Drawing.Size(220, 22);
+            this.btnEjecutar.Size = new System.Drawing.Size(192, 41);
             this.btnEjecutar.TabIndex = 13;
             this.btnEjecutar.Text = "Ejecutar";
             this.btnEjecutar.UseVisualStyleBackColor = false;
@@ -217,25 +183,21 @@
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(3, 31);
+            this.btnNuevo.Location = new System.Drawing.Point(419, 3);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(220, 22);
+            this.btnNuevo.Size = new System.Drawing.Size(235, 47);
             this.btnNuevo.TabIndex = 16;
             this.btnNuevo.Text = "Nuevo Cierre";
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Visible = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // CierreTableAdapter
-            // 
-            this.CierreTableAdapter.ClearBeforeFill = true;
-            // 
             // FrmCierreCajero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LimeGreen;
-            this.ClientSize = new System.Drawing.Size(915, 479);
+            this.ClientSize = new System.Drawing.Size(915, 80);
             this.ControlBox = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -248,8 +210,6 @@
             this.Text = "Soda Los Naranjitos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmCierreCajero_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -269,10 +229,6 @@
         private System.Windows.Forms.ComboBox cbbTipoCierre;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox cbbItemTipodeCierre;
-        private Microsoft.Reporting.WinForms.ReportViewer rptVReporteLocal;
-        private System.Windows.Forms.BindingSource CierreBindingSource;
-        private OrangeDB1DataSet OrangeDB1DataSet;
-        private OrangeDB1DataSetTableAdapters.CierreTableAdapter CierreTableAdapter;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
     }

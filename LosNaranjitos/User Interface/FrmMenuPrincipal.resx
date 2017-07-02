@@ -131,10 +131,14 @@
     <value>Estado</value>
   </data>
   <data name="statusStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 423</value>
+    <value>0, 608</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="statusStrip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 21, 0</value>
   </data>
   <data name="statusStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>827, 22</value>
+    <value>1240, 22</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="statusStrip.TabIndex" type="System.Int32, mscorlib">
@@ -167,7 +171,6 @@
   <data name="lnkUsuario.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lnkUsuario.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -178,10 +181,13 @@
     <value>NoControl</value>
   </data>
   <data name="lnkUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 170</value>
+    <value>4, 253</value>
+  </data>
+  <data name="lnkUsuario.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lnkUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 28</value>
+    <value>220, 41</value>
   </data>
   <data name="lnkUsuario.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -214,10 +220,13 @@
     <value>NoControl</value>
   </data>
   <data name="pcbUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+    <value>4, 4</value>
+  </data>
+  <data name="pcbUsuario.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="pcbUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 164</value>
+    <value>220, 245</value>
   </data>
   <data name="pcbUsuario.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -241,16 +250,13 @@
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 2</value>
-  </data>
-  <data name="tableLayoutPanel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 3</value>
   </data>
   <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 198</value>
+    <value>228, 294</value>
   </data>
   <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -268,7 +274,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lnkUsuario" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="pcbUsuario" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,86,12566,Percent,13,87435" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lnkUsuario" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="pcbUsuario" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,86.12566,Percent,13.87435" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel3.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
@@ -286,10 +292,13 @@
     <value>NoControl</value>
   </data>
   <data name="lblTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 136</value>
+    <value>4, 203</value>
+  </data>
+  <data name="lblTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 34</value>
+    <value>220, 48</value>
   </data>
   <data name="lblTime.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -325,10 +334,13 @@
     <value>NoControl</value>
   </data>
   <data name="lblDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 108</value>
+    <value>4, 160</value>
+  </data>
+  <data name="lblDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 28</value>
+    <value>220, 43</value>
   </data>
   <data name="lblDate.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -355,16 +367,13 @@
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 204</value>
-  </data>
-  <data name="tableLayoutPanel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>3, 303</value>
   </data>
   <data name="tableLayoutPanel3.RowCount" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
   <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 170</value>
+    <value>228, 251</value>
   </data>
   <data name="tableLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -382,22 +391,19 @@
     <value>1</value>
   </data>
   <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblTime" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblDate" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,78,89909,Percent,21,10092,Absolute,33" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblTime" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblDate" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50" /&gt;&lt;Rows Styles="Percent,78.89909,Percent,21.10092,Absolute,47" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 20</value>
-  </data>
-  <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>4, 21</value>
   </data>
   <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 376</value>
+    <value>234, 557</value>
   </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -415,7 +421,7 @@
     <value>0</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel3" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,53,94372,Percent,46,05628" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel3" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,53.94372,Percent,46.05628" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -424,7 +430,10 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 38</value>
+    <value>68, 54</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 16</value>
@@ -454,10 +463,16 @@
     <value>Britannic Bold, 11.25pt</value>
   </data>
   <data name="grbMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
+    <value>0, 26</value>
+  </data>
+  <data name="grbMain.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="grbMain.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="grbMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 399</value>
+    <value>242, 582</value>
   </data>
   <data name="grbMain.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -481,217 +496,181 @@
     <value>527, 17</value>
   </metadata>
   <data name="menumain.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Britannic Bold, 9pt</value>
+    <value>Britannic Bold, 11.25pt</value>
   </data>
   <data name="tsiCerrarSesion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 22</value>
+    <value>240, 22</value>
   </data>
   <data name="tsiCerrarSesion.Text" xml:space="preserve">
     <value>Cerrar Sesion</value>
   </data>
   <data name="tsiPasswordChange.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 22</value>
+    <value>240, 22</value>
   </data>
   <data name="tsiPasswordChange.Text" xml:space="preserve">
     <value>Cambiar Contraseña</value>
   </data>
   <data name="parametrosDeImpresiónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 22</value>
+    <value>240, 22</value>
   </data>
   <data name="parametrosDeImpresiónToolStripMenuItem.Text" xml:space="preserve">
     <value>Parametros de Impresión</value>
   </data>
   <data name="tsiAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 22</value>
+    <value>240, 22</value>
   </data>
   <data name="tsiAbout.Text" xml:space="preserve">
     <value>Acerca de...</value>
   </data>
   <data name="tsiSalir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 22</value>
+    <value>240, 22</value>
   </data>
   <data name="tsiSalir.Text" xml:space="preserve">
     <value>Salir</value>
   </data>
   <data name="tsmSistema.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Britannic Bold, 9pt</value>
+    <value>Britannic Bold, 11.25pt</value>
   </data>
   <data name="tsmSistema.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
+    <value>71, 20</value>
   </data>
   <data name="tsmSistema.Text" xml:space="preserve">
     <value>Sistema</value>
   </data>
   <data name="tsiOperacionesInsumos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 22</value>
+    <value>216, 22</value>
   </data>
   <data name="tsiOperacionesInsumos.Text" xml:space="preserve">
     <value>Operaciones Insumos</value>
   </data>
   <data name="tsiUnidadesMedida.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 22</value>
+    <value>216, 22</value>
   </data>
   <data name="tsiUnidadesMedida.Text" xml:space="preserve">
     <value>Unidades de Medida</value>
   </data>
   <data name="tsiInsumosG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="tsiInsumosG.Text" xml:space="preserve">
     <value>Insumos</value>
   </data>
   <data name="productosALaVentaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
+    <value>226, 22</value>
   </data>
   <data name="productosALaVentaToolStripMenuItem.Text" xml:space="preserve">
     <value>Productos a la Venta</value>
   </data>
   <data name="combosPromocionesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
+    <value>226, 22</value>
   </data>
   <data name="combosPromocionesToolStripMenuItem.Text" xml:space="preserve">
     <value>Combos / Promociones</value>
   </data>
   <data name="tsMiCargas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 22</value>
+    <value>226, 22</value>
   </data>
   <data name="tsMiCargas.Text" xml:space="preserve">
     <value>Cargas / Impuestos</value>
   </data>
   <data name="productosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="productosToolStripMenuItem.Text" xml:space="preserve">
     <value>Productos</value>
   </data>
   <data name="tsiProovedores.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="tsiProovedores.Text" xml:space="preserve">
     <value>Proveedores</value>
   </data>
   <data name="tsiCompras.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="tsiCompras.Text" xml:space="preserve">
     <value>Compras</value>
   </data>
   <data name="tsiClientes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="tsiClientes.Text" xml:space="preserve">
     <value>Clientes</value>
   </data>
   <data name="cajasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 22</value>
+    <value>156, 22</value>
   </data>
   <data name="cajasToolStripMenuItem.Text" xml:space="preserve">
     <value>Cajas</value>
   </data>
   <data name="tsmAdministracion.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Britannic Bold, 9pt</value>
+    <value>Britannic Bold, 11.25pt</value>
   </data>
   <data name="tsmAdministracion.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 20</value>
+    <value>117, 20</value>
   </data>
   <data name="tsmAdministracion.Text" xml:space="preserve">
     <value>Administración</value>
   </data>
   <data name="tsiPedido.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>167, 22</value>
   </data>
   <data name="tsiPedido.Text" xml:space="preserve">
     <value>Pedidos</value>
   </data>
   <data name="tsiCierreCaja.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
+    <value>167, 22</value>
   </data>
   <data name="tsiCierreCaja.Text" xml:space="preserve">
     <value>Cierre de Caja</value>
   </data>
-  <data name="reporteDeVentasToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
-  </data>
-  <data name="reporteDeVentasToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reporte de Ventas</value>
-  </data>
-  <data name="reporteDeCierresToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
-  </data>
-  <data name="reporteDeCierresToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reporte de Cierres</value>
-  </data>
-  <data name="reporteDeInsumosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
-  </data>
-  <data name="reporteDeInsumosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reporte de Insumos</value>
-  </data>
-  <data name="reporteDeProductosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 22</value>
-  </data>
-  <data name="reporteDeProductosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reporte de Productos</value>
-  </data>
-  <data name="tsiReportes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 22</value>
-  </data>
-  <data name="tsiReportes.Text" xml:space="preserve">
-    <value>Reportes</value>
-  </data>
   <data name="tsmVentas.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Britannic Bold, 9pt</value>
+    <value>Britannic Bold, 11.25pt</value>
   </data>
   <data name="tsmVentas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
+    <value>63, 20</value>
   </data>
   <data name="tsmVentas.Text" xml:space="preserve">
     <value>Ventas</value>
   </data>
   <data name="tsiUsuarios.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="tsiUsuarios.Text" xml:space="preserve">
     <value>Usuarios</value>
   </data>
-  <data name="tsiConsecutivos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
-  </data>
-  <data name="tsiConsecutivos.Text" xml:space="preserve">
-    <value>Consecutivos</value>
-  </data>
   <data name="bitacoraDeCambiosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 22</value>
+    <value>210, 22</value>
   </data>
   <data name="bitacoraDeCambiosToolStripMenuItem.Text" xml:space="preserve">
     <value>Bitacora de Cambios</value>
   </data>
   <data name="consecutivosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 22</value>
+    <value>210, 22</value>
   </data>
   <data name="consecutivosToolStripMenuItem.Text" xml:space="preserve">
     <value>Errores Registrados</value>
   </data>
   <data name="tsiBitacora.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>134, 22</value>
   </data>
   <data name="tsiBitacora.Text" xml:space="preserve">
     <value>Bitacora</value>
   </data>
   <data name="tsmSeguridad.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Britannic Bold, 9pt</value>
+    <value>Britannic Bold, 11.25pt</value>
   </data>
   <data name="tsmSeguridad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 20</value>
+    <value>86, 20</value>
   </data>
   <data name="tsmSeguridad.Text" xml:space="preserve">
     <value>Seguridad</value>
   </data>
   <data name="tsmVentanas.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Britannic Bold, 9pt</value>
+    <value>Britannic Bold, 11.25pt</value>
   </data>
   <data name="tsmVentanas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 20</value>
+    <value>79, 20</value>
   </data>
   <data name="tsmVentanas.Text" xml:space="preserve">
     <value>Ventanas</value>
@@ -700,10 +679,10 @@
     <value>False</value>
   </data>
   <data name="tsmAyuda.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Britannic Bold, 9pt</value>
+    <value>Britannic Bold, 11.25pt</value>
   </data>
   <data name="tsmAyuda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 20</value>
+    <value>60, 20</value>
   </data>
   <data name="tsmAyuda.Text" xml:space="preserve">
     <value>Ayuda</value>
@@ -711,11 +690,20 @@
   <data name="tsmAyuda.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="reportesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
+  </data>
+  <data name="reportesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reportes</value>
+  </data>
   <data name="menumain.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="menumain.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>9, 3, 0, 3</value>
+  </data>
   <data name="menumain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>827, 24</value>
+    <value>1240, 26</value>
   </data>
   <data name="menumain.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -745,13 +733,13 @@
     <value>51</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
+    <value>9, 17</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>827, 445</value>
+    <value>1240, 630</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Britannic Bold, 8.25pt</value>
+    <value>Britannic Bold, 12pt</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3487,6 +3475,9 @@
         AAA=
 </value>
   </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -3521,6 +3512,12 @@
     <value>tsiPasswordChange</value>
   </data>
   <data name="&gt;&gt;tsiPasswordChange.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;parametrosDeImpresiónToolStripMenuItem.Name" xml:space="preserve">
+    <value>parametrosDeImpresiónToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;parametrosDeImpresiónToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tsiAbout.Name" xml:space="preserve">
@@ -3625,36 +3622,6 @@
   <data name="&gt;&gt;tsiCierreCaja.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tsiReportes.Name" xml:space="preserve">
-    <value>tsiReportes</value>
-  </data>
-  <data name="&gt;&gt;tsiReportes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;reporteDeVentasToolStripMenuItem.Name" xml:space="preserve">
-    <value>reporteDeVentasToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;reporteDeVentasToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;reporteDeCierresToolStripMenuItem.Name" xml:space="preserve">
-    <value>reporteDeCierresToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;reporteDeCierresToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;reporteDeInsumosToolStripMenuItem.Name" xml:space="preserve">
-    <value>reporteDeInsumosToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;reporteDeInsumosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;reporteDeProductosToolStripMenuItem.Name" xml:space="preserve">
-    <value>reporteDeProductosToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;reporteDeProductosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;tsmSeguridad.Name" xml:space="preserve">
     <value>tsmSeguridad</value>
   </data>
@@ -3665,12 +3632,6 @@
     <value>tsiUsuarios</value>
   </data>
   <data name="&gt;&gt;tsiUsuarios.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsiConsecutivos.Name" xml:space="preserve">
-    <value>tsiConsecutivos</value>
-  </data>
-  <data name="&gt;&gt;tsiConsecutivos.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tsiBitacora.Name" xml:space="preserve">
@@ -3709,10 +3670,10 @@
   <data name="&gt;&gt;tmerTiempo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;parametrosDeImpresiónToolStripMenuItem.Name" xml:space="preserve">
-    <value>parametrosDeImpresiónToolStripMenuItem</value>
+  <data name="&gt;&gt;reportesToolStripMenuItem.Name" xml:space="preserve">
+    <value>reportesToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;parametrosDeImpresiónToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;reportesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

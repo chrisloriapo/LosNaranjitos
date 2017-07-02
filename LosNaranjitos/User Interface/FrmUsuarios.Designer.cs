@@ -68,6 +68,7 @@
             this.lblConsecutivo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblValidEmail = new System.Windows.Forms.Label();
             this.chkEstado = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIdPersonal = new System.Windows.Forms.TextBox();
@@ -77,7 +78,6 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.lblValidEmail = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tbControl1.SuspendLayout();
@@ -602,6 +602,21 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(344, 316);
             this.tableLayoutPanel6.TabIndex = 3;
             // 
+            // lblValidEmail
+            // 
+            this.lblValidEmail.AutoSize = true;
+            this.lblValidEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblValidEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblValidEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblValidEmail.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValidEmail.ForeColor = System.Drawing.Color.Red;
+            this.lblValidEmail.Location = new System.Drawing.Point(3, 168);
+            this.lblValidEmail.Name = "lblValidEmail";
+            this.lblValidEmail.Size = new System.Drawing.Size(338, 28);
+            this.lblValidEmail.TabIndex = 387;
+            this.lblValidEmail.Text = "Email No Válido";
+            this.lblValidEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
@@ -707,21 +722,6 @@
             this.btnSalir.Text = "&Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // lblValidEmail
-            // 
-            this.lblValidEmail.AutoSize = true;
-            this.lblValidEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblValidEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblValidEmail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblValidEmail.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValidEmail.ForeColor = System.Drawing.Color.Red;
-            this.lblValidEmail.Location = new System.Drawing.Point(3, 168);
-            this.lblValidEmail.Name = "lblValidEmail";
-            this.lblValidEmail.Size = new System.Drawing.Size(338, 28);
-            this.lblValidEmail.TabIndex = 387;
-            this.lblValidEmail.Text = "Email No Válido";
-            this.lblValidEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmUsuarios
             // 

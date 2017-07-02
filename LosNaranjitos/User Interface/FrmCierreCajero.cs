@@ -1,9 +1,13 @@
-﻿using LosNaranjitos.DATOS;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using LosNaranjitos.DATOS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +27,6 @@ namespace LosNaranjitos
 
             btnNuevo.Visible = false;
             btnEjecutar.Visible = true;
-            rptVReporteLocal.Visible = false;
 
         }
 
@@ -42,7 +45,6 @@ namespace LosNaranjitos
 
                     cbbItemTipodeCierre.DataSource = ListaLocal.ToList();
                     cbbItemTipodeCierre.Visible = true;
-                    rptVReporteLocal.Visible = false;
                 }
                 else
                 {
@@ -65,7 +67,6 @@ namespace LosNaranjitos
 
                     cbbItemTipodeCierre.DataSource = ListaFechas.ToList();
                     cbbItemTipodeCierre.Visible = true;
-                    rptVReporteLocal.Visible = false;
                 }
 
             }
@@ -123,27 +124,12 @@ namespace LosNaranjitos
                             CAJA.UltimaModificacion = DateTime.Now;
                             Utilitarios.OpCaja.ActualizarCajas(CAJA);
                             Utilitarios.OpCierres.NuevoCierre(CierreCaja);
-                            //     Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec);
+
                             Utilitarios.GeneralBitacora(CierreCaja.Usuario, "Cierre de Caja (Arqueo) ejecutado");
                             MessageBox.Show("Cierre Registrado Exitosamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            CierreCaja = Utilitarios.OpCierres.BuscarCierre(Utilitarios.OpCierres.ListarRegistros().Max(x => x.Consecutivo));
-                            this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
+                            //CierreCaja = Utilitarios.OpCierres.BuscarCierre(Utilitarios.OpCierres.ListarRegistros().Max(x => x.Consecutivo));
 
-                            foreach (DataRow dr in OrangeDB1DataSet.Cierre.Rows)
-                            {
-                                if (dr["Consecutivo"].ToString() != CierreCaja.Consecutivo.ToString())
-                                {
-                                    dr.Delete();
-                                }
-                            }
-                            this.OrangeDB1DataSet.Cierre.AcceptChanges();
-
-                            foreach (var item in (this.OrangeDB1DataSet.Cierre))
-                            {
-                                item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
-                            }
-                            this.rptVReporteLocal.RefreshReport();
-                            rptVReporteLocal.Visible = true;
+                            ReportedeCierre();
                             btnEjecutar.Visible = false;
                             btnNuevo.Visible = true;
 
@@ -182,12 +168,7 @@ namespace LosNaranjitos
                             Total2 = ListaLocal2.Sum(x => x.Subtotal);
 
                             Cierre CierreDiario = new Cierre();
-                            //  Consecutivo Consec2 = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cierre");
-                            //if (Consec2.ConsecutivoActual == 0)
-                            //{
-                            //    CierreDiario.Consecutivo = "" + Consec2.Prefijo + "-1";
-                            //}
-                            //CierreDiario.Consecutivo = "" + Consec2.Prefijo + "-" + Consec2.ConsecutivoActual + 1;
+                          
                             CierreDiario.Usuario = FrmLogin.UsuarioGlobal.Username;
                             CierreDiario.Tipo = cbbTipoCierre.SelectedIndex.ToString();
                             CierreDiario.MontroOtro = MontoOtro2;
@@ -198,35 +179,17 @@ namespace LosNaranjitos
                             CierreDiario.CantidadVentas = ListaLocal2.Count();
                             CierreDiario.Caja = "Cierre Diario General";
                             CierreDiario.Fecha = DateTime.Parse(cbbItemTipodeCierre.SelectedValue.ToString());
-                            //Consec2.ConsecutivoActual = Consec2.ConsecutivoActual + 1;
                             foreach (var item in ListaLocal2)
                             {
                                 item.Cerrado = true;
                                 Utilitarios.OpPedidos.ActualizarPedido(item);
                             }
                             Utilitarios.OpCierres.NuevoCierre(CierreDiario);
-                            //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consec2);
                             Utilitarios.GeneralBitacora(CierreDiario.Usuario, "Cierre diario ejecutado");
                             MessageBox.Show("Cierre Registrado Exitosamente", "Registro Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            CierreDiario = Utilitarios.OpCierres.BuscarCierre(Utilitarios.OpCierres.ListarRegistros().Max(x => x.Consecutivo));
-                            this.CierreTableAdapter.Fill(this.OrangeDB1DataSet.Cierre);
-
-                            foreach (DataRow dr in OrangeDB1DataSet.Cierre.Rows)
-                            {
-                                if (dr["Consecutivo"].ToString() != CierreDiario.Consecutivo.ToString())
-                                {
-                                    dr.Delete();
-                                }
-                            }
-                            this.OrangeDB1DataSet.Cierre.AcceptChanges();
-
-                            foreach (var item in (this.OrangeDB1DataSet.Cierre))
-                            {
-                                item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
-                            }
-                            this.rptVReporteLocal.RefreshReport();
-                            rptVReporteLocal.Visible = true;
+                            //CierreDiario = Utilitarios.OpCierres.BuscarCierre(Utilitarios.OpCierres.ListarRegistros().Max(x => x.Consecutivo));
+                            ReportedeCierre();
                             btnEjecutar.Visible = false;
                             btnNuevo.Visible = true;
                             break;
@@ -274,6 +237,88 @@ namespace LosNaranjitos
             this.FrmCierreCajero_Load(sender, e);
             cbbTipoCierre.SelectedIndex = 0;
         }
+
+        private void ReportedeCierre()
+        {
+            //Cerrar PDF Reader si esta abierto
+            if (Utilitarios.FindAndKillProcess("AcroRd32"))
+            {
+                System.Threading.Thread.Sleep(2000);
+            }
+            //Soporte Basico documento PDF
+            MemoryStream memStream = new MemoryStream();
+
+            string path = @"c:\tempSoda";
+            if (!Directory.Exists(path))
+            {
+                DirectoryInfo directorio = Directory.CreateDirectory(path);
+
+            }
+            FileStream pdfFile = new FileStream("c:\\tempSoda\\Reporte.pdf", FileMode.Create);
+
+            Document documento = new Document(PageSize.LETTER);
+
+            PdfWriter MailWriter = PdfWriter.GetInstance(documento, memStream);//Stream para Correo
+            PdfWriter FileWriter = PdfWriter.GetInstance(documento, pdfFile);// Writer para Archivo
+
+            //Manejo de contenido de PDF
+            documento.Open();
+            //Formato Standar
+            //Logo de la empresa
+            iTextSharp.text.Image Logo = iTextSharp.text.Image.GetInstance(Properties.Resources.Logo1, System.Drawing.Imaging.ImageFormat.Jpeg);
+            Logo.ScalePercent(05f);
+
+            //Encabezado
+
+            var Encabezado = new Paragraph();
+            documento.Add(new Paragraph("Soda Los Naranjitos"));
+            Encabezado.Add(new Phrase("Reporte de Cierre - CONTENIDO CONFIDENCIAL", FontFactory.GetFont("Times New Roman", 18, BaseColor.BLUE)));
+            Encabezado.Add(new Chunk(Logo, 0, 0));
+            documento.Add(Encabezado);
+            documento.Add(Chunk.NEWLINE);
+            Paragraph lineaSeparadora = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+            documento.Add(lineaSeparadora);
+
+            //Contenido
+
+            Cierre CierreCaja = new Cierre();
+            CierreCaja = Utilitarios.OpCierres.BuscarCierre(Utilitarios.OpCierres.ListarRegistros().Max(x => x.Consecutivo));
+
+            documento.Add(Chunk.NEWLINE);
+            Usuario Ejecutor = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(CierreCaja.Usuario);
+            documento.Add(new Paragraph("Cierre número: " + CierreCaja.Consecutivo + Chunk.NEWLINE + "Ejecutado por: " + Ejecutor.Nombre + " " + Ejecutor.Apellido1 + " " + Ejecutor.Apellido2 + " a las " + DateTime.Now.ToString()));
+
+            Paragraph para = new Paragraph("Cantidad de Ventas: " + CierreCaja.CantidadVentas + Chunk.NEWLINE + "Monto de Venta en Efectivo: ¢" + CierreCaja.MontoEfectivo.ToString("N") + Chunk.NEWLINE + "Monto de Venta en Tarjeta: ¢" + CierreCaja.MontoTarjeta.ToString("N") + Chunk.NEWLINE + "Monto de Venta en Otros: ¢" + CierreCaja.MontroOtro.ToString("N") + Chunk.NEWLINE + "Monto de Cambio: ¢" + CierreCaja.MontoCambio.ToString("N") + Chunk.NEWLINE + "Monto de Venta en Total: ¢" + CierreCaja.MontoTotal.ToString("N"));
+            documento.Add(para);
+
+            documento.Add(Chunk.NEWLINE);
+
+            documento.Add(lineaSeparadora);
+            Paragraph Final = new Paragraph("Fin del Reporte");
+            Final.Alignment = Element.ALIGN_CENTER;
+            documento.Add(Final);
+            //Cierre de  Documento
+            documento.Close();
+
+            MailWriter.Close();
+            FileWriter.Close();
+            pdfFile.Close();
+            List<string> Email = new List<string>();
+            foreach (var item in Utilitarios.OpUsuarios.ListarUsuarios())
+            {
+                if (Utilitarios.OpRol.BuscarRol(item.Rol).Descripcion != "Cajero")
+                {
+                    Email.Add(item.Correo);
+                }
+
+            };
+
+            Utilitarios.EnviarEmailAttachment(Email, "Reporte del Cierre " + CierreCaja.Consecutivo, "Adjunto encotrará el reporte de Cierre correspondiente al cierre " + CierreCaja.Consecutivo + " ejecutado el " + DateTime.Now.ToShortDateString(), memStream);
+            Process.Start(@"c:\tempSoda\Reporte.pdf");
+            pdfFile.Dispose();
+        }
+
+
 
         private void cbbItemTipodeCierre_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -21,6 +21,8 @@ namespace LosNaranjitos
         {
             try
             {
+                dgvListado.BackgroundColor = Color.Black;
+                dgvListado.GridColor = Color.White;
                 var Lista = Utilitarios.OpBitacora.ListarRegistros().OrderByDescending(x => x.Fecha);
                 var Listax = new List<DATOS.Bitacora>();
                 //foreach (var item in Lista)
@@ -29,7 +31,11 @@ namespace LosNaranjitos
                 //}
 
                 dgvListado.DataSource = Lista.ToList();
-
+                dgvListado.Columns[0].HeaderText = "ID";
+                dgvListado.Columns[1].HeaderText = "Fecha";
+                dgvListado.Columns[2].HeaderText = "Registro";
+                dgvListado.Columns[3].HeaderText = "Usuario";
+                
             }
             catch (Exception ex)
             {

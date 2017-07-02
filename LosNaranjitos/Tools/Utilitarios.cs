@@ -2,6 +2,8 @@
 using LosNaranjitos.Tools;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Security.Cryptography;
@@ -132,6 +134,42 @@ namespace LosNaranjitos
             return new DateTime(date.Year, date.Month, date.Day, 23, 59, 59);
         }
 
+        public static void EnviarEmailAttachment(List<string> Destinatarios, string Asunto, string Cuerpo, MemoryStream myMemorySteam)
+        {
+            Tools.Email correo = new Tools.Email();
+
+
+            correo.Asunto = Asunto;
+            correo.Cuerpo = Cuerpo;
+
+            correo.Destinatarios = Destinatarios;
+
+            foreach (var item in correo.Destinatarios)
+            {
+                MailMessage mail = new MailMessage();
+                mail.To.Add(new MailAddress(item));
+                mail.From = new MailAddress(OpParametros.BuscarParametrosPorNombre("MailDeliverer").Valor);
+                mail.Subject = correo.Asunto;
+                mail.Body = correo.Cuerpo;
+                mail.IsBodyHtml = false;
+
+                MemoryStream pdfstream = new MemoryStream(myMemorySteam.ToArray());
+
+                Attachment attachment = new Attachment(pdfstream, new System.Net.Mime.ContentType(System.Net.Mime.MediaTypeNames.Application.Pdf));
+
+                attachment.ContentDisposition.FileName = "Reporte" + DateTime.Now.ToShortTimeString() + ".pdf";
+
+                mail.Attachments.Add(attachment);
+
+                SmtpClient client = new SmtpClient(OpParametros.BuscarParametrosPorNombre("Smtp").Valor, Int32.Parse( OpParametros.BuscarParametrosPorNombre("PuertoCorreo").Valor));
+                using (client)
+                {
+                    client.Credentials = new System.Net.NetworkCredential(OpParametros.BuscarParametrosPorNombre("MailDeliverer").Valor, Utilitarios.Decriptar( OpParametros.BuscarParametrosPorNombre("PasswordMailDeliverer").Valor,Utilitarios.Llave));
+                    client.EnableSsl = true;
+                    client.Send(mail);
+                }
+            }
+        }
         public static void EnviarEmail(List<string> Destinatarios, string Asunto, string Cuerpo)
         {
             Tools.Email correo = new Tools.Email();
@@ -171,7 +209,7 @@ namespace LosNaranjitos
             ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
             ticket.TextoIzquierda("DIREC: 25 SUR Y 75 OESTE DE LA MEGASUPER TEJAR");
             ticket.TextoIzquierda("TELEF: 25910412");
-            ticket.TextoIzquierda("C.J.: 302860224");
+            ticket.TextoIzquierda("C.J.: 302970494");
             ticket.TextoIzquierda("EMAIL: orangesrestaurants@gmail.com");//Es el mio por si me quieren contactar ...
             ticket.TextoIzquierda("");
             ticket.TextoExtremos("Caja # " + NumerodeCaja, "Ticket # " + OrdenEnCurso.Consecutivo.ToString());
@@ -287,6 +325,18 @@ namespace LosNaranjitos
             ticket.ImprimirTicket(Utilitarios.OpParametros.BuscarParametro(1).Valor);//Nombre de la impresora ticketera
 
 
+        }
+        public static bool FindAndKillProcess(string name)
+        {
+            foreach (Process clsProcess in Process.GetProcesses())
+            {
+                if (clsProcess.ProcessName.Contains(name))
+                {
+                    clsProcess.Kill();
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

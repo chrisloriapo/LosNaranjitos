@@ -12,6 +12,8 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using LosNaranjitos.Tools;
+using LosNaranjitos.DATOS;
+using System.Diagnostics;
 
 namespace LosNaranjitos
 {
@@ -25,19 +27,19 @@ namespace LosNaranjitos
         private void Form1_Load(object sender, EventArgs e)
         {
 
-         
 
-            var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Select(x => x.Fecha);
 
-            List<DateTime> Listasss = new List<DateTime>();
+            //var ListaLocal = Utilitarios.OpPedidos.ListarPedido().Select(x => x.Fecha);
 
-            foreach (var item in ListaLocal)
-            {
-                if (!Listasss.Contains(item.Date))
-                {
-                    Listasss.Add(item.Date);
-                }
-            }
+            //List<DateTime> Listasss = new List<DateTime>();
+
+            //foreach (var item in ListaLocal)
+            //{
+            //    if (!Listasss.Contains(item.Date))
+            //    {
+            //        Listasss.Add(item.Date);
+            //    }
+            //}
 
             // comboBox1.DataSource = Listasss.ToList();
 
@@ -58,14 +60,14 @@ namespace LosNaranjitos
             //        {
             //            dr.Delete();
             //        }
-            //    }
-         //   this.OrangeDB1DataSet.Cierre.AcceptChanges();
+            //   //    }
+            ////   this.OrangeDB1DataSet.Cierre.AcceptChanges();
 
-            foreach (var item in (this.DSCierre.LastCierre))
-            {
-                item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
-            }
-            this.rpvBitacora.RefreshReport();
+            //   foreach (var item in (this.DSCierre.LastCierre))
+            //   {
+            //       item.Usuario = Utilitarios.Decriptar(item.Usuario, Utilitarios.Llave);
+            //   }
+            //   this.rpvBitacora.RefreshReport();
             //}
             //catch (Exception)
             //{
@@ -118,7 +120,7 @@ namespace LosNaranjitos
             //}
             //OrangeDB1DataSet.Cierre.OrderByDescending(x => x.Consecutivo);
 
-            this.rpvBitacora.RefreshReport();
+            //this.rpvBitacora.RefreshReport();
         }
 
         private void chkLechuga_CheckedChanged(object sender, EventArgs e)
@@ -139,17 +141,162 @@ namespace LosNaranjitos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Document dox = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            PdfWriter wri = PdfWriter.GetInstance(dox, new FileStream("Test.pdf", FileMode.Create));
-            dox.Open();
-            foreach (var item in Utilitarios.OpBitacora.ListarRegistros())
+            
+            if (Utilitarios.FindAndKillProcess("AcroRd32"))
             {
-                Paragraph para = new Paragraph(item.Accion + "\n");
-                dox.Add(para);
+                System.Threading.Thread.Sleep(2000);
+            }
+            
+            if (dt1.Value >= dt2.Value)
+            {
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            //Soporte Basico documento PDF
+            MemoryStream memStream = new MemoryStream();
+
+            string path = @"c:\tempSoda";
+            if (!Directory.Exists(path))
+            {
+                DirectoryInfo directorio = Directory.CreateDirectory(path);
 
             }
-            dox.Close();
+            FileStream pdfFile = new FileStream("c:\\tempSoda\\Reporte.pdf", FileMode.Create);
+
+            Document documento = new Document(PageSize.LETTER);
+
+            PdfWriter MailWriter = PdfWriter.GetInstance(documento, memStream);//Stream para Correo
+            PdfWriter FileWriter = PdfWriter.GetInstance(documento, pdfFile);// Writer para Archivo
+
+            //Manejo de contenido de PDF
+            documento.Open();
+            //Formato Standar
+            //Logo de la empresa
+            iTextSharp.text.Image Logo = iTextSharp.text.Image.GetInstance(Properties.Resources.Logo1, System.Drawing.Imaging.ImageFormat.Jpeg);
+            Logo.ScalePercent(05f);
+
+            //Encabezado
+
+            var Encabezado = new Paragraph();
+            documento.Add(new Paragraph("Soda Los Naranjitos"));
+            Encabezado.Add(new Phrase("Reporte de Ventas - CONTENIDO CONFIDENCIAL", FontFactory.GetFont("Times New Roman", 18, BaseColor.BLUE)));
+            Encabezado.Add(new Chunk(Logo, 0, 0));
+            documento.Add(Encabezado);
+            documento.Add(Chunk.NEWLINE);
+            Paragraph lineaSeparadora = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+            documento.Add(lineaSeparadora);
+
+            //Contenido
+
+            documento.Add(Chunk.NEWLINE);
+            documento.Add(new Paragraph("Reporte de Ventas desde el: " + Utilitarios.GetDateZeroTime(dt1.Value).ToShortDateString() + " hasta  el " + Utilitarios.GetDateEndTime(dt2.Value).ToShortDateString()));
+            documento.Add(Chunk.NEWLINE);
+
+            var ListaCierres = Utilitarios.OpCierres.ListarRegistros().Where(x => x.Fecha >= Utilitarios.GetDateZeroTime(dt1.Value) && x.Fecha <= Utilitarios.GetDateEndTime(dt2.Value) && x.Tipo == "1");
+
+
+            PdfPTable table = new PdfPTable(9);
+            table.TotalWidth = 600f;
+            table.LockedWidth = true;
+            float[] widths = new float[] { 20f, 65f, 60f, 30f, 65f, 65f, 65f, 65f, 65f };
+            table.SetWidths(widths);
+            PdfPCell NewCell = new PdfPCell(new Phrase("ID"));
+            NewCell.BackgroundColor = BaseColor.GRAY;
+            table.AddCell(NewCell);
+
+            NewCell = new PdfPCell(new Phrase("Operador"));
+            NewCell.BackgroundColor = BaseColor.GRAY;
+            table.AddCell(NewCell);
+
+            NewCell = new PdfPCell(new Phrase("Fecha"));
+            NewCell.BackgroundColor = BaseColor.GRAY;
+            table.AddCell(NewCell);
+
+            NewCell = new PdfPCell(new Phrase("Cant.Vent."));
+            NewCell.BackgroundColor = BaseColor.GRAY;
+            table.AddCell(NewCell);
+
+            NewCell = new PdfPCell(new Phrase("Efectivo"));
+            NewCell.BackgroundColor = BaseColor.GRAY;
+            table.AddCell(NewCell);
+
+            NewCell = new PdfPCell(new Phrase("Tarjeta"));
+            NewCell.BackgroundColor = BaseColor.GRAY;
+            table.AddCell(NewCell);
+
+            NewCell = new PdfPCell(new Phrase("Otro"));
+            NewCell.BackgroundColor = BaseColor.GRAY;
+            table.AddCell(NewCell);
+
+            NewCell = new PdfPCell(new Phrase("Cambio"));
+            NewCell.BackgroundColor = BaseColor.GRAY;
+            table.AddCell(NewCell);
+
+            NewCell = new PdfPCell(new Phrase("Total"));
+            NewCell.BackgroundColor = BaseColor.GRAY;
+            table.AddCell(NewCell);
+
+            foreach (var CierreCaja in ListaCierres)
+            {
+
+                table.AddCell(CierreCaja.Consecutivo.ToString());
+                Usuario Ejecutor = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(CierreCaja.Usuario);
+
+                table.AddCell(Ejecutor.Nombre + " " + Ejecutor.Apellido1);
+
+                table.AddCell(CierreCaja.Fecha.ToShortDateString());
+                table.AddCell(CierreCaja.CantidadVentas.ToString());
+
+                table.AddCell("¢ " + CierreCaja.MontoEfectivo.ToString("N"));
+                table.AddCell("¢ " + CierreCaja.MontoTarjeta.ToString("N"));
+
+                table.AddCell("¢ " + CierreCaja.MontroOtro.ToString("N"));
+                table.AddCell("¢ " + CierreCaja.MontoCambio.ToString("N"));
+                table.AddCell("¢ " + CierreCaja.MontoTotal.ToString("N"));
+
+                //documento.Add(Chunk.NEWLINE);
+                //Usuario Ejecutor = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(CierreCaja.Usuario);
+                //documento.Add(new Paragraph("Cierre número: " + CierreCaja.Consecutivo + Chunk.NEWLINE + "Ejecutado por: " + Ejecutor.Nombre + " " + Ejecutor.Apellido1 + " " + Ejecutor.Apellido2 + " a las " + CierreCaja.Fecha));
+
+                //Paragraph para = new Paragraph("Cantidad de Ventas: " + CierreCaja.CantidadVentas + Chunk.NEWLINE + "Monto de Venta en Efectivo: ¢" + CierreCaja.MontoEfectivo.ToString("N") + Chunk.NEWLINE + "Monto de Venta en Tarjeta: ¢" + CierreCaja.MontoTarjeta.ToString("N") + Chunk.NEWLINE + "Monto de Venta en Otros: ¢" + CierreCaja.MontroOtro.ToString("N") + Chunk.NEWLINE + "Monto de Cambio: ¢" + CierreCaja.MontoCambio.ToString("N") + Chunk.NEWLINE + "Monto de Venta en Total: ¢" + CierreCaja.MontoTotal.ToString("N"));
+                //documento.Add(para);
+            }
+
+            documento.Add(table);
+            documento.Add(Chunk.NEWLINE);
+
+            Paragraph para = new Paragraph("Cantidad de Ventas: " + ListaCierres.Sum(x=>x.CantidadVentas) + Chunk.NEWLINE + "Monto de Venta en Efectivo: ¢" + ListaCierres.Sum(x => x.MontoEfectivo).ToString("N") + Chunk.NEWLINE + "Monto de Venta en Tarjeta: ¢" + ListaCierres.Sum(x => x.MontoTarjeta).ToString("N") + Chunk.NEWLINE + "Monto de Venta en Otros: ¢" + ListaCierres.Sum(x => x.MontroOtro).ToString("N") + Chunk.NEWLINE + "Monto de Cambio: ¢" + ListaCierres.Sum(x => x.MontoCambio).ToString("N") + Chunk.NEWLINE + "Monto de Venta en Total: ¢" + ListaCierres.Sum(x => x.MontoTotal).ToString("N"));
+            documento.Add(para);
+
+            documento.Add(Chunk.NEWLINE);
+
+            documento.Add(lineaSeparadora);
+            Paragraph Final = new Paragraph("Fin del Reporte");
+            Final.Alignment = Element.ALIGN_CENTER;
+            documento.Add(Final);
+            //Cierre de  Documento
+            documento.Close();
+
+            MailWriter.Close();
+            FileWriter.Close();
+            pdfFile.Close();
+            List<string> Email = new List<string>();
+            foreach (var item in Utilitarios.OpUsuarios.ListarUsuarios())
+            {
+                if (Utilitarios.OpRol.BuscarRol(item.Rol).Descripcion != "Cajero")
+                {
+                    Email.Add(item.Correo);
+                }
+
+            };
+
+            // Utilitarios.EnviarEmailAttachment(Email, "Reporte del Ventas ", "Adjunto encotrará el reporte de Cierre //correspondiente al cierre "  + " ejecutado el " + DateTime.Now.ToShortDateString(), memStream);
+            Process.Start(@"c:\tempSoda\Reporte.pdf");
+            pdfFile.Dispose();
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {

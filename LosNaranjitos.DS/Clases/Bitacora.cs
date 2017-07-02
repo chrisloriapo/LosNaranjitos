@@ -65,7 +65,7 @@ namespace LosNaranjitos.DS.Clases
 
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
-            var Lista = db.Select<DATOS.Bitacora>().OrderBy(x=>x.Fecha).Take(100);
+            var Lista = db.Select<DATOS.Bitacora>().OrderBy(x=>x.Fecha);
             return Lista.ToList();
         }
     }

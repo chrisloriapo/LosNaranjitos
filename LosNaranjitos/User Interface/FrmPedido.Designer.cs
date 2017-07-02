@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -113,7 +115,7 @@
             this.tableLayoutPanel31 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel33 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel34 = new System.Windows.Forms.TableLayoutPanel();
-            this.label30 = new System.Windows.Forms.Label();
+            this.lblPrecioServicios = new System.Windows.Forms.Label();
             this.txtPrecioExpress = new System.Windows.Forms.MaskedTextBox();
             this.btnExpress = new System.Windows.Forms.Button();
             this.tableLayoutPanel35 = new System.Windows.Forms.TableLayoutPanel();
@@ -121,8 +123,8 @@
             this.tableLayoutPanel36 = new System.Windows.Forms.TableLayoutPanel();
             this.chkExpress = new System.Windows.Forms.CheckBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
+            this.lblTelefonoExpress = new System.Windows.Forms.Label();
+            this.lblDireccionExpress = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel26 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCierreCaja = new System.Windows.Forms.Button();
@@ -429,23 +431,35 @@
             this.dgvOrden.AllowUserToAddRows = false;
             this.dgvOrden.AllowUserToDeleteRows = false;
             this.dgvOrden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOrden.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.dgvOrden.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dgvOrden.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrden.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvOrden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvOrden.ColumnHeadersVisible = false;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrden.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrden.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOrden.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvOrden.Location = new System.Drawing.Point(3, 165);
             this.dgvOrden.Name = "dgvOrden";
             this.dgvOrden.ReadOnly = true;
             this.dgvOrden.RowHeadersVisible = false;
+            this.dgvOrden.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrden.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrden.Size = new System.Drawing.Size(423, 357);
             this.dgvOrden.TabIndex = 6;
             // 
@@ -687,9 +701,10 @@
             this.chkPepino.AutoSize = true;
             this.chkPepino.Checked = true;
             this.chkPepino.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkPepino.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkPepino.Location = new System.Drawing.Point(3, 84);
             this.chkPepino.Name = "chkPepino";
-            this.chkPepino.Size = new System.Drawing.Size(59, 21);
+            this.chkPepino.Size = new System.Drawing.Size(55, 20);
             this.chkPepino.TabIndex = 3;
             this.chkPepino.Text = "Pep";
             this.chkPepino.UseVisualStyleBackColor = true;
@@ -699,9 +714,10 @@
             this.chkCebolla.AutoSize = true;
             this.chkCebolla.Checked = true;
             this.chkCebolla.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCebolla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkCebolla.Location = new System.Drawing.Point(3, 57);
             this.chkCebolla.Name = "chkCebolla";
-            this.chkCebolla.Size = new System.Drawing.Size(60, 21);
+            this.chkCebolla.Size = new System.Drawing.Size(55, 20);
             this.chkCebolla.TabIndex = 2;
             this.chkCebolla.Text = "Ceb";
             this.chkCebolla.UseVisualStyleBackColor = true;
@@ -711,9 +727,10 @@
             this.chkTomate.AutoSize = true;
             this.chkTomate.Checked = true;
             this.chkTomate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkTomate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkTomate.Location = new System.Drawing.Point(3, 30);
             this.chkTomate.Name = "chkTomate";
-            this.chkTomate.Size = new System.Drawing.Size(62, 21);
+            this.chkTomate.Size = new System.Drawing.Size(58, 20);
             this.chkTomate.TabIndex = 1;
             this.chkTomate.Text = "Tom";
             this.chkTomate.UseVisualStyleBackColor = true;
@@ -723,9 +740,10 @@
             this.chkLechuga.AutoSize = true;
             this.chkLechuga.Checked = true;
             this.chkLechuga.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLechuga.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkLechuga.Location = new System.Drawing.Point(3, 3);
             this.chkLechuga.Name = "chkLechuga";
-            this.chkLechuga.Size = new System.Drawing.Size(67, 21);
+            this.chkLechuga.Size = new System.Drawing.Size(60, 20);
             this.chkLechuga.TabIndex = 0;
             this.chkLechuga.Text = "Lech";
             this.chkLechuga.UseVisualStyleBackColor = true;
@@ -736,9 +754,10 @@
             this.chkPepinillo.AutoSize = true;
             this.chkPepinillo.Checked = true;
             this.chkPepinillo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkPepinillo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkPepinillo.Location = new System.Drawing.Point(3, 111);
             this.chkPepinillo.Name = "chkPepinillo";
-            this.chkPepinillo.Size = new System.Drawing.Size(64, 24);
+            this.chkPepinillo.Size = new System.Drawing.Size(59, 20);
             this.chkPepinillo.TabIndex = 6;
             this.chkPepinillo.Text = "PPin";
             this.chkPepinillo.UseVisualStyleBackColor = true;
@@ -746,9 +765,10 @@
             // chkRepollo
             // 
             this.chkRepollo.AutoSize = true;
+            this.chkRepollo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkRepollo.Location = new System.Drawing.Point(83, 3);
             this.chkRepollo.Name = "chkRepollo";
-            this.chkRepollo.Size = new System.Drawing.Size(75, 21);
+            this.chkRepollo.Size = new System.Drawing.Size(75, 20);
             this.chkRepollo.TabIndex = 5;
             this.chkRepollo.Text = "Repollo";
             this.chkRepollo.UseVisualStyleBackColor = true;
@@ -756,9 +776,10 @@
             // chkCebollaFrita
             // 
             this.chkCebollaFrita.AutoSize = true;
+            this.chkCebollaFrita.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkCebollaFrita.Location = new System.Drawing.Point(83, 30);
             this.chkCebollaFrita.Name = "chkCebollaFrita";
-            this.chkCebollaFrita.Size = new System.Drawing.Size(75, 21);
+            this.chkCebollaFrita.Size = new System.Drawing.Size(72, 20);
             this.chkCebollaFrita.TabIndex = 4;
             this.chkCebollaFrita.Text = "C.Frita";
             this.chkCebollaFrita.UseVisualStyleBackColor = true;
@@ -768,9 +789,10 @@
             this.chkMayonesa.AutoSize = true;
             this.chkMayonesa.Checked = true;
             this.chkMayonesa.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkMayonesa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkMayonesa.Location = new System.Drawing.Point(83, 57);
             this.chkMayonesa.Name = "chkMayonesa";
-            this.chkMayonesa.Size = new System.Drawing.Size(75, 21);
+            this.chkMayonesa.Size = new System.Drawing.Size(70, 20);
             this.chkMayonesa.TabIndex = 7;
             this.chkMayonesa.Text = "S May";
             this.chkMayonesa.UseVisualStyleBackColor = true;
@@ -780,9 +802,10 @@
             this.chkSalsaTomate.AutoSize = true;
             this.chkSalsaTomate.Checked = true;
             this.chkSalsaTomate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkSalsaTomate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkSalsaTomate.Location = new System.Drawing.Point(83, 84);
             this.chkSalsaTomate.Name = "chkSalsaTomate";
-            this.chkSalsaTomate.Size = new System.Drawing.Size(75, 21);
+            this.chkSalsaTomate.Size = new System.Drawing.Size(72, 20);
             this.chkSalsaTomate.TabIndex = 8;
             this.chkSalsaTomate.Text = "S Tom";
             this.chkSalsaTomate.UseVisualStyleBackColor = true;
@@ -1314,7 +1337,7 @@
             // 
             this.groupBox6.Controls.Add(this.tableLayoutPanel31);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox6.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.ForeColor = System.Drawing.Color.OrangeRed;
             this.groupBox6.Location = new System.Drawing.Point(3, 3);
             this.groupBox6.Name = "groupBox6";
@@ -1330,11 +1353,11 @@
             this.tableLayoutPanel31.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel31.Controls.Add(this.tableLayoutPanel33, 0, 0);
             this.tableLayoutPanel31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel31.Location = new System.Drawing.Point(3, 17);
+            this.tableLayoutPanel31.Location = new System.Drawing.Point(3, 21);
             this.tableLayoutPanel31.Name = "tableLayoutPanel31";
             this.tableLayoutPanel31.RowCount = 1;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel31.Size = new System.Drawing.Size(491, 460);
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(491, 456);
             this.tableLayoutPanel31.TabIndex = 0;
             // 
             // tableLayoutPanel33
@@ -1351,7 +1374,7 @@
             this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.64384F));
             this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.35616F));
             this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-            this.tableLayoutPanel33.Size = new System.Drawing.Size(485, 454);
+            this.tableLayoutPanel33.Size = new System.Drawing.Size(485, 450);
             this.tableLayoutPanel33.TabIndex = 7;
             // 
             // tableLayoutPanel34
@@ -1359,37 +1382,38 @@
             this.tableLayoutPanel34.ColumnCount = 2;
             this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.94556F));
             this.tableLayoutPanel34.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.05444F));
-            this.tableLayoutPanel34.Controls.Add(this.label30, 0, 0);
+            this.tableLayoutPanel34.Controls.Add(this.lblPrecioServicios, 0, 0);
             this.tableLayoutPanel34.Controls.Add(this.txtPrecioExpress, 1, 0);
             this.tableLayoutPanel34.Controls.Add(this.btnExpress, 1, 1);
             this.tableLayoutPanel34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel34.Location = new System.Drawing.Point(3, 295);
+            this.tableLayoutPanel34.Location = new System.Drawing.Point(3, 292);
             this.tableLayoutPanel34.Name = "tableLayoutPanel34";
             this.tableLayoutPanel34.RowCount = 2;
             this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel34.Size = new System.Drawing.Size(479, 59);
+            this.tableLayoutPanel34.Size = new System.Drawing.Size(479, 58);
             this.tableLayoutPanel34.TabIndex = 3;
             // 
-            // label30
+            // lblPrecioServicios
             // 
-            this.label30.AutoSize = true;
-            this.label30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label30.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label30.Location = new System.Drawing.Point(3, 0);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(142, 22);
-            this.label30.TabIndex = 1;
-            this.label30.Text = "Precio:";
-            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPrecioServicios.AutoSize = true;
+            this.lblPrecioServicios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPrecioServicios.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioServicios.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblPrecioServicios.Location = new System.Drawing.Point(3, 0);
+            this.lblPrecioServicios.Name = "lblPrecioServicios";
+            this.lblPrecioServicios.Size = new System.Drawing.Size(142, 21);
+            this.lblPrecioServicios.TabIndex = 1;
+            this.lblPrecioServicios.Text = "Precio:";
+            this.lblPrecioServicios.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPrecioServicios.Visible = false;
             // 
             // txtPrecioExpress
             // 
             this.txtPrecioExpress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPrecioExpress.Location = new System.Drawing.Point(151, 3);
             this.txtPrecioExpress.Name = "txtPrecioExpress";
-            this.txtPrecioExpress.Size = new System.Drawing.Size(325, 21);
+            this.txtPrecioExpress.Size = new System.Drawing.Size(325, 25);
             this.txtPrecioExpress.TabIndex = 2;
             this.txtPrecioExpress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtPrecioExpress.Visible = false;
@@ -1402,7 +1426,7 @@
             this.btnExpress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExpress.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExpress.ForeColor = System.Drawing.Color.White;
-            this.btnExpress.Location = new System.Drawing.Point(151, 25);
+            this.btnExpress.Location = new System.Drawing.Point(151, 24);
             this.btnExpress.Name = "btnExpress";
             this.btnExpress.Size = new System.Drawing.Size(325, 31);
             this.btnExpress.TabIndex = 3;
@@ -1416,7 +1440,7 @@
             this.tableLayoutPanel35.ColumnCount = 1;
             this.tableLayoutPanel35.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel35.Location = new System.Drawing.Point(3, 360);
+            this.tableLayoutPanel35.Location = new System.Drawing.Point(3, 356);
             this.tableLayoutPanel35.Name = "tableLayoutPanel35";
             this.tableLayoutPanel35.RowCount = 2;
             this.tableLayoutPanel35.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.64835F));
@@ -1439,7 +1463,7 @@
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(479, 286);
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(479, 283);
             this.tableLayoutPanel32.TabIndex = 5;
             // 
             // tableLayoutPanel36
@@ -1448,8 +1472,8 @@
             this.tableLayoutPanel36.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel36.Controls.Add(this.chkExpress, 0, 0);
             this.tableLayoutPanel36.Controls.Add(this.txtDireccion, 0, 4);
-            this.tableLayoutPanel36.Controls.Add(this.label25, 0, 1);
-            this.tableLayoutPanel36.Controls.Add(this.label26, 0, 3);
+            this.tableLayoutPanel36.Controls.Add(this.lblTelefonoExpress, 0, 1);
+            this.tableLayoutPanel36.Controls.Add(this.lblDireccionExpress, 0, 3);
             this.tableLayoutPanel36.Controls.Add(this.txtTelefono, 0, 2);
             this.tableLayoutPanel36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel36.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1462,14 +1486,14 @@
             this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.47418F));
             this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.79812F));
-            this.tableLayoutPanel36.Size = new System.Drawing.Size(423, 208);
+            this.tableLayoutPanel36.Size = new System.Drawing.Size(423, 206);
             this.tableLayoutPanel36.TabIndex = 0;
             // 
             // chkExpress
             // 
             this.chkExpress.AutoSize = true;
             this.chkExpress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chkExpress.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkExpress.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkExpress.Location = new System.Drawing.Point(3, 3);
             this.chkExpress.Name = "chkExpress";
             this.chkExpress.Size = new System.Drawing.Size(417, 28);
@@ -1482,45 +1506,51 @@
             // txtDireccion
             // 
             this.txtDireccion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDireccion.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(3, 139);
             this.txtDireccion.MaxLength = 200;
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(417, 42);
+            this.txtDireccion.Size = new System.Drawing.Size(417, 41);
             this.txtDireccion.TabIndex = 3;
             this.txtDireccion.Visible = false;
             // 
-            // label25
+            // lblTelefonoExpress
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label25.Location = new System.Drawing.Point(3, 34);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(54, 14);
-            this.label25.TabIndex = 2;
-            this.label25.Text = "Telefono:";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTelefonoExpress.AutoSize = true;
+            this.lblTelefonoExpress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTelefonoExpress.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefonoExpress.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblTelefonoExpress.Location = new System.Drawing.Point(3, 34);
+            this.lblTelefonoExpress.Name = "lblTelefonoExpress";
+            this.lblTelefonoExpress.Size = new System.Drawing.Size(417, 34);
+            this.lblTelefonoExpress.TabIndex = 2;
+            this.lblTelefonoExpress.Text = "Telefono:";
+            this.lblTelefonoExpress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTelefonoExpress.Visible = false;
             // 
-            // label26
+            // lblDireccionExpress
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label26.Location = new System.Drawing.Point(3, 102);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(60, 14);
-            this.label26.TabIndex = 3;
-            this.label26.Text = "Direccion:";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDireccionExpress.AutoSize = true;
+            this.lblDireccionExpress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblDireccionExpress.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccionExpress.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblDireccionExpress.Location = new System.Drawing.Point(3, 102);
+            this.lblDireccionExpress.Name = "lblDireccionExpress";
+            this.lblDireccionExpress.Size = new System.Drawing.Size(417, 34);
+            this.lblDireccionExpress.TabIndex = 3;
+            this.lblDireccionExpress.Text = "Direccion:";
+            this.lblDireccionExpress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDireccionExpress.Visible = false;
             // 
             // txtTelefono
             // 
             this.txtTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTelefono.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.Location = new System.Drawing.Point(3, 71);
             this.txtTelefono.Mask = "9999-9999";
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(417, 21);
+            this.txtTelefono.Size = new System.Drawing.Size(417, 25);
             this.txtTelefono.TabIndex = 4;
             this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTelefono.Visible = false;
@@ -2183,7 +2213,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel31;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel33;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel34;
-        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label lblPrecioServicios;
         private System.Windows.Forms.MaskedTextBox txtPrecioExpress;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel35;
         private System.Windows.Forms.TextBox txtDireccion;
@@ -2219,8 +2249,8 @@
         private System.Windows.Forms.CheckBox chkTarjeta;
         private System.Windows.Forms.CheckBox chkEfectivo;
         private System.Windows.Forms.CheckBox chkOtro;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label lblTelefonoExpress;
+        private System.Windows.Forms.Label lblDireccionExpress;
         private System.Windows.Forms.MaskedTextBox txtTelefono;
         private System.Windows.Forms.Button btnExpress;
         private System.Windows.Forms.GroupBox groupBox1;

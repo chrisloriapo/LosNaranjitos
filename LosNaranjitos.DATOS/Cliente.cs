@@ -26,7 +26,7 @@ namespace LosNaranjitos.DATOS
 
         public string Telefono { get; set; }
 
-        public string Operadora { get; set; }
+        public string Direccion { get; set; }
 
         public DateTime? UltimaVisita { get; set; }
 

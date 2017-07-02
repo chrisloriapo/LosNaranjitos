@@ -29,13 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.LastCierreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DSCierre = new LosNaranjitos.DSCierre();
             this.CierreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.OrangeDB1DataSet = new LosNaranjitos.OrangeDB1DataSet();
             this.BitacoraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rpvBitacora = new Microsoft.Reporting.WinForms.ReportViewer();
             this.DTReporteBitacoraBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DTReporteBitacoraTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter();
             this.BitacoraTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.BitacoraTableAdapter();
@@ -52,6 +50,8 @@
             this.dsCierre1 = new LosNaranjitos.DSCierre();
             this.dtReporteBitacoraTableAdapter1 = new LosNaranjitos.OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter();
             this.dtReporteBitacoraTableAdapter2 = new LosNaranjitos.OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter();
+            this.dt1 = new System.Windows.Forms.DateTimePicker();
+            this.dt2 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.LastCierreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DSCierre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).BeginInit();
@@ -86,18 +86,6 @@
             // 
             this.BitacoraBindingSource.DataMember = "Bitacora";
             this.BitacoraBindingSource.DataSource = this.OrangeDB1DataSet;
-            // 
-            // rpvBitacora
-            // 
-            reportDataSource1.Name = "DS1";
-            reportDataSource1.Value = this.LastCierreBindingSource;
-            this.rpvBitacora.LocalReport.DataSources.Add(reportDataSource1);
-            this.rpvBitacora.LocalReport.ReportEmbeddedResource = "LosNaranjitos.Reporteria.RDLCTEST.rdlc";
-            this.rpvBitacora.Location = new System.Drawing.Point(0, 0);
-            this.rpvBitacora.Name = "rpvBitacora";
-            this.rpvBitacora.ServerReport.BearerToken = null;
-            this.rpvBitacora.Size = new System.Drawing.Size(464, 211);
-            this.rpvBitacora.TabIndex = 0;
             // 
             // DTReporteBitacoraBindingSource
             // 
@@ -200,18 +188,33 @@
             // 
             this.dtReporteBitacoraTableAdapter2.ClearBeforeFill = true;
             // 
+            // dt1
+            // 
+            this.dt1.Location = new System.Drawing.Point(74, 41);
+            this.dt1.Name = "dt1";
+            this.dt1.Size = new System.Drawing.Size(200, 20);
+            this.dt1.TabIndex = 11;
+            // 
+            // dt2
+            // 
+            this.dt2.Location = new System.Drawing.Point(74, 85);
+            this.dt2.Name = "dt2";
+            this.dt2.Size = new System.Drawing.Size(200, 20);
+            this.dt2.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 390);
+            this.Controls.Add(this.dt2);
+            this.Controls.Add(this.dt1);
             this.Controls.Add(this.txtxtxt);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.chkLechuga);
             this.Controls.Add(this.txtObservacionesPP);
-            this.Controls.Add(this.rpvBitacora);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -230,8 +233,6 @@
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer rpvBitacora;
         private System.Windows.Forms.BindingSource DTReporteBitacoraBindingSource;
         private OrangeDB1DataSet OrangeDB1DataSet;
         private OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter DTReporteBitacoraTableAdapter;
@@ -253,5 +254,7 @@
         private DSCierre dsCierre1;
         private OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter dtReporteBitacoraTableAdapter1;
         private OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter dtReporteBitacoraTableAdapter2;
+        private System.Windows.Forms.DateTimePicker dt1;
+        private System.Windows.Forms.DateTimePicker dt2;
     }
 }
