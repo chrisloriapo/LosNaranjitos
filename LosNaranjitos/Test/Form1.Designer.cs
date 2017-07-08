@@ -28,90 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.LastCierreBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DSCierre = new LosNaranjitos.DSCierre();
-            this.CierreBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.OrangeDB1DataSet = new LosNaranjitos.OrangeDB1DataSet();
-            this.BitacoraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DTReporteBitacoraBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DTReporteBitacoraTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter();
-            this.BitacoraTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.BitacoraTableAdapter();
-            this.CierreTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.CierreTableAdapter();
-            this.InsumosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.InsumosTableAdapter = new LosNaranjitos.OrangeDB1DataSetTableAdapters.InsumosTableAdapter();
             this.chkLechuga = new System.Windows.Forms.CheckBox();
             this.txtObservacionesPP = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.txtxtxt = new System.Windows.Forms.TextBox();
-            this.LastCierreTableAdapter = new LosNaranjitos.DSCierreTableAdapters.LastCierreTableAdapter();
-            this.dsCierre1 = new LosNaranjitos.DSCierre();
-            this.dtReporteBitacoraTableAdapter1 = new LosNaranjitos.OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter();
-            this.dtReporteBitacoraTableAdapter2 = new LosNaranjitos.OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter();
             this.dt1 = new System.Windows.Forms.DateTimePicker();
             this.dt2 = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)(this.LastCierreBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSCierre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BitacoraBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DTReporteBitacoraBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.InsumosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsCierre1)).BeginInit();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
-            // 
-            // LastCierreBindingSource
-            // 
-            this.LastCierreBindingSource.DataMember = "LastCierre";
-            this.LastCierreBindingSource.DataSource = this.DSCierre;
-            // 
-            // DSCierre
-            // 
-            this.DSCierre.DataSetName = "DSCierre";
-            this.DSCierre.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // CierreBindingSource
-            // 
-            this.CierreBindingSource.DataMember = "Cierre";
-            this.CierreBindingSource.DataSource = this.OrangeDB1DataSet;
-            // 
-            // OrangeDB1DataSet
-            // 
-            this.OrangeDB1DataSet.DataSetName = "OrangeDB1DataSet";
-            this.OrangeDB1DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // BitacoraBindingSource
-            // 
-            this.BitacoraBindingSource.DataMember = "Bitacora";
-            this.BitacoraBindingSource.DataSource = this.OrangeDB1DataSet;
-            // 
-            // DTReporteBitacoraBindingSource
-            // 
-            this.DTReporteBitacoraBindingSource.DataMember = "DTReporteBitacora";
-            this.DTReporteBitacoraBindingSource.DataSource = this.OrangeDB1DataSet;
-            // 
-            // DTReporteBitacoraTableAdapter
-            // 
-            this.DTReporteBitacoraTableAdapter.ClearBeforeFill = true;
-            // 
-            // BitacoraTableAdapter
-            // 
-            this.BitacoraTableAdapter.ClearBeforeFill = true;
-            // 
-            // CierreTableAdapter
-            // 
-            this.CierreTableAdapter.ClearBeforeFill = true;
-            // 
-            // InsumosBindingSource
-            // 
-            this.InsumosBindingSource.DataMember = "Insumos";
-            this.InsumosBindingSource.DataSource = this.OrangeDB1DataSet;
-            // 
-            // InsumosTableAdapter
-            // 
-            this.InsumosTableAdapter.ClearBeforeFill = true;
             // 
             // chkLechuga
             // 
@@ -171,23 +97,6 @@
             this.txtxtxt.Size = new System.Drawing.Size(215, 20);
             this.txtxtxt.TabIndex = 10;
             // 
-            // LastCierreTableAdapter
-            // 
-            this.LastCierreTableAdapter.ClearBeforeFill = true;
-            // 
-            // dsCierre1
-            // 
-            this.dsCierre1.DataSetName = "DSCierre";
-            this.dsCierre1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dtReporteBitacoraTableAdapter1
-            // 
-            this.dtReporteBitacoraTableAdapter1.ClearBeforeFill = true;
-            // 
-            // dtReporteBitacoraTableAdapter2
-            // 
-            this.dtReporteBitacoraTableAdapter2.ClearBeforeFill = true;
-            // 
             // dt1
             // 
             this.dt1.Location = new System.Drawing.Point(74, 41);
@@ -202,11 +111,20 @@
             this.dt2.Size = new System.Drawing.Size(200, 20);
             this.dt2.TabIndex = 12;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(280, 12);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(161, 199);
+            this.listBox1.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(673, 390);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.dt2);
             this.Controls.Add(this.dt1);
             this.Controls.Add(this.txtxtxt);
@@ -219,42 +137,20 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.LastCierreBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DSCierre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CierreBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrangeDB1DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BitacoraBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DTReporteBitacoraBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.InsumosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsCierre1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.BindingSource DTReporteBitacoraBindingSource;
-        private OrangeDB1DataSet OrangeDB1DataSet;
-        private OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter DTReporteBitacoraTableAdapter;
-        private System.Windows.Forms.BindingSource BitacoraBindingSource;
-        private OrangeDB1DataSetTableAdapters.BitacoraTableAdapter BitacoraTableAdapter;
-        private System.Windows.Forms.BindingSource CierreBindingSource;
-        private OrangeDB1DataSetTableAdapters.CierreTableAdapter CierreTableAdapter;
-        private System.Windows.Forms.BindingSource InsumosBindingSource;
-        private OrangeDB1DataSetTableAdapters.InsumosTableAdapter InsumosTableAdapter;
         private System.Windows.Forms.CheckBox chkLechuga;
         private System.Windows.Forms.TextBox txtObservacionesPP;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox txtxtxt;
-        private System.Windows.Forms.BindingSource LastCierreBindingSource;
-        private DSCierre DSCierre;
-        private DSCierreTableAdapters.LastCierreTableAdapter LastCierreTableAdapter;
-        private DSCierre dsCierre1;
-        private OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter dtReporteBitacoraTableAdapter1;
-        private OrangeDB1DataSetTableAdapters.DTReporteBitacoraTableAdapter dtReporteBitacoraTableAdapter2;
         private System.Windows.Forms.DateTimePicker dt1;
         private System.Windows.Forms.DateTimePicker dt2;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

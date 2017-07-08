@@ -87,7 +87,7 @@ namespace LosNaranjitos
                 dgvListado.DataSource = ListaLocal;
 
                 dtpFechaFactura.Value = DateTime.Today;
-                cbbProveedor.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(X => X.Nombre).ToList();
+                cbbProveedor.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(X => X.NombreProveedor).ToList();
                 var autosearch = new AutoCompleteStringCollection();
                 txtBuscar.AutoCompleteCustomSource = autosearch;
                 txtBuscar.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -113,7 +113,7 @@ namespace LosNaranjitos
                         txtObservaciones.Text = EditFacturaCompra.Observaciones;
                         lblConsecutivo.Text = EditFacturaCompra.Consecutivo.ToString(); ;
                         DATOS.Proveedor ProvLocal = Utilitarios.OpProveedor.BuscarProveedor(EditFacturaCompra.IdProveedor);
-                        cbbProveedor.SelectedItem = ProvLocal.Nombre;
+                        cbbProveedor.SelectedItem = ProvLocal.NombreProveedor;
                         btnNuevo.Enabled = false;
                         txtMonto.Text = EditFacturaCompra.Monto.ToString();
                         txtIdFactura.ReadOnly = true;

@@ -14,7 +14,7 @@ namespace LosNaranjitos.DATOS
         [PrimaryKey]
         public string IdProveedor { get; set; }
 
-        public string Nombre { get; set; }
+        public string NombreProveedor { get; set; }
 
         public string Telefono { get; set; }
 

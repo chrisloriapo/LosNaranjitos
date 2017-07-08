@@ -22,27 +22,5 @@ namespace LosNaranjitos.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CHRISLORIAPO\\SQLEXPRESS;Initial Catalog=OrangeDB1;Integrated Security" +
-            "=True")]
-        public string ORANGEDBTST1 {
-            get {
-                return ((string)(this["ORANGEDBTST1"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=CHRISLORIAPO\\SQLEXPRESS;Initial Catalog=OrangeDB1;Integrated Security" +
-            "=True")]
-        public string DSString1 {
-            get {
-                return ((string)(this["DSString1"]));
-            }
-        }
     }
 }

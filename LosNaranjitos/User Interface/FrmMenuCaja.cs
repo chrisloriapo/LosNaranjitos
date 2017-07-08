@@ -112,7 +112,7 @@ namespace LosNaranjitos
 
                         return;
                     }
-                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Sesion ");
+                    Utilitarios.GeneralBitacora(Utilitarios.Decriptar( FrmLogin.UsuarioGlobal.Username,Utilitarios.Llave), "Cierre de Sesion ");
                     FrmLogin a = new FrmLogin();
                     a.Show();
                     this.Dispose();

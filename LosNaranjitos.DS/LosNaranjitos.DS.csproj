@@ -41,6 +41,10 @@
       <LastGenOutput>BD.Designer.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LosNaranjitos.DATOS\LosNaranjitos.DATOS.csproj">
@@ -65,7 +69,11 @@
       <HintPath>..\packages\ServiceStack.Text.3.9.11\lib\net35\ServiceStack.Text.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BD.Designer.cs">
@@ -94,6 +102,13 @@
     <Compile Include="Clases\Proveedor.cs" />
     <Compile Include="Clases\RolUsuario.cs" />
     <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Email.cs" />
+    <Compile Include="FrmConfiguracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfiguracion.Designer.cs">
+      <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IBitacora.cs" />
     <Compile Include="Interfaces\ICaja.cs" />
     <Compile Include="Interfaces\ICargas.cs" />
@@ -115,10 +130,24 @@
     <Compile Include="Interfaces\IProveedor.cs" />
     <Compile Include="Interfaces\IRolUsuario.cs" />
     <Compile Include="Interfaces\IUsuario.cs" />
+    <Compile Include="PasswordPolicy.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Ticket.cs" />
+    <Compile Include="Utilitarios.cs" />
     <Compile Include="_Conexion.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmConfiguracion.resx">
+      <DependentUpon>FrmConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

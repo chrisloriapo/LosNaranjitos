@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CrystalReport11 = new LosNaranjitos.Test.CrystalReport1();
             this.SuspendLayout();
             // 
             // Form3
@@ -44,6 +43,5 @@
         }
 
         #endregion
-        private CrystalReport1 CrystalReport11;
     }
 }

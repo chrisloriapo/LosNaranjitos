@@ -24,7 +24,7 @@ namespace LosNaranjitos.User_Interface
             {
                 FrmLogin ReLog = new FrmLogin();
                 ReLog.Show();
-                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Sesion");
+                Utilitarios.GeneralBitacora(Utilitarios.Decriptar(FrmLogin.UsuarioGlobal.Username, Utilitarios.Llave), "Cierre de Sesion");
                 FrmLogin.MN.Dispose();
                 this.Dispose();
             }
@@ -61,7 +61,7 @@ namespace LosNaranjitos.User_Interface
                     FrmLogin.MN.Dispose();
                     FrmLogin ReLog = new FrmLogin();
                     ReLog.Show();
-                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Sesion");
+                    Utilitarios.GeneralBitacora(Utilitarios.Decriptar(FrmLogin.UsuarioGlobal.Username, Utilitarios.Llave), "Cierre de Sesion");
                     this.Dispose();
                 }
                 else

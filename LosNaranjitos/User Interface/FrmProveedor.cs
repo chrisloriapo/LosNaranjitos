@@ -91,7 +91,7 @@ namespace LosNaranjitos
                     {
                         lblConsecutivo.Text = EditProveedor.Consecutivo.ToString();
                         txtIdProveedor.Text = EditProveedor.IdProveedor;
-                        txtEmpresa.Text = EditProveedor.Nombre;
+                        txtEmpresa.Text = EditProveedor.NombreProveedor;
                         txtTelefono.Text = EditProveedor.Telefono;
                         txtEmail.Text = EditProveedor.Correo;
                         txtIdProveedor.ReadOnly = true;
@@ -201,7 +201,7 @@ namespace LosNaranjitos
                         {
                        //     Consecutivo = lblConsecutivo.Text,
                             IdProveedor = txtIdProveedor.Text,
-                            Nombre = txtEmpresa.Text,
+                            NombreProveedor = txtEmpresa.Text,
                             Activo = chkEstado.Checked,
                             Telefono = txtTelefono.Text,
                             Correo = txtEmail.Text,
@@ -249,7 +249,7 @@ namespace LosNaranjitos
                     {
                     //    Consecutivo = lblConsecutivo.Text,
                         IdProveedor = txtIdProveedor.Text,
-                        Nombre = txtEmpresa.Text,
+                        NombreProveedor = txtEmpresa.Text,
                         Activo = chkEstado.Checked,
                         Telefono = txtTelefono.Text,
                         Correo = txtEmail.Text,
@@ -297,7 +297,7 @@ namespace LosNaranjitos
                         break;
                     case "Empresa":
 
-                        ListaLocal = ListaLocal.Where(x => x.Nombre == txtBuscar.Text).ToList();
+                        ListaLocal = ListaLocal.Where(x => x.NombreProveedor == txtBuscar.Text).ToList();
                         break;
 
 
@@ -337,7 +337,7 @@ namespace LosNaranjitos
                     case "Empresa":
                         foreach (var pos in ListaLocal)
                         {
-                            autosearch.Add(Convert.ToString(pos.Nombre));
+                            autosearch.Add(Convert.ToString(pos.NombreProveedor));
                         }
                         txtBuscar.Visible = true;
                         break;

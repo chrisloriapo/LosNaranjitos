@@ -45,7 +45,7 @@ namespace LosNaranjitos.DS.Clases
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
-            DATOS.Proveedor BuscProvNom = db.Select<DATOS.Proveedor>(x => x.Nombre == IdProveedor).FirstOrDefault();
+            DATOS.Proveedor BuscProvNom = db.Select<DATOS.Proveedor>(x => x.NombreProveedor == IdProveedor).FirstOrDefault();
             return BuscProvNom;
         }
 

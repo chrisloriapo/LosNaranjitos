@@ -27,7 +27,7 @@ namespace LosNaranjitos
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            ProveedorEditar = Utilitarios.OpProveedor.ListarProveedores().FirstOrDefault(x => x.Nombre == cbbProveedores.SelectedValue.ToString());
+            ProveedorEditar = Utilitarios.OpProveedor.ListarProveedores().FirstOrDefault(x => x.NombreProveedor == cbbProveedores.SelectedValue.ToString());
             FrmProveedor.EditProveedor = ProveedorEditar;
             Utilitarios.Cambio = true;
 
@@ -42,7 +42,7 @@ namespace LosNaranjitos
         {
             try
             {
-                cbbProveedores.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(p => p.Nombre).ToList();
+                cbbProveedores.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(p => p.NombreProveedor).ToList();
             }
             catch (Exception ex)
             {
@@ -56,8 +56,8 @@ namespace LosNaranjitos
         {
             try
             {
-                ProveedorEditar = Utilitarios.OpProveedor.ListarProveedores().FirstOrDefault(x => x.Nombre == cbbProveedores.SelectedValue.ToString());
-                lblNombre.Text = "Nombre: " + ProveedorEditar.Nombre;
+                ProveedorEditar = Utilitarios.OpProveedor.ListarProveedores().FirstOrDefault(x => x.NombreProveedor == cbbProveedores.SelectedValue.ToString());
+                lblNombre.Text = "Nombre: " + ProveedorEditar.NombreProveedor;
                 lblIdPersonal.Text = "Id Proveedor: " + ProveedorEditar.IdProveedor;
             }
             catch (Exception ex)

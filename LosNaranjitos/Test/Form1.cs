@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using LosNaranjitos.Tools;
 using LosNaranjitos.DATOS;
 using System.Diagnostics;
+using System.Data.Sql;
+using Microsoft.Win32;
 
 namespace LosNaranjitos
 {
@@ -26,6 +23,17 @@ namespace LosNaranjitos
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var baseKey = RegistryKey.OpenBaseKey(
+                RegistryHive.LocalMachine, RegistryView.Registry64);
+            var key = baseKey.OpenSubKey(
+            @"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL");
+            foreach (string sqlserver in key.GetValueNames())
+            {
+                Console.WriteLine((string.Format("{0}\\{1}",
+                    Environment.MachineName, sqlserver)));
+                comboBox1.Items.Add(Environment.MachineName+ sqlserver);
+            }
+
 
 
 

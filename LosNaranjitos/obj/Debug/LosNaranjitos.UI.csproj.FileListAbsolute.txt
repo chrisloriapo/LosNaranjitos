@@ -670,8 +670,6 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\itextsharp.xtra.dll
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\itextsharp.xml
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.User_Interface.FrmParametros_de_Impresion.resources
-C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.Test.Form2.resources
-C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.Reporteria.FrmReporteDeVentas.resources
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\Newtonsoft.Json.dll
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
@@ -717,3 +715,9 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\es\Microsoft.VisualStudio.Data.Services.resources.dll
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\es\Microsoft.VisualStudio.Data.Core.resources.dll
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\obj\Debug\LosNaranjitos.User_Interface.FrmReportes.resources
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\Microsoft.SqlServer.Smo.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\Microsoft.SqlServer.Management.Sdk.Sfc.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\Microsoft.SqlServer.ConnectionInfo.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\Microsoft.SqlServer.SqlEnum.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\Microsoft.SqlServer.Dmf.dll
+C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos\bin\Debug\Microsoft.SqlServer.ServiceBrokerEnum.dll

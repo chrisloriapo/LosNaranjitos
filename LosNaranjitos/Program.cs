@@ -18,7 +18,7 @@ namespace LosNaranjitos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmReportes());
+            Application.Run(new FrmLogin());
         }
     }
 }

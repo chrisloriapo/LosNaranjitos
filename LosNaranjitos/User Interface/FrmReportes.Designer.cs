@@ -28,12 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnEjecutarConParametros = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkEmailParametros = new System.Windows.Forms.CheckBox();
+            this.cmbItemsParametros = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dt2 = new System.Windows.Forms.DateTimePicker();
+            this.dt1 = new System.Windows.Forms.DateTimePicker();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.rbtVentasCombo = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rbtVentaProducto = new System.Windows.Forms.RadioButton();
+            this.rbtComprasPorFecha = new System.Windows.Forms.RadioButton();
+            this.rbtVentasporFecha = new System.Windows.Forms.RadioButton();
             this.tbRptConParametros = new System.Windows.Forms.TabPage();
             this.cbTipoReporte = new System.Windows.Forms.ComboBox();
             this.grbReportes1 = new System.Windows.Forms.GroupBox();
+            this.chkMail = new System.Windows.Forms.CheckBox();
             this.btnEjecutarReporteSinParametros = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tbRptSinParametros = new System.Windows.Forms.TabPage();
@@ -44,17 +61,10 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.lable = new System.Windows.Forms.Label();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dt2 = new System.Windows.Forms.DateTimePicker();
-            this.dt1 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.chkMail = new System.Windows.Forms.CheckBox();
-            this.flowLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.tbRptConParametros.SuspendLayout();
             this.grbReportes1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -64,18 +74,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel2
+            // btnEjecutarConParametros
             // 
-            this.flowLayoutPanel2.Controls.Add(this.btnNuevo);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(258, 214);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(249, 34);
-            this.flowLayoutPanel2.TabIndex = 0;
+            this.btnEjecutarConParametros.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnEjecutarConParametros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEjecutarConParametros.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEjecutarConParametros.ForeColor = System.Drawing.Color.White;
+            this.btnEjecutarConParametros.Location = new System.Drawing.Point(111, 211);
+            this.btnEjecutarConParametros.Name = "btnEjecutarConParametros";
+            this.btnEjecutarConParametros.Size = new System.Drawing.Size(132, 28);
+            this.btnEjecutarConParametros.TabIndex = 351;
+            this.btnEjecutarConParametros.Text = "Ejecutar Reporte";
+            this.btnEjecutarConParametros.UseVisualStyleBackColor = false;
+            this.btnEjecutarConParametros.Click += new System.EventHandler(this.btnEjecutarConParametros_Click);
             // 
             // groupBox2
             // 
@@ -96,18 +109,194 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.groupBox4, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.flowLayoutPanel2, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.groupBox3, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 17);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 251F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 251F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(510, 251);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.chkEmailParametros);
+            this.groupBox4.Controls.Add(this.cmbItemsParametros);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.btnEjecutarConParametros);
+            this.groupBox4.Controls.Add(this.dt2);
+            this.groupBox4.Controls.Add(this.dt1);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(258, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(249, 245);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Parametro";
+            // 
+            // chkEmailParametros
+            // 
+            this.chkEmailParametros.AutoSize = true;
+            this.chkEmailParametros.Location = new System.Drawing.Point(38, 180);
+            this.chkEmailParametros.Name = "chkEmailParametros";
+            this.chkEmailParametros.Size = new System.Drawing.Size(119, 18);
+            this.chkEmailParametros.TabIndex = 353;
+            this.chkEmailParametros.Text = "Enviar por Correo";
+            this.chkEmailParametros.UseVisualStyleBackColor = true;
+            // 
+            // cmbItemsParametros
+            // 
+            this.cmbItemsParametros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbItemsParametros.Enabled = false;
+            this.cmbItemsParametros.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbItemsParametros.ForeColor = System.Drawing.Color.OrangeRed;
+            this.cmbItemsParametros.FormattingEnabled = true;
+            this.cmbItemsParametros.Location = new System.Drawing.Point(27, 149);
+            this.cmbItemsParametros.Name = "cmbItemsParametros";
+            this.cmbItemsParametros.Size = new System.Drawing.Size(186, 21);
+            this.cmbItemsParametros.Sorted = true;
+            this.cmbItemsParametros.TabIndex = 352;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(24, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 14);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Hasta";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(24, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 14);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Desde";
+            // 
+            // dt2
+            // 
+            this.dt2.Enabled = false;
+            this.dt2.Location = new System.Drawing.Point(24, 103);
+            this.dt2.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            this.dt2.Name = "dt2";
+            this.dt2.Size = new System.Drawing.Size(200, 21);
+            this.dt2.TabIndex = 14;
+            // 
+            // dt1
+            // 
+            this.dt1.Enabled = false;
+            this.dt1.Location = new System.Drawing.Point(24, 44);
+            this.dt1.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            this.dt1.Name = "dt1";
+            this.dt1.Size = new System.Drawing.Size(200, 21);
+            this.dt1.TabIndex = 13;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.rbtVentasCombo);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.rbtVentaProducto);
+            this.groupBox3.Controls.Add(this.rbtComprasPorFecha);
+            this.groupBox3.Controls.Add(this.rbtVentasporFecha);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(249, 245);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Tipo de Reporte";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(40, 197);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(119, 28);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Seleccione el Combo \r\nen el Panel derecho.";
+            // 
+            // rbtVentasCombo
+            // 
+            this.rbtVentasCombo.AutoSize = true;
+            this.rbtVentasCombo.Location = new System.Drawing.Point(24, 176);
+            this.rbtVentasCombo.Name = "rbtVentasCombo";
+            this.rbtVentasCombo.Size = new System.Drawing.Size(115, 18);
+            this.rbtVentasCombo.TabIndex = 6;
+            this.rbtVentasCombo.Text = "Ventas de Combo";
+            this.rbtVentasCombo.UseVisualStyleBackColor = true;
+            this.rbtVentasCombo.CheckedChanged += new System.EventHandler(this.rbtVentasCombo_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(40, 142);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(131, 28);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Seleccione el Producto \r\nen el Panel derecho.";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(40, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(172, 28);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Seleccione fechas del reporte  \r\nen el panel derecho.";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(40, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(172, 28);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Seleccione fechas del reporte  \r\nen el panel derecho.";
+            // 
+            // rbtVentaProducto
+            // 
+            this.rbtVentaProducto.AutoSize = true;
+            this.rbtVentaProducto.Location = new System.Drawing.Point(22, 123);
+            this.rbtVentaProducto.Name = "rbtVentaProducto";
+            this.rbtVentaProducto.Size = new System.Drawing.Size(127, 18);
+            this.rbtVentaProducto.TabIndex = 2;
+            this.rbtVentaProducto.Text = "Ventas de Producto";
+            this.rbtVentaProducto.UseVisualStyleBackColor = true;
+            this.rbtVentaProducto.CheckedChanged += new System.EventHandler(this.rbtVentaProducto_CheckedChanged);
+            // 
+            // rbtComprasPorFecha
+            // 
+            this.rbtComprasPorFecha.AutoSize = true;
+            this.rbtComprasPorFecha.Location = new System.Drawing.Point(22, 70);
+            this.rbtComprasPorFecha.Name = "rbtComprasPorFecha";
+            this.rbtComprasPorFecha.Size = new System.Drawing.Size(129, 18);
+            this.rbtComprasPorFecha.TabIndex = 1;
+            this.rbtComprasPorFecha.Text = "Compras por Fecha";
+            this.rbtComprasPorFecha.UseVisualStyleBackColor = true;
+            this.rbtComprasPorFecha.CheckedChanged += new System.EventHandler(this.rbtComprasPorFecha_CheckedChanged);
+            // 
+            // rbtVentasporFecha
+            // 
+            this.rbtVentasporFecha.AutoSize = true;
+            this.rbtVentasporFecha.Location = new System.Drawing.Point(22, 18);
+            this.rbtVentasporFecha.Name = "rbtVentasporFecha";
+            this.rbtVentasporFecha.Size = new System.Drawing.Size(117, 18);
+            this.rbtVentasporFecha.TabIndex = 0;
+            this.rbtVentasporFecha.Text = "Ventas por Fecha";
+            this.rbtVentasporFecha.UseVisualStyleBackColor = true;
+            this.rbtVentasporFecha.CheckedChanged += new System.EventHandler(this.rbtVentasporFecha_CheckedChanged);
             // 
             // tbRptConParametros
             // 
@@ -129,13 +318,15 @@
             this.cbTipoReporte.Items.AddRange(new object[] {
             "Clientes",
             "Combos",
-            "Compras ",
+            "Compras",
             "Errores",
             "Insumos",
             "Productos",
             "Proveedores",
             "Usuarios",
-            "Ventas"});
+            "Ventas",
+            "Ventas Por Combo",
+            "Ventas Por Producto"});
             this.cbTipoReporte.Location = new System.Drawing.Point(67, 28);
             this.cbTipoReporte.Name = "cbTipoReporte";
             this.cbTipoReporte.Size = new System.Drawing.Size(186, 21);
@@ -154,6 +345,16 @@
             this.grbReportes1.TabIndex = 0;
             this.grbReportes1.TabStop = false;
             this.grbReportes1.Text = "Seleccione el Reporte a Ejecutar";
+            // 
+            // chkMail
+            // 
+            this.chkMail.AutoSize = true;
+            this.chkMail.Location = new System.Drawing.Point(67, 56);
+            this.chkMail.Name = "chkMail";
+            this.chkMail.Size = new System.Drawing.Size(119, 18);
+            this.chkMail.TabIndex = 16;
+            this.chkMail.Text = "Enviar por Correo";
+            this.chkMail.UseVisualStyleBackColor = true;
             // 
             // btnEjecutarReporteSinParametros
             // 
@@ -285,87 +486,6 @@
             this.lable.TabIndex = 359;
             this.lable.Visible = false;
             // 
-            // btnNuevo
-            // 
-            this.btnNuevo.BackColor = System.Drawing.Color.DarkOrange;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevo.Location = new System.Drawing.Point(171, 3);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btnNuevo.TabIndex = 351;
-            this.btnNuevo.Text = "&Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = false;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(249, 205);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Tipo de Reporte";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.dt2);
-            this.groupBox4.Controls.Add(this.dt1);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(258, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(249, 205);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Parametro";
-            // 
-            // dt2
-            // 
-            this.dt2.Location = new System.Drawing.Point(24, 103);
-            this.dt2.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
-            this.dt2.Name = "dt2";
-            this.dt2.Size = new System.Drawing.Size(200, 21);
-            this.dt2.TabIndex = 14;
-            // 
-            // dt1
-            // 
-            this.dt1.Location = new System.Drawing.Point(24, 44);
-            this.dt1.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
-            this.dt1.Name = "dt1";
-            this.dt1.Size = new System.Drawing.Size(200, 21);
-            this.dt1.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 14);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Desde";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 14);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Hasta";
-            // 
-            // chkMail
-            // 
-            this.chkMail.AutoSize = true;
-            this.chkMail.Location = new System.Drawing.Point(67, 56);
-            this.chkMail.Name = "chkMail";
-            this.chkMail.Size = new System.Drawing.Size(119, 18);
-            this.chkMail.TabIndex = 16;
-            this.chkMail.Text = "Enviar por Correo";
-            this.chkMail.UseVisualStyleBackColor = true;
-            // 
             // FrmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,9 +500,12 @@
             this.Name = "FrmReportes";
             this.Text = "FrmReportes";
             this.Load += new System.EventHandler(this.FrmReportes_Load);
-            this.flowLayoutPanel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tbRptConParametros.ResumeLayout(false);
             this.grbReportes1.ResumeLayout(false);
             this.grbReportes1.PerformLayout();
@@ -393,17 +516,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnEjecutarConParametros;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -426,5 +545,15 @@
         private System.Windows.Forms.DateTimePicker dt2;
         private System.Windows.Forms.DateTimePicker dt1;
         private System.Windows.Forms.CheckBox chkMail;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton rbtVentaProducto;
+        private System.Windows.Forms.RadioButton rbtComprasPorFecha;
+        private System.Windows.Forms.RadioButton rbtVentasporFecha;
+        private System.Windows.Forms.CheckBox chkEmailParametros;
+        private System.Windows.Forms.ComboBox cmbItemsParametros;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RadioButton rbtVentasCombo;
+        private System.Windows.Forms.Label label5;
     }
 }

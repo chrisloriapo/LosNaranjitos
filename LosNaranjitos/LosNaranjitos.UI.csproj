@@ -84,6 +84,10 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft SQL Server\100\SDK\Assemblies\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
@@ -127,34 +131,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DSCierre.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSCierre.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reporteria\FrmReporteDeVentas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reporteria\FrmReporteDeVentas.Designer.cs">
-      <DependentUpon>FrmReporteDeVentas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Test\CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Test\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Test\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Test\Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Test\Form3.cs">
       <SubType>Form</SubType>
@@ -165,11 +146,6 @@
     <Compile Include="Tools\Email.cs" />
     <Compile Include="Tools\PasswordPolicy.cs" />
     <Compile Include="Tools\Ticket.cs" />
-    <Compile Include="User Interface\DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="User Interface\FrmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -404,14 +380,6 @@
     <Compile Include="User Interface\FrmUsuarios.Designer.cs">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="OrangeDB1DataSet.cs">
-      <DependentUpon>OrangeDB1DataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="OrangeDB1DataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OrangeDB1DataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -426,20 +394,8 @@
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Tools\Utilitarios.cs" />
-    <EmbeddedResource Include="Reporteria\FrmReporteDeVentas.resx">
-      <DependentUpon>FrmReporteDeVentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reporteria\RDLCTEST.rdlc" />
-    <EmbeddedResource Include="Reporteria\rdlcVentasDetalle.rdlc" />
-    <EmbeddedResource Include="Test\CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Test\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Test\Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test\Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
@@ -570,37 +526,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reporteria\rdlcCombos.rdlc" />
-    <EmbeddedResource Include="Reporteria\rdlcProductos.rdlc" />
-    <EmbeddedResource Include="Reporteria\rdlcReporteBitacora.rdlc" />
-    <EmbeddedResource Include="Reporteria\rdlcReporteCierre.rdlc" />
-    <EmbeddedResource Include="Reporteria\rdlcReporteInsumos.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="DSCierre.xsc">
-      <DependentUpon>DSCierre.xsd</DependentUpon>
-    </None>
-    <None Include="DSCierre.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSCierre.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DSCierre.xss">
-      <DependentUpon>DSCierre.xsd</DependentUpon>
-    </None>
-    <None Include="User Interface\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="User Interface\DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="User Interface\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -630,17 +559,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="OrangeDB1DataSet.xsc">
-      <DependentUpon>OrangeDB1DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="OrangeDB1DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>OrangeDB1DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="OrangeDB1DataSet.xss">
-      <DependentUpon>OrangeDB1DataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

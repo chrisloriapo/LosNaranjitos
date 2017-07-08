@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
-
+using System.Data.SqlClient;
 
 namespace LosNaranjitos
 {
@@ -28,8 +28,6 @@ namespace LosNaranjitos
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
 
             bool Ingreso = ValidarUser();
             if (Ingreso)
@@ -48,16 +46,6 @@ namespace LosNaranjitos
                 Utilitarios.GeneralBitacora(UsuarioGlobal.Username, "Ingreso al Sistema");
 
             }
-            //  }
-            //            catch (Exception ex)
-            //            {
-            //                if (ex.Message == "No se puede obtener acceso al objeto desechado.Nombre del objeto: 'FrmMenuPrincipal'.")
-            //                {
-            //FrmMenuPrincipal MNN =new FrmMenuPrincipal()
-            //                }
-
-            //     }
-
 
         }
 
@@ -74,7 +62,6 @@ namespace LosNaranjitos
                 try
                 {
 
-                    //  bool ExisteUser = Utilitarios.OpUsuarios.ExisteUsuario(txtUsuario.Text.ToLower());
                     UsuarioGlobal = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(txtUsuario.Text.ToLower());
                     if (((txtUsuario.Text == UsuarioGlobal.Username) &&
                    (txtPassword.Text == UsuarioGlobal.Contrasena)) && UsuarioGlobal.Activo)
@@ -133,47 +120,31 @@ namespace LosNaranjitos
         private void FrmLogin_Load(object sender, EventArgs e)
         {
 
-
             try
             {
-                timer1.Start();
-                if (Utilitarios.OpUsuarios.ListarUsuarios().Count == 0)
+                DS._Conexion.CrearConexion().OpenDbConnection();
+                Utilitarios.OpParametros.ListarRegistros();
+            }
+            catch (SqlException)
+            {
+                var mensaje = MessageBox.Show("Error al Conectarse a la Base de datos, \n ¿Desea Ingresar a la Configuración por Primer Vez?", "Advertencia",
+                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (mensaje == DialogResult.Yes)
                 {
-                    DATOS.Usuario Userprivate = new DATOS.Usuario
-                    {
-                        Username = "admin",
-                        Nombre = "Administrador",
-                        Apellido1 = "SuperUsuario",
-                        Apellido2 = " ",
-                        Contrasena = "admin1",
-                        Activo = true,
-                        IdPersonal = "admin1",
-                        Telefono = "0",
-                        Correo = "nomail",
-                        Rol = 1,
-                        Direccion = "NoWhere",
-                        CambioContrasena = true,
-                        UltimoContrasena = DateTime.Now
-
-                    };
-                    Utilitarios.OpUsuarios.AgregarUsuario(Userprivate);
-                    //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Usuario");
-                    //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                    //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
-
-                    Utilitarios.GeneralBitacora("admin", "No existen Usuarios previamente creados, ingreso de usuario default  admin");
-                    MessageBox.Show("Es primer vez que el sistema se utiliza, debes utilizar los siguientes credenciales para ingresar: usuario: admin \n contraseña: admin1",
-"Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                  
+                    DS.FrmConfiguracion ConfigIn = new DS.FrmConfiguracion();
+                    ConfigIn.Show();
+                    ConfigIn.TopMost = true;
+                    this.WindowState = FormWindowState.Minimized;
+                }
+                else
+                {
+                    Application.Exit(); ;
                 }
             }
-            catch (Exception ex)
-            {
 
-                Utilitarios.GeneralError(ex.Message, "Error al Popular Datos", "No User logged", "Error durante la Salida del Sistema ");
-                MessageBox.Show(ex.Message, "ERROR",
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
+            timer1.Start();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

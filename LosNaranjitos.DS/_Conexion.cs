@@ -12,7 +12,7 @@ namespace LosNaranjitos.DS
         public static OrmLiteConnectionFactory CrearConexion()
         {
 
-            return new OrmLiteConnectionFactory(BD.Default.conexion, SqlServerDialect.Provider);
+            return new OrmLiteConnectionFactory(Properties.Settings.Default.conexion, SqlServerDialect.Provider);
         }
 
     }

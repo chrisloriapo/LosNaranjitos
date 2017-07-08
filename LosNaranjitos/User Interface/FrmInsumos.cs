@@ -99,7 +99,7 @@ namespace LosNaranjitos
                 var ListaLocal = Utilitarios.OpInsumos.ListarInsumos();
                 dgvListado.DataSource = ListaLocal;
                 cbMedida.DataSource = Utilitarios.OpMedidas.ListarMedidas().Select(x => x.IdMedida).ToList();
-                cbProveedor.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(x => x.Nombre).ToList();
+                cbProveedor.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(x => x.NombreProveedor).ToList();
 
 
                 var autosearch = new AutoCompleteStringCollection();
@@ -131,7 +131,7 @@ namespace LosNaranjitos
                         lblConsecutivo.Text = EditInsumo.Consecutivo.ToString();
                         cbMedida.SelectedItem = EditInsumo.IdMedida;
 
-                        cbProveedor.SelectedItem = Prov.Nombre;
+                        cbProveedor.SelectedItem = Prov.NombreProveedor;
                         chkActivo.Checked = EditInsumo.Activo;
                         lblPrecioMermado.Text = EditInsumo.PrecioMermado.ToString();
                         txtRendimientoUM.Text = EditInsumo.RendimientoUM.ToString();
@@ -405,7 +405,7 @@ namespace LosNaranjitos
                 txtCantidadStock.Text = InsumoPrivate.CantInventario.ToString();
                 txtMedidaStock.Text = InsumoPrivate.IdMedida;
                 txtNombreStock.Text = InsumoPrivate.Nombre;
-                txtProveedorStock.Text = ProveedorId.Nombre;
+                txtProveedorStock.Text = ProveedorId.NombreProveedor;
                 txtPrecioCompraStock.Text = "‎₡ " + InsumoPrivate.PrecioCompra.ToString();
                 if (InsumoPrivate.Activo)
                 {

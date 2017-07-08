@@ -40,16 +40,16 @@ namespace LosNaranjitos
             {
                 try
                 {
-                    if (!emailValido(txtEmail.Text))
+                    if (!Utilitarios.emailValido(txtEmail.Text))
                     {
                         MessageBox.Show("Email No Valido",
                             "Error al ingresar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         return;
                     }
-                    DATOS.RolUsuario RolLocal = Utilitarios.OpRol.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
+                    RolUsuario RolLocal = Utilitarios.OpRol.BuscarRolPorDescripcion(cbbRol.SelectedValue.ToString());
 
-                    DATOS.Usuario Userprivate = new DATOS.Usuario
+                    Usuario Userprivate = new Usuario
                     {
                         //    Consecutivo = lblConsecutivo.Text,
                         Username = txtUsername.Text,
@@ -78,10 +78,6 @@ namespace LosNaranjitos
                     MessageBox.Show("Se ha enviado la contraseña al correo correspondiente al usuario " + Userprivate.Username, "Advertencia",
    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-                    //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Usuario");
-                    //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                    //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Usuario Nuevo " + Userprivate.Username);
                     MessageBox.Show("Los datos del Usuario se ingresaron correctamente",
@@ -543,26 +539,6 @@ namespace LosNaranjitos
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
-        private Boolean emailValido(String email)
-        {
-            String expresion;
-            expresion = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(email, expresion))
-            {
-                if (Regex.Replace(email, expresion, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -572,7 +548,7 @@ namespace LosNaranjitos
 
         private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (emailValido(txtEmail.Text))
+            if (Utilitarios.emailValido(txtEmail.Text))
             {
                 lblValidEmail.Text = "Email Válido";
                 lblValidEmail.ForeColor = Color.Green;

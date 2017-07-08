@@ -3,14 +3,10 @@ using iTextSharp.text.pdf;
 using LosNaranjitos.DATOS;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LosNaranjitos.User_Interface
@@ -28,15 +24,23 @@ namespace LosNaranjitos.User_Interface
             dt1.Value = DateTime.Today.AddDays(-20);
             dt2.Value = DateTime.Today.AddDays(0);
 
+
         }
 
         private void btnEjecutarReporteSinParametros_Click(object sender, EventArgs e)
         {
+            EjecutarReporte();
+        }
+
+
+        private void EjecutarReporte()
+        {
+
             try
             {
                 if (Utilitarios.FindAndKillProcess("AcroRd32"))
                 {
-                    System.Threading.Thread.Sleep(2000);
+                    System.Threading.Thread.Sleep(2500);
                 }
 
                 //Soporte Basico documento PDF
@@ -68,6 +72,7 @@ namespace LosNaranjitos.User_Interface
 
                         //Encabezado
 
+
                         var Encabezado = new Paragraph();
                         documento.Add(new Paragraph("Soda Los Naranjitos"));
                         Encabezado.Add(new Phrase("Reporte de Ventas - CONTENIDO CONFIDENCIAL", FontFactory.GetFont("Times New Roman", 18, BaseColor.BLUE)));
@@ -80,10 +85,28 @@ namespace LosNaranjitos.User_Interface
                         //Contenido
 
                         documento.Add(Chunk.NEWLINE);
-                        documento.Add(new Paragraph("Reporte de Ventas Totales"));
-                        documento.Add(Chunk.NEWLINE);
 
-                        var ListaCierres = Utilitarios.OpCierres.ListarRegistros().Where(x => x.Tipo == "1");
+
+                        List<Cierre> ListaCierres = new List<Cierre>();
+                        if (tbcReporteria.SelectedIndex == 1)
+                        {
+                            if (dt1.Value > dt2.Value)
+                            {
+
+                                MessageBox.Show("La fecha Posterior No puede ser mayor a la fecha incial del reporte", "Seleccione fechas válidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                                return;
+                            }
+                            ListaCierres = Utilitarios.OpCierres.ListarRegistros().Where(x => x.Tipo == "1" && x.Fecha >= Utilitarios.GetDateZeroTime(dt1.Value) && x.Fecha <= Utilitarios.GetDateEndTime(dt2.Value)).ToList();
+                            documento.Add(new Paragraph("Reporte de Ventas desde el " + dt1.Value.ToShortDateString() + " al " + dt2.Value.ToShortDateString()));
+                            documento.Add(Chunk.NEWLINE);
+                        }
+                        else
+                        {
+                            ListaCierres = Utilitarios.OpCierres.ListarRegistros().Where(x => x.Tipo == "1").ToList();
+                            documento.Add(new Paragraph("Reporte de Ventas Totales"));
+                            documento.Add(Chunk.NEWLINE);
+                        }
 
                         PdfPTable table = new PdfPTable(9);
                         table.TotalWidth = 600f;
@@ -382,9 +405,315 @@ namespace LosNaranjitos.User_Interface
 
                         Process.Start(@"c:\tempSoda\Reporte.pdf");
                         pdfFile.Dispose();
-                        
+
                         break;
 
+                    case "Errores":
+                        //Encabezado
+
+                        var EncabezadoErrores = new Paragraph();
+                        documento.Add(new Paragraph("Soda Los Naranjitos"));
+                        EncabezadoErrores.Add(new Phrase("Reporte de Errores - CONTENIDO CONFIDENCIAL", FontFactory.GetFont("Times New Roman", 18, BaseColor.BLUE)));
+                        EncabezadoErrores.Add(new Chunk(Logo, 0, 0));
+                        documento.Add(EncabezadoErrores);
+                        documento.Add(Chunk.NEWLINE);
+                        Paragraph lineaSeparadoraError = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+                        documento.Add(lineaSeparadoraError);
+
+                        //Contenido
+
+                        documento.Add(Chunk.NEWLINE);
+                        documento.Add(new Paragraph("Reporte de Errores"));
+                        documento.Add(Chunk.NEWLINE);
+
+                        var ListaErrores = Utilitarios.OpError.ListarErrores().OrderByDescending(x => x.Hora);
+
+                        PdfPTable tableError = new PdfPTable(4);
+                        tableError.TotalWidth = 500f;
+                        tableError.LockedWidth = true;
+                        float[] widthsError = new float[] { 30f, 85f, 120f, 40f };
+                        tableError.SetWidths(widthsError);
+
+                        PdfPCell NewCellError = new PdfPCell(new Phrase("ID"));
+                        NewCellError.BackgroundColor = BaseColor.GRAY;
+                        tableError.AddCell(NewCellError);
+
+                        NewCellError = new PdfPCell(new Phrase("Tipo de Error"));
+                        NewCellError.BackgroundColor = BaseColor.GRAY;
+                        tableError.AddCell(NewCellError);
+
+                        NewCellError = new PdfPCell(new Phrase("Descripcion del Error"));
+                        NewCellError.BackgroundColor = BaseColor.GRAY;
+                        tableError.AddCell(NewCellError);
+
+                        NewCellError = new PdfPCell(new Phrase("Fecha"));
+                        NewCellError.BackgroundColor = BaseColor.GRAY;
+                        tableError.AddCell(NewCellError);
+
+                        foreach (var ERRROR in ListaErrores)
+                        {
+                            tableError.AddCell(ERRROR.IdError.ToString());
+                            tableError.AddCell(ERRROR.Tipo);
+                            tableError.AddCell(ERRROR.Descripcion);
+                            tableError.AddCell(ERRROR.Hora.ToString());
+
+                        }
+
+                        documento.Add(tableError);
+                        documento.Add(Chunk.NEWLINE);
+
+
+                        documento.Add(lineaSeparadoraError);
+                        Paragraph FinalError = new Paragraph("Fin del Reporte");
+                        FinalError.Alignment = Element.ALIGN_CENTER;
+                        documento.Add(FinalError);
+
+                        //Cierre de  Documento
+                        documento.Close();
+                        MailWriter.Close();
+                        FileWriter.Close();
+                        pdfFile.Close();
+
+                        if (chkMail.Checked)
+                        {
+                            List<string> EmailError = new List<string>();
+                            EmailError.Add(FrmLogin.UsuarioGlobal.Correo);
+                            Utilitarios.EnviarEmailAttachment(EmailError, "Reporte del Errores ", "Adjunto encotrará el reporte de ERRORES Totales " + " ejecutado el " + DateTime.Now.ToShortDateString(), memStream);
+                        }
+
+                        Process.Start(@"c:\tempSoda\Reporte.pdf");
+                        pdfFile.Dispose();
+
+                        break;
+
+                    case "Insumos":
+                        //Encabezado
+
+                        var EncabezadoInsumos = new Paragraph();
+                        documento.Add(new Paragraph("Soda Los Naranjitos"));
+                        EncabezadoInsumos.Add(new Phrase("Reporte de Insumos - CONTENIDO CONFIDENCIAL", FontFactory.GetFont("Times New Roman", 18, BaseColor.BLUE)));
+                        EncabezadoInsumos.Add(new Chunk(Logo, 0, 0));
+                        documento.Add(EncabezadoInsumos);
+                        documento.Add(Chunk.NEWLINE);
+                        Paragraph lineaSeparadoraInsumos = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+                        documento.Add(lineaSeparadoraInsumos);
+
+                        //Contenido
+
+                        documento.Add(Chunk.NEWLINE);
+                        documento.Add(new Paragraph("Reporte de Errores"));
+                        documento.Add(Chunk.NEWLINE);
+
+                        var ListaInsumos = Utilitarios.OpInsumos.ListarInsumos().Join(
+                   Utilitarios.OpProveedor.ListarProveedores(),
+               a => a.Proveedor,
+               b => b.IdProveedor,
+               (a, b) => new { a.IdInsumo, a.Nombre, a.IdMedida, a.PrecioCompra, a.RendimientoUM, a.RendimientoPorcion, a.PrecioMermado, a.CantInventario, b.NombreProveedor, a.Activo });
+
+                        PdfPTable tableInsumos = new PdfPTable(9);
+                        tableInsumos.TotalWidth = 600f;
+                        tableInsumos.LockedWidth = true;
+                        float[] widthsInsumos = new float[] { 40f, 70f, 60f, 50f, 50f, 50f, 50f, 60f, 40f };
+                        tableInsumos.SetWidths(widthsInsumos);
+
+                        PdfPCell NewCellInsumo = new PdfPCell(new Phrase("Código"));
+                        NewCellInsumo.BackgroundColor = BaseColor.GRAY;
+                        tableInsumos.AddCell(NewCellInsumo);
+
+                        NewCellInsumo = new PdfPCell(new Phrase("Descripción"));
+                        NewCellInsumo.BackgroundColor = BaseColor.GRAY;
+                        tableInsumos.AddCell(NewCellInsumo);
+
+                        NewCellInsumo = new PdfPCell(new Phrase("R. UM**")); //RendimientoUM * IDmedida
+                        NewCellInsumo.BackgroundColor = BaseColor.GRAY;
+                        tableInsumos.AddCell(NewCellInsumo);
+
+                        NewCellInsumo = new PdfPCell(new Phrase("% R. Porción**"));
+                        NewCellInsumo.BackgroundColor = BaseColor.GRAY;
+                        tableInsumos.AddCell(NewCellInsumo);
+
+                        NewCellInsumo = new PdfPCell(new Phrase("Precio de Compra*"));
+                        NewCellInsumo.BackgroundColor = BaseColor.GRAY;
+                        tableInsumos.AddCell(NewCellInsumo);
+
+                        NewCellInsumo = new PdfPCell(new Phrase("Precio Mermado*"));
+                        NewCellInsumo.BackgroundColor = BaseColor.GRAY;
+                        tableInsumos.AddCell(NewCellInsumo);
+
+                        NewCellInsumo = new PdfPCell(new Phrase("Cantidad"));
+                        NewCellInsumo.BackgroundColor = BaseColor.GRAY;
+                        tableInsumos.AddCell(NewCellInsumo);
+
+                        NewCellInsumo = new PdfPCell(new Phrase("Proveedor"));
+                        NewCellInsumo.BackgroundColor = BaseColor.GRAY;
+                        tableInsumos.AddCell(NewCellInsumo);
+
+                        NewCellInsumo = new PdfPCell(new Phrase("Activo"));
+                        NewCellInsumo.BackgroundColor = BaseColor.GRAY;
+                        tableInsumos.AddCell(NewCellInsumo);
+
+                        foreach (var Ins in ListaInsumos)
+                        {
+                            tableInsumos.AddCell(Ins.IdInsumo);
+                            tableInsumos.AddCell(Ins.Nombre);
+                            tableInsumos.AddCell(Ins.RendimientoPorcion + " x " + Ins.IdMedida);
+                            tableInsumos.AddCell(Ins.RendimientoPorcion.ToString("P"));
+                            tableInsumos.AddCell("¢ " + Ins.PrecioCompra.ToString("N"));
+                            tableInsumos.AddCell("¢ " + Ins.PrecioMermado.ToString("N"));
+                            tableInsumos.AddCell(Ins.CantInventario.ToString());
+                            tableInsumos.AddCell(Ins.NombreProveedor);
+
+                            if (Ins.Activo)
+                            {
+                                tableInsumos.AddCell("SÍ");
+                            }
+                            else
+                            {
+                                tableInsumos.AddCell("NO");
+
+                            }
+
+
+                        }
+
+                        documento.Add(tableInsumos);
+                        documento.Add(Chunk.NEWLINE);
+
+
+                        documento.Add(lineaSeparadoraInsumos);
+                        Paragraph FinalInsumo = new Paragraph("Fin del Reporte");
+                        FinalInsumo.Alignment = Element.ALIGN_CENTER;
+                        documento.Add(FinalInsumo);
+
+                        //Cierre de  Documento
+                        documento.Close();
+                        MailWriter.Close();
+                        FileWriter.Close();
+                        pdfFile.Close();
+
+                        if (chkMail.Checked)
+                        {
+                            List<string> EmailError = new List<string>();
+                            EmailError.Add(FrmLogin.UsuarioGlobal.Correo);
+                            Utilitarios.EnviarEmailAttachment(EmailError, "Reporte del Insumos ", "Adjunto encotrará el reporte de Isumos Totales " + " ejecutado el " + DateTime.Now.ToShortDateString(), memStream);
+                        }
+
+                        Process.Start(@"c:\tempSoda\Reporte.pdf");
+                        pdfFile.Dispose();
+
+                        break;
+
+                    case "Compras":
+                        //Encabezado
+
+                        var EncabezadoCompras = new Paragraph();
+                        documento.Add(new Paragraph("Soda Los Naranjitos"));
+                        EncabezadoCompras.Add(new Phrase("Reporte de Compras - CONTENIDO CONFIDENCIAL", FontFactory.GetFont("Times New Roman", 18, BaseColor.BLUE)));
+                        EncabezadoCompras.Add(new Chunk(Logo, 0, 0));
+                        documento.Add(EncabezadoCompras);
+                        documento.Add(Chunk.NEWLINE);
+                        Paragraph lineaSeparadoraCompras = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+                        documento.Add(lineaSeparadoraCompras);
+
+                        //Contenido
+
+                        documento.Add(Chunk.NEWLINE);
+                        documento.Add(new Paragraph("Reporte de Compras"));
+                        documento.Add(Chunk.NEWLINE);
+                        var ListaCompras = Utilitarios.OpFacturaCompra.ListarFacturas().Join(Utilitarios.OpProveedor.ListarProveedores(),
+a => a.IdProveedor, b => b.IdProveedor, (a, b) => new { a.IdFactura, b.NombreProveedor, a.Monto, a.Observaciones, a.Fecha, a.Operador });
+                        if (tbcReporteria.SelectedIndex == 1)
+                        {
+                            if (dt1.Value > dt2.Value)
+                            {
+                                MessageBox.Show("La fecha Posterior No puede ser mayor a la fecha incial del reporte", "Seleccione fechas válidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                            ListaCompras = ListaCompras.Where(x => x.Fecha >= Utilitarios.GetDateZeroTime(dt1.Value) && x.Fecha <= Utilitarios.GetDateEndTime(dt2.Value));
+
+                            documento.Add(new Paragraph("Reporte de Compras desde el " + dt1.Value.ToShortDateString() + " al " + dt2.Value.ToShortDateString()));
+                            documento.Add(Chunk.NEWLINE);
+                        }
+                        else
+                        {
+
+                            documento.Add(new Paragraph("Reporte de Compras Totales"));
+                            documento.Add(Chunk.NEWLINE);
+                        }
+
+
+
+
+                        PdfPTable TableCompras = new PdfPTable(6);
+                        TableCompras.TotalWidth = 600f;
+                        TableCompras.LockedWidth = true;
+                        float[] widthsCompras = new float[] { 40f, 70f, 60f, 80f, 50f, 50f };
+                        TableCompras.SetWidths(widthsCompras);
+
+                        PdfPCell NewCellCompras = new PdfPCell(new Phrase("N° de Factura"));
+                        NewCellCompras.BackgroundColor = BaseColor.GRAY;
+                        TableCompras.AddCell(NewCellCompras);
+
+                        NewCellCompras = new PdfPCell(new Phrase("Proveedor"));
+                        NewCellCompras.BackgroundColor = BaseColor.GRAY;
+                        TableCompras.AddCell(NewCellCompras);
+
+                        NewCellCompras = new PdfPCell(new Phrase("Monto"));
+                        NewCellCompras.BackgroundColor = BaseColor.GRAY;
+                        TableCompras.AddCell(NewCellCompras);
+
+                        NewCellCompras = new PdfPCell(new Phrase("Observaciones"));
+                        NewCellCompras.BackgroundColor = BaseColor.GRAY;
+                        TableCompras.AddCell(NewCellCompras);
+
+                        NewCellCompras = new PdfPCell(new Phrase("Fecha"));
+                        NewCellCompras.BackgroundColor = BaseColor.GRAY;
+                        TableCompras.AddCell(NewCellCompras);
+
+                        NewCellCompras = new PdfPCell(new Phrase("Oerador"));
+                        NewCellCompras.BackgroundColor = BaseColor.GRAY;
+                        TableCompras.AddCell(NewCellCompras);
+
+
+                        foreach (var Compra in ListaCompras)
+                        {
+                            TableCompras.AddCell(Compra.IdFactura);
+                            TableCompras.AddCell(Compra.NombreProveedor);
+                            TableCompras.AddCell("¢ " + Compra.Monto.ToString("N"));
+                            TableCompras.AddCell(Compra.Observaciones);
+                            TableCompras.AddCell(Compra.Fecha.ToShortDateString());
+
+                            var Operador = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(Compra.Operador);
+                            TableCompras.AddCell(Operador.Nombre + " " + Operador.Apellido1);
+
+                        }
+
+                        documento.Add(TableCompras);
+                        documento.Add(Chunk.NEWLINE);
+
+
+                        documento.Add(lineaSeparadoraCompras);
+                        Paragraph FinalCompras = new Paragraph("Fin del Reporte");
+                        FinalCompras.Alignment = Element.ALIGN_CENTER;
+                        FinalCompras.Add(FinalCompras);
+
+                        //Cierre de  Documento
+                        documento.Close();
+                        MailWriter.Close();
+                        FileWriter.Close();
+                        pdfFile.Close();
+
+                        if (chkMail.Checked)
+                        {
+                            List<string> EmailError = new List<string>();
+                            EmailError.Add(FrmLogin.UsuarioGlobal.Correo);
+                            Utilitarios.EnviarEmailAttachment(EmailError, "Reporte del Compras ", "Adjunto encotrará el reporte de Compras  " + " ejecutado el " + DateTime.Now.ToShortDateString(), memStream);
+                        }
+
+                        Process.Start(@"c:\tempSoda\Reporte.pdf");
+                        pdfFile.Dispose();
+
+                        break;
                 }
             }
             catch (Exception ex)
@@ -406,6 +735,90 @@ namespace LosNaranjitos.User_Interface
 
                 MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void rbtVentasporFecha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtVentasporFecha.Checked)
+            {
+                cbTipoReporte.SelectedItem = "Ventas";
+                dt1.Enabled = true;
+                dt2.Enabled = true;
+                cmbItemsParametros.Enabled = false;
+            }
+        }
+
+        private void rbtComprasPorFecha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtComprasPorFecha.Checked)
+            {
+                cbTipoReporte.SelectedItem = "Compras";
+                dt1.Enabled = true;
+                dt2.Enabled = true;
+                cmbItemsParametros.Enabled = false;
+            }
+        }
+
+        private void rbtVentaProducto_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtVentaProducto.Checked)
+            {
+                cbTipoReporte.SelectedItem = "Ventas Por Producto";
+                dt1.Enabled = false;
+                dt2.Enabled = false;
+                try
+                {
+                    var lista = Utilitarios.OpProducto.ListarProductos().Select(x => x.Nombre).ToList();
+
+                    cmbItemsParametros.Items.Clear();
+                    foreach (var item in lista)
+                    {
+                        cmbItemsParametros.Items.Add(item);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                cmbItemsParametros.Enabled = true;
+
+            }
+        }
+
+        private void rbtVentasCombo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtVentasCombo.Checked)
+            {
+                cbTipoReporte.SelectedItem = "Ventas Por Combo";
+                dt1.Enabled = false;
+                dt2.Enabled = false;
+                try
+                {
+                    var lista = Utilitarios.OpCombo.ListarCombo().Select(x => x.Nombre).ToList();
+
+                    cmbItemsParametros.Items.Clear();
+                    foreach (var item in lista)
+                    {
+                        cmbItemsParametros.Items.Add(item);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                cmbItemsParametros.Enabled = true;
+
+            }
+        }
+
+        private void btnEjecutarConParametros_Click(object sender, EventArgs e)
+        {
+            EjecutarReporte();
+        }
+
+        private void tbcReporteria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
