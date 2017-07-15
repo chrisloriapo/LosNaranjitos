@@ -454,10 +454,10 @@ namespace LosNaranjitos
                         {
                             Cargas = Cargas + ((item.Porcentaje / 100) * NuevoProducto.Precio);
                         }
-                        txtPrecioBase.Text = NuevoProducto.Precio.ToString();
-                        txtPrecioCargas.Text = Cargas.ToString();
+                        txtPrecioBase.Text = NuevoProducto.Precio.ToString("N");
+                        txtPrecioCargas.Text = Cargas.ToString("N");
                         NuevoProducto.Precio = NuevoProducto.Precio + Cargas;
-                        txtPrecioSugerido.Text = NuevoProducto.Precio.ToString();
+                        txtPrecioSugerido.Text = NuevoProducto.Precio.ToString("N");
                         if (!tbOperacionesProductos.Contains(tbCostos))
                         {
                             tbOperacionesProductos.TabPages.Add(tbCostos);
@@ -508,7 +508,7 @@ namespace LosNaranjitos
                 lblCodigo.Text = NuevoProducto.Codigo;
                 lblConsecutivoResumen.Text = NuevoProducto.Consecutivo.ToString();
                 lblDescripcionResumen.Text = NuevoProducto.Descripcion;
-                lblPrecioVenta.Text = "₡ " + NuevoProducto.Precio.ToString();
+                lblPrecioVenta.Text = "₡ " + NuevoProducto.Precio.ToString("N");
 
                 var result = Receta.Join(
                     Utilitarios.OpInsumos.ListarInsumos(),

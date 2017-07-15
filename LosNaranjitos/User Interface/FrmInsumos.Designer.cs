@@ -486,7 +486,7 @@
             this.lblConsecutivo.Name = "lblConsecutivo";
             this.lblConsecutivo.Size = new System.Drawing.Size(141, 25);
             this.lblConsecutivo.TabIndex = 6;
-            this.lblConsecutivo.Text = "INS-";
+            this.lblConsecutivo.Text = "#";
             // 
             // label14
             // 

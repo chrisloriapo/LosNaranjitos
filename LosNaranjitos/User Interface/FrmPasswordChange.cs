@@ -46,7 +46,7 @@ namespace LosNaranjitos.User_Interface
                 }
                 else if (PanGood.BackColor == Color.Green && (txtConfirmacion.Text == txtContraseña.Text) && (FrmLogin.UsuarioGlobal.Contrasena == txtContrasenaAntigua.Text))
                 {
-                    if (FrmLogin.UsuarioGlobal.Contrasena==txtContraseña.Text)
+                    if (FrmLogin.UsuarioGlobal.Contrasena == txtContraseña.Text)
                     {
                         MessageBox.Show("Debes Digitar una contraseña Nueva, no puede ser igual a la anterior ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
@@ -57,12 +57,10 @@ namespace LosNaranjitos.User_Interface
                     Utilitarios.OpUsuarios.ActualizarUsuario(FrmLogin.UsuarioGlobal);
 
                     MessageBox.Show("Contraseña Actualizada ", "Contraseña Actualizada", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Utilitarios.GeneralBitacora(Utilitarios.Decriptar( FrmLogin.UsuarioGlobal.Username,Utilitarios.Llave), "Contraseña del usuario: " + FrmLogin.UsuarioGlobal.Username + " Cambiada");
-                    FrmLogin.MN.Dispose();
-                    FrmLogin ReLog = new FrmLogin();
-                    ReLog.Show();
+                    Utilitarios.GeneralBitacora(Utilitarios.Decriptar(FrmLogin.UsuarioGlobal.Username, Utilitarios.Llave), "Contraseña del usuario: " + FrmLogin.UsuarioGlobal.Username + " Cambiada");
+
                     Utilitarios.GeneralBitacora(Utilitarios.Decriptar(FrmLogin.UsuarioGlobal.Username, Utilitarios.Llave), "Cierre de Sesion");
-                    this.Dispose();
+                    Application.Restart();
                 }
                 else
                 {
@@ -116,7 +114,7 @@ namespace LosNaranjitos.User_Interface
 
         private void FrmPasswordChange_Load(object sender, EventArgs e)
         {
-            
+
             btnCambiar.Enabled = false;
         }
     }

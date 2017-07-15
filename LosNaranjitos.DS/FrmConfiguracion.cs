@@ -59,13 +59,23 @@ namespace LosNaranjitos.DS
 
         private void FrmConfiguracion_Load(object sender, EventArgs e)
         {
-            var baseKey = RegistryKey.OpenBaseKey(
-            RegistryHive.LocalMachine, RegistryView.Registry64);
-            var key = baseKey.OpenSubKey(
-            @"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL");
-            foreach (string sqlserver in key.GetValueNames())
+            try
             {
-                cmbInstancias.Items.Add(Environment.MachineName + "\\" + sqlserver);
+                var baseKey = RegistryKey.OpenBaseKey(
+                           RegistryHive.LocalMachine, RegistryView.Registry64);
+                var key = baseKey.OpenSubKey(
+                @"SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL");
+                foreach (string sqlserver in key.GetValueNames())
+                {
+                    cmbInstancias.Items.Add(Environment.MachineName + "\\" + sqlserver);
+                }
+
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al Listar las Instancias \n Ingreselas Manualmente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
@@ -73,6 +83,7 @@ namespace LosNaranjitos.DS
                 cbbImpresora.Items.Add(printer);
             }
             cbbImpresora.SelectedIndex = 0;
+
 
 
         }
@@ -676,8 +687,7 @@ ALTER TABLE [dbo].[ProductoInsumo] CHECK CONSTRAINT [FK_ProductoInsumo_Producto]
 ALTER TABLE [dbo].[Usuario]  WITH CHECK ADD  CONSTRAINT [FK_Usuario_RolUsuario] FOREIGN KEY([Rol])
 REFERENCES [dbo].[RolUsuario] ([IdRol])
 
-ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]
-";
+ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]";
             SqlCommand ComandDatabase = new SqlCommand(DatabaseCreation, myConn);
 
             SqlCommand ComandTables = new SqlCommand(StructureCreation, myConn);
@@ -687,6 +697,22 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]
                 ComandDatabase.ExecuteNonQuery();
                 ComandTables.ExecuteNonQuery();
 
+                Utilitarios.OpCargas.AgregarCargas(new Cargas { Activo = true, Descripcion = "Impuesto de Venta", Porcentaje = 13 });
+                Utilitarios.OpCargas.AgregarCargas(new Cargas { Activo = true, Descripcion = "Recurso Humano", Porcentaje = 50 });
+
+                Utilitarios.OpMedidas.AgregarMedida(new Medida { Descripcion = "Unidad", IdMedida = "u" });
+
+                List<CategoriaProductos> CategoriasDefault = new List<CategoriaProductos>();
+                CategoriasDefault.Add(new CategoriaProductos { Activo = true, Descripcion = "Producto Principal" });
+                CategoriasDefault.Add(new CategoriaProductos { Activo = true, Descripcion = "Acompañamiento" });
+                CategoriasDefault.Add(new CategoriaProductos { Activo = true, Descripcion = "Bebidas" });
+                CategoriasDefault.Add(new CategoriaProductos { Activo = true, Descripcion = "Adicional" });
+
+                foreach (var Categoria in CategoriasDefault)
+                {
+                    Utilitarios.OpCategorias.AgregarCategoriaProductos(Categoria);
+
+                }
 
                 List<DATOS.RolUsuario> Roles = new List<DATOS.RolUsuario>();
                 Roles.Add(new DATOS.RolUsuario { IdRol = 1, Activo = true, Descripcion = "SuperUsuario" });
@@ -700,8 +726,7 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]
                 AgregarUsuario();
 
                 List<DATOS.Parametros> ParametrosIniciales = new List<DATOS.Parametros>();
-                //Parametro de Monitor
-                ParametrosIniciales.Add(new DATOS.Parametros { Nombre = "BanderaMonitor", Fecha = DateTime.Now, Operador = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username, Valor = "0" });
+               
                 //Parametro de Impresora
                 if (!chkLuegoPrinter.Checked)
                 {
@@ -729,7 +754,25 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]
                 ParametrosIniciales.Add(new DATOS.Parametros { Nombre = "PuertoCorreo", Fecha = DateTime.Now, Operador = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username, Valor = txtPortNumber.Text });
                 ParametrosIniciales.Add(new DATOS.Parametros { Nombre = "MailDeliverer", Fecha = DateTime.Now, Operador = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username, Valor = txtMailDeliverer.Text });
                 ParametrosIniciales.Add(new DATOS.Parametros { Nombre = "PasswordMailDeliverer", Fecha = DateTime.Now, Operador = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username, Valor = Utilitarios.Encriptar(txtContrasenaConfirmada.Text, Utilitarios.Llave) });
+                //Parametro de Monitor
+                ParametrosIniciales.Add(new DATOS.Parametros { Nombre = "BanderaMonitor", Fecha = DateTime.Now, Operador = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username, Valor = "0" });
 
+                Cliente ClienteGeneneral = new Cliente
+                {
+                    Activo = true,
+                    Apellido1 = "General",
+                    Apellido2 = "",
+                    Contrasena = Utilitarios.Encriptar("123", Utilitarios.Llave),
+                    Correo = "nomail.com",
+                    Direccion = "No Registrado",
+                    IdPersonal = "0",
+                    Nombre = "Cliente",
+                    Puntaje = 0,
+                    Telefono = "0",
+                    UltimaVisita = DateTime.Now
+
+                };
+                Utilitarios.OpClientes.AgregarCliente(ClienteGeneneral);
 
                 foreach (var parameter in ParametrosIniciales)
                 {
@@ -752,6 +795,9 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]
                     List<string> Destinatario = new List<string>();
                     Destinatario.Add(Utilitarios.Decriptar(Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Correo, Utilitarios.Llave));
                     Utilitarios.EnviarEmail(Destinatario, "***CONFIDENCIAL**** - Credenciales de Acceso - Soda Los Naranjitos", "Su nombre de usuario es: " + Utilitarios.Decriptar(Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username, Utilitarios.Llave) + " \n Su Contraseña de acceso es: " + Utilitarios.Decriptar(Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Contrasena, Utilitarios.Llave));
+
+                    MessageBox.Show("Se ha enviado la contraseña al correo correspondiente al usuario ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 catch (Exception ex)
                 {
@@ -760,8 +806,6 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]
                     MessageBox.Show("Error al enviar Correo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-
-                MessageBox.Show("Se ha enviado la contraseña al correo correspondiente al usuario ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                 MessageBox.Show("Base de datos y Parametros Creados Correctamente ", "Operación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1018,5 +1062,3 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]
         }
     }
 }
-
-

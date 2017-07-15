@@ -36,7 +36,7 @@ namespace LosNaranjitos.User_Interface
                 if (mensaje == DialogResult.Yes)
                 {
                     DATOS.Parametros ParametroLocal = new DATOS.Parametros();
-                    ParametroLocal = Utilitarios.OpParametros.BuscarParametro(1);
+                    ParametroLocal = Utilitarios.OpParametros.BuscarParametrosPorNombre("Impresora de Ticketes");
                     ParametroLocal.Fecha = DateTime.Now;
                     ParametroLocal.Operador = FrmLogin.UsuarioGlobal.Username;
                     ParametroLocal.Valor = cbbImpresora.SelectedItem.ToString();

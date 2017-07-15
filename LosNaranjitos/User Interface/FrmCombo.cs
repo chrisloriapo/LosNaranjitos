@@ -69,7 +69,7 @@ namespace LosNaranjitos
                         }
                         else
                         {
-                            lblConsecutivo.Text = UltimoCombo.Consecutivo.ToString();
+                            lblConsecutivo.Text = (UltimoCombo.Consecutivo + 1).ToString() ;
                         }
                     }
                     catch (Exception x)
@@ -310,7 +310,7 @@ namespace LosNaranjitos
                     {
                         Receta.Clear();
                         ListaProductos.Clear();
-                    //    DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Combo-Producto");
+                        //    DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Combo-Producto");
 
 
                         foreach (var item in lstProductosSelected.Items)
@@ -324,7 +324,7 @@ namespace LosNaranjitos
                             if (ListaProductos.Contains(item))
                             {
 
-                            //    Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
+                                //    Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
                                 //  IngredienteNuevo.Consecutivo = "CDP-" + Consecutivo.ConsecutivoActual;
                                 IngredienteNuevo.CodCombo = NuevoCombo.Codigo;
                                 IngredienteNuevo.CodProducto = ListaProductos.FirstOrDefault().Codigo;
@@ -404,7 +404,7 @@ namespace LosNaranjitos
                     Utilitarios.OpProducto.ListarProductos(),
                 a => a.CodProducto,
                 b => b.Codigo,
-                (a, b) => new { a.Consecutivo, b.Codigo, b.Nombre, a.CantidadProducto });
+                (a, b) => new { a.CodCombo, b.Codigo, b.Nombre, a.CantidadProducto });
 
                 dgvResumen.DataSource = result.ToList();
                 dgvResumen.RowHeadersVisible = false;
@@ -489,6 +489,7 @@ namespace LosNaranjitos
 
                         MessageBox.Show("Los datos del Combo Nuevo se ingresaron correctamente",
     "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Dispose();
                     }
                     else
                     {
@@ -608,6 +609,16 @@ namespace LosNaranjitos
         }
 
         private void txtPrecioTotal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Utilitarios.EsNumerico(e.KeyChar.ToString()))
+            {
+                this.txtPrecioTotal.Clear();
+                e.Handled = true;
+                MessageBox.Show("Digita unicamente numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtPrecioTotal_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             if (!Utilitarios.EsNumerico(e.KeyChar.ToString()))
             {

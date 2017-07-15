@@ -63,7 +63,6 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -71,6 +70,9 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtApellido2 = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -308,14 +310,14 @@
             // 
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Controls.Add(this.txtDireccion, 0, 7);
+            this.tableLayoutPanel5.Controls.Add(this.txtApellido2, 0, 7);
             this.tableLayoutPanel5.Controls.Add(this.txtIdCliente, 0, 1);
             this.tableLayoutPanel5.Controls.Add(this.txtNombre, 0, 3);
             this.tableLayoutPanel5.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.label7, 0, 4);
             this.tableLayoutPanel5.Controls.Add(this.txtApellido, 0, 5);
-            this.tableLayoutPanel5.Controls.Add(this.label5, 0, 6);
             this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel7, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label2, 0, 6);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -335,11 +337,11 @@
             // txtDireccion
             // 
             this.txtDireccion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDireccion.Location = new System.Drawing.Point(3, 213);
+            this.txtDireccion.Location = new System.Drawing.Point(3, 126);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDireccion.Size = new System.Drawing.Size(311, 31);
+            this.txtDireccion.Size = new System.Drawing.Size(311, 35);
             this.txtDireccion.TabIndex = 28;
             // 
             // txtIdCliente
@@ -371,16 +373,14 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Location = new System.Drawing.Point(3, 120);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(311, 30);
+            this.label7.Size = new System.Drawing.Size(87, 14);
             this.label7.TabIndex = 25;
-            this.label7.Text = "Apellido";
+            this.label7.Text = "Primer Apellido";
             // 
             // txtApellido
             // 
-            this.txtApellido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtApellido.Location = new System.Drawing.Point(3, 153);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(311, 21);
@@ -390,9 +390,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(3, 180);
+            this.label5.Location = new System.Drawing.Point(3, 82);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(311, 30);
+            this.label5.Size = new System.Drawing.Size(311, 41);
             this.label5.TabIndex = 27;
             this.label5.Text = "Direccion";
             // 
@@ -461,16 +461,16 @@
             // 
             this.tableLayoutPanel6.ColumnCount = 1;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Controls.Add(this.txtEmail, 0, 7);
             this.tableLayoutPanel6.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label10, 0, 4);
+            this.tableLayoutPanel6.Controls.Add(this.txtEmail, 0, 5);
+            this.tableLayoutPanel6.Controls.Add(this.label5, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.txtDireccion, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.txtTelefono, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label10, 0, 6);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(326, 3);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 8;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel6.RowCount = 6;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
@@ -485,7 +485,7 @@
             // txtEmail
             // 
             this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEmail.Location = new System.Drawing.Point(3, 213);
+            this.txtEmail.Location = new System.Drawing.Point(3, 208);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(311, 21);
             this.txtEmail.TabIndex = 33;
@@ -496,25 +496,16 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(311, 30);
+            this.label9.Size = new System.Drawing.Size(311, 41);
             this.label9.TabIndex = 18;
             this.label9.Text = "Telefono";
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTelefono.Location = new System.Drawing.Point(3, 33);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(311, 21);
-            this.txtTelefono.TabIndex = 19;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Location = new System.Drawing.Point(3, 180);
+            this.label10.Location = new System.Drawing.Point(3, 164);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(311, 30);
+            this.label10.Size = new System.Drawing.Size(35, 14);
             this.label10.TabIndex = 32;
             this.label10.Text = "Email";
             // 
@@ -596,6 +587,34 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(3, 180);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(311, 30);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Segundo Apellido";
+            // 
+            // txtApellido2
+            // 
+            this.txtApellido2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtApellido2.Location = new System.Drawing.Point(3, 213);
+            this.txtApellido2.Name = "txtApellido2";
+            this.txtApellido2.Size = new System.Drawing.Size(311, 21);
+            this.txtApellido2.TabIndex = 31;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTelefono.Location = new System.Drawing.Point(3, 44);
+            this.txtTelefono.Mask = "####-####";
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(311, 21);
+            this.txtTelefono.TabIndex = 34;
+            this.txtTelefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -669,7 +688,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnNuevo;
@@ -682,5 +700,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private System.Windows.Forms.Label lblConsecutivo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtApellido2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MaskedTextBox txtTelefono;
     }
 }

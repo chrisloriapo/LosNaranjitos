@@ -115,7 +115,10 @@ namespace LosNaranjitos
             }
             catch (Exception ex)
             {
-
+                if (ex.Message == "Referencia a objeto no establecida como instancia de un objeto.")
+                {
+                    return;
+                }
                 Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Caja al Buscar Orden");
                 MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -323,6 +326,39 @@ namespace LosNaranjitos
                     FrmCambioCaja a = new FrmCambioCaja();
                     FrmCambioCaja.CambioShow = (MontoDigitado - OrdenLocal.Subtotal).ToString();
                     a.Show();
+                    var OrdenDetalle = Utilitarios.OpDetallePedido.ListarDetallesPedido().Where(x => x.IdOrden == OrdenLocal.Consecutivo);
+
+                    List<DetallePedido> ListaSoporte = new List<DetallePedido>();
+                    foreach (var item in OrdenDetalle)
+                    {
+
+                        if (Utilitarios.OpProducto.ExisteProducto(item.Producto))
+                        {
+
+                            var newitem = Utilitarios.OpProducto.BuscarProducto(item.Producto);
+                            DetallePedido DetalleSoporte = item;
+                            DetalleSoporte.Producto = newitem.Nombre;
+                            ListaSoporte.Add(DetalleSoporte);
+                        }
+                        else if (item.Producto == "Servicio Express")
+                        {
+                            ListaSoporte.Add(item);
+                        }
+                        else
+                        {
+                            var newitem = Utilitarios.OpCombo.BuscarCombo(item.Producto);
+                            DetallePedido DetalleSoporte = item;
+                            DetalleSoporte.IdOrden = item.IdOrden;
+                            DetalleSoporte.ObservacionesDT = item.ObservacionesDT;
+                            DetalleSoporte.SubTotal = item.SubTotal;
+                            DetalleSoporte.Cantidad = item.Cantidad;
+                            DetalleSoporte.Producto = newitem.Nombre;
+                            ListaSoporte.Add(DetalleSoporte);
+                        }
+                    }
+
+
+                    Utilitarios.TicketeGeneral(Utilitarios.OpCaja.ListarCajas().Where(X => X.OperadorActual == FrmLogin.UsuarioGlobal.Username).Select(x => x.Consecutivo).FirstOrDefault().ToString(), FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1, Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente).Nombre + " " + Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente).Apellido1, ListaSoporte, OrdenLocal);
 
                     lblOrden.Text = "";
                     lblTotal.Text = "";
@@ -436,6 +472,39 @@ namespace LosNaranjitos
                     FrmCambioCaja a = new FrmCambioCaja();
                     FrmCambioCaja.CambioShow = (MontoDigitado - OrdenLocal.Subtotal).ToString();
                     a.Show();
+                    var OrdenDetalle = Utilitarios.OpDetallePedido.ListarDetallesPedido().Where(x => x.IdOrden == OrdenLocal.Consecutivo);
+
+                    List<DetallePedido> ListaSoporte = new List<DetallePedido>();
+                    foreach (var item in OrdenDetalle)
+                    {
+
+                        if (Utilitarios.OpProducto.ExisteProducto(item.Producto))
+                        {
+
+                            var newitem = Utilitarios.OpProducto.BuscarProducto(item.Producto);
+                            DetallePedido DetalleSoporte = item;
+                            DetalleSoporte.Producto = newitem.Nombre;
+                            ListaSoporte.Add(DetalleSoporte);
+                        }
+                        else if (item.Producto == "Servicio Express")
+                        {
+                            ListaSoporte.Add(item);
+                        }
+                        else
+                        {
+                            var newitem = Utilitarios.OpCombo.BuscarCombo(item.Producto);
+                            DetallePedido DetalleSoporte = item;
+                            DetalleSoporte.IdOrden = item.IdOrden;
+                            DetalleSoporte.ObservacionesDT = item.ObservacionesDT;
+                            DetalleSoporte.SubTotal = item.SubTotal;
+                            DetalleSoporte.Cantidad = item.Cantidad;
+                            DetalleSoporte.Producto = newitem.Nombre;
+                            ListaSoporte.Add(DetalleSoporte);
+                        }
+                    }
+
+
+                    Utilitarios.TicketeGeneral(Utilitarios.OpCaja.ListarCajas().Where(X => X.OperadorActual == FrmLogin.UsuarioGlobal.Username).Select(x => x.Consecutivo).FirstOrDefault().ToString(), FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1, Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente).Nombre + " " + Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente).Apellido1, ListaSoporte, OrdenLocal);
 
                     lblOrden.Text = "";
                     lblTotal.Text = "";

@@ -73,9 +73,9 @@ namespace LosNaranjitos
 
                     List<string> Destinatario = new List<string>();
                     Destinatario.Add(Utilitarios.Decriptar(Userprivate.Correo, Utilitarios.Llave));
-                   Utilitarios.EnviarEmail(Destinatario, "***CONFIDENCIAL**** - Credenciales de Acceso - Soda Los Naranjitos", "Su Contraseña de acceso es:" + Userprivate.Contrasena);
+                    Utilitarios.EnviarEmail(Destinatario, "***CONFIDENCIAL**** - Credenciales de Acceso - Soda Los Naranjitos", "Su nombre de Usuario es: " + Utilitarios.Decriptar(Userprivate.Username, Utilitarios.Llave) + "Su Contraseña de acceso es:" + Utilitarios.Decriptar(Userprivate.Contrasena, Utilitarios.Llave));
 
-                    MessageBox.Show("Se ha enviado la contraseña al correo correspondiente al usuario " + Userprivate.Username, "Advertencia",
+                    MessageBox.Show("Se ha enviado la contraseña al correo correspondiente al usuario " + Utilitarios.Decriptar(Userprivate.Username, Utilitarios.Llave), "Advertencia",
    MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -296,7 +296,7 @@ namespace LosNaranjitos
 
                     List<string> Destinatario = new List<string>();
                     Destinatario.Add(Utilitarios.Decriptar(Userprivate.Correo, Utilitarios.Llave));
-                    Utilitarios.EnviarEmail(Destinatario, "***CONFIDENCIAL**** - Credenciales de Acceso - Soda Los Naranjitos", "Su Contraseña de acceso es:" +Utilitarios.Decriptar(Userprivate.Contrasena,Utilitarios.Llave));
+                    Utilitarios.EnviarEmail(Destinatario, "***CONFIDENCIAL**** - Credenciales de Acceso - Soda Los Naranjitos", "Su Contraseña de acceso es:" + Utilitarios.Decriptar(Userprivate.Contrasena, Utilitarios.Llave));
 
                     MessageBox.Show("Los datos del Usuario se Actualizaron correctamente",
                    "Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);

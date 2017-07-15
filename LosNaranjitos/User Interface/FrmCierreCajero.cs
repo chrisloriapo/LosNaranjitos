@@ -40,11 +40,13 @@ namespace LosNaranjitos
                     if (ListaLocal.Count() == 0)
                     {
                         MessageBox.Show("No Existen Cajas en modo de Apertura", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        btnEjecutar.Enabled = false;
                         return;
                     }
 
                     cbbItemTipodeCierre.DataSource = ListaLocal.ToList();
                     cbbItemTipodeCierre.Visible = true;
+                    btnEjecutar.Enabled = true;
                 }
                 else
                 {
@@ -52,6 +54,7 @@ namespace LosNaranjitos
                     if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false).Count() == 0)
                     {
                         MessageBox.Show("No Existen Ventas Disponibles para un cierre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        btnEjecutar.Enabled = false;
                         return;
                     }
 
@@ -64,7 +67,7 @@ namespace LosNaranjitos
                             ListaFechas.Add(item.Date);
                         }
                     }
-
+                    btnEjecutar.Enabled = true;
                     cbbItemTipodeCierre.DataSource = ListaFechas.ToList();
                     cbbItemTipodeCierre.Visible = true;
                 }
@@ -83,6 +86,8 @@ namespace LosNaranjitos
         {
             try
             {
+
+
                 var mensaje = MessageBox.Show("¿ Desea Ejecutar el " + cbbTipoCierre.SelectedItem.ToString() + " ?", "Advertencia",
       MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -100,8 +105,8 @@ namespace LosNaranjitos
                             Total = ListaLocal.Sum(x => x.Subtotal);
 
                             Cierre CierreCaja = new Cierre();
-                          
-                                                        CierreCaja.Usuario = FrmLogin.UsuarioGlobal.Username;
+
+                            CierreCaja.Usuario = FrmLogin.UsuarioGlobal.Username;
                             CierreCaja.Tipo = cbbTipoCierre.SelectedIndex.ToString();
                             CierreCaja.MontroOtro = MontoOtro;
                             CierreCaja.MontoCambio = MontoCambio;
@@ -111,7 +116,7 @@ namespace LosNaranjitos
                             CierreCaja.CantidadVentas = ListaLocal.Count();
                             CierreCaja.Caja = cbbItemTipodeCierre.SelectedItem.ToString();
                             CierreCaja.Fecha = DateTime.Now;
-                          
+
                             foreach (var item in ListaLocal)
                             {
                                 item.CierreOperador = true;
@@ -135,6 +140,11 @@ namespace LosNaranjitos
 
                             break;
                         case "Cierre Diario":
+                            if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cancelado = false).Count() != 0)
+                            {
+                                MessageBox.Show("Deben Cancelar todas las ordenes antes de proceder", "Orden Abierta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
 
                             if (Utilitarios.OpCierres.ExisteCierreDiario(DateTime.Parse(cbbItemTipodeCierre.SelectedValue.ToString())))
                             {
@@ -168,7 +178,7 @@ namespace LosNaranjitos
                             Total2 = ListaLocal2.Sum(x => x.Subtotal);
 
                             Cierre CierreDiario = new Cierre();
-                          
+
                             CierreDiario.Usuario = FrmLogin.UsuarioGlobal.Username;
                             CierreDiario.Tipo = cbbTipoCierre.SelectedIndex.ToString();
                             CierreDiario.MontroOtro = MontoOtro2;

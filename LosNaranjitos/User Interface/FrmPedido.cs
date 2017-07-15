@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LosNaranjitos.DATOS;
 using LosNaranjitos.Tools;
+using System.Diagnostics;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace LosNaranjitos
 {
@@ -37,11 +41,16 @@ namespace LosNaranjitos
                 a.ObservacionesDT,
             }).ToList();
             dgvOrden.Refresh();
+            DataGridViewColumn column = dgvOrden.Columns[0];
+            column.Width = 20;
+            DataGridViewColumn column2 = dgvOrden.Columns[2];
+            column2.Width = 70;
         }
 
         private void FrmPedido_Load(object sender, EventArgs e)
         {
             tmerTiempo.Start();
+
             dgvOrden.BackgroundColor = Color.White;
 
             dgvOrden.GridColor = Color.White;
@@ -59,7 +68,6 @@ namespace LosNaranjitos
 
                 lblOperador.Text = FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1 + " " + FrmLogin.UsuarioGlobal.Apellido2;
                 dgvOrden.DataSource = OrdenDetalle.ToList();
-
 
                 DATOS.Pedido UltimoPedido = new Pedido();
 
@@ -150,7 +158,7 @@ namespace LosNaranjitos
             {
                 if (FrmLogin.UsuarioGlobal.Rol != 3)
                 {
-                    if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Operador == FrmLogin.UsuarioGlobal.Username && x.CierreOperador == false).Count() == 0)
+                    if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Operador == FrmLogin.UsuarioGlobal.Username && x.CierreOperador == false && x.Cancelado == true).Count() == 0)
                     {
                         Caja XCaja = Utilitarios.OpCaja.ListarCajas().Where(x => x.OperadorActual == FrmLogin.UsuarioGlobal.Username).FirstOrDefault();
                         Caja CajaY = new Caja();
@@ -173,7 +181,7 @@ namespace LosNaranjitos
                 }
                 else
                 {
-                    if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Operador == FrmLogin.UsuarioGlobal.Username && x.CierreOperador == false).Count() == 0)
+                    if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Operador == FrmLogin.UsuarioGlobal.Username && x.CierreOperador == false && x.Cancelado == true).Count() == 0)
                     {
                         Caja XCaja = Utilitarios.OpCaja.ListarCajas().Where(x => x.OperadorActual == FrmLogin.UsuarioGlobal.Username).FirstOrDefault();
                         Caja CajaY = new Caja();
@@ -243,6 +251,12 @@ namespace LosNaranjitos
 
                     return;
                 }
+                if (cbbCliente.Text.ToString() != "0")
+                {
+                    Cliente TempCliente = Utilitarios.OpClientes.BuscarCliente(cbbCliente.Text.ToString());
+                    txtDireccion.Text = TempCliente.Direccion;
+                    txtTelefono.Text = TempCliente.Telefono;
+                }
                 txtDireccion.Visible = true;
                 txtPrecioExpress.Visible = true;
                 txtTelefono.Visible = true;
@@ -253,6 +267,8 @@ namespace LosNaranjitos
             }
             else
             {
+                txtDireccion.Clear();
+                txtTelefono.Clear();
                 txtDireccion.Visible = false;
                 txtPrecioExpress.Visible = false;
                 txtTelefono.Visible = false;
@@ -594,7 +610,7 @@ namespace LosNaranjitos
                     if ((OrdenDetalle.Find(x => x.Producto == lstCombos.SelectedValue.ToString())) != null)
                     {
                         DetailPP = OrdenDetalle.Find(x => x.Producto == lstCombos.SelectedValue.ToString());
-                        DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + " \n " + txtObCombos.Text;
+                        DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + " \n " + txtObCombos.Text + ",";
                         if (string.IsNullOrEmpty(txtCantCombos.Text) || string.IsNullOrWhiteSpace(txtCantCombos.Text) || txtCantCombos.Text == "1")
                         {
                             DetailPP.Cantidad = DetailPP.Cantidad + 1;
@@ -610,7 +626,7 @@ namespace LosNaranjitos
                         foreach (var item in ComboEnProceso)
                         {
                             item.CodProducto = Utilitarios.OpProducto.BuscarProducto(item.CodProducto).Nombre;
-                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + " \n " + item.CodProducto + " " + item.CantidadProducto;
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + " " + item.CodProducto + " " + item.CantidadProducto + ",";
                         }
 
                         OrdenDetalle.Remove(DetailPP);
@@ -636,7 +652,6 @@ namespace LosNaranjitos
                     else
                     {
                         DetailPP.Producto = lstCombos.SelectedValue.ToString();
-                        //   DetailPP.Consecutivo = "DPD-" + NxtConsecutivoDetallePedido().ToString();
                         DetailPP.IdOrden = Int32.Parse(lblConsecutivo.Text);
                         if (string.IsNullOrEmpty(txtObCombos.Text) || string.IsNullOrWhiteSpace(txtObCombos.Text))
                         {
@@ -660,7 +675,7 @@ namespace LosNaranjitos
                         foreach (var item in ComboEnProceso)
                         {
                             item.CodProducto = Utilitarios.OpProducto.BuscarProducto(item.CodProducto).Nombre;
-                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + " \n " + item.CodProducto + " " + item.CantidadProducto;
+                            DetailPP.ObservacionesDT = DetailPP.ObservacionesDT + " " + item.CodProducto + " " + item.CantidadProducto + ",";
                         }
                         DetailPP.SubTotal = PLocal.Precio * DetailPP.Cantidad;
                         OrdenDetalle.Add(DetailPP);
@@ -709,7 +724,7 @@ namespace LosNaranjitos
                     NuevaOrden.CompletoCocina = false;
                     NuevaOrden.Cancelado = false;
                     Utilitarios.OpPedidos.AgregarPedido(NuevaOrden);
-                   
+
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblConsecutivo.Text + " Agregada a pendientes, Orden Aun NO cancelada");
                     List<DetallePedido> ListaSoporte = new List<DetallePedido>();
                     foreach (var item in OrdenDetalle)
@@ -738,7 +753,7 @@ namespace LosNaranjitos
                         Utilitarios.OpDetallePedido.AgregarDetalle(ListaSoporte[i]);
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Producto perteneciente a la orden  " + lblConsecutivo.Text + " Agregado a pendientes, Orden Aun NO cancelada");
                     }
-                    DATOS.Cliente CLIENTE = Utilitarios.OpClientes.BuscarCliente(cbbCliente.Text);
+                    Cliente CLIENTE = Utilitarios.OpClientes.BuscarCliente(cbbCliente.Text);
                     CLIENTE.UltimaVisita = DateTime.Now;
                     Utilitarios.OpClientes.ActualizarCLIENTE(CLIENTE);
 
@@ -758,6 +773,7 @@ namespace LosNaranjitos
                     lblServiciosAd.Text = "";
                     lblSubtotal.Text = "";
                     this.FrmPedido_Load(sender, e);
+                    tbProductosVenta.SelectedIndex = 0;
                 }
                 else
                 {
@@ -802,7 +818,7 @@ namespace LosNaranjitos
                 txtObCombos.Clear();
                 txtObservacionesPP.Clear();
                 txtObAdicionales.Clear();
-                
+
                 this.FrmPedido_Load(sender, e);
             }
             else
@@ -1020,6 +1036,7 @@ namespace LosNaranjitos
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblConsecutivo.Text + " Agregada a pendientes, Orden cancelada");
 
                     Utilitarios.TicketeGeneral(Utilitarios.OpCaja.ListarCajas().Where(X => X.OperadorActual == FrmLogin.UsuarioGlobal.Username).Select(x => x.Consecutivo).FirstOrDefault().ToString(), FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1, lblCliente.Text, OrdenDetalle, NuevaOrden);
+                  //  EjecutarReporte(Utilitarios.OpClientes.BuscarCliente(cbbCliente.Text), NuevaOrden);
 
                     List<DetallePedido> ListaSoporte = new List<DetallePedido>();
                     foreach (var item in OrdenDetalle)
@@ -1051,6 +1068,11 @@ namespace LosNaranjitos
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Producto perteneciente a la orden  " + lblConsecutivo.Text + " Agregado a pendientes, Orden cancelada");
                     }
 
+
+                    FrmCambioCaja a = new FrmCambioCaja();
+                    FrmCambioCaja.CambioShow = NuevaOrden.MontoCambio.ToString();
+                    a.Show();
+
                     NuevaOrden = new Pedido();
                     chkLechuga.Checked = true;
                     chkMayonesa.Checked = true;
@@ -1066,12 +1088,15 @@ namespace LosNaranjitos
                     lblTotal.Text = "";
                     lblServiciosAd.Text = "";
                     lblSubtotal.Text = "";
+                    txtEfectivo.Clear();
+                    txtTarjeta.Clear();
+                    txtOtro.Clear();
+                    txtTelefono.Clear();
+                    txtDireccion.Clear();
+                    txtPrecioExpress.Clear();
 
-                    FrmCambioCaja a = new FrmCambioCaja();
-                    FrmCambioCaja.CambioShow = NuevaOrden.MontoCambio.ToString();
-                    a.Show();
                     this.FrmPedido_Load(sender, e);
-
+                    tbProductosVenta.SelectedIndex = 0;
                 }
                 else
                 {
@@ -1107,8 +1132,9 @@ namespace LosNaranjitos
             try
             {
                 FrmCierreCajero a = new FrmCierreCajero();
+                a.WindowState = FormWindowState.Normal;
+                a.StartPosition = FormStartPosition.CenterScreen;
                 a.Show();
-                a.WindowState = FormWindowState.Maximized;
                 Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Cierre desde menu de Pedido ");
                 this.Dispose();
             }
@@ -1119,15 +1145,156 @@ namespace LosNaranjitos
             }
         }
 
-        private void txtObservacionesPP_TextChanged(object sender, EventArgs e)
+        private void EjecutarReporte(Cliente cliente, Pedido orden)
         {
 
-        }
+            try
+            {
+                //Soporte Basico documento PDF
+                MemoryStream memStream = new MemoryStream();
 
-        private void chkLechuga_CheckedChanged(object sender, EventArgs e)
-        {
+                Document documento = new Document(PageSize.LETTER);
 
-        }
+                PdfWriter MailWriter = PdfWriter.GetInstance(documento, memStream);//Stream para Correo
+
+                //Manejo de contenido de PDF
+                documento.Open();
+                //Formato Standar
+                //Logo de la empresa
+                iTextSharp.text.Image Logo = iTextSharp.text.Image.GetInstance(Properties.Resources.Logo1, System.Drawing.Imaging.ImageFormat.Jpeg);
+                Logo.ScalePercent(05f);
+
+                //Encabezado
+
+
+                var Encabezado = new Paragraph();
+                documento.Add(new Paragraph("Soda Los Naranjitos"));
+                Encabezado.Add(new Phrase("Comprobante de Pago - " + DateTime.Now.ToShortDateString(), FontFactory.GetFont("Times New Roman", 18, BaseColor.BLUE)));
+                Encabezado.Add(new Chunk(Logo, 0, 0));
+                documento.Add(Encabezado);
+                documento.Add(Chunk.NEWLINE);
+                Paragraph lineaSeparadora = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+                documento.Add(lineaSeparadora);
+
+
+                //Contenido
+                documento.Add(new Paragraph("Expedido en: Local Principal"));
+                documento.Add(new Paragraph("Dirección: 25 SUR Y 75 OESTE DEL MEGASUPER TEJAR"));
+                documento.Add(new Paragraph("Telefono: 2590-0412"));
+                documento.Add(new Paragraph("CÉDULA JURIDICA: 302970494"));
+                documento.Add(new Paragraph("Email: orangesrestaurants@gmail.com"));
+                documento.Add(lineaSeparadora);
+
+                documento.Add(Chunk.NEWLINE);
+                documento.Add(new Paragraph("Caja # 1" + "                        Orden# " + orden.Consecutivo));
+                Usuario TempUser = new Usuario();
+                TempUser = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(Utilitario.Decriptar(orden.Operador, Utilitarios.Llave));
+                documento.Add(new Paragraph("ATENDIO:" + TempUser.Nombre + " " + TempUser.Apellido1));
+                documento.Add(new Paragraph("CLIENTE:" + cliente.Nombre + " " + cliente.Apellido1 + " " + cliente.Apellido2));
+
+                documento.Add(new Paragraph("FECHA: " + DateTime.Now.ToShortDateString() + " HORA:" + DateTime.Now.ToShortTimeString()));
+                documento.Add(lineaSeparadora);
+                documento.Add(Chunk.NEWLINE);
+
+                PdfPTable table = new PdfPTable(3);
+                table.TotalWidth = 400f;
+                table.LockedWidth = true;
+                float[] widths = new float[] { 20f, 65f, 60f, };
+                table.SetWidths(widths);
+                PdfPCell NewCell = new PdfPCell(new Phrase("ARTICULO"));
+                NewCell.BackgroundColor = BaseColor.GRAY;
+                NewCell.BorderColor = BaseColor.WHITE;
+                table.AddCell(NewCell);
+
+                NewCell = new PdfPCell(new Phrase("CANTIDAD"));
+                NewCell.BackgroundColor = BaseColor.GRAY;
+                NewCell.BorderColor = BaseColor.WHITE;
+                table.AddCell(NewCell);
+
+                NewCell = new PdfPCell(new Phrase("PRECIO"));
+                NewCell.BackgroundColor = BaseColor.GRAY;
+                NewCell.BorderColor = BaseColor.WHITE;
+                table.AddCell(NewCell);
+
+                List<DetallePedido> ListaSoporte = new List<DetallePedido>();
+                foreach (var item in Utilitarios.OpDetallePedido.ListarDetallesPedido().Where(X => X.IdOrden == orden.Consecutivo))
+                {
+                    if (Utilitarios.OpProducto.ExisteProducto(item.Producto))
+                    {
+                        var newitem = Utilitarios.OpProducto.BuscarProducto(item.Producto);
+                        DetallePedido DetalleSoporte = item;
+                        DetalleSoporte.Producto = newitem.Nombre;
+                        ListaSoporte.Add(DetalleSoporte);
+                    }
+                    else if (item.Producto == "Servicio Express")
+                    {
+                        ListaSoporte.Add(item);
+                    }
+                    else
+                    {
+                        var newitem = Utilitarios.OpCombo.BuscarCombo(item.Producto);
+                        DetallePedido DetalleSoporte = item;
+                        DetalleSoporte.Producto = newitem.Nombre;
+                        ListaSoporte.Add(DetalleSoporte);
+                    }
+                }
+                foreach (var pdct in ListaSoporte)
+                {
+
+                    table.AddCell(pdct.Producto);
+                    table.AddCell(pdct.Cantidad.ToString());
+                    table.AddCell(pdct.SubTotal.ToString("N"));
+
+                    if (!string.IsNullOrEmpty(pdct.ObservacionesDT) || !string.IsNullOrWhiteSpace(pdct.ObservacionesDT))
+                    {
+                        List<string> stringList = pdct.ObservacionesDT.Split(',').ToList();
+                        foreach (var CADENA in stringList)
+                        {
+                            table.AddCell(CADENA);
+                            table.AddCell("");
+                            table.AddCell("");
+                        }
+                    }
+
+                }
+
+                documento.Add(table);
+                documento.Add(Chunk.NEWLINE);
+
+                Paragraph para = new Paragraph("Subtotal: ¢" + (orden.Subtotal - (orden.Subtotal * Utilitarios.OpCargas.BuscarCargaPorDescripcion("Impuesto de Venta").Porcentaje)).ToString("N") + Chunk.NEWLINE + "I.V. : ¢" + (orden.Subtotal * Utilitarios.OpCargas.BuscarCargaPorDescripcion("Impuesto de Venta").Porcentaje).ToString("N") + Chunk.NEWLINE + "Total: ¢" + orden.Subtotal.ToString("N") + Chunk.NEWLINE + "Cambio: ¢" + orden.MontoCambio.ToString("N") + Chunk.NEWLINE + "IMPUESTO DE VENTA INCLUIDO" + Chunk.NEWLINE + "Productos Vendidos: " + ListaSoporte.Count());
+                documento.Add(para);
+
+                documento.Add(Chunk.NEWLINE);
+
+                documento.Add(lineaSeparadora);
+                Paragraph Final = new Paragraph("Gracias por Su compra");
+                Final.Alignment = Element.ALIGN_CENTER;
+                documento.Add(Final);
+
+
+                //Cierre de  Documento
+                documento.Close();
+
+                MailWriter.Close();
+
+
+                List<string> Email = new List<string>();
+                Email.Add(cliente.Correo);
+
+                Utilitarios.EnviarEmailAttachment(Email, "Comprobante de Compra ", "Adjunto encontrará su Comprobante de la compra del día " + DateTime.Now.ToShortDateString(), memStream);
+            
+             //   memStream.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", FrmLogin.UsuarioGlobal.Username, "Error en Modulo de Caja al Enviar correo a cliente");
+                MessageBox.Show("Error al enviar correo a cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+}
+
+
     }
 }
+
 

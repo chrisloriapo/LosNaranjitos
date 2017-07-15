@@ -712,6 +712,7 @@
             this.dgvOrdenesVista.Location = new System.Drawing.Point(3, 292);
             this.dgvOrdenesVista.Name = "dgvOrdenesVista";
             this.dgvOrdenesVista.ReadOnly = true;
+            this.dgvOrdenesVista.RowHeadersVisible = false;
             this.dgvOrdenesVista.Size = new System.Drawing.Size(1052, 236);
             this.dgvOrdenesVista.TabIndex = 1;
             // 

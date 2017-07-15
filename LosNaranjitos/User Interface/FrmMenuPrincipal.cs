@@ -102,12 +102,28 @@ namespace LosNaranjitos
         {
             this.Close();
         }
+        private bool CheckOpened(string name)
+        {
+            FormCollection fc = Application.OpenForms;
 
+            foreach (Form frm in fc)
+            {
+                if (frm.Text == name)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
                 FrmUsuarios a = new FrmUsuarios();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -127,6 +143,10 @@ namespace LosNaranjitos
             try
             {
                 FrmProveedor a = new FrmProveedor();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -154,6 +174,10 @@ namespace LosNaranjitos
                 {
                     grbMain.Visible = false;
                     FrmPedido a = new FrmPedido();
+                    if (CheckOpened(a.Name))
+                    {
+                        a.BringToFront();
+                    }
                     a.MdiParent = this;
                     a.ControlBox = false;
                     a.MinimizeBox = false;
@@ -165,6 +189,10 @@ namespace LosNaranjitos
                 {
                     grbMain.Visible = false;
                     FrmAperturaCaja a = new FrmAperturaCaja();
+                    if (CheckOpened(a.Name))
+                    {
+                        a.BringToFront();
+                    }
                     a.MdiParent = this;
                     a.ControlBox = false;
                     a.MinimizeBox = false;
@@ -219,6 +247,10 @@ namespace LosNaranjitos
             try
             {
                 FrmCliente a = new FrmCliente();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -238,6 +270,10 @@ namespace LosNaranjitos
             try
             {
                 FrmInsumos a = new FrmInsumos();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -259,6 +295,10 @@ namespace LosNaranjitos
             try
             {
                 FrmMedidas a = new FrmMedidas();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -278,6 +318,10 @@ namespace LosNaranjitos
             try
             {
                 FrmBitacora a = new FrmBitacora();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -332,6 +376,10 @@ namespace LosNaranjitos
                 try
                 {
                     FrmPasswordChange a = new FrmPasswordChange();
+                    if (CheckOpened(a.Name))
+                    {
+                        a.BringToFront();
+                    }
                     a.MdiParent = this;
                     a.ControlBox = false;
                     a.MinimizeBox = false;
@@ -349,21 +397,21 @@ namespace LosNaranjitos
 
         private void consecutivosToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    FrmErrores a = new FrmErrores();
-            //    a.MdiParent = this;
-            //    a.ControlBox = false;
-            //    a.MinimizeBox = false;
-            //    a.MaximizeBox = false;
-            //    a.Dock = DockStyle.Fill;
-            //    a.Show();
-            //    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            try
+            {
+                FrmErrores a = new FrmErrores();
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+                a.Dock = DockStyle.Fill;
+                a.Show();
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Consecutivos ");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void tmerTiempo_Tick(object sender, EventArgs e)
@@ -377,6 +425,10 @@ namespace LosNaranjitos
             try
             {
                 FrmAbout a = new FrmAbout();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -395,6 +447,10 @@ namespace LosNaranjitos
             try
             {
                 FrmProductosVenta a = new FrmProductosVenta();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -415,6 +471,10 @@ namespace LosNaranjitos
             try
             {
                 FrmCombo a = new FrmCombo();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -435,6 +495,11 @@ namespace LosNaranjitos
             try
             {
                 FrmCompras a = new FrmCompras();
+         
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -455,6 +520,10 @@ namespace LosNaranjitos
             try
             {
                 FrmCargas a = new FrmCargas();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -476,6 +545,10 @@ namespace LosNaranjitos
             try
             {
                 FrmCierreCajero a = new FrmCierreCajero();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -497,6 +570,10 @@ namespace LosNaranjitos
             try
             {
                 FrmCajaMantenimiento a = new FrmCajaMantenimiento();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -575,6 +652,10 @@ namespace LosNaranjitos
             try
             {
                 FrmPasswordChange a = new FrmPasswordChange();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -594,6 +675,10 @@ namespace LosNaranjitos
             try
             {
                 FrmParametros_de_Impresion a = new FrmParametros_de_Impresion();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;
@@ -614,6 +699,10 @@ namespace LosNaranjitos
             try
             {
                 FrmReportes a = new FrmReportes();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
                 a.MdiParent = this;
                 a.ControlBox = false;
                 a.MinimizeBox = false;

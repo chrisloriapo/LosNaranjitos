@@ -67,7 +67,7 @@ namespace LosNaranjitos
                     txtIdCliente.ReadOnly = false;
                     //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
-                    DATOS.Cliente UltimoCliente = new Cliente();
+                    Cliente UltimoCliente = new Cliente();
                     try
                     {
                         UltimoCliente = Utilitarios.OpClientes.ListarClientes().OrderByDescending(x => x.Consecutivo).First();
@@ -92,24 +92,25 @@ namespace LosNaranjitos
                             UltimoCliente = new Cliente()
                             {
                                 Consecutivo = 1
-                            }; lblConsecutivo.Text = UltimoCliente.Consecutivo.ToString();
+                            };
+                            lblConsecutivo.Text = UltimoCliente.Consecutivo.ToString();
 
                         }
                     }
-                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Cliente").Select(x => x.Prefijo).FirstOrDefault();
-                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    //int CSCliente = Consecutivo.ConsecutivoActual + 1;
-                    //UltimoCliente.Consecutivo = Prefijo + "-" + CSCliente;
-                    //if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoCliente.Consecutivo))
-                    //{
-                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoCliente.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //    btnNuevo.Enabled = false;
-                    //}
                 }
 
-
                 ListaClientes = Utilitarios.OpClientes.ListarClientes();
-                var ListaLocal = ListaClientes.ToList();
+                var ListaLocal = ListaClientes.Select(a => new
+                {
+                    a.IdPersonal,
+                    a.Nombre,
+                    a.Apellido1,
+                    a.Apellido2,
+                    a.Correo,
+                    a.Direccion,
+                    a.Telefono,
+                    a.Activo,
+                }).ToList(); ;
                 dgvListado.DataSource = ListaLocal;
 
                 var autosearch = new AutoCompleteStringCollection();
@@ -179,24 +180,20 @@ namespace LosNaranjitos
                     {
                         DATOS.Cliente ClientePrivate = new DATOS.Cliente
                         {
-                        //    Consecutivo = lblConsecutivo.Text,
+                            //    Consecutivo = lblConsecutivo.Text,
                             IdPersonal = txtIdCliente.Text,
                             Nombre = txtNombre.Text,
                             Activo = true,
                             Telefono = txtTelefono.Text,
                             Correo = txtEmail.Text,
                             Apellido1 = txtApellido.Text,
-                            Apellido2 = "",
+                            Apellido2 = txtApellido2.Text,
                             Contrasena = "dsfuhglsdfjo",
-                            Direccion = "No Definida",
+                            Direccion = txtDireccion.Text,
                             Puntaje = 0
                         };
 
                         Utilitarios.OpClientes.AgregarCliente(ClientePrivate);
-
-                        //DATOS.Consecutivo Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivoPorTipo("Cliente");
-                        //Consecutivo.ConsecutivoActual = Consecutivo.ConsecutivoActual + 1;
-                        //Utilitarios.OpConsecutivo.ActualizarConsecutivo(Consecutivo);
 
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Cliente Nuevo " + ClientePrivate.IdPersonal);
 
@@ -288,15 +285,18 @@ namespace LosNaranjitos
                                           "Cliente No encontrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    DATOS.Cliente ClientePrivate = new DATOS.Cliente
+                    Cliente ClientePrivate = new Cliente
                     {
-                      //  Consecutivo = lblConsecutivo.Text,
                         IdPersonal = txtIdCliente.Text,
                         Nombre = txtNombre.Text,
                         Activo = true,
                         Telefono = txtTelefono.Text,
                         Correo = txtEmail.Text,
                         Apellido1 = txtApellido.Text,
+                        Apellido2 = txtApellido2.Text,
+                      //  Contrasena = "dsfuhglsdfjo",
+                        Direccion = txtDireccion.Text,
+                     //   Puntaje = 0
                     };
 
                     Utilitarios.OpClientes.ActualizarCLIENTE(ClientePrivate);

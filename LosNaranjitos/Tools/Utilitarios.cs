@@ -208,7 +208,7 @@ namespace LosNaranjitos
 
             ticket.TextoCentro("SODA LOS NARANJITOS");
             ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-            ticket.TextoIzquierda("DIREC: 25 SUR Y 75 OESTE DE LA MEGASUPER TEJAR");
+            ticket.TextoIzquierda("DIREC: 25 SUR Y 75 OESTE DEL MEGASUPER TEJAR");
             ticket.TextoIzquierda("TELEF: 25910412");
             ticket.TextoIzquierda("C.J.: 302970494");
             ticket.TextoIzquierda("EMAIL: orangesrestaurants@gmail.com");//Es el mio por si me quieren contactar ...
@@ -323,7 +323,7 @@ namespace LosNaranjitos
             ticket.TextoIzquierda("");
             ticket.TextoIzquierda("");
             ticket.CortaTicket();
-            ticket.ImprimirTicket(Utilitarios.OpParametros.BuscarParametro(1).Valor);//Nombre de la impresora ticketera
+            ticket.ImprimirTicket(Utilitarios.OpParametros.BuscarParametrosPorNombre("Impresora de Ticketes").Valor);//Nombre de la impresora ticketera
 
 
         }

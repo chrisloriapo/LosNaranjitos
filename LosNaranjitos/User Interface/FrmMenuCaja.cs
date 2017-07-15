@@ -56,7 +56,7 @@ namespace LosNaranjitos
 
                 if (mensaje == DialogResult.Yes)
                 {
-                    if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false && x.Operador == FrmLogin.UsuarioGlobal.Username).Count() > 0)
+                    if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.CierreOperador == false && x.Operador == FrmLogin.UsuarioGlobal.Username && x.Cancelado == true).Count() > 0)
                     {
                         MessageBox.Show("Debes Generar el Cierre de Caja (Arqueo)", "Debes Cerrar tus Cuentas", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -86,7 +86,8 @@ namespace LosNaranjitos
             {
                 FrmCierreCajero a = new FrmCierreCajero();
                 a.Show();
-                a.WindowState = FormWindowState.Maximized;
+                a.WindowState = FormWindowState.Normal;
+                a.StartPosition = FormStartPosition.CenterScreen;
                 Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Modulo de Cierre desde menu de Caja ");
                 this.Visible = false;
             }
@@ -106,13 +107,13 @@ namespace LosNaranjitos
 
                 if (mensaje == DialogResult.Yes)
                 {
-                    if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.Cerrado == false && x.Operador == FrmLogin.UsuarioGlobal.Username).Count() > 0)
+                    if (Utilitarios.OpPedidos.ListarPedido().Where(x => x.CierreOperador == false && x.Operador == FrmLogin.UsuarioGlobal.Username && x.Cancelado == true).Count() > 0)
                     {
                         MessageBox.Show("Debes Generar el Cierre de Caja (Arqueo)", "Debes Cerrar tus Cuentas", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         return;
                     }
-                    Utilitarios.GeneralBitacora(Utilitarios.Decriptar( FrmLogin.UsuarioGlobal.Username,Utilitarios.Llave), "Cierre de Sesion ");
+                    Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Sesion ");
                     FrmLogin a = new FrmLogin();
                     a.Show();
                     this.Dispose();
