@@ -14,15 +14,11 @@ namespace LosNaranjitos.BL.Clases
 
         public bool ExisteConsecutivo(int Consecutivo)
         {
-            //Consecutivo = Utilitario.Encriptar(Consecutivo, Utilitario.Llave);
             return Pedprocedimientos.ExisteConsecutivo(Consecutivo);
         }
         public void ActualizarDetalleOrden(DATOS.DetallePedido DetalleOrden)
         {
-            //DetalleOrden.Consecutivo = Utilitario.Encriptar(DetalleOrden.Consecutivo, Utilitario.Llave);
-            //DetalleOrden.IdOrden = Utilitario.Encriptar(DetalleOrden.IdOrden, Utilitario.Llave);
-            //DetalleOrden.Producto = Utilitario.Encriptar(DetalleOrden.Producto, Utilitario.Llave);
-            //DetalleOrden.ObservacionesDT = Utilitario.Encriptar(DetalleOrden.ObservacionesDT, Utilitario.Llave);
+        
             Pedprocedimientos.ActualizarDetalleOrden(DetalleOrden);
         }
 

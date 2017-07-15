@@ -359,6 +359,11 @@ namespace LosNaranjitos
 
 
                     Utilitarios.TicketeGeneral(Utilitarios.OpCaja.ListarCajas().Where(X => X.OperadorActual == FrmLogin.UsuarioGlobal.Username).Select(x => x.Consecutivo).FirstOrDefault().ToString(), FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1, Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente).Nombre + " " + Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente).Apellido1, ListaSoporte, OrdenLocal);
+                    if (OrdenLocal.IdCliente != "0")
+                    {
+                        FrmPedido.EjecutarReporte(Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente), OrdenLocal, ListaSoporte);
+
+                    }
 
                     lblOrden.Text = "";
                     lblTotal.Text = "";
@@ -505,7 +510,11 @@ namespace LosNaranjitos
 
 
                     Utilitarios.TicketeGeneral(Utilitarios.OpCaja.ListarCajas().Where(X => X.OperadorActual == FrmLogin.UsuarioGlobal.Username).Select(x => x.Consecutivo).FirstOrDefault().ToString(), FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1, Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente).Nombre + " " + Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente).Apellido1, ListaSoporte, OrdenLocal);
+                    if (OrdenLocal.IdCliente != "0")
+                    {
+                        FrmPedido.EjecutarReporte(Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente), OrdenLocal, ListaSoporte);
 
+                    }
                     lblOrden.Text = "";
                     lblTotal.Text = "";
                     lblNombre.Text = "";
