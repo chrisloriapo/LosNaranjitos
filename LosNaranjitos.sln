@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LosNaranjitos.UI", "LosNaranjitos\LosNaranjitos.UI.csproj", "{FBA0B557-81DF-4E29-AB0F-A3115DB09A2A}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LosNaranjitos.DS", "LosNaranjitos.DS\LosNaranjitos.DS.csproj", "{78E8001D-D9D4-48A1-BBE7-049CBC2BF75A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LosNaranjitos.DATOS", "LosNaranjitos.DATOS\LosNaranjitos.DATOS.csproj", "{95B0D471-ACBC-44A7-9039-9EFB53584BD6}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{4666728E-2E70-4B2B-93CC-D3EF87342C98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,8 @@ Global
 		{95B0D471-ACBC-44A7-9039-9EFB53584BD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95B0D471-ACBC-44A7-9039-9EFB53584BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95B0D471-ACBC-44A7-9039-9EFB53584BD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4666728E-2E70-4B2B-93CC-D3EF87342C98}.Debug|Any CPU.ActiveCfg = Debug
+		{4666728E-2E70-4B2B-93CC-D3EF87342C98}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

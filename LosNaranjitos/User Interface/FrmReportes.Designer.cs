@@ -227,11 +227,12 @@
             // rbtVentasCombo
             // 
             this.rbtVentasCombo.AutoSize = true;
+            this.rbtVentasCombo.Enabled = false;
             this.rbtVentasCombo.Location = new System.Drawing.Point(24, 176);
             this.rbtVentasCombo.Name = "rbtVentasCombo";
-            this.rbtVentasCombo.Size = new System.Drawing.Size(115, 18);
+            this.rbtVentasCombo.Size = new System.Drawing.Size(133, 18);
             this.rbtVentasCombo.TabIndex = 6;
-            this.rbtVentasCombo.Text = "Ventas de Combo";
+            this.rbtVentasCombo.Text = "Productos de Combo";
             this.rbtVentasCombo.UseVisualStyleBackColor = true;
             this.rbtVentasCombo.CheckedChanged += new System.EventHandler(this.rbtVentasCombo_CheckedChanged);
             // 
@@ -268,11 +269,12 @@
             // rbtVentaProducto
             // 
             this.rbtVentaProducto.AutoSize = true;
+            this.rbtVentaProducto.Enabled = false;
             this.rbtVentaProducto.Location = new System.Drawing.Point(22, 123);
             this.rbtVentaProducto.Name = "rbtVentaProducto";
-            this.rbtVentaProducto.Size = new System.Drawing.Size(127, 18);
+            this.rbtVentaProducto.Size = new System.Drawing.Size(144, 18);
             this.rbtVentaProducto.TabIndex = 2;
-            this.rbtVentaProducto.Text = "Ventas de Producto";
+            this.rbtVentaProducto.Text = "Insumos por Producto";
             this.rbtVentaProducto.UseVisualStyleBackColor = true;
             this.rbtVentaProducto.CheckedChanged += new System.EventHandler(this.rbtVentaProducto_CheckedChanged);
             // 
@@ -320,13 +322,13 @@
             "Combos",
             "Compras",
             "Errores",
+            "Insumo Por Producto",
             "Insumos",
+            "Producto Por Combo",
             "Productos",
             "Proveedores",
             "Usuarios",
-            "Ventas",
-            "Ventas Por Combo",
-            "Ventas Por Producto"});
+            "Ventas"});
             this.cbTipoReporte.Location = new System.Drawing.Point(67, 28);
             this.cbTipoReporte.Name = "cbTipoReporte";
             this.cbTipoReporte.Size = new System.Drawing.Size(186, 21);

@@ -510,6 +510,12 @@
   <data name="tsiPasswordChange.Text" xml:space="preserve">
     <value>Cambiar Contraseña</value>
   </data>
+  <data name="parametrosGeneralesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>240, 22</value>
+  </data>
+  <data name="parametrosGeneralesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Parametros Generales</value>
+  </data>
   <data name="parametrosDeImpresiónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>240, 22</value>
   </data>
@@ -3664,16 +3670,22 @@
   <data name="&gt;&gt;tsmAyuda.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;reportesToolStripMenuItem.Name" xml:space="preserve">
+    <value>reportesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;reportesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;tmerTiempo.Name" xml:space="preserve">
     <value>tmerTiempo</value>
   </data>
   <data name="&gt;&gt;tmerTiempo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;reportesToolStripMenuItem.Name" xml:space="preserve">
-    <value>reportesToolStripMenuItem</value>
+  <data name="&gt;&gt;parametrosGeneralesToolStripMenuItem.Name" xml:space="preserve">
+    <value>parametrosGeneralesToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;reportesToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;parametrosGeneralesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

@@ -14,7 +14,7 @@ namespace LosNaranjitos.DATOS
         [AutoIncrement]
         public int IdTipo { get; set; }
 
-        public string Descripcion { get; set; }
+        public string DescripcionCategoria { get; set; }
 
         public bool Activo { get; set; }
     }

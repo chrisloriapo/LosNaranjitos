@@ -717,5 +717,29 @@ namespace LosNaranjitos
                 MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void parametrosGeneralesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DS.FrmConfiguracion a = new DS.FrmConfiguracion();
+                if (CheckOpened(a.Name))
+                {
+                    a.BringToFront();
+                }
+                a.MdiParent = this;
+                a.ControlBox = false;
+                a.MinimizeBox = false;
+                a.MaximizeBox = false;
+
+                a.Show();
+                a.StartPosition = FormStartPosition.CenterParent;
+                Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso a Cambio de Parametros de Generales");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message, "Error al Popular datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

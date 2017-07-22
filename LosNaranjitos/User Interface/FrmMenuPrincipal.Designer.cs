@@ -71,8 +71,9 @@
             this.consecutivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmVentanas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
-            this.tmerTiempo = new System.Windows.Forms.Timer(this.components);
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmerTiempo = new System.Windows.Forms.Timer(this.components);
+            this.parametrosGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.grbMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -174,6 +175,7 @@
             this.tsmSistema.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsiCerrarSesion,
             this.tsiPasswordChange,
+            this.parametrosGeneralesToolStripMenuItem,
             this.parametrosDeImpresiónToolStripMenuItem,
             this.tsiAbout,
             this.tsiSalir});
@@ -363,15 +365,21 @@
             this.tsmAyuda.ForeColor = System.Drawing.Color.White;
             this.tsmAyuda.Name = "tsmAyuda";
             // 
-            // tmerTiempo
-            // 
-            this.tmerTiempo.Tick += new System.EventHandler(this.tmerTiempo_Tick);
-            // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
             this.reportesToolStripMenuItem.Click += new System.EventHandler(this.reportesToolStripMenuItem_Click);
+            // 
+            // tmerTiempo
+            // 
+            this.tmerTiempo.Tick += new System.EventHandler(this.tmerTiempo_Tick);
+            // 
+            // parametrosGeneralesToolStripMenuItem
+            // 
+            this.parametrosGeneralesToolStripMenuItem.Name = "parametrosGeneralesToolStripMenuItem";
+            resources.ApplyResources(this.parametrosGeneralesToolStripMenuItem, "parametrosGeneralesToolStripMenuItem");
+            this.parametrosGeneralesToolStripMenuItem.Click += new System.EventHandler(this.parametrosGeneralesToolStripMenuItem_Click);
             // 
             // FrmMenuPrincipal
             // 
@@ -447,6 +455,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsiPasswordChange;
         private System.Windows.Forms.ToolStripMenuItem parametrosDeImpresiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem parametrosGeneralesToolStripMenuItem;
     }
 }
 

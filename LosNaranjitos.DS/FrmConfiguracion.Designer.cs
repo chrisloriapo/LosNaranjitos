@@ -84,6 +84,7 @@
             this.rbSqlServer = new System.Windows.Forms.RadioButton();
             this.rbtWindosAut = new System.Windows.Forms.RadioButton();
             this.tbDatos = new System.Windows.Forms.TabPage();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.tbUtilitarios.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -267,6 +268,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.btnCancel);
             this.groupBox6.Controls.Add(this.groupBox8);
             this.groupBox6.Controls.Add(this.chkLuegoPrinter);
             this.groupBox6.Controls.Add(this.cbbImpresora);
@@ -694,6 +696,17 @@
             this.tbDatos.Text = "Datos";
             this.tbDatos.UseVisualStyleBackColor = true;
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(194, 436);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(220, 41);
+            this.btnCancel.TabIndex = 412;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // FrmConfiguracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -788,5 +801,6 @@
         private System.Windows.Forms.Label lblValidMailDeliverer;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtMailDeliverer;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

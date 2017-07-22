@@ -70,19 +70,39 @@ namespace LosNaranjitos.DS
                     cmbInstancias.Items.Add(Environment.MachineName + "\\" + sqlserver);
                 }
 
-
             }
             catch (Exception)
             {
 
                 MessageBox.Show("Error al Listar las Instancias \n Ingreselas Manualmente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
 
-            foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
+            try
             {
-                cbbImpresora.Items.Add(printer);
+                if (Utilitarios.OpParametros.ListarRegistros().Count != 0)
+                {
+                    tbMain.TabPages.Remove(tbConexión);
+                    tbMain.TabPages.Remove(tbDatos);
+                    btnCancel.Visible = true;
+                }
             }
-            cbbImpresora.SelectedIndex = 0;
+            catch (Exception)
+            {
+
+            }
+            try
+            {
+                foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
+                {
+                    cbbImpresora.Items.Add(printer);
+                }
+                cbbImpresora.SelectedIndex = 0;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al Listar las Impresoras Locales", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
 
@@ -176,7 +196,7 @@ SET ANSI_PADDING ON
 
 CREATE TABLE [dbo].[CategoriaProductos](
 	[IdTipo] [int] IDENTITY(1,1) NOT NULL,
-	[Descripcion] [varchar](500) NOT NULL,
+	[DescripcionCategoria] [varchar](500) NOT NULL,
 	[Activo] [bit] NOT NULL,
  CONSTRAINT [PK_CategoriaProductos] PRIMARY KEY CLUSTERED 
 (
@@ -703,10 +723,10 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]";
                 Utilitarios.OpMedidas.AgregarMedida(new Medida { Descripcion = "Unidad", IdMedida = "u" });
 
                 List<CategoriaProductos> CategoriasDefault = new List<CategoriaProductos>();
-                CategoriasDefault.Add(new CategoriaProductos { Activo = true, Descripcion = "Producto Principal" });
-                CategoriasDefault.Add(new CategoriaProductos { Activo = true, Descripcion = "Acompañamiento" });
-                CategoriasDefault.Add(new CategoriaProductos { Activo = true, Descripcion = "Bebidas" });
-                CategoriasDefault.Add(new CategoriaProductos { Activo = true, Descripcion = "Adicional" });
+                CategoriasDefault.Add(new CategoriaProductos { Activo = true, DescripcionCategoria = "Producto Principal" });
+                CategoriasDefault.Add(new CategoriaProductos { Activo = true, DescripcionCategoria = "Acompañamiento" });
+                CategoriasDefault.Add(new CategoriaProductos { Activo = true, DescripcionCategoria = "Bebidas" });
+                CategoriasDefault.Add(new CategoriaProductos { Activo = true, DescripcionCategoria = "Adicional" });
 
                 foreach (var Categoria in CategoriasDefault)
                 {
@@ -726,7 +746,7 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]";
                 AgregarUsuario();
 
                 List<DATOS.Parametros> ParametrosIniciales = new List<DATOS.Parametros>();
-               
+
                 //Parametro de Impresora
                 if (!chkLuegoPrinter.Checked)
                 {
@@ -1047,8 +1067,24 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]";
                     txtContrasenaConfirmada.Focus();
                     return;
                 }
+                try
+                {
+                    if (Utilitarios.OpParametros.ListarRegistros().Count() != 0)
+                    {
+                        SetParametersOnly();
+                    }
+                    else
+                    {
+                        CreateCompanyDatabase();
+                    }
+                }
+                catch (Exception)
+                {
 
-                CreateCompanyDatabase();
+                    CreateCompanyDatabase();
+
+                }
+
             }
             catch (Exception ex)
             {
@@ -1059,6 +1095,74 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]";
             }
 
 
+        }
+
+        private void SetParametersOnly()
+        {
+            try
+            {
+
+
+                List<DATOS.Parametros> ParametrosIniciales = new List<DATOS.Parametros>();
+
+                //Parametro de Impresora
+                if (!chkLuegoPrinter.Checked)
+                {
+                    ParametrosIniciales.Add(new DATOS.Parametros
+                    {
+                        Nombre = "Impresora de Ticketes",
+                        Fecha = DateTime.Now,
+                        Operador = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username,
+                        Valor = cbbImpresora.SelectedItem.ToString()
+                    });
+                }
+                else
+                {
+                    ParametrosIniciales.Add(new DATOS.Parametros
+                    {
+                        Nombre = "Impresora de Ticketes",
+                        Fecha = DateTime.Now,
+                        Operador = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username,
+                        Valor = ""
+                    });
+
+                }
+                //Email
+                ParametrosIniciales.Add(new DATOS.Parametros { Nombre = "Smtp", Fecha = DateTime.Now, Operador = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username, Valor = txtSmtp.Text });
+                ParametrosIniciales.Add(new DATOS.Parametros { Nombre = "PuertoCorreo", Fecha = DateTime.Now, Operador = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username, Valor = txtPortNumber.Text });
+                ParametrosIniciales.Add(new DATOS.Parametros { Nombre = "MailDeliverer", Fecha = DateTime.Now, Operador = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username, Valor = txtMailDeliverer.Text });
+                ParametrosIniciales.Add(new DATOS.Parametros { Nombre = "PasswordMailDeliverer", Fecha = DateTime.Now, Operador = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username, Valor = Utilitarios.Encriptar(txtContrasenaConfirmada.Text, Utilitarios.Llave) });
+                //Parametro de Monitor
+                ParametrosIniciales.Add(new DATOS.Parametros { Nombre = "BanderaMonitor", Fecha = DateTime.Now, Operador = Utilitarios.OpUsuarios.ListarUsuarios().FirstOrDefault().Username, Valor = "0" });
+                foreach (var parameter in ParametrosIniciales)
+                {
+                    Utilitarios.OpParametros.AgregarParametro(parameter);
+                }
+                if (!chkLuegoPrinter.Checked)
+                {
+                    DATOS.Pedido OrdenPrueba = new DATOS.Pedido { Activo = true, Cancelado = true, Cerrado = true, CierreOperador = true, Consecutivo = 1, Fecha = DateTime.Now, IdCliente = "Cliente Prueba", MontoCambio = 500, MontoEfectivo = 1000, MontoOtro = 1000, MontoTarjeta = 1000, Observaciones = "Observaciones", Operador = txtNombre.Text + " " + txtApellido.Text, Subtotal = 10000 };
+                    List<DATOS.DetallePedido> DetallePrueba = new List<DATOS.DetallePedido>();
+                    DATOS.DetallePedido Prueba = new DATOS.DetallePedido { Consecutivo = 1, Cantidad = 6, IdOrden = OrdenPrueba.Consecutivo, ObservacionesDT = "", Producto = "Producto Prueba 1", SubTotal = 5000 };
+                    DATOS.DetallePedido Prueba2 = new DATOS.DetallePedido { Consecutivo = 2, Cantidad = 5, IdOrden = OrdenPrueba.Consecutivo, ObservacionesDT = "", Producto = "Producto Prueba 2", SubTotal = 4500 };
+                    DetallePrueba.Add(Prueba);
+                    DetallePrueba.Add(Prueba2);
+
+                    Utilitarios.TicketeGeneral("1", "Prueba", "Cliente Prueba", DetallePrueba, OrdenPrueba);
+                }
+                MessageBox.Show("Parametros Configurados correctamente ", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+
+                Utilitarios.GeneralError(ex.Message, "Error No Reconocido", "", "Error en Modulo de Usuarios al Intentar Agregar un usuario nuevo");
+                MessageBox.Show("Error en el sistema", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

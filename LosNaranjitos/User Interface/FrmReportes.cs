@@ -714,6 +714,97 @@ a => a.IdProveedor, b => b.IdProveedor, (a, b) => new { a.IdFactura, b.NombrePro
                         pdfFile.Dispose();
 
                         break;
+
+//                    case "Producto Por Insumo":
+//                        //Encabezado
+
+//                        var EncabezadoProductos = new Paragraph();
+//                        documento.Add(new Paragraph("Soda Los Naranjitos"));
+//                        EncabezadoProductos.Add(new Phrase("Reporte de Productos - CONTENIDO CONFIDENCIAL", FontFactory.GetFont("Times New Roman", 18, BaseColor.BLUE)));
+//                        EncabezadoProductos.Add(new Chunk(Logo, 0, 0));
+//                        documento.Add(EncabezadoProductos);
+//                        documento.Add(Chunk.NEWLINE);
+//                        Paragraph lineaSeparadoraProductos = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+//                        documento.Add(lineaSeparadoraProductos);
+
+//                        //Contenido
+
+//                        documento.Add(Chunk.NEWLINE);
+//                        documento.Add(new Paragraph("Reporte de Productos"));
+//                        documento.Add(Chunk.NEWLINE);
+//                        var ListaProductos = Utilitarios.OpProducto.ListarProductos().Join(Utilitarios.OpCategorias.ListarCategorias(),
+//a => a.Categoria, b => b.IdTipo, (a, b) => new { a.Codigo, a.Nombre, a.Descripcion, b.DescripcionCategoria, a.Precio, a.Activo });
+//                        if (tbcReporteria.SelectedIndex == 1)
+//                        {
+//                            ListaProductos = ListaProductos.Where(x => x.Codigo == Utilitarios.OpProducto.BuscarProductoPorNombre(cmbItemsParametros.SelectedItem.ToString()).Codigo);
+
+//                            documento.Add(new Paragraph("Reporte de Producto " + Utilitarios.OpProducto.BuscarProductoPorNombre(cmbItemsParametros.SelectedItem.ToString()).Nombre));
+//                            documento.Add(Chunk.NEWLINE);
+//                        }
+//                        else
+//                        {
+
+//                            documento.Add(new Paragraph("Reporte Total de Insomos por Producto"));
+//                            documento.Add(Chunk.NEWLINE);
+//                        }
+//                        var ListaResultado = Utilitarios.OpProductoInsumo.ListarProductoInsumo().Join(Utilitarios.OpInsumos.ListarInsumos(),
+//a => a.IdInsumo, b => b.IdInsumo, (a, b) => new { a.IdInsumo, b.Nombre, a.CantidadRequerida, b.IdMedida, });
+
+//                        PdfPTable TableProductos = new PdfPTable(6);
+//                        TableProductos.TotalWidth = 600f;
+//                        TableProductos.LockedWidth = true;
+//                        float[] widthsProductos = new float[] { 40f, 70f, 60f, 80f, 50f, 50f };
+//                        TableProductos.SetWidths(widthsProductos);
+
+//                        PdfPCell NewCellProductos = new PdfPCell(new Phrase("N° de Factura"));
+//                        NewCellProductos.BackgroundColor = BaseColor.GRAY;
+//                        TableProductos.AddCell(NewCellProductos);
+
+//                        NewCellProductos = new PdfPCell(new Phrase("Proveedor"));
+//                        NewCellProductos.BackgroundColor = BaseColor.GRAY;
+//                        TableProductos.AddCell(NewCellProductos);
+
+
+
+//                        foreach (var Compra in ListaCompras)
+//                        {
+//                            TableCompras.AddCell(Compra.IdFactura);
+//                            TableCompras.AddCell(Compra.NombreProveedor);
+//                            TableCompras.AddCell("¢ " + Compra.Monto.ToString("N"));
+//                            TableCompras.AddCell(Compra.Observaciones);
+//                            TableCompras.AddCell(Compra.Fecha.ToShortDateString());
+
+//                            var Operador = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(Compra.Operador);
+//                            TableCompras.AddCell(Operador.Nombre + " " + Operador.Apellido1);
+
+//                        }
+
+//                        documento.Add(TableCompras);
+//                        documento.Add(Chunk.NEWLINE);
+
+
+//                        documento.Add(lineaSeparadoraCompras);
+//                        Paragraph FinalCompras = new Paragraph("Fin del Reporte");
+//                        FinalCompras.Alignment = Element.ALIGN_CENTER;
+//                        FinalCompras.Add(FinalCompras);
+
+//                        //Cierre de  Documento
+//                        documento.Close();
+//                        MailWriter.Close();
+//                        FileWriter.Close();
+//                        pdfFile.Close();
+
+//                        if (chkMail.Checked)
+//                        {
+//                            List<string> EmailError = new List<string>();
+//                            EmailError.Add(FrmLogin.UsuarioGlobal.Correo);
+//                            Utilitarios.EnviarEmailAttachment(EmailError, "Reporte del Compras ", "Adjunto encotrará el reporte de Compras  " + " ejecutado el " + DateTime.Now.ToShortDateString(), memStream);
+//                        }
+
+//                        Process.Start(@"c:\tempSoda\Reporte.pdf");
+//                        pdfFile.Dispose();
+
+//                        break;
                 }
             }
             catch (Exception ex)
@@ -775,6 +866,7 @@ a => a.IdProveedor, b => b.IdProveedor, (a, b) => new { a.IdFactura, b.NombrePro
                     {
                         cmbItemsParametros.Items.Add(item);
                     }
+                    cmbItemsParametros.SelectedIndex = 0;
                 }
                 catch (Exception ex)
                 {
@@ -801,6 +893,7 @@ a => a.IdProveedor, b => b.IdProveedor, (a, b) => new { a.IdFactura, b.NombrePro
                     {
                         cmbItemsParametros.Items.Add(item);
                     }
+                    cmbItemsParametros.SelectedIndex = 0;
                 }
                 catch (Exception ex)
                 {

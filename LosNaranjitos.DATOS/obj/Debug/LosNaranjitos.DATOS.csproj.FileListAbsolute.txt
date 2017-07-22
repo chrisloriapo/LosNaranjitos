@@ -89,6 +89,5 @@ C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DATOS\bin\Debug\ServiceStack.OrmLite.SqlServer.pdb
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DATOS\bin\Debug\ServiceStack.Text.pdb
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DATOS\bin\Debug\ServiceStack.Text.xml
-C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DATOS\obj\Debug\LosNaranjitos.DATOS.csprojResolveAssemblyReference.cache
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DATOS\obj\Debug\LosNaranjitos.DATOS.dll
 C:\Users\chris\Google Drive\Academico\Fidelitas\Analisis de Sistemas 3\Proyecto\LosNaranjitos\LosNaranjitos.DATOS\obj\Debug\LosNaranjitos.DATOS.pdb

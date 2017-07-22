@@ -19,7 +19,7 @@ namespace LosNaranjitos
         public static DATOS.Usuario UsuarioGlobal = new DATOS.Usuario();
         public static FrmMenuPrincipal MN = new FrmMenuPrincipal();
         public static FrmMenuCaja MC = new FrmMenuCaja();
-
+        public static int ConfigFlag = 0;
 
         public FrmLogin()
         {
@@ -132,7 +132,7 @@ namespace LosNaranjitos
 
                 if (mensaje == DialogResult.Yes)
                 {
-                  
+                    ConfigFlag = 1;
                     DS.FrmConfiguracion ConfigIn = new DS.FrmConfiguracion();
                     ConfigIn.Show();
                     ConfigIn.TopMost = true;

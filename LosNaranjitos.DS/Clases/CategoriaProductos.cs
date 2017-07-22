@@ -30,7 +30,7 @@ namespace LosNaranjitos.DS.Clases
         {
             var conexion = _Conexion.CrearConexion();
             var db = conexion.Open();
-            DATOS.CategoriaProductos Buscar = db.Select<DATOS.CategoriaProductos>(x => x.Descripcion == CategoriaName).FirstOrDefault();
+            DATOS.CategoriaProductos Buscar = db.Select<DATOS.CategoriaProductos>(x => x.DescripcionCategoria == CategoriaName).FirstOrDefault();
             return Buscar;
         }
 

@@ -54,7 +54,7 @@ namespace LosNaranjitos
                 tbOperacionesProductos.TabPages.Remove(tbReceta);
                 tbOperacionesProductos.TabPages.Remove(tbCostos);
                 tbOperacionesProductos.TabPages.Remove(tbResumen);
-                cbCategoriaProducto.DataSource = Utilitarios.OpCategorias.ListarCategorias().Select(x => x.Descripcion).ToList();
+                cbCategoriaProducto.DataSource = Utilitarios.OpCategorias.ListarCategorias().Select(x => x.DescripcionCategoria).ToList();
                 cbCategoriaProducto.SelectedIndex = 0;
 
                 var ListaLocal = Utilitarios.OpCargas.ListarCargas().Where(x => x.Activo = true).Select(a => new
@@ -139,7 +139,7 @@ namespace LosNaranjitos
 
                         DATOS.CategoriaProductos TCat = Utilitarios.OpCategorias.BuscarCategoriaProductos(EditProducto.Categoria);
 
-                        cbCategoriaProducto.SelectedText = TCat.Descripcion;
+                        cbCategoriaProducto.SelectedText = TCat.DescripcionCategoria;
                         txtDescricpion.Text = EditProducto.Descripcion;
                         chkActivo.Visible = true;
 
