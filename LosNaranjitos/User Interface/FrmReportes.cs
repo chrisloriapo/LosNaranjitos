@@ -408,6 +408,117 @@ namespace LosNaranjitos.User_Interface
 
                         break;
 
+                    case "Productos":
+                        //Encabezado
+
+                        var EncabezadoProductos = new Paragraph();
+                        documento.Add(new Paragraph("Soda Los Naranjitos"));
+                        EncabezadoProductos.Add(new Phrase("Reporte de Productos - CONTENIDO CONFIDENCIAL", FontFactory.GetFont("Times New Roman", 18, BaseColor.BLUE)));
+                        EncabezadoProductos.Add(new Chunk(Logo, 0, 0));
+                        documento.Add(EncabezadoProductos);
+                        documento.Add(Chunk.NEWLINE);
+                        Paragraph lineaSeparadoraProd = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+                        documento.Add(lineaSeparadoraProd);
+
+                        //Contenido
+
+                        documento.Add(Chunk.NEWLINE);
+                        documento.Add(new Paragraph("Reporte de Productos"));
+                        documento.Add(Chunk.NEWLINE);
+
+                        var ListaProductos = Utilitarios.OpProducto.ListarProductos().Join(Utilitarios.OpCategorias.ListarCategorias(),
+                                       a => a.Categoria,
+                                       b => b.IdTipo,
+                                       (a, b) => new
+                                       {
+                                           a.Codigo,
+                                           a.Nombre,
+                                           a.Descripcion,
+                                           b.DescripcionCategoria,
+                                           a.Precio,
+                                           a.Activo,
+                                       }).OrderBy(x => x.Nombre).ToList();
+
+                        PdfPTable tableProductos = new PdfPTable(6);
+                        tableProductos.TotalWidth = 500f;
+                        tableProductos.LockedWidth = true;
+                        float[] widthsProductos = new float[] { 30f, 85f, 85f, 40f, 40f, 25f };
+                        tableProductos.SetWidths(widthsProductos);
+
+                        PdfPCell NewCellProductos = new PdfPCell(new Phrase("Código"));
+                        NewCellProductos.BackgroundColor = BaseColor.GRAY;
+                        tableProductos.AddCell(NewCellProductos);
+
+                        NewCellProductos = new PdfPCell(new Phrase("Nombre"));
+                        NewCellProductos.BackgroundColor = BaseColor.GRAY;
+                        tableProductos.AddCell(NewCellProductos);
+
+                        NewCellProductos = new PdfPCell(new Phrase("Descripción"));
+                        NewCellProductos.BackgroundColor = BaseColor.GRAY;
+                        tableProductos.AddCell(NewCellProductos);
+
+                        NewCellProductos = new PdfPCell(new Phrase("Categoría"));
+                        NewCellProductos.BackgroundColor = BaseColor.GRAY;
+                        tableProductos.AddCell(NewCellProductos);
+
+                        NewCellProductos = new PdfPCell(new Phrase("Precio Venta"));
+                        NewCellProductos.BackgroundColor = BaseColor.GRAY;
+                        tableProductos.AddCell(NewCellProductos);
+
+                        NewCellProductos = new PdfPCell(new Phrase("Activo"));
+                        NewCellProductos.BackgroundColor = BaseColor.GRAY;
+                        tableProductos.AddCell(NewCellProductos);
+
+                        foreach (var Product in ListaProductos)
+                        {
+
+                            tableProductos.AddCell(Product.Codigo);
+                            tableProductos.AddCell(Product.Nombre);
+
+                            tableProductos.AddCell(Product.Descripcion);
+                            tableProductos.AddCell(Product.DescripcionCategoria);
+                            tableProductos.AddCell("¢ " + Product.Precio.ToString("N"));
+                            
+                            if (Product.Activo)
+                            {
+                                tableProductos.AddCell("SÍ");
+
+                            }
+                            else
+                            {
+                                tableProductos.AddCell("NO");
+
+                            }
+
+                        }
+
+                        documento.Add(tableProductos);
+                        documento.Add(Chunk.NEWLINE);
+
+
+                        documento.Add(lineaSeparadoraProd);
+                        Paragraph FinalProducts = new Paragraph("Fin del Reporte");
+                        FinalProducts.Alignment = Element.ALIGN_CENTER;
+                        documento.Add(FinalProducts);
+                        //Cierre de  Documento
+                        documento.Close();
+
+                        MailWriter.Close();
+                        FileWriter.Close();
+                        pdfFile.Close();
+
+                        if (chkMail.Checked)
+                        {
+                            List<string> EmailC = new List<string>();
+                            EmailC.Add(FrmLogin.UsuarioGlobal.Correo);
+                            Utilitarios.EnviarEmailAttachment(EmailC, "Reporte del Ventas ", "Adjunto encotrará el reporte de Ventas Totales " + " ejecutado el " + DateTime.Now.ToShortDateString(), memStream);
+                        }
+
+                        Process.Start(@"c:\tempSoda\Reporte.pdf");
+                        pdfFile.Dispose();
+
+                        break;
+
                     case "Errores":
                         //Encabezado
 
@@ -715,96 +826,96 @@ a => a.IdProveedor, b => b.IdProveedor, (a, b) => new { a.IdFactura, b.NombrePro
 
                         break;
 
-//                    case "Producto Por Insumo":
-//                        //Encabezado
+                        //                    case "Producto Por Insumo":
+                        //                        //Encabezado
 
-//                        var EncabezadoProductos = new Paragraph();
-//                        documento.Add(new Paragraph("Soda Los Naranjitos"));
-//                        EncabezadoProductos.Add(new Phrase("Reporte de Productos - CONTENIDO CONFIDENCIAL", FontFactory.GetFont("Times New Roman", 18, BaseColor.BLUE)));
-//                        EncabezadoProductos.Add(new Chunk(Logo, 0, 0));
-//                        documento.Add(EncabezadoProductos);
-//                        documento.Add(Chunk.NEWLINE);
-//                        Paragraph lineaSeparadoraProductos = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
-//                        documento.Add(lineaSeparadoraProductos);
+                        //                        var EncabezadoProductos = new Paragraph();
+                        //                        documento.Add(new Paragraph("Soda Los Naranjitos"));
+                        //                        EncabezadoProductos.Add(new Phrase("Reporte de Productos - CONTENIDO CONFIDENCIAL", FontFactory.GetFont("Times New Roman", 18, BaseColor.BLUE)));
+                        //                        EncabezadoProductos.Add(new Chunk(Logo, 0, 0));
+                        //                        documento.Add(EncabezadoProductos);
+                        //                        documento.Add(Chunk.NEWLINE);
+                        //                        Paragraph lineaSeparadoraProductos = new Paragraph(new Chunk(new iTextSharp.text.pdf.draw.LineSeparator(0.0F, 100.0F, BaseColor.BLACK, Element.ALIGN_LEFT, 1)));
+                        //                        documento.Add(lineaSeparadoraProductos);
 
-//                        //Contenido
+                        //                        //Contenido
 
-//                        documento.Add(Chunk.NEWLINE);
-//                        documento.Add(new Paragraph("Reporte de Productos"));
-//                        documento.Add(Chunk.NEWLINE);
-//                        var ListaProductos = Utilitarios.OpProducto.ListarProductos().Join(Utilitarios.OpCategorias.ListarCategorias(),
-//a => a.Categoria, b => b.IdTipo, (a, b) => new { a.Codigo, a.Nombre, a.Descripcion, b.DescripcionCategoria, a.Precio, a.Activo });
-//                        if (tbcReporteria.SelectedIndex == 1)
-//                        {
-//                            ListaProductos = ListaProductos.Where(x => x.Codigo == Utilitarios.OpProducto.BuscarProductoPorNombre(cmbItemsParametros.SelectedItem.ToString()).Codigo);
+                        //                        documento.Add(Chunk.NEWLINE);
+                        //                        documento.Add(new Paragraph("Reporte de Productos"));
+                        //                        documento.Add(Chunk.NEWLINE);
+                        //                        var ListaProductos = Utilitarios.OpProducto.ListarProductos().Join(Utilitarios.OpCategorias.ListarCategorias(),
+                        //a => a.Categoria, b => b.IdTipo, (a, b) => new { a.Codigo, a.Nombre, a.Descripcion, b.DescripcionCategoria, a.Precio, a.Activo });
+                        //                        if (tbcReporteria.SelectedIndex == 1)
+                        //                        {
+                        //                            ListaProductos = ListaProductos.Where(x => x.Codigo == Utilitarios.OpProducto.BuscarProductoPorNombre(cmbItemsParametros.SelectedItem.ToString()).Codigo);
 
-//                            documento.Add(new Paragraph("Reporte de Producto " + Utilitarios.OpProducto.BuscarProductoPorNombre(cmbItemsParametros.SelectedItem.ToString()).Nombre));
-//                            documento.Add(Chunk.NEWLINE);
-//                        }
-//                        else
-//                        {
+                        //                            documento.Add(new Paragraph("Reporte de Producto " + Utilitarios.OpProducto.BuscarProductoPorNombre(cmbItemsParametros.SelectedItem.ToString()).Nombre));
+                        //                            documento.Add(Chunk.NEWLINE);
+                        //                        }
+                        //                        else
+                        //                        {
 
-//                            documento.Add(new Paragraph("Reporte Total de Insomos por Producto"));
-//                            documento.Add(Chunk.NEWLINE);
-//                        }
-//                        var ListaResultado = Utilitarios.OpProductoInsumo.ListarProductoInsumo().Join(Utilitarios.OpInsumos.ListarInsumos(),
-//a => a.IdInsumo, b => b.IdInsumo, (a, b) => new { a.IdInsumo, b.Nombre, a.CantidadRequerida, b.IdMedida, });
+                        //                            documento.Add(new Paragraph("Reporte Total de Insomos por Producto"));
+                        //                            documento.Add(Chunk.NEWLINE);
+                        //                        }
+                        //                        var ListaResultado = Utilitarios.OpProductoInsumo.ListarProductoInsumo().Join(Utilitarios.OpInsumos.ListarInsumos(),
+                        //a => a.IdInsumo, b => b.IdInsumo, (a, b) => new { a.IdInsumo, b.Nombre, a.CantidadRequerida, b.IdMedida, });
 
-//                        PdfPTable TableProductos = new PdfPTable(6);
-//                        TableProductos.TotalWidth = 600f;
-//                        TableProductos.LockedWidth = true;
-//                        float[] widthsProductos = new float[] { 40f, 70f, 60f, 80f, 50f, 50f };
-//                        TableProductos.SetWidths(widthsProductos);
+                        //                        PdfPTable TableProductos = new PdfPTable(6);
+                        //                        TableProductos.TotalWidth = 600f;
+                        //                        TableProductos.LockedWidth = true;
+                        //                        float[] widthsProductos = new float[] { 40f, 70f, 60f, 80f, 50f, 50f };
+                        //                        TableProductos.SetWidths(widthsProductos);
 
-//                        PdfPCell NewCellProductos = new PdfPCell(new Phrase("N° de Factura"));
-//                        NewCellProductos.BackgroundColor = BaseColor.GRAY;
-//                        TableProductos.AddCell(NewCellProductos);
+                        //                        PdfPCell NewCellProductos = new PdfPCell(new Phrase("N° de Factura"));
+                        //                        NewCellProductos.BackgroundColor = BaseColor.GRAY;
+                        //                        TableProductos.AddCell(NewCellProductos);
 
-//                        NewCellProductos = new PdfPCell(new Phrase("Proveedor"));
-//                        NewCellProductos.BackgroundColor = BaseColor.GRAY;
-//                        TableProductos.AddCell(NewCellProductos);
-
-
-
-//                        foreach (var Compra in ListaCompras)
-//                        {
-//                            TableCompras.AddCell(Compra.IdFactura);
-//                            TableCompras.AddCell(Compra.NombreProveedor);
-//                            TableCompras.AddCell("¢ " + Compra.Monto.ToString("N"));
-//                            TableCompras.AddCell(Compra.Observaciones);
-//                            TableCompras.AddCell(Compra.Fecha.ToShortDateString());
-
-//                            var Operador = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(Compra.Operador);
-//                            TableCompras.AddCell(Operador.Nombre + " " + Operador.Apellido1);
-
-//                        }
-
-//                        documento.Add(TableCompras);
-//                        documento.Add(Chunk.NEWLINE);
+                        //                        NewCellProductos = new PdfPCell(new Phrase("Proveedor"));
+                        //                        NewCellProductos.BackgroundColor = BaseColor.GRAY;
+                        //                        TableProductos.AddCell(NewCellProductos);
 
 
-//                        documento.Add(lineaSeparadoraCompras);
-//                        Paragraph FinalCompras = new Paragraph("Fin del Reporte");
-//                        FinalCompras.Alignment = Element.ALIGN_CENTER;
-//                        FinalCompras.Add(FinalCompras);
 
-//                        //Cierre de  Documento
-//                        documento.Close();
-//                        MailWriter.Close();
-//                        FileWriter.Close();
-//                        pdfFile.Close();
+                        //                        foreach (var Compra in ListaCompras)
+                        //                        {
+                        //                            TableCompras.AddCell(Compra.IdFactura);
+                        //                            TableCompras.AddCell(Compra.NombreProveedor);
+                        //                            TableCompras.AddCell("¢ " + Compra.Monto.ToString("N"));
+                        //                            TableCompras.AddCell(Compra.Observaciones);
+                        //                            TableCompras.AddCell(Compra.Fecha.ToShortDateString());
 
-//                        if (chkMail.Checked)
-//                        {
-//                            List<string> EmailError = new List<string>();
-//                            EmailError.Add(FrmLogin.UsuarioGlobal.Correo);
-//                            Utilitarios.EnviarEmailAttachment(EmailError, "Reporte del Compras ", "Adjunto encotrará el reporte de Compras  " + " ejecutado el " + DateTime.Now.ToShortDateString(), memStream);
-//                        }
+                        //                            var Operador = Utilitarios.OpUsuarios.BuscarUsuarioXUsername(Compra.Operador);
+                        //                            TableCompras.AddCell(Operador.Nombre + " " + Operador.Apellido1);
 
-//                        Process.Start(@"c:\tempSoda\Reporte.pdf");
-//                        pdfFile.Dispose();
+                        //                        }
 
-//                        break;
+                        //                        documento.Add(TableCompras);
+                        //                        documento.Add(Chunk.NEWLINE);
+
+
+                        //                        documento.Add(lineaSeparadoraCompras);
+                        //                        Paragraph FinalCompras = new Paragraph("Fin del Reporte");
+                        //                        FinalCompras.Alignment = Element.ALIGN_CENTER;
+                        //                        FinalCompras.Add(FinalCompras);
+
+                        //                        //Cierre de  Documento
+                        //                        documento.Close();
+                        //                        MailWriter.Close();
+                        //                        FileWriter.Close();
+                        //                        pdfFile.Close();
+
+                        //                        if (chkMail.Checked)
+                        //                        {
+                        //                            List<string> EmailError = new List<string>();
+                        //                            EmailError.Add(FrmLogin.UsuarioGlobal.Correo);
+                        //                            Utilitarios.EnviarEmailAttachment(EmailError, "Reporte del Compras ", "Adjunto encotrará el reporte de Compras  " + " ejecutado el " + DateTime.Now.ToShortDateString(), memStream);
+                        //                        }
+
+                        //                        Process.Start(@"c:\tempSoda\Reporte.pdf");
+                        //                        pdfFile.Dispose();
+
+                        //                        break;
                 }
             }
             catch (Exception ex)

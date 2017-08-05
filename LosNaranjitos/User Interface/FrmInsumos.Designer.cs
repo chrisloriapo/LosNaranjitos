@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInsumos));
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tbcInsumos = new System.Windows.Forms.TabControl();
             this.tbListado = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -108,8 +108,6 @@
             this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tbcInsumos.SuspendLayout();
             this.tbListado.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -160,7 +158,7 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(688, 487);
@@ -168,26 +166,15 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Britannic Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(23, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(642, 74);
+            this.groupBox1.Size = new System.Drawing.Size(642, 39);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insumos";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::LosNaranjitos.Properties.Resources.hamburguesa;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(532, 9);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 65);
-            this.pictureBox2.TabIndex = 18;
-            this.pictureBox2.TabStop = false;
             // 
             // tbcInsumos
             // 
@@ -196,10 +183,10 @@
             this.tbcInsumos.Controls.Add(this.tbStock);
             this.tbcInsumos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbcInsumos.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbcInsumos.Location = new System.Drawing.Point(23, 83);
+            this.tbcInsumos.Location = new System.Drawing.Point(23, 48);
             this.tbcInsumos.Name = "tbcInsumos";
             this.tbcInsumos.SelectedIndex = 0;
-            this.tbcInsumos.Size = new System.Drawing.Size(642, 361);
+            this.tbcInsumos.Size = new System.Drawing.Size(642, 396);
             this.tbcInsumos.TabIndex = 17;
             // 
             // tbListado
@@ -208,7 +195,7 @@
             this.tbListado.Location = new System.Drawing.Point(4, 23);
             this.tbListado.Name = "tbListado";
             this.tbListado.Padding = new System.Windows.Forms.Padding(3);
-            this.tbListado.Size = new System.Drawing.Size(634, 334);
+            this.tbListado.Size = new System.Drawing.Size(634, 369);
             this.tbListado.TabIndex = 0;
             this.tbListado.Text = "Listado";
             this.tbListado.UseVisualStyleBackColor = true;
@@ -225,7 +212,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.66798F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.33202F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(628, 328);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(628, 363);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // dgvListado
@@ -233,16 +220,18 @@
             this.dgvListado.AllowUserToAddRows = false;
             this.dgvListado.AllowUserToDeleteRows = false;
             this.dgvListado.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListado.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListado.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvListado.Location = new System.Drawing.Point(3, 93);
+            this.dgvListado.Location = new System.Drawing.Point(3, 103);
             this.dgvListado.MultiSelect = false;
             this.dgvListado.Name = "dgvListado";
             this.dgvListado.ReadOnly = true;
             this.dgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListado.Size = new System.Drawing.Size(622, 232);
+            this.dgvListado.Size = new System.Drawing.Size(622, 257);
             this.dgvListado.TabIndex = 20;
             // 
             // groupBox2
@@ -257,7 +246,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(624, 86);
+            this.groupBox2.Size = new System.Drawing.Size(624, 96);
             this.groupBox2.TabIndex = 19;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta";
@@ -269,13 +258,13 @@
             this.cbBuscar.ForeColor = System.Drawing.Color.OrangeRed;
             this.cbBuscar.FormattingEnabled = true;
             this.cbBuscar.Items.AddRange(new object[] {
-            "Codigo",
             "Lista Completa",
+            "Codigo",
+            "Nombre Insumo",
             "Proveedor"});
             this.cbBuscar.Location = new System.Drawing.Point(11, 27);
             this.cbBuscar.Name = "cbBuscar";
             this.cbBuscar.Size = new System.Drawing.Size(141, 21);
-            this.cbBuscar.Sorted = true;
             this.cbBuscar.TabIndex = 10;
             this.cbBuscar.SelectedIndexChanged += new System.EventHandler(this.cbBuscar_SelectedIndexChanged);
             this.cbBuscar.Click += new System.EventHandler(this.cbBuscar_SelectedIndexChanged);
@@ -302,7 +291,7 @@
             this.txtBuscar.MaxLength = 70;
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(139, 20);
-            this.txtBuscar.TabIndex = 9;
+            this.txtBuscar.TabIndex = 99;
             // 
             // tbMantenimiento
             // 
@@ -310,7 +299,7 @@
             this.tbMantenimiento.Location = new System.Drawing.Point(4, 23);
             this.tbMantenimiento.Name = "tbMantenimiento";
             this.tbMantenimiento.Padding = new System.Windows.Forms.Padding(3);
-            this.tbMantenimiento.Size = new System.Drawing.Size(634, 334);
+            this.tbMantenimiento.Size = new System.Drawing.Size(634, 369);
             this.tbMantenimiento.TabIndex = 1;
             this.tbMantenimiento.Text = "Mantenimiento";
             this.tbMantenimiento.UseVisualStyleBackColor = true;
@@ -323,7 +312,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.OrangeRed;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(628, 328);
+            this.groupBox3.Size = new System.Drawing.Size(628, 363);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Mantenimiento de Insumos";
@@ -340,7 +329,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(622, 308);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(622, 343);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // groupBox4
@@ -349,7 +338,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(305, 302);
+            this.groupBox4.Size = new System.Drawing.Size(305, 337);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "General";
@@ -382,7 +371,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(299, 282);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(299, 317);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // label5
@@ -391,9 +380,9 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label5.Location = new System.Drawing.Point(3, 217);
+            this.label5.Location = new System.Drawing.Point(3, 245);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(293, 31);
+            this.label5.Size = new System.Drawing.Size(293, 35);
             this.label5.TabIndex = 25;
             this.label5.Text = "Precio Compra";
             // 
@@ -402,10 +391,10 @@
             this.cbProveedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProveedor.FormattingEnabled = true;
-            this.cbProveedor.Location = new System.Drawing.Point(3, 189);
+            this.cbProveedor.Location = new System.Drawing.Point(3, 213);
             this.cbProveedor.Name = "cbProveedor";
             this.cbProveedor.Size = new System.Drawing.Size(293, 22);
-            this.cbProveedor.TabIndex = 24;
+            this.cbProveedor.TabIndex = 3;
             // 
             // label6
             // 
@@ -413,20 +402,20 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label6.Location = new System.Drawing.Point(3, 155);
+            this.label6.Location = new System.Drawing.Point(3, 175);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(293, 31);
+            this.label6.Size = new System.Drawing.Size(293, 35);
             this.label6.TabIndex = 11;
             this.label6.Text = "Proveedor";
             // 
             // txtNombre
             // 
             this.txtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNombre.Location = new System.Drawing.Point(3, 127);
+            this.txtNombre.Location = new System.Drawing.Point(3, 143);
             this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(293, 21);
-            this.txtNombre.TabIndex = 7;
+            this.txtNombre.TabIndex = 2;
             // 
             // label4
             // 
@@ -434,20 +423,20 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label4.Location = new System.Drawing.Point(3, 93);
+            this.label4.Location = new System.Drawing.Point(3, 105);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(293, 31);
+            this.label4.Size = new System.Drawing.Size(293, 35);
             this.label4.TabIndex = 6;
             this.label4.Text = "Nombre";
             // 
             // txtIdInsumo
             // 
             this.txtIdInsumo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtIdInsumo.Location = new System.Drawing.Point(3, 65);
+            this.txtIdInsumo.Location = new System.Drawing.Point(3, 73);
             this.txtIdInsumo.MaxLength = 50;
             this.txtIdInsumo.Name = "txtIdInsumo";
             this.txtIdInsumo.Size = new System.Drawing.Size(293, 21);
-            this.txtIdInsumo.TabIndex = 5;
+            this.txtIdInsumo.TabIndex = 1;
             // 
             // label3
             // 
@@ -455,9 +444,9 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label3.Location = new System.Drawing.Point(3, 31);
+            this.label3.Location = new System.Drawing.Point(3, 35);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(293, 31);
+            this.label3.Size = new System.Drawing.Size(293, 35);
             this.label3.TabIndex = 4;
             this.label3.Text = "Código";
             // 
@@ -473,7 +462,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(293, 25);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(293, 29);
             this.tableLayoutPanel9.TabIndex = 27;
             // 
             // lblConsecutivo
@@ -484,7 +473,7 @@
             this.lblConsecutivo.ForeColor = System.Drawing.Color.Black;
             this.lblConsecutivo.Location = new System.Drawing.Point(149, 0);
             this.lblConsecutivo.Name = "lblConsecutivo";
-            this.lblConsecutivo.Size = new System.Drawing.Size(141, 25);
+            this.lblConsecutivo.Size = new System.Drawing.Size(141, 29);
             this.lblConsecutivo.TabIndex = 6;
             this.lblConsecutivo.Text = "#";
             // 
@@ -496,14 +485,14 @@
             this.label14.ForeColor = System.Drawing.Color.OrangeRed;
             this.label14.Location = new System.Drawing.Point(3, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(140, 25);
+            this.label14.Size = new System.Drawing.Size(140, 29);
             this.label14.TabIndex = 5;
             this.label14.Text = "Consecutivo:";
             // 
             // txtPrecioCompra
             // 
             this.txtPrecioCompra.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPrecioCompra.Location = new System.Drawing.Point(3, 251);
+            this.txtPrecioCompra.Location = new System.Drawing.Point(3, 283);
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(293, 21);
             this.txtPrecioCompra.TabIndex = 4;
@@ -516,7 +505,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(314, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(305, 302);
+            this.groupBox5.Size = new System.Drawing.Size(305, 337);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Porciones";
@@ -548,7 +537,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(299, 282);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(299, 317);
             this.tableLayoutPanel5.TabIndex = 2;
             // 
             // tableLayoutPanel12
@@ -559,11 +548,11 @@
             this.tableLayoutPanel12.Controls.Add(this.txtStock, 0, 0);
             this.tableLayoutPanel12.Controls.Add(this.label17, 0, 0);
             this.tableLayoutPanel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 189);
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(3, 213);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel12.Size = new System.Drawing.Size(293, 25);
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(293, 29);
             this.tableLayoutPanel12.TabIndex = 32;
             // 
             // txtStock
@@ -572,7 +561,7 @@
             this.txtStock.Location = new System.Drawing.Point(159, 3);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(131, 21);
-            this.txtStock.TabIndex = 30;
+            this.txtStock.TabIndex = 8;
             this.txtStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
@@ -584,7 +573,7 @@
             this.label17.ForeColor = System.Drawing.Color.OrangeRed;
             this.label17.Location = new System.Drawing.Point(3, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(150, 25);
+            this.label17.Size = new System.Drawing.Size(150, 29);
             this.label17.TabIndex = 29;
             this.label17.Text = "Stock por UM:";
             // 
@@ -596,11 +585,11 @@
             this.tableLayoutPanel11.Controls.Add(this.lblPrecioMermado, 0, 0);
             this.tableLayoutPanel11.Controls.Add(this.label16, 0, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 158);
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 178);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(293, 25);
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(293, 29);
             this.tableLayoutPanel11.TabIndex = 31;
             // 
             // lblPrecioMermado
@@ -611,7 +600,7 @@
             this.lblPrecioMermado.ForeColor = System.Drawing.Color.Black;
             this.lblPrecioMermado.Location = new System.Drawing.Point(159, 0);
             this.lblPrecioMermado.Name = "lblPrecioMermado";
-            this.lblPrecioMermado.Size = new System.Drawing.Size(131, 25);
+            this.lblPrecioMermado.Size = new System.Drawing.Size(131, 29);
             this.lblPrecioMermado.TabIndex = 30;
             this.lblPrecioMermado.Text = "Costo:";
             // 
@@ -623,7 +612,7 @@
             this.label16.ForeColor = System.Drawing.Color.OrangeRed;
             this.label16.Location = new System.Drawing.Point(3, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(150, 25);
+            this.label16.Size = new System.Drawing.Size(150, 29);
             this.label16.TabIndex = 29;
             this.label16.Text = "Costo:";
             // 
@@ -635,7 +624,7 @@
             this.label10.ForeColor = System.Drawing.Color.OrangeRed;
             this.label10.Location = new System.Drawing.Point(3, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(293, 31);
+            this.label10.Size = new System.Drawing.Size(293, 35);
             this.label10.TabIndex = 21;
             this.label10.Text = "Medida";
             // 
@@ -644,10 +633,10 @@
             this.cbMedida.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMedida.FormattingEnabled = true;
-            this.cbMedida.Location = new System.Drawing.Point(3, 34);
+            this.cbMedida.Location = new System.Drawing.Point(3, 38);
             this.cbMedida.Name = "cbMedida";
             this.cbMedida.Size = new System.Drawing.Size(293, 22);
-            this.cbMedida.TabIndex = 22;
+            this.cbMedida.TabIndex = 5;
             // 
             // label8
             // 
@@ -655,9 +644,9 @@
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label8.Location = new System.Drawing.Point(3, 62);
+            this.label8.Location = new System.Drawing.Point(3, 70);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(293, 31);
+            this.label8.Size = new System.Drawing.Size(293, 35);
             this.label8.TabIndex = 23;
             this.label8.Text = "Rendimiento Por Medida";
             // 
@@ -668,9 +657,9 @@
             this.flowLayoutPanel1.Controls.Add(this.btnNuevo);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 251);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 283);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(293, 28);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(293, 31);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
             // btnCancelar
@@ -718,10 +707,10 @@
             // txtRendimientoUM
             // 
             this.txtRendimientoUM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtRendimientoUM.Location = new System.Drawing.Point(3, 96);
+            this.txtRendimientoUM.Location = new System.Drawing.Point(3, 108);
             this.txtRendimientoUM.Name = "txtRendimientoUM";
             this.txtRendimientoUM.Size = new System.Drawing.Size(293, 21);
-            this.txtRendimientoUM.TabIndex = 28;
+            this.txtRendimientoUM.TabIndex = 6;
             this.txtRendimientoUM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtRendimientoUM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRendimientoUM_KeyPress);
             // 
@@ -731,10 +720,10 @@
             this.chkActivo.Checked = true;
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkActivo.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkActivo.Location = new System.Drawing.Point(3, 220);
+            this.chkActivo.Location = new System.Drawing.Point(3, 248);
             this.chkActivo.Name = "chkActivo";
             this.chkActivo.Size = new System.Drawing.Size(56, 18);
-            this.chkActivo.TabIndex = 27;
+            this.chkActivo.TabIndex = 9;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
             // 
@@ -746,11 +735,11 @@
             this.tableLayoutPanel10.Controls.Add(this.label15, 0, 0);
             this.tableLayoutPanel10.Controls.Add(this.cbbPorcentajeRendimiento, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 127);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 143);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(293, 25);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(293, 29);
             this.tableLayoutPanel10.TabIndex = 30;
             // 
             // label15
@@ -761,7 +750,7 @@
             this.label15.ForeColor = System.Drawing.Color.OrangeRed;
             this.label15.Location = new System.Drawing.Point(3, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(161, 25);
+            this.label15.Size = new System.Drawing.Size(161, 29);
             this.label15.TabIndex = 29;
             this.label15.Text = "% Rendimiento Porción";
             // 
@@ -773,7 +762,7 @@
             this.cbbPorcentajeRendimiento.Location = new System.Drawing.Point(170, 3);
             this.cbbPorcentajeRendimiento.Name = "cbbPorcentajeRendimiento";
             this.cbbPorcentajeRendimiento.Size = new System.Drawing.Size(120, 22);
-            this.cbbPorcentajeRendimiento.TabIndex = 30;
+            this.cbbPorcentajeRendimiento.TabIndex = 7;
             this.cbbPorcentajeRendimiento.SelectedIndexChanged += new System.EventHandler(this.cbbPorcentajeRendimiento_SelectedIndexChanged);
             // 
             // tbStock
@@ -783,7 +772,7 @@
             this.tbStock.Margin = new System.Windows.Forms.Padding(2);
             this.tbStock.Name = "tbStock";
             this.tbStock.Padding = new System.Windows.Forms.Padding(2);
-            this.tbStock.Size = new System.Drawing.Size(634, 334);
+            this.tbStock.Size = new System.Drawing.Size(634, 369);
             this.tbStock.TabIndex = 2;
             this.tbStock.Text = "Inventario";
             this.tbStock.UseVisualStyleBackColor = true;
@@ -796,7 +785,7 @@
             this.groupBox6.ForeColor = System.Drawing.Color.OrangeRed;
             this.groupBox6.Location = new System.Drawing.Point(2, 2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(630, 330);
+            this.groupBox6.Size = new System.Drawing.Size(630, 365);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Cambio de Inventario";
@@ -813,7 +802,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(624, 310);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(624, 345);
             this.tableLayoutPanel6.TabIndex = 0;
             // 
             // groupBox7
@@ -823,7 +812,7 @@
             this.groupBox7.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(3, 3);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(306, 304);
+            this.groupBox7.Size = new System.Drawing.Size(306, 339);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "General";
@@ -857,13 +846,13 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(300, 284);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(300, 319);
             this.tableLayoutPanel7.TabIndex = 2;
             // 
             // txtProveedorStock
             // 
             this.txtProveedorStock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtProveedorStock.Location = new System.Drawing.Point(3, 158);
+            this.txtProveedorStock.Location = new System.Drawing.Point(3, 178);
             this.txtProveedorStock.Name = "txtProveedorStock";
             this.txtProveedorStock.ReadOnly = true;
             this.txtProveedorStock.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -875,7 +864,7 @@
             this.cbbCodigoStock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbbCodigoStock.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbCodigoStock.FormattingEnabled = true;
-            this.cbbCodigoStock.Location = new System.Drawing.Point(3, 34);
+            this.cbbCodigoStock.Location = new System.Drawing.Point(3, 38);
             this.cbbCodigoStock.Name = "cbbCodigoStock";
             this.cbbCodigoStock.Size = new System.Drawing.Size(294, 22);
             this.cbbCodigoStock.TabIndex = 28;
@@ -889,7 +878,7 @@
             this.label1.ForeColor = System.Drawing.Color.OrangeRed;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 31);
+            this.label1.Size = new System.Drawing.Size(41, 35);
             this.label1.TabIndex = 4;
             this.label1.Text = "Código";
             // 
@@ -899,16 +888,16 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label2.Location = new System.Drawing.Point(3, 62);
+            this.label2.Location = new System.Drawing.Point(3, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 31);
+            this.label2.Size = new System.Drawing.Size(47, 35);
             this.label2.TabIndex = 6;
             this.label2.Text = "Nombre";
             // 
             // txtNombreStock
             // 
             this.txtNombreStock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNombreStock.Location = new System.Drawing.Point(3, 96);
+            this.txtNombreStock.Location = new System.Drawing.Point(3, 108);
             this.txtNombreStock.MaxLength = 50;
             this.txtNombreStock.Name = "txtNombreStock";
             this.txtNombreStock.ReadOnly = true;
@@ -921,9 +910,9 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Left;
             this.label7.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label7.Location = new System.Drawing.Point(3, 124);
+            this.label7.Location = new System.Drawing.Point(3, 140);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 31);
+            this.label7.Size = new System.Drawing.Size(59, 35);
             this.label7.TabIndex = 11;
             this.label7.Text = "Proveedor";
             // 
@@ -933,16 +922,16 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Left;
             this.label9.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label9.Location = new System.Drawing.Point(3, 186);
+            this.label9.Location = new System.Drawing.Point(3, 210);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(85, 31);
+            this.label9.Size = new System.Drawing.Size(85, 35);
             this.label9.TabIndex = 25;
             this.label9.Text = "Precio Compra";
             // 
             // txtPrecioCompraStock
             // 
             this.txtPrecioCompraStock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPrecioCompraStock.Location = new System.Drawing.Point(3, 220);
+            this.txtPrecioCompraStock.Location = new System.Drawing.Point(3, 248);
             this.txtPrecioCompraStock.Name = "txtPrecioCompraStock";
             this.txtPrecioCompraStock.ReadOnly = true;
             this.txtPrecioCompraStock.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -955,9 +944,9 @@
             this.chkActivoInventario.Dock = System.Windows.Forms.DockStyle.Left;
             this.chkActivoInventario.Enabled = false;
             this.chkActivoInventario.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkActivoInventario.Location = new System.Drawing.Point(3, 251);
+            this.chkActivoInventario.Location = new System.Drawing.Point(3, 283);
             this.chkActivoInventario.Name = "chkActivoInventario";
-            this.chkActivoInventario.Size = new System.Drawing.Size(56, 30);
+            this.chkActivoInventario.Size = new System.Drawing.Size(56, 33);
             this.chkActivoInventario.TabIndex = 27;
             this.chkActivoInventario.Text = "Activo";
             this.chkActivoInventario.UseVisualStyleBackColor = true;
@@ -969,7 +958,7 @@
             this.groupBox8.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(315, 3);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(306, 304);
+            this.groupBox8.Size = new System.Drawing.Size(306, 339);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Inventario";
@@ -1002,13 +991,13 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(300, 284);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(300, 319);
             this.tableLayoutPanel8.TabIndex = 3;
             // 
             // txtMedidaStock
             // 
             this.txtMedidaStock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMedidaStock.Location = new System.Drawing.Point(3, 34);
+            this.txtMedidaStock.Location = new System.Drawing.Point(3, 38);
             this.txtMedidaStock.Name = "txtMedidaStock";
             this.txtMedidaStock.ReadOnly = true;
             this.txtMedidaStock.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -1022,9 +1011,9 @@
             this.btnCancelarEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarEdit.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarEdit.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnCancelarEdit.Location = new System.Drawing.Point(3, 251);
+            this.btnCancelarEdit.Location = new System.Drawing.Point(3, 283);
             this.btnCancelarEdit.Name = "btnCancelarEdit";
-            this.btnCancelarEdit.Size = new System.Drawing.Size(294, 30);
+            this.btnCancelarEdit.Size = new System.Drawing.Size(294, 33);
             this.btnCancelarEdit.TabIndex = 29;
             this.btnCancelarEdit.Text = "&Cancelar";
             this.btnCancelarEdit.UseVisualStyleBackColor = false;
@@ -1037,9 +1026,9 @@
             this.btnAjustar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAjustar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjustar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAjustar.Location = new System.Drawing.Point(3, 220);
+            this.btnAjustar.Location = new System.Drawing.Point(3, 248);
             this.btnAjustar.Name = "btnAjustar";
-            this.btnAjustar.Size = new System.Drawing.Size(294, 25);
+            this.btnAjustar.Size = new System.Drawing.Size(294, 29);
             this.btnAjustar.TabIndex = 28;
             this.btnAjustar.Text = "Ajustar Inventario a Cantidad seleccionada";
             this.btnAjustar.UseVisualStyleBackColor = false;
@@ -1052,9 +1041,9 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnAgregar.Location = new System.Drawing.Point(3, 189);
+            this.btnAgregar.Location = new System.Drawing.Point(3, 213);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(294, 25);
+            this.btnAgregar.Size = new System.Drawing.Size(294, 29);
             this.btnAgregar.TabIndex = 27;
             this.btnAgregar.Text = "Agregar a Inventario";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -1068,14 +1057,14 @@
             this.label11.ForeColor = System.Drawing.Color.OrangeRed;
             this.label11.Location = new System.Drawing.Point(3, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(55, 31);
+            this.label11.Size = new System.Drawing.Size(55, 35);
             this.label11.TabIndex = 21;
             this.label11.Text = "Medida";
             // 
             // txtCantidadStock
             // 
             this.txtCantidadStock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCantidadStock.Location = new System.Drawing.Point(3, 96);
+            this.txtCantidadStock.Location = new System.Drawing.Point(3, 108);
             this.txtCantidadStock.Name = "txtCantidadStock";
             this.txtCantidadStock.ReadOnly = true;
             this.txtCantidadStock.Size = new System.Drawing.Size(294, 21);
@@ -1087,9 +1076,9 @@
             this.label12.Dock = System.Windows.Forms.DockStyle.Left;
             this.label12.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label12.Location = new System.Drawing.Point(3, 62);
+            this.label12.Location = new System.Drawing.Point(3, 70);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(102, 31);
+            this.label12.Size = new System.Drawing.Size(102, 35);
             this.label12.TabIndex = 23;
             this.label12.Text = "Cantidad en Stock";
             // 
@@ -1099,16 +1088,16 @@
             this.label13.Dock = System.Windows.Forms.DockStyle.Left;
             this.label13.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label13.Location = new System.Drawing.Point(3, 124);
+            this.label13.Location = new System.Drawing.Point(3, 140);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(89, 31);
+            this.label13.Size = new System.Drawing.Size(89, 35);
             this.label13.TabIndex = 25;
             this.label13.Text = "Agregar/Ajustar";
             // 
             // txtAjuste
             // 
             this.txtAjuste.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAjuste.Location = new System.Drawing.Point(3, 158);
+            this.txtAjuste.Location = new System.Drawing.Point(3, 178);
             this.txtAjuste.Mask = "999999";
             this.txtAjuste.Name = "txtAjuste";
             this.txtAjuste.Size = new System.Drawing.Size(294, 21);
@@ -1157,8 +1146,6 @@
             this.Load += new System.EventHandler(this.FrmInsumos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tbcInsumos.ResumeLayout(false);
             this.tbListado.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1260,7 +1247,6 @@
         private System.Windows.Forms.Button btnCancelarEdit;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.ComboBox cbbCodigoStock;
         private System.Windows.Forms.TextBox txtProveedorStock;
         private System.Windows.Forms.TextBox txtMedidaStock;

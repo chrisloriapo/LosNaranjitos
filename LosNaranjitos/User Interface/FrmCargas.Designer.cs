@@ -91,7 +91,7 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Location = new System.Drawing.Point(175, 3);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(166, 35);
+            this.btnAgregar.Size = new System.Drawing.Size(166, 40);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Nueva Carga";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -104,7 +104,7 @@
             this.Consecutivo.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Consecutivo.Location = new System.Drawing.Point(3, 0);
             this.Consecutivo.Name = "Consecutivo";
-            this.Consecutivo.Size = new System.Drawing.Size(139, 32);
+            this.Consecutivo.Size = new System.Drawing.Size(139, 36);
             this.Consecutivo.TabIndex = 21;
             this.Consecutivo.Text = "Consecutivo";
             // 
@@ -113,7 +113,7 @@
             this.cbbPorcentajeCarga.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbbPorcentajeCarga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbPorcentajeCarga.FormattingEnabled = true;
-            this.cbbPorcentajeCarga.Location = new System.Drawing.Point(23, 79);
+            this.cbbPorcentajeCarga.Location = new System.Drawing.Point(23, 87);
             this.cbbPorcentajeCarga.Name = "cbbPorcentajeCarga";
             this.cbbPorcentajeCarga.Size = new System.Drawing.Size(290, 22);
             this.cbbPorcentajeCarga.TabIndex = 20;
@@ -123,9 +123,9 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(23, 38);
+            this.label4.Location = new System.Drawing.Point(23, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(290, 38);
+            this.label4.Size = new System.Drawing.Size(290, 42);
             this.label4.TabIndex = 23;
             this.label4.Text = "Porcentaje Sobre Costo de Producto";
             // 
@@ -150,7 +150,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66889F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.32444F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(337, 231);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(337, 255);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // groupBox2
@@ -159,9 +159,9 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.OrangeRed;
-            this.groupBox2.Location = new System.Drawing.Point(23, 155);
+            this.groupBox2.Location = new System.Drawing.Point(23, 171);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(290, 73);
+            this.groupBox2.Size = new System.Drawing.Size(290, 81);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Descripción";
@@ -173,7 +173,7 @@
             this.txtDescripcion.MaxLength = 30;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(284, 53);
+            this.txtDescripcion.Size = new System.Drawing.Size(284, 61);
             this.txtDescripcion.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -188,7 +188,7 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(290, 32);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(290, 36);
             this.tableLayoutPanel7.TabIndex = 26;
             // 
             // lblConsecutivo
@@ -199,7 +199,7 @@
             this.lblConsecutivo.ForeColor = System.Drawing.Color.Black;
             this.lblConsecutivo.Location = new System.Drawing.Point(148, 0);
             this.lblConsecutivo.Name = "lblConsecutivo";
-            this.lblConsecutivo.Size = new System.Drawing.Size(139, 32);
+            this.lblConsecutivo.Size = new System.Drawing.Size(139, 36);
             this.lblConsecutivo.TabIndex = 24;
             this.lblConsecutivo.Text = "CHR-";
             // 
@@ -210,9 +210,9 @@
             this.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkActivo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkActivo.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkActivo.Location = new System.Drawing.Point(23, 117);
+            this.chkActivo.Location = new System.Drawing.Point(23, 129);
             this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(290, 32);
+            this.chkActivo.Size = new System.Drawing.Size(290, 36);
             this.chkActivo.TabIndex = 25;
             this.chkActivo.Text = "Activo";
             this.chkActivo.UseVisualStyleBackColor = true;
@@ -225,7 +225,7 @@
             this.grbBuscar.ForeColor = System.Drawing.Color.OrangeRed;
             this.grbBuscar.Location = new System.Drawing.Point(3, 3);
             this.grbBuscar.Name = "grbBuscar";
-            this.grbBuscar.Size = new System.Drawing.Size(343, 251);
+            this.grbBuscar.Size = new System.Drawing.Size(343, 275);
             this.grbBuscar.TabIndex = 0;
             this.grbBuscar.TabStop = false;
             this.grbBuscar.Text = "Cargas";
@@ -237,7 +237,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(23, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(713, 74);
+            this.groupBox1.Size = new System.Drawing.Size(713, 45);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cargas / Impuestos / Costos Adicionales";
@@ -257,7 +257,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.81035F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 77.15517F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.034483F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(344, 251);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(344, 275);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // dgvCargas
@@ -268,12 +268,12 @@
             this.dgvCargas.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvCargas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCargas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCargas.Location = new System.Drawing.Point(3, 45);
+            this.dgvCargas.Location = new System.Drawing.Point(3, 49);
             this.dgvCargas.MultiSelect = false;
             this.dgvCargas.Name = "dgvCargas";
             this.dgvCargas.ReadOnly = true;
             this.dgvCargas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCargas.Size = new System.Drawing.Size(338, 187);
+            this.dgvCargas.Size = new System.Drawing.Size(338, 206);
             this.dgvCargas.TabIndex = 18;
             // 
             // flowLayoutPanel1
@@ -325,7 +325,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 23);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(705, 310);
+            this.tabPage2.Size = new System.Drawing.Size(705, 339);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mantenimiento Cargas";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -344,7 +344,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.67742F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.32258F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(699, 304);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(699, 333);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -355,11 +355,11 @@
             this.tableLayoutPanel6.Controls.Add(this.btnActualizar, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.btnAgregar, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(352, 260);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(352, 284);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(344, 41);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(344, 46);
             this.tableLayoutPanel6.TabIndex = 3;
             // 
             // btnActualizar
@@ -371,7 +371,7 @@
             this.btnActualizar.ForeColor = System.Drawing.Color.White;
             this.btnActualizar.Location = new System.Drawing.Point(3, 3);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(166, 35);
+            this.btnActualizar.Size = new System.Drawing.Size(166, 40);
             this.btnActualizar.TabIndex = 3;
             this.btnActualizar.Text = "Actualizar Carga";
             this.btnActualizar.UseVisualStyleBackColor = false;
@@ -382,10 +382,10 @@
             this.tbC2.Controls.Add(this.tabPage2);
             this.tbC2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbC2.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbC2.Location = new System.Drawing.Point(23, 83);
+            this.tbC2.Location = new System.Drawing.Point(23, 54);
             this.tbC2.Name = "tbC2";
             this.tbC2.SelectedIndex = 0;
-            this.tbC2.Size = new System.Drawing.Size(713, 337);
+            this.tbC2.Size = new System.Drawing.Size(713, 366);
             this.tbC2.TabIndex = 19;
             // 
             // tableLayoutPanel1
@@ -402,7 +402,7 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 80F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(759, 463);

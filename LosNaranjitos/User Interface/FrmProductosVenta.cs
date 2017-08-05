@@ -49,8 +49,37 @@ namespace LosNaranjitos
                 {
                     btnEditarProducto.Enabled = false;
                 }
-                dgvListado.DataSource = Utilitarios.OpProducto.ListarProductos();
-                lstAllInsumos.DataSource = Utilitarios.OpInsumos.ListarInsumos().Select(x => x.Nombre).ToList();
+
+
+                var ListaProductos = Utilitarios.OpProducto.ListarProductos().Join(Utilitarios.OpCategorias.ListarCategorias(),
+                               a => a.Categoria,
+                               b => b.IdTipo,
+                               (a, b) => new
+                               {
+                                   a.Codigo,
+                                   a.Nombre,
+                                   a.Descripcion,
+                                   b.DescripcionCategoria,
+                                   a.Precio,
+                                   a.Activo,
+                               }).OrderBy(x => x.Nombre).ToList();
+
+                dgvListado.DataSource = ListaProductos;
+
+
+
+                dgvListado.Columns[0].HeaderText = "Código";
+
+                dgvListado.Columns[1].HeaderText = "Nombre";
+                dgvListado.Columns[2].HeaderText = "Descripción";
+                dgvListado.Columns[3].HeaderText = "Categoría";
+                dgvListado.Columns[4].HeaderText = "Precio Venta";
+                dgvListado.Columns[5].HeaderText = "Activo";
+
+                dgvListado.Columns[4].DefaultCellStyle.Format = "c";
+                
+
+                lstAllInsumos.DataSource = Utilitarios.OpInsumos.ListarInsumos().OrderBy(x=>x.Nombre).Select(x => x.Nombre).ToList();
                 tbOperacionesProductos.TabPages.Remove(tbReceta);
                 tbOperacionesProductos.TabPages.Remove(tbCostos);
                 tbOperacionesProductos.TabPages.Remove(tbResumen);
@@ -61,7 +90,7 @@ namespace LosNaranjitos
                 {
                     a.Descripcion,
                     a.Porcentaje,
-                    
+
                 }).ToList();
 
                 dgvCargas.DataSource = ListaLocal.ToList();
@@ -73,7 +102,7 @@ namespace LosNaranjitos
                     //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
                     txtIdProducto.ReadOnly = false;
 
-                    DATOS.Producto UltimoProducto = new Producto();
+                    Producto UltimoProducto = new Producto();
                     try
                     {
                         UltimoProducto = Utilitarios.OpProducto.ListarProductos().OrderByDescending(x => x.Consecutivo).First();
@@ -88,43 +117,12 @@ namespace LosNaranjitos
                         }
                     }
 
-                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Producto").Select(x => x.Prefijo).FirstOrDefault();
-                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    //int CSProdcuto = Consecutivo.ConsecutivoActual + 1;
-                    //UltimoProducto.Consecutivo = Prefijo + "-" + CSProdcuto;
-                    //if (Utilitarios.OpProducto.ExisteConsecutivo(UltimoProducto.Consecutivo))
-                    //{
-                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoProducto.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //    btnAgregar.Enabled = false;
-                    //}
 
-                    //Validacion Consecutivos Insumos
-
-                    //DATOS.ProductoInsumo UltimoProductoInsumo = new ProductoInsumo();
-                    //try
-                    //{
-                    //    UltimoProductoInsumo = Utilitarios.OpProductoInsumo.ListarProductoInsumo().OrderByDescending(x => x.Consecutivo).First();
-                    //}
-                    //catch (Exception x)
-                    //{
-                    //    if (x.Message == "La secuencia no contiene elementos")
-                    //    {
-                    //        UltimoProductoInsumo.Consecutivo = 1;
-                    //    }
-                    //}
-
-                    //Prefijo = Consecutivos.Where(x => x.Tipo == "Producto-Insumo").Select(x => x.Prefijo).FirstOrDefault();
-                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    //int CSProductoInsumo = Consecutivo.ConsecutivoActual + 1;
-                    //UltimoProductoInsumo.Consecutivo = Prefijo + "-" + CSProductoInsumo;
-                    //if (Utilitarios.OpProductoInsumo.ExisteConsecutivo(UltimoProductoInsumo.Consecutivo))
-                    //{
-                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoProductoInsumo.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //    btnAgregar.Enabled = false;
-                    //}
                 }
                 while (Utilitarios.Cambio)
                 {
+                    btnConfirmarIngreso.Text = "Aceptar y someter cambios";
+
                     btnEditarProducto.Visible = false;
                     tbcProductos.SelectedIndex = 1;
                     if (Utilitarios.Cambio)
@@ -210,6 +208,8 @@ namespace LosNaranjitos
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            Utilitarios.Cambio = false;
+            EditProducto = new Producto();
             Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Cierre de Modulo de Productos");
             ClearForm();
 
@@ -248,6 +248,7 @@ namespace LosNaranjitos
             try
             {
                 lstAllInsumos.Refresh();
+   
             }
             catch (Exception ex)
             {
@@ -298,6 +299,7 @@ namespace LosNaranjitos
                         lstInsumosSelected.Items.Remove(lstInsumosSelected.SelectedItems[i].ToString());
                         i--;
                     }
+       
                 }
                 else
                 {
@@ -323,6 +325,7 @@ namespace LosNaranjitos
 
                     }
                     lstAllInsumos.ClearSelected();
+
                 }
                 else
                 {
@@ -562,8 +565,7 @@ namespace LosNaranjitos
             {
                 if (btnConfirmarIngreso.Text == "Aceptar y someter cambios")
                 {
-                    var mensajex = MessageBox.Show("Esta a Punto de Modificar el producto " + EditProducto.Nombre + " ¿Desea continuar?", "Advertencia",
-                                                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    var mensajex = MessageBox.Show("Esta a Punto de Modificar el producto " + EditProducto.Nombre + " ¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                     if (mensajex == DialogResult.Yes)
                     {
@@ -588,7 +590,8 @@ namespace LosNaranjitos
                         }
                         Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Ingreso de Producto Nuevo " + NuevoProducto.Nombre);
                         ClearForm();
-
+                        Utilitarios.Cambio = false;
+                        EditProducto = new Producto();
                         MessageBox.Show("Los datos del Producto se Modificaron correctamente",
     "Modificacion de datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -596,6 +599,7 @@ namespace LosNaranjitos
                     {
                         return;
                     }
+                    ClearForm();
                     this.FrmProductosVenta_Load(sender, e);
                 }
                 else
@@ -672,6 +676,7 @@ namespace LosNaranjitos
 
         private void ClearForm()
         {
+            txtIdProducto.Enabled = true;
             lstInsumosSelected.Items.Clear();
             Receta.Clear();
             txtIdProducto.Clear();
@@ -684,5 +689,5 @@ namespace LosNaranjitos
             txtPrecioCargas.Clear();
 
         }
-}
+    }
 }

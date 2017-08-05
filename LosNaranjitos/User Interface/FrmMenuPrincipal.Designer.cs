@@ -46,6 +46,7 @@
             this.tsmSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiPasswordChange = new System.Windows.Forms.ToolStripMenuItem();
+            this.parametrosGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parametrosDeImpresiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tsiSalir = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +74,6 @@
             this.tsmAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tmerTiempo = new System.Windows.Forms.Timer(this.components);
-            this.parametrosGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.grbMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -194,6 +194,12 @@
             this.tsiPasswordChange.Name = "tsiPasswordChange";
             resources.ApplyResources(this.tsiPasswordChange, "tsiPasswordChange");
             this.tsiPasswordChange.Click += new System.EventHandler(this.tsiPasswordChange_Click);
+            // 
+            // parametrosGeneralesToolStripMenuItem
+            // 
+            this.parametrosGeneralesToolStripMenuItem.Name = "parametrosGeneralesToolStripMenuItem";
+            resources.ApplyResources(this.parametrosGeneralesToolStripMenuItem, "parametrosGeneralesToolStripMenuItem");
+            this.parametrosGeneralesToolStripMenuItem.Click += new System.EventHandler(this.parametrosGeneralesToolStripMenuItem_Click);
             // 
             // parametrosDeImpresiónToolStripMenuItem
             // 
@@ -374,12 +380,6 @@
             // tmerTiempo
             // 
             this.tmerTiempo.Tick += new System.EventHandler(this.tmerTiempo_Tick);
-            // 
-            // parametrosGeneralesToolStripMenuItem
-            // 
-            this.parametrosGeneralesToolStripMenuItem.Name = "parametrosGeneralesToolStripMenuItem";
-            resources.ApplyResources(this.parametrosGeneralesToolStripMenuItem, "parametrosGeneralesToolStripMenuItem");
-            this.parametrosGeneralesToolStripMenuItem.Click += new System.EventHandler(this.parametrosGeneralesToolStripMenuItem_Click);
             // 
             // FrmMenuPrincipal
             // 

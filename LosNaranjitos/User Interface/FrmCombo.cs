@@ -31,6 +31,7 @@ namespace LosNaranjitos
         {
             try
             {
+                NuevoCombo = new Combo();
                 if (Utilitarios.OpProducto.ListarProductos().Count == 0)
                 {
                     MessageBox.Show("No existe ningun Producto Registrado, debes registrar Productos para ingresar Combos o promociones nuevos, pureba Ingresando un nuevo registro en el modulo de Productos", "No hay datos a Utilizar", MessageBoxButtons.OK, MessageBoxIcon.Error);

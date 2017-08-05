@@ -736,7 +736,7 @@
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>51</value>
+    <value>57</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>9, 17</value>
@@ -3520,6 +3520,12 @@
   <data name="&gt;&gt;tsiPasswordChange.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;parametrosGeneralesToolStripMenuItem.Name" xml:space="preserve">
+    <value>parametrosGeneralesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;parametrosGeneralesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;parametrosDeImpresiónToolStripMenuItem.Name" xml:space="preserve">
     <value>parametrosDeImpresiónToolStripMenuItem</value>
   </data>
@@ -3681,12 +3687,6 @@
   </data>
   <data name="&gt;&gt;tmerTiempo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;parametrosGeneralesToolStripMenuItem.Name" xml:space="preserve">
-    <value>parametrosGeneralesToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;parametrosGeneralesToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FrmMenuPrincipal</value>

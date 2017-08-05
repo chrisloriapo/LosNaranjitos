@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -717,8 +718,17 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]";
                 ComandDatabase.ExecuteNonQuery();
                 ComandTables.ExecuteNonQuery();
 
-                Utilitarios.OpCargas.AgregarCargas(new Cargas { Activo = true, Descripcion = "Impuesto de Venta", Porcentaje = 13 });
-                Utilitarios.OpCargas.AgregarCargas(new Cargas { Activo = true, Descripcion = "Recurso Humano", Porcentaje = 50 });
+                Thread.Sleep(1500);
+                Cargas CargX = new Cargas();
+                CargX.Activo = true;
+                CargX.Descripcion = "Impuesto de Venta";
+                CargX.Porcentaje = 13;
+                Utilitarios.OpCargas.AgregarCargas(CargX);
+
+                CargX.Activo = true;
+                CargX.Descripcion = "Recurso Humano";
+                CargX.Porcentaje = 50;
+                Utilitarios.OpCargas.AgregarCargas(CargX);
 
                 Utilitarios.OpMedidas.AgregarMedida(new Medida { Descripcion = "Unidad", IdMedida = "u" });
 
@@ -867,7 +877,7 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]";
             Properties.Settings.Default["conexion"] = myConn;
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Reload();
-            //Application.Restart();
+          //  Application.Restart();
             //try
             //{
             //    DS._Conexion.CrearConexion().OpenDbConnection();
@@ -1164,5 +1174,7 @@ ALTER TABLE [dbo].[Usuario] CHECK CONSTRAINT [FK_Usuario_RolUsuario]";
         {
             this.Dispose();
         }
+
+ 
     }
 }

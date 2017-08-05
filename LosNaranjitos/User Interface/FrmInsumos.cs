@@ -26,7 +26,6 @@ namespace LosNaranjitos
 
             try
             {
-
                 if (Utilitarios.OpProveedor.ListarProveedores().Count() == 0)
                 {
                     MessageBox.Show("No existe ningun Proveedor Registrado, debes registrar proveedores para ingresar Insumos nuevos, pureba Ingresando un nuevo registro en el modulo de Proveedores", "No hay datos a modificar", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -44,19 +43,21 @@ namespace LosNaranjitos
                     cbbCodigoStock.DataSource = Utilitarios.OpInsumos.ListarInsumos().Select(x => x.IdInsumo).ToList();
                     cbbCodigoStock.SelectedIndex = 0;
                 }
+                cbbPorcentajeRendimiento.Items.Clear();
 
                 for (int i = 0; i < 101; i++)
                 {
                     cbbPorcentajeRendimiento.Items.Add(i);
                 }
-                cbbPorcentajeRendimiento.SelectedIndex = 0;
+                //   cbbPorcentajeRendimiento.SelectedIndex = 0;
                 CBBool = true;
                 //Verificacion de Consecutivo
                 if (!Utilitarios.Cambio)
                 {
                     //DATOS.Consecutivo Consecutivo = new DATOS.Consecutivo();
                     //List<Consecutivo> Consecutivos = Utilitarios.OpConsecutivo.ListarConsecutivos();
-                    DATOS.Insumos UltimoInsumo = new Insumos();
+                    txtIdInsumo.ReadOnly = false;
+                    Insumos UltimoInsumo = new Insumos();
                     try
                     {
                         UltimoInsumo = Utilitarios.OpInsumos.ListarInsumos().OrderByDescending(x => x.Consecutivo).FirstOrDefault();
@@ -82,22 +83,53 @@ namespace LosNaranjitos
 
                         }
                     }
-                    //string Prefijo = Consecutivos.Where(x => x.Tipo == "Insumo").Select(x => x.Prefijo).FirstOrDefault();
-                    //Consecutivo = Utilitarios.OpConsecutivo.BuscarConsecutivo(Prefijo);
-                    //int CSInsumo = Consecutivo.ConsecutivoActual + 1;
-                    //UltimoInsumo.Consecutivo = Prefijo + "-" + CSInsumo;
-                    //if (Utilitarios.OpUsuarios.ExisteConsecutivo(UltimoInsumo.Consecutivo))
-                    //{
-                    //    MessageBox.Show("Existe otro Consecutivo " + UltimoInsumo.Consecutivo + "/n Debes configurar Nuevamente los Consecutivos antes de continuar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //    btnNuevo.Enabled = false;
-                    //}
+
+                }
+                else
+                {
+                    lblConsecutivo.Text = EditInsumo.Consecutivo.ToString();
                 }
                 //Carga de Formulario Usual
 
                 txtIdInsumo.ReadOnly = false;
                 cbBuscar.SelectedIndex = 0;
-                var ListaLocal = Utilitarios.OpInsumos.ListarInsumos();
+                var ListaLocal = Utilitarios.OpInsumos.ListarInsumos().Join(Utilitarios.OpProveedor.ListarProveedores(),
+                a => a.Proveedor,
+                b => b.IdProveedor,
+                (a, b) => new
+                {
+                    a.IdInsumo,
+                    a.Nombre,
+                    a.PrecioCompra,
+                    a.RendimientoUM,
+                    a.IdMedida,
+                    a.RendimientoPorcion,
+                    a.PrecioMermado,
+                    a.CantInventario,
+                    b.NombreProveedor,
+                    //a.Activo
+                }).OrderBy(x => x.NombreProveedor).ToList();
+
                 dgvListado.DataSource = ListaLocal;
+
+                dgvListado.Columns[0].HeaderText = "Código";
+                dgvListado.Columns[1].HeaderText = "Descripción";
+                dgvListado.Columns[1].Width = 350;
+
+                dgvListado.Columns[2].HeaderText = "P. Compra";
+                dgvListado.Columns[3].HeaderText = "Ren. Compra";
+                dgvListado.Columns[4].HeaderText = "Medida";
+                dgvListado.Columns[5].HeaderText = "% Rend.";
+                dgvListado.Columns[6].HeaderText = "P. Mermado";
+                dgvListado.Columns[7].HeaderText = "Cant.";
+                dgvListado.Columns[8].HeaderText = "Proveedor";
+                dgvListado.Columns[8].Width = 350;
+
+                dgvListado.Columns[2].DefaultCellStyle.Format = "c";
+                dgvListado.Columns[6].DefaultCellStyle.Format = "c";
+              //  dgvListado.Columns[5].DefaultCellStyle.Format = "#00\\%";
+
+
                 cbMedida.DataSource = Utilitarios.OpMedidas.ListarMedidas().Select(x => x.IdMedida).ToList();
                 cbProveedor.DataSource = Utilitarios.OpProveedor.ListarProveedores().Select(x => x.NombreProveedor).ToList();
 
@@ -179,7 +211,7 @@ namespace LosNaranjitos
                         Prov = Utilitarios.OpProveedor.BuscarProveedorPorNombre(cbProveedor.SelectedValue.ToString());
                         DATOS.Insumos InsumoPrivate = new DATOS.Insumos
                         {
-                          //  Consecutivo = lblConsecutivo.Text,
+                            //  Consecutivo = lblConsecutivo.Text,
                             IdInsumo = txtIdInsumo.Text,
                             Nombre = txtNombre.Text,
                             Activo = chkActivo.Checked,
@@ -222,7 +254,7 @@ namespace LosNaranjitos
             if (string.IsNullOrEmpty(txtIdInsumo.Text))
             {
                 FrmEdicionInsumos a = new FrmEdicionInsumos();
-                                a.Show();
+                a.Show();
                 this.Dispose();
             }
             else
@@ -252,7 +284,22 @@ namespace LosNaranjitos
         {
             try
             {
-                var ListaLocal = Utilitarios.OpInsumos.ListarInsumos();
+                var ListaLocal = Utilitarios.OpInsumos.ListarInsumos().Join(Utilitarios.OpProveedor.ListarProveedores(),
+                    a => a.Proveedor,
+                    b => b.IdProveedor,
+                    (a, b) => new
+                    {
+                        a.IdInsumo,
+                        a.Nombre,
+                        a.PrecioCompra,
+                        a.RendimientoUM,
+                        a.IdMedida,
+                        a.RendimientoPorcion,
+                        a.PrecioMermado,
+                        a.CantInventario,
+                        b.NombreProveedor,
+                        //a.Activo
+                    }).OrderBy(x => x.NombreProveedor).ToList();
 
 
                 switch (cbBuscar.SelectedItem.ToString())
@@ -261,10 +308,18 @@ namespace LosNaranjitos
                         ListaLocal = ListaLocal.Where(x => x.IdInsumo == txtBuscar.Text).ToList();
                         break;
                     case "Proveedor":
-                        ListaLocal = ListaLocal.Where(x => x.Proveedor == txtBuscar.Text).ToList();
+                        ListaLocal = ListaLocal.Where(x => x.NombreProveedor == txtBuscar.Text).ToList();
+                        break;
+                    case "Lista Completa":
+
+                        ListaLocal = ListaLocal.ToList();
+                        break;
+                    case "Nombre Insumo":
+                        ListaLocal = ListaLocal.Where(x => x.Nombre == txtBuscar.Text).ToList();
                         break;
                 }
                 dgvListado.DataSource = ListaLocal;
+
             }
             catch (Exception ex)
             {
@@ -277,7 +332,22 @@ namespace LosNaranjitos
         {
             try
             {
-                var ListaLocal = Utilitarios.OpInsumos.ListarInsumos();
+                var ListaLocal = Utilitarios.OpInsumos.ListarInsumos().Join(Utilitarios.OpProveedor.ListarProveedores(),
+                       a => a.Proveedor,
+                       b => b.IdProveedor,
+                       (a, b) => new
+                       {
+                           a.IdInsumo,
+                           a.Nombre,
+                           a.PrecioCompra,
+                           a.RendimientoUM,
+                           a.IdMedida,
+                           a.RendimientoPorcion,
+                           a.PrecioMermado,
+                           a.CantInventario,
+                           b.NombreProveedor,
+                        //a.Activo
+                    }).OrderBy(x => x.NombreProveedor).ToList();
 
 
                 var autosearch = new AutoCompleteStringCollection();
@@ -290,7 +360,7 @@ namespace LosNaranjitos
                     case "Codigo":
                         txtBuscar.Visible = true;
                         btnBuscar.Visible = true;
-                        var  ListaLocalx = ListaLocal.Select(x => x.IdInsumo).ToList();
+                        var ListaLocalx = ListaLocal.Select(x => x.IdInsumo).ToList();
                         foreach (var pos in ListaLocalx)
                         {
                             autosearch.Add(pos);
@@ -299,7 +369,7 @@ namespace LosNaranjitos
                     case "Proveedor":
                         txtBuscar.Visible = true;
                         btnBuscar.Visible = true;
-                        ListaLocalx = ListaLocal.Select(x => x.Proveedor).ToList();
+                        ListaLocalx = ListaLocal.Select(x => x.NombreProveedor).ToList();
                         foreach (var pos in ListaLocalx)
                         {
                             autosearch.Add(pos);
@@ -310,6 +380,15 @@ namespace LosNaranjitos
                         dgvListado.DataSource = ListaLocal.ToList();
                         txtBuscar.Visible = false;
                         btnBuscar.Visible = false;
+                        break;
+                    case "Nombre Insumo":
+                        txtBuscar.Visible = true;
+                        btnBuscar.Visible = true;
+                        ListaLocalx = ListaLocal.Select(x => x.Nombre).ToList();
+                        foreach (var pos in ListaLocalx)
+                        {
+                            autosearch.Add(pos);
+                        }
                         break;
                 }
                 txtBuscar.AutoCompleteCustomSource = autosearch;
@@ -336,9 +415,9 @@ namespace LosNaranjitos
                 try
                 {
                     var ProveedorId = Utilitarios.OpProveedor.BuscarProveedorPorNombre(cbProveedor.SelectedValue.ToString());
-                    DATOS.Insumos InsumoPrivate = new DATOS.Insumos
+                    Insumos InsumoPrivate = new Insumos
                     {
-                        //Consecutivo = lblConsecutivo.Text,
+                        Consecutivo = Convert.ToInt32(lblConsecutivo.Text),
                         IdInsumo = txtIdInsumo.Text,
                         Nombre = txtNombre.Text,
                         Activo = chkActivo.Checked,
@@ -443,6 +522,7 @@ namespace LosNaranjitos
 
         public void clearall()
         {
+            txtIdInsumo.Enabled = true;
             txtIdInsumo.Clear();
             txtNombre.Clear();
             txtStock.Clear();
@@ -461,14 +541,14 @@ namespace LosNaranjitos
 
                 if (CBBool)
                 {
-                    if ((string.IsNullOrEmpty(txtPrecioCompra.Text) || string.IsNullOrWhiteSpace(txtPrecioCompra.Text))&&EditInsumo==null)
+                    if ((string.IsNullOrEmpty(txtPrecioCompra.Text) || string.IsNullOrWhiteSpace(txtPrecioCompra.Text)) && EditInsumo == null)
                     {
                         MessageBox.Show("Debes digitar el Precio del producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtPrecioCompra.Focus();
                         //cbbPorcentajeRendimiento.Text = "";
                         return;
                     }
-                    if ((string.IsNullOrEmpty(txtRendimientoUM.Text) || string.IsNullOrWhiteSpace(txtRendimientoUM.Text))&& EditInsumo == null)
+                    if ((string.IsNullOrEmpty(txtRendimientoUM.Text) || string.IsNullOrWhiteSpace(txtRendimientoUM.Text)) && EditInsumo == null)
                     {
                         MessageBox.Show("Debes digitar el Rendimiento del producto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtRendimientoUM.Focus();
