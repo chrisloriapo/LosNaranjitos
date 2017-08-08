@@ -259,7 +259,9 @@ namespace LosNaranjitos
                 else if (PRODUCTO.Producto == "Servicio Express")
                 {
                     ticket.AgregaArticulo(PRODUCTO.Producto, PRODUCTO.Cantidad, PRODUCTO.SubTotal, "");
-
+                    ticket.TextoIzquierda("");
+                    ticket.TextoIzquierda(PRODUCTO.ObservacionesDT);
+                    ticket.TextoIzquierda("");
                 }
 
                 else

@@ -570,6 +570,9 @@ namespace LosNaranjitos
                     if (mensajex == DialogResult.Yes)
                     {
                         EditProducto.Activo = chkActivo.Checked;
+                        EditProducto.Nombre = txtNombre.Text;
+                        EditProducto.Precio =Convert.ToInt32( txtPrecioTotal.Text);
+                        EditProducto.Descripcion = txtDescricpion.Text;
                         Utilitarios.OpProducto.ActualizarProductO(EditProducto);
 
                         foreach (var item in Utilitarios.OpProductoInsumo.ListarProductoInsumo().Where(x => x.CodigoProducto == EditProducto.Codigo))

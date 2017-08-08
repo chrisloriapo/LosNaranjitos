@@ -195,6 +195,11 @@ namespace LosNaranjitos
                     Utilitarios.OpPedidos.ActualizarPedido(OrdenLocal);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblOrden.Text + " modificada correctamente.");
                     MessageBox.Show("Orden Modificada Correctamente", "Operacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DATOS.Parametros Flag = new Parametros();
+                    Flag = Utilitarios.OpParametros.BuscarParametrosPorNombre("BanderaMonitor");
+                    Flag.Valor = "1";
+                    Utilitarios.OpParametros.ActualizarParametro(Flag);
+
                     this.Dispose();
                 }
 

@@ -45,6 +45,8 @@ namespace LosNaranjitos
             column.Width = 20;
             DataGridViewColumn column2 = dgvOrden.Columns[2];
             column2.Width = 70;
+            dgvOrden.Columns[2].DefaultCellStyle.Format = "c";
+
         }
 
         private void FrmPedido_Load(object sender, EventArgs e)
@@ -61,15 +63,15 @@ namespace LosNaranjitos
             {
                 //Carga de datos  ListBoxes y datagrids
 
-                lstProductosPrincipales.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == 1 && x.Activo).Select(x => x.Nombre).ToList();
-                lstAdicionales.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == 2 || x.Categoria == 4 && x.Activo).Select(x => x.Nombre).ToList();
-                lstBebidas.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == 3 && x.Activo).Select(x => x.Nombre).ToList();
-                lstCombos.DataSource = Utilitarios.OpCombo.ListarCombo().Where(x => x.Activo).Select(x => x.Nombre).ToList();
+                lstProductosPrincipales.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == 1 && x.Activo).OrderBy(x=>x.Nombre).Select(x => x.Nombre).ToList();
+                lstAdicionales.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == 2 || x.Categoria == 4 && x.Activo).OrderBy(x => x.Nombre).Select(x => x.Nombre).ToList();
+                lstBebidas.DataSource = Utilitarios.OpProducto.ListarProductos().Where(x => x.Categoria == 3 && x.Activo).OrderBy(x => x.Nombre).Select(x => x.Nombre).ToList();
+                lstCombos.DataSource = Utilitarios.OpCombo.ListarCombo().Where(x => x.Activo).OrderBy(x => x.Nombre).Select(x => x.Nombre).ToList();
 
                 lblOperador.Text = FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1 + " " + FrmLogin.UsuarioGlobal.Apellido2;
                 dgvOrden.DataSource = OrdenDetalle.ToList();
 
-                DATOS.Pedido UltimoPedido = new Pedido();
+                Pedido UltimoPedido = new Pedido();
 
                 if (!Utilitarios.CambioEnCajas)
                 {
@@ -136,6 +138,7 @@ namespace LosNaranjitos
                 if (!Utilitarios.OpClientes.ExisteCLIENTE(cbbCliente.SelectedItem.ToString()))
                 {
                     MessageBox.Show("Seleccione un cliente de la lista o digite un cliente existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cbbCliente.Text = "0";
                 }
                 else
                 {
@@ -389,9 +392,7 @@ namespace LosNaranjitos
                         lblImpuesto.Text = impuesto.ToString("N");
                         lblSubtotal.Text = (NuevaOrden.Subtotal - impuesto).ToString("N");
                         lblTotal.Text = NuevaOrden.Subtotal.ToString("N");
-                        txtCantidadPPrincipales.Clear();
-                        txtObservacionesPP.Clear();
-
+ 
                     }
                 }
                 else
@@ -401,7 +402,17 @@ namespace LosNaranjitos
                     lstProductosPrincipales.Focus();
                     return;
                 }
-
+                txtCantidadPPrincipales.Clear();
+                txtObservacionesPP.Clear();
+                chkCebolla.Checked = true;
+                chkTomate.Checked = true;
+                chkLechuga.Checked = true;
+                chkPepinillo.Checked = true;
+                chkPepino.Checked = true;
+                chkSalsaTomate.Checked = true;
+                chkMayonesa.Checked = true;
+                chkRepollo.Checked = false;
+                chkCebollaFrita.Checked = false;
             }
             catch (Exception ex)
             {
@@ -726,6 +737,10 @@ namespace LosNaranjitos
                     Utilitarios.OpPedidos.AgregarPedido(NuevaOrden);
 
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblConsecutivo.Text + " Agregada a pendientes, Orden Aun NO cancelada");
+
+
+                    //Utilitarios.TicketeGeneral(Utilitarios.OpCaja.ListarCajas().Where(X => X.OperadorActual == FrmLogin.UsuarioGlobal.Username).Select(x => x.Consecutivo).FirstOrDefault().ToString(), FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1, lblCliente.Text, OrdenDetalle, Utilitarios.OpPedidos.ListarPedido().LastOrDefault());
+
                     List<DetallePedido> ListaSoporte = new List<DetallePedido>();
                     foreach (var item in OrdenDetalle)
                     {
@@ -748,6 +763,8 @@ namespace LosNaranjitos
                             ListaSoporte.Add(DetalleSoporte);
                         }
                     }
+
+
                     for (int i = 0; i < ListaSoporte.Count; i++)
                     {
                         Utilitarios.OpDetallePedido.AgregarDetalle(ListaSoporte[i]);
@@ -756,6 +773,13 @@ namespace LosNaranjitos
                     Cliente CLIENTE = Utilitarios.OpClientes.BuscarCliente(cbbCliente.Text);
                     CLIENTE.UltimaVisita = DateTime.Now;
                     Utilitarios.OpClientes.ActualizarCLIENTE(CLIENTE);
+
+
+                    Parametros Flag = new Parametros();
+                    Flag = Utilitarios.OpParametros.BuscarParametrosPorNombre("BanderaMonitor");
+                    Flag.Valor = "1";
+                    Utilitarios.OpParametros.ActualizarParametro(Flag);
+
 
                     NuevaOrden = new Pedido();
                     chkLechuga.Checked = true;
@@ -1036,8 +1060,9 @@ namespace LosNaranjitos
                     Utilitarios.OpPedidos.AgregarPedido(NuevaOrden);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + lblConsecutivo.Text + " Agregada a pendientes, Orden cancelada");
 
-                    Utilitarios.TicketeGeneral(Utilitarios.OpCaja.ListarCajas().Where(X => X.OperadorActual == FrmLogin.UsuarioGlobal.Username).Select(x => x.Consecutivo).FirstOrDefault().ToString(), FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1, lblCliente.Text, OrdenDetalle, NuevaOrden);
-                  
+                    Utilitarios.TicketeGeneral(Utilitarios.OpCaja.ListarCajas().Where(X => X.OperadorActual == FrmLogin.UsuarioGlobal.Username).Select(x => x.Consecutivo).FirstOrDefault().ToString(), FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1, lblCliente.Text, OrdenDetalle, Utilitarios.OpPedidos.ListarPedido().LastOrDefault());
+
+                    //Utilitarios.TicketeGeneral(Utilitarios.OpCaja.ListarCajas().Where(X => X.OperadorActual == FrmLogin.UsuarioGlobal.Username).Select(x => x.Consecutivo).FirstOrDefault().ToString(), FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1, lblCliente.Text, OrdenDetalle, Utilitarios.OpPedidos.ListarPedido().LastOrDefault());
 
 
                     List<DetallePedido> ListaSoporte = new List<DetallePedido>();
@@ -1078,6 +1103,11 @@ namespace LosNaranjitos
                     FrmCambioCaja a = new FrmCambioCaja();
                     FrmCambioCaja.CambioShow = NuevaOrden.MontoCambio.ToString();
                     a.Show();
+
+                    Parametros Flag = new Parametros();
+                    Flag = Utilitarios.OpParametros.BuscarParametrosPorNombre("BanderaMonitor");
+                    Flag.Valor = "1";
+                    Utilitarios.OpParametros.ActualizarParametro(Flag);
 
                     NuevaOrden = new Pedido();
                     chkLechuga.Checked = true;

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -120,10 +122,11 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.BackColor = System.Drawing.Color.White;
             this.groupBox6.Controls.Add(this.tableLayoutPanel8);
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.ForeColor = System.Drawing.Color.White;
+            this.groupBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.groupBox6.Location = new System.Drawing.Point(583, 3);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(389, 203);
@@ -157,6 +160,7 @@
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(3, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(139, 53);
@@ -168,6 +172,7 @@
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(3, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(139, 70);
@@ -179,6 +184,7 @@
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(3, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 52);
@@ -188,6 +194,7 @@
             // txtComentario
             // 
             this.txtComentario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtComentario.ForeColor = System.Drawing.Color.Black;
             this.txtComentario.Location = new System.Drawing.Point(148, 3);
             this.txtComentario.MaxLength = 250;
             this.txtComentario.Multiline = true;
@@ -198,6 +205,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUsuario.ForeColor = System.Drawing.Color.Black;
             this.txtUsuario.Location = new System.Drawing.Point(148, 73);
             this.txtUsuario.MaxLength = 32;
             this.txtUsuario.Name = "txtUsuario";
@@ -207,6 +215,7 @@
             // txtPassword
             // 
             this.txtPassword.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtPassword.ForeColor = System.Drawing.Color.Black;
             this.txtPassword.Location = new System.Drawing.Point(148, 125);
             this.txtPassword.MaxLength = 32;
             this.txtPassword.Name = "txtPassword";
@@ -216,10 +225,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.tableLayoutPanel3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(318, 203);
@@ -260,6 +270,7 @@
             // cbbOrden
             // 
             this.cbbOrden.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbbOrden.ForeColor = System.Drawing.Color.Black;
             this.cbbOrden.FormattingEnabled = true;
             this.cbbOrden.Location = new System.Drawing.Point(93, 3);
             this.cbbOrden.Name = "cbbOrden";
@@ -272,6 +283,7 @@
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(3, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 46);
@@ -284,7 +296,7 @@
             this.groupBox4.Controls.Add(this.tableLayoutPanel6);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.Color.White;
+            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.groupBox4.Location = new System.Drawing.Point(3, 55);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(306, 121);
@@ -315,6 +327,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTotal.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.Black;
             this.lblTotal.Location = new System.Drawing.Point(153, 0);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(144, 46);
@@ -327,6 +340,7 @@
             this.lblOrden.AutoSize = true;
             this.lblOrden.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblOrden.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrden.ForeColor = System.Drawing.Color.Black;
             this.lblOrden.Location = new System.Drawing.Point(3, 0);
             this.lblOrden.Name = "lblOrden";
             this.lblOrden.Size = new System.Drawing.Size(144, 46);
@@ -341,6 +355,7 @@
             this.chkEntregado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkEntregado.Enabled = false;
             this.chkEntregado.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkEntregado.ForeColor = System.Drawing.Color.Black;
             this.chkEntregado.Location = new System.Drawing.Point(3, 49);
             this.chkEntregado.Name = "chkEntregado";
             this.chkEntregado.Size = new System.Drawing.Size(144, 41);
@@ -356,6 +371,7 @@
             this.chkCancelado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkCancelado.Enabled = false;
             this.chkCancelado.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCancelado.ForeColor = System.Drawing.Color.Black;
             this.chkCancelado.Location = new System.Drawing.Point(153, 49);
             this.chkCancelado.Name = "chkCancelado";
             this.chkCancelado.Size = new System.Drawing.Size(144, 41);
@@ -366,10 +382,11 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.White;
             this.groupBox3.Controls.Add(this.tableLayoutPanel5);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.groupBox3.Location = new System.Drawing.Point(327, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(250, 203);
@@ -400,6 +417,7 @@
             this.lblApellidos.AutoSize = true;
             this.lblApellidos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblApellidos.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellidos.ForeColor = System.Drawing.Color.Black;
             this.lblApellidos.Location = new System.Drawing.Point(3, 116);
             this.lblApellidos.Name = "lblApellidos";
             this.lblApellidos.Size = new System.Drawing.Size(238, 59);
@@ -412,6 +430,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblNombre.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.Black;
             this.lblNombre.Location = new System.Drawing.Point(3, 58);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(238, 58);
@@ -424,6 +443,7 @@
             this.lbIdcliente.AutoSize = true;
             this.lbIdcliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbIdcliente.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIdcliente.ForeColor = System.Drawing.Color.Black;
             this.lbIdcliente.Location = new System.Drawing.Point(3, 0);
             this.lbIdcliente.Name = "lbIdcliente";
             this.lbIdcliente.Size = new System.Drawing.Size(238, 58);
@@ -495,10 +515,20 @@
             // 
             this.dgvOrdenesVista.AllowUserToAddRows = false;
             this.dgvOrdenesVista.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvOrdenesVista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrdenesVista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvOrdenesVista.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.dgvOrdenesVista.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvOrdenesVista.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dgvOrdenesVista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrdenesVista.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrdenesVista.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvOrdenesVista.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvOrdenesVista.Location = new System.Drawing.Point(3, 212);
@@ -509,10 +539,11 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.BackColor = System.Drawing.Color.White;
             this.groupBox5.Controls.Add(this.tableLayoutPanel1);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.ForeColor = System.Drawing.Color.White;
+            this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.groupBox5.Location = new System.Drawing.Point(327, 212);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(250, 204);
@@ -567,6 +598,7 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Britannic Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(238, 35);
@@ -578,6 +610,7 @@
             // 
             this.cmbProducto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmbProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProducto.ForeColor = System.Drawing.Color.Black;
             this.cmbProducto.FormattingEnabled = true;
             this.cmbProducto.Location = new System.Drawing.Point(3, 38);
             this.cmbProducto.Name = "cmbProducto";

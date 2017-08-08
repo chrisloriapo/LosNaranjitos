@@ -212,6 +212,11 @@ namespace LosNaranjitos
                     Utilitarios.OpPedidos.ActualizarPedido(OrdenLocal);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + OrdenLocal.Consecutivo + " Entregada");
 
+                    DATOS.Parametros Flag = new Parametros();
+                    Flag = Utilitarios.OpParametros.BuscarParametrosPorNombre("BanderaMonitor");
+                    Flag.Valor = "1";
+                    Utilitarios.OpParametros.ActualizarParametro(Flag);
+
                     lblOrden.Text = "";
                     lblTotal.Text = "";
                     lblNombre.Text = "";
@@ -365,6 +370,13 @@ namespace LosNaranjitos
 
                     }
 
+
+                    DATOS.Parametros Flag = new Parametros();
+                    Flag = Utilitarios.OpParametros.BuscarParametrosPorNombre("BanderaMonitor");
+                    Flag.Valor = "1";
+                    Utilitarios.OpParametros.ActualizarParametro(Flag);
+
+
                     lblOrden.Text = "";
                     lblTotal.Text = "";
                     lblNombre.Text = "";
@@ -474,6 +486,7 @@ namespace LosNaranjitos
                     OrdenLocal.Observaciones = OrdenLocal.Observaciones + " Orden Cancelada a las " + DateTime.Now + ";";
                     Utilitarios.OpPedidos.ActualizarPedido(OrdenLocal);
                     Utilitarios.GeneralBitacora(FrmLogin.UsuarioGlobal.Username, "Orden " + OrdenLocal.Consecutivo.ToString() + " Cancelada");
+
                     FrmCambioCaja a = new FrmCambioCaja();
                     FrmCambioCaja.CambioShow = (MontoDigitado - OrdenLocal.Subtotal).ToString();
                     a.Show();
@@ -485,7 +498,6 @@ namespace LosNaranjitos
 
                         if (Utilitarios.OpProducto.ExisteProducto(item.Producto))
                         {
-
                             var newitem = Utilitarios.OpProducto.BuscarProducto(item.Producto);
                             DetallePedido DetalleSoporte = item;
                             DetalleSoporte.Producto = newitem.Nombre;
@@ -510,11 +522,20 @@ namespace LosNaranjitos
 
 
                     Utilitarios.TicketeGeneral(Utilitarios.OpCaja.ListarCajas().Where(X => X.OperadorActual == FrmLogin.UsuarioGlobal.Username).Select(x => x.Consecutivo).FirstOrDefault().ToString(), FrmLogin.UsuarioGlobal.Nombre + " " + FrmLogin.UsuarioGlobal.Apellido1, Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente).Nombre + " " + Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente).Apellido1, ListaSoporte, OrdenLocal);
+
+
                     if (OrdenLocal.IdCliente != "0")
                     {
                         FrmPedido.EjecutarReporte(Utilitarios.OpClientes.BuscarCliente(OrdenLocal.IdCliente), OrdenLocal, ListaSoporte);
 
                     }
+
+                    DATOS.Parametros Flag = new Parametros();
+                    Flag = Utilitarios.OpParametros.BuscarParametrosPorNombre("BanderaMonitor");
+                    Flag.Valor = "1";
+                    Utilitarios.OpParametros.ActualizarParametro(Flag);
+
+
                     lblOrden.Text = "";
                     lblTotal.Text = "";
                     lblNombre.Text = "";
@@ -648,7 +669,7 @@ namespace LosNaranjitos
 
                 if (mensaje == DialogResult.Yes)
                 {
-                    OrdenLocal.Activo = false;
+                    //OrdenLocal.Activo = false;
                     OrdenLocal.CompletoCocina = true;
                     OrdenLocal.Observaciones = OrdenLocal.Observaciones + " Orden Entregada a las " + DateTime.Now + ";";
                     Utilitarios.OpPedidos.ActualizarPedido(OrdenLocal);

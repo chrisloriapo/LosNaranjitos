@@ -1251,7 +1251,7 @@
             this.tableLayoutPanel23.ColumnCount = 3;
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.454545F));
             this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 94.54546F));
-            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tableLayoutPanel23.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel23.Controls.Add(this.tableLayoutPanel24, 1, 0);
             this.tableLayoutPanel23.Controls.Add(this.tableLayoutPanel25, 1, 1);
             this.tableLayoutPanel23.Controls.Add(this.label16, 1, 2);
@@ -1276,7 +1276,7 @@
             this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.53968F));
             this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.46032F));
             this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
-            this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 191F));
+            this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
             this.tableLayoutPanel24.Controls.Add(this.lblCodigo, 0, 0);
             this.tableLayoutPanel24.Controls.Add(this.lblblblbl, 0, 0);
             this.tableLayoutPanel24.Controls.Add(this.label14, 2, 0);
@@ -1286,7 +1286,7 @@
             this.tableLayoutPanel24.Name = "tableLayoutPanel24";
             this.tableLayoutPanel24.RowCount = 1;
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel24.Size = new System.Drawing.Size(574, 21);
+            this.tableLayoutPanel24.Size = new System.Drawing.Size(573, 21);
             this.tableLayoutPanel24.TabIndex = 3;
             // 
             // lblCodigo
@@ -1298,7 +1298,7 @@
             this.lblCodigo.ForeColor = System.Drawing.Color.Black;
             this.lblCodigo.Location = new System.Drawing.Point(85, 0);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(166, 21);
+            this.lblCodigo.Size = new System.Drawing.Size(164, 21);
             this.lblCodigo.TabIndex = 5;
             this.lblCodigo.Text = "IDcODIGO";
             this.lblCodigo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1322,7 +1322,7 @@
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(257, 0);
+            this.label14.Location = new System.Drawing.Point(255, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(122, 21);
             this.label14.TabIndex = 4;
@@ -1336,9 +1336,9 @@
             this.lblConsecutivoResumen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblConsecutivoResumen.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConsecutivoResumen.ForeColor = System.Drawing.Color.Black;
-            this.lblConsecutivoResumen.Location = new System.Drawing.Point(385, 0);
+            this.lblConsecutivoResumen.Location = new System.Drawing.Point(383, 0);
             this.lblConsecutivoResumen.Name = "lblConsecutivoResumen";
-            this.lblConsecutivoResumen.Size = new System.Drawing.Size(186, 21);
+            this.lblConsecutivoResumen.Size = new System.Drawing.Size(187, 21);
             this.lblConsecutivoResumen.TabIndex = 3;
             this.lblConsecutivoResumen.Text = "Cons";
             this.lblConsecutivoResumen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1355,7 +1355,7 @@
             this.tableLayoutPanel25.Name = "tableLayoutPanel25";
             this.tableLayoutPanel25.RowCount = 1;
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(574, 21);
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(573, 21);
             this.tableLayoutPanel25.TabIndex = 4;
             // 
             // lblDescripcionResumen
@@ -1367,7 +1367,7 @@
             this.lblDescripcionResumen.ForeColor = System.Drawing.Color.Black;
             this.lblDescripcionResumen.Location = new System.Drawing.Point(106, 0);
             this.lblDescripcionResumen.Name = "lblDescripcionResumen";
-            this.lblDescripcionResumen.Size = new System.Drawing.Size(465, 21);
+            this.lblDescripcionResumen.Size = new System.Drawing.Size(464, 21);
             this.lblDescripcionResumen.TabIndex = 6;
             this.lblDescripcionResumen.Text = "Desc";
             this.lblDescripcionResumen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1393,7 +1393,7 @@
             this.label16.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(36, 54);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(574, 27);
+            this.label16.Size = new System.Drawing.Size(573, 27);
             this.label16.TabIndex = 5;
             this.label16.Text = "Ingredientes: ";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1404,7 +1404,7 @@
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.53968F));
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.46032F));
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 191F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 192F));
             this.tableLayoutPanel26.Controls.Add(this.label18, 0, 0);
             this.tableLayoutPanel26.Controls.Add(this.btnConfirmarIngreso, 3, 0);
             this.tableLayoutPanel26.Controls.Add(this.btnDescartarProducto, 2, 0);
@@ -1414,7 +1414,7 @@
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
             this.tableLayoutPanel26.RowCount = 1;
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(574, 50);
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(573, 50);
             this.tableLayoutPanel26.TabIndex = 6;
             // 
             // label18
@@ -1437,9 +1437,9 @@
             this.btnConfirmarIngreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmarIngreso.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmarIngreso.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnConfirmarIngreso.Location = new System.Drawing.Point(385, 3);
+            this.btnConfirmarIngreso.Location = new System.Drawing.Point(383, 3);
             this.btnConfirmarIngreso.Name = "btnConfirmarIngreso";
-            this.btnConfirmarIngreso.Size = new System.Drawing.Size(186, 44);
+            this.btnConfirmarIngreso.Size = new System.Drawing.Size(187, 44);
             this.btnConfirmarIngreso.TabIndex = 91;
             this.btnConfirmarIngreso.Text = "Aceptar e Ingresar Producto";
             this.btnConfirmarIngreso.UseVisualStyleBackColor = false;
@@ -1452,7 +1452,7 @@
             this.btnDescartarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDescartarProducto.Font = new System.Drawing.Font("Britannic Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDescartarProducto.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnDescartarProducto.Location = new System.Drawing.Point(257, 3);
+            this.btnDescartarProducto.Location = new System.Drawing.Point(255, 3);
             this.btnDescartarProducto.Name = "btnDescartarProducto";
             this.btnDescartarProducto.Size = new System.Drawing.Size(122, 44);
             this.btnDescartarProducto.TabIndex = 92;
@@ -1469,7 +1469,7 @@
             this.lblPrecioVenta.ForeColor = System.Drawing.Color.Black;
             this.lblPrecioVenta.Location = new System.Drawing.Point(85, 0);
             this.lblPrecioVenta.Name = "lblPrecioVenta";
-            this.lblPrecioVenta.Size = new System.Drawing.Size(166, 50);
+            this.lblPrecioVenta.Size = new System.Drawing.Size(164, 50);
             this.lblPrecioVenta.TabIndex = 5;
             this.lblPrecioVenta.Text = "$$$";
             this.lblPrecioVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1488,7 +1488,7 @@
             this.dgvResumen.Name = "dgvResumen";
             this.dgvResumen.ReadOnly = true;
             this.dgvResumen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvResumen.Size = new System.Drawing.Size(574, 131);
+            this.dgvResumen.Size = new System.Drawing.Size(573, 131);
             this.dgvResumen.TabIndex = 8;
             // 
             // FrmProductosVenta

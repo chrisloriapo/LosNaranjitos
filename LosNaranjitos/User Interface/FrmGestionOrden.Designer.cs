@@ -144,10 +144,11 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.White;
             this.groupBox4.Controls.Add(this.tableLayoutPanel6);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.Color.White;
+            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.groupBox4.Location = new System.Drawing.Point(351, 132);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(342, 124);
@@ -183,6 +184,7 @@
             this.chkCancelado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkCancelado.Enabled = false;
             this.chkCancelado.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCancelado.ForeColor = System.Drawing.Color.Black;
             this.chkCancelado.Location = new System.Drawing.Point(3, 53);
             this.chkCancelado.Name = "chkCancelado";
             this.chkCancelado.Size = new System.Drawing.Size(106, 44);
@@ -196,6 +198,7 @@
             this.lblTotal.AutoSize = true;
             this.lblTotal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTotal.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.Black;
             this.lblTotal.Location = new System.Drawing.Point(115, 0);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(106, 50);
@@ -208,6 +211,7 @@
             this.lblOrden.AutoSize = true;
             this.lblOrden.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblOrden.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrden.ForeColor = System.Drawing.Color.Black;
             this.lblOrden.Location = new System.Drawing.Point(3, 0);
             this.lblOrden.Name = "lblOrden";
             this.lblOrden.Size = new System.Drawing.Size(106, 50);
@@ -222,6 +226,7 @@
             this.chkEntregado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkEntregado.Enabled = false;
             this.chkEntregado.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkEntregado.ForeColor = System.Drawing.Color.Black;
             this.chkEntregado.Location = new System.Drawing.Point(115, 53);
             this.chkEntregado.Name = "chkEntregado";
             this.chkEntregado.Size = new System.Drawing.Size(106, 44);
@@ -237,6 +242,7 @@
             this.chkCocinado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkCocinado.Enabled = false;
             this.chkCocinado.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCocinado.ForeColor = System.Drawing.Color.Black;
             this.chkCocinado.Location = new System.Drawing.Point(227, 53);
             this.chkCocinado.Name = "chkCocinado";
             this.chkCocinado.Size = new System.Drawing.Size(106, 44);
@@ -250,6 +256,7 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(227, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 50);
@@ -259,10 +266,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.tableLayoutPanel3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(342, 123);
@@ -304,7 +312,7 @@
             this.chkOrden.AutoSize = true;
             this.chkOrden.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkOrden.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkOrden.ForeColor = System.Drawing.Color.White;
+            this.chkOrden.ForeColor = System.Drawing.Color.Black;
             this.chkOrden.Location = new System.Drawing.Point(3, 3);
             this.chkOrden.Name = "chkOrden";
             this.chkOrden.Size = new System.Drawing.Size(93, 43);
@@ -318,7 +326,7 @@
             this.chkCliente.AutoSize = true;
             this.chkCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkCliente.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkCliente.ForeColor = System.Drawing.Color.White;
+            this.chkCliente.ForeColor = System.Drawing.Color.Black;
             this.chkCliente.Location = new System.Drawing.Point(3, 52);
             this.chkCliente.Name = "chkCliente";
             this.chkCliente.Size = new System.Drawing.Size(93, 44);
@@ -340,10 +348,11 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.White;
             this.groupBox3.Controls.Add(this.tableLayoutPanel5);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.groupBox3.Location = new System.Drawing.Point(351, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(342, 123);
@@ -374,6 +383,7 @@
             this.lblApellidos.AutoSize = true;
             this.lblApellidos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblApellidos.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellidos.ForeColor = System.Drawing.Color.Black;
             this.lblApellidos.Location = new System.Drawing.Point(3, 66);
             this.lblApellidos.Name = "lblApellidos";
             this.lblApellidos.Size = new System.Drawing.Size(330, 33);
@@ -386,6 +396,7 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblNombre.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.ForeColor = System.Drawing.Color.Black;
             this.lblNombre.Location = new System.Drawing.Point(3, 33);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(330, 33);
@@ -398,6 +409,7 @@
             this.lbIdcliente.AutoSize = true;
             this.lbIdcliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbIdcliente.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIdcliente.ForeColor = System.Drawing.Color.Black;
             this.lbIdcliente.Location = new System.Drawing.Point(3, 0);
             this.lbIdcliente.Name = "lbIdcliente";
             this.lbIdcliente.Size = new System.Drawing.Size(330, 33);
@@ -407,10 +419,11 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.BackColor = System.Drawing.Color.White;
             this.groupBox5.Controls.Add(this.tableLayoutPanel29);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.ForeColor = System.Drawing.Color.White;
+            this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.groupBox5.Location = new System.Drawing.Point(699, 132);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(344, 124);
@@ -460,6 +473,7 @@
             // txtOtro
             // 
             this.txtOtro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtOtro.ForeColor = System.Drawing.Color.Black;
             this.txtOtro.Location = new System.Drawing.Point(119, 65);
             this.txtOtro.MaxLength = 15;
             this.txtOtro.Name = "txtOtro";
@@ -472,6 +486,7 @@
             // txtEfectivo
             // 
             this.txtEfectivo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtEfectivo.ForeColor = System.Drawing.Color.Black;
             this.txtEfectivo.Location = new System.Drawing.Point(119, 34);
             this.txtEfectivo.MaxLength = 15;
             this.txtEfectivo.Name = "txtEfectivo";
@@ -485,7 +500,7 @@
             this.label22.AutoSize = true;
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.White;
+            this.label22.ForeColor = System.Drawing.Color.Black;
             this.label22.Location = new System.Drawing.Point(3, 62);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(110, 32);
@@ -498,7 +513,7 @@
             this.label23.AutoSize = true;
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label23.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.ForeColor = System.Drawing.Color.Black;
             this.label23.Location = new System.Drawing.Point(3, 31);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(110, 31);
@@ -511,7 +526,7 @@
             this.label24.AutoSize = true;
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label24.Font = new System.Drawing.Font("Britannic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.ForeColor = System.Drawing.Color.Black;
             this.label24.Location = new System.Drawing.Point(3, 0);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(110, 31);
@@ -522,6 +537,7 @@
             // txtTarjeta
             // 
             this.txtTarjeta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtTarjeta.ForeColor = System.Drawing.Color.Black;
             this.txtTarjeta.Location = new System.Drawing.Point(119, 3);
             this.txtTarjeta.MaxLength = 15;
             this.txtTarjeta.Name = "txtTarjeta";
